@@ -1,3 +1,8 @@
+:root {    
+    --header-background: #417a99db;  
+    --footer-background: #417a99db;  
+}
+
 
 /* These styles cover the projects and career detail pages */
 main {
@@ -210,6 +215,88 @@ div.image img { height: 100%; width: 100%; display: block;}
     left: calc(50% - 200px/2);
     opacity: 0;
 }
+
+
+
+/* FOOTER */
+.footer-nav {
+    border-top: 20px solid white;
+}
+.dynamic-footer {
+    width: 100%;  
+    height:100%;
+    background-color: var(--footer-background);   
+    background: linear-gradient(var(--footer-background), 
+                    var(--footer-background)), 
+                    url(../../../img/projects/topo-map1.jpg);      
+    padding: 0 40px;
+    min-height: 240px;
+}
+.dynamic-footer .footer-nav-item { 
+    position: relative;
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0);    
+}
+
+/* FOOTER - HOVER STATE */
+.dynamic-footer .footer-nav-item:hover {     
+    cursor: pointer;        
+}
+.dynamic-footer .footer-nav-item:hover .label {     
+    opacity: 0;    
+}
+.dynamic-footer .footer-nav-item:hover .text {     
+    transform: scale(1.1) translateY(-10px);          
+}
+.dynamic-footer .footer-nav-item.right:hover .icon { 
+    transition: transform 0.3s;
+    transform: scale(1.1) translateX(5px);
+}
+.dynamic-footer .footer-nav-item.left:hover .icon { 
+    transition: transform 0.3s;
+    transform: scale(1.1) translateX(-5px) rotate(180deg);
+}
+
+/* FOOTER - Default States */
+.dynamic-footer .footer-nav-item .icon {
+    transition: transform 0.3s, opacity 0.3s;
+}
+.dynamic-footer .footer-nav-item .label {
+    transition: opacity 0.3s;
+    font-size: 0.8em;
+    color: #C8C8C8;
+}
+.dynamic-footer .footer-nav-item .text {
+    transition: transform 0.3s, opacity 0.3s, font-size 0.3s;
+}
+.footer-nav-item.right {
+    padding-right: 60px;
+}
+.footer-nav-item.right .icon {
+    position: absolute;
+    top: 0%;
+    right: -10px;
+    height: 100%;
+}
+.footer-nav-item.left {
+    padding-left: 60px;
+}
+.footer-nav-item.left .icon {
+    position: absolute;
+    top: 0%;
+    left: -10px;
+    height: 100%;
+    transform: rotate(180deg);    
+}
+.footer-nav-item .icon img {
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+
+/* END FOOTER */
+
 
 
 /* GLOBALS */

@@ -76,14 +76,19 @@
         transition-delay: 0.5s; 
     }
 
+    /* HACK - Find a better way to do this */
+    :root{
+        --footer-background: #c50000db;
+    }
+
   </style>
 </head>
 
 <body>
 <main>
 
-<section class='detail-page'>
-
+<section class='projects-page'>
+    
     <!-- Link to Home -->    
     <div class='header'>
         <div class='home-link' title='home' onclick='handleHomeClick()'></div>
@@ -91,6 +96,8 @@
             <div class='stats slide-left'>           
         </div>
     </div> 
+    <div class='detail-page'></div>
+    <div class='footer-nav'></div>
    
 </section>
 
@@ -272,6 +279,31 @@
         navigateToPage('nightlight', 'hero.html#projects');       
     }
 
+    const footerData = {
+        classes: '',
+        links: [
+            {
+                classes: 'left',
+                label: 'Career History',
+                text: 'Self Employed',
+                url: '../../career/self',
+                icon : {
+                    name: 'chevron-right.svg',
+                }
+            },
+            {
+                classes: 'right',
+                label: 'Career History',
+                text: 'Senior Web Developer',
+                url: '../../career/mje',
+                icon : {                    
+                    name: 'chevron-right.svg',
+                }
+            }
+        ]           
+    };
+    const footer = document.querySelector('.projects-page .footer-nav');
+    footer.innerHTML = renderDynamicFooter(footerData);
 
     setTimeout(() => {
         startObservers();        

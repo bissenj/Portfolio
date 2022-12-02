@@ -15,10 +15,13 @@
 <body>
 <main>
 
-<section class='detail-page'>
+<section class='projects-page'>    
     <!-- Link to Home -->
-    <div class='home-link' title='home' onclick='handleHomeClick()'></div>    
+    <div class='home-link' title='home' onclick='handleHomeClick()'></div>        
+    <div class='detail-page'></div>
+    <div class='footer-nav'></div>
 </section>
+
 
 </main>
 </body>
@@ -35,7 +38,6 @@
 <script>
     console.log("fire up the javascript");
     resetBody();
-    
 
     const data = [
         {
@@ -186,18 +188,41 @@
         // }, 
     ];
 
-
     const page = document.querySelector('.detail-page');
     
-
     data.map((item) => {
         page.append(renderFactory(item));
     });
 
-
     function handleHomeClick() { 
         navigateToPage('nightlight', 'hero.html#projects');        
     }
+
+    const footerData = {
+        classes: '',
+        links: [
+            {
+                classes: 'left',
+                label: 'Career History',
+                text: 'Self Employed',
+                url: '../../career/self',
+                icon : {
+                    name: 'chevron-right.svg',
+                }
+            },
+            {
+                classes: 'right',
+                label: 'Career History',
+                text: 'Senior Web Developer',
+                url: '../../career/mje',
+                icon : {                    
+                    name: 'chevron-right.svg',
+                }
+            }
+        ]           
+    };
+    const footer = document.querySelector('.projects-page .footer-nav');
+    footer.innerHTML = renderDynamicFooter(footerData);
 
 
     // Slight delay on starting observers
