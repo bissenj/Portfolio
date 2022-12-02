@@ -9,7 +9,17 @@
   <link rel='stylesheet' href='css/portfolio-main.css' />  
   <link rel='stylesheet' href='css/media-queries.css' />
   <style>
+
+    .nav-modal {
+      width: 100%;
+      height: 100%;
+    }
+
     section.menu {
+      position: fixed;
+      top: 0px;
+      left: 0px;
+
       width: 100%;
       height: 100vh;
 
@@ -17,6 +27,15 @@
       background-color: rgba(0,0,0,0.5);
 
       font-size: 14px;
+    }
+
+    section.menu .close-button {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 200;
+      cursor: pointer;
+      transform: scale(2);
     }
 
     section.menu .menu-container {
@@ -108,18 +127,47 @@
     .menu-items-column .row > div.line:last-of-type {
       display: none;
     }
+
+
+  /* ----------------- SMALL SCREENS ---------------- */
+
+  @media only screen and (max-width: 1000px)  {
+    section.menu .menu-container .menu-items-column { padding-top: 60px;}
+    section.menu .menu-container  { display: block;}
+    section.menu .menu-container .side-bar { display: none; }
+    .menu-items-column .row { 
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+
+      border-left: none;
+
+      height: 50%;
+    }
+    .menu-items-column .row > a {
+      /* padding: 0; */
+      /* border: none; */
+    }
+    .menu-items-column .row > div.line { display: none; }
+  }
+
   </style>
 </head>
 
 <body>
 <main>
-  <section class='menu'>
+
+  <button onclick=showMenu()>Show Menu</button>
+
+  <div class='nav-modal'></div>
+
+  <!-- <section class='menu'>
     <div class='menu-container'>
       <div class='side-bar'></div>
       <div class='menu-items-column'></div>
     </div>
+  </section> -->
 
-  </section>
 </main>
 </body>
 
@@ -213,9 +261,11 @@
   function renderMenuPage(data) {
     console.log('renderMenuPage: ', data);
 
+    
+
     // dom elements
-    const sideBar = document.querySelector('.side-bar');
-    const itemColumn = document.querySelector('.menu-items-column');
+    let sideBarHtml = `<div class='side-bar'>`; //document.querySelector('.side-bar');
+    let itemColumnHtml = `<div class='menu-items-column'>`; //document.querySelector('.menu-items-column');
 
     iconsHtml = '';
     data.map((item) => {
@@ -242,13 +292,34 @@
         
       });
       itemsHtml += '</div>';
-      itemColumn.innerHTML += itemsHtml;      
+      itemColumnHtml += itemsHtml;      
     });
 
-    sideBar.innerHTML = iconsHtml;    
+    itemColumnHtml += `</div>`;
+    sideBarHtml += iconsHtml + `</div>`;  
+    
+    
+    let html = `<section class='menu'>
+                  <div class='close-button'>X</div>
+                  <div class='menu-container'>
+                    ${sideBarHtml}
+                    ${itemColumnHtml}
+                  </div>
+                </section>`;
+
+    document.querySelector('.nav-modal').innerHTML = html;
+
+    document.querySelector('.close-button').addEventListener('click', showMenu);
   }
 
-  renderMenuPage(data);
+  function showMenu() {
+    if (document.querySelector('.menu-container')) {
+      document.querySelector('.nav-modal').innerHTML = '';
+    }
+    else {
+      renderMenuPage(data);
+    }
+  }
 
 </script>
 

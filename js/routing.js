@@ -40,3 +40,152 @@ function resetBody() {
     console.log("Reset Body");
     document.querySelector('body').classList.remove('fade');
 }
+
+
+// FULL SCREEN NAVIGATION MODAL
+
+
+const navModalData = [
+    {
+      name: 'home',
+      icon: 'home.svg',
+      links: [
+        {
+          name: 'Home',
+          label: '',
+          url: '/'
+        },
+        {
+          name: 'About',
+          label: '',
+          url: '/index.html#about'
+        },
+        {
+          name: 'Projects',
+          label: '',
+          url: '/index.html#projects'
+        },
+        {
+          name: 'Career',
+          label: '',
+          url: '/index.html#career'
+        },
+        {
+          name: 'Contact',
+          label: '',
+          url: '/index.html#contact'
+        },
+      ]
+    },
+    {
+      name: 'projects',
+      icon: 'picture',
+      links: [
+        {
+          name: 'Nightlight',
+          label: 'Project 1:',
+          url: '/projects/nightlight'
+        },
+        {
+          name: 'Field Time Entry',
+          label: 'Project 2:',
+          url: '/projects/fte'
+        },
+        {
+          name: 'NAH Website',
+          label: 'Project 3:',
+          url: '/projects/nah'
+        }, 
+      ]
+    },
+    {
+      name: 'Career',
+      icon: 'briefcase',
+      links: [
+        {
+          name: 'NWM',
+          label: 'Career 1:',
+          url: '/career/nwm'
+        },
+        {
+          name: 'NAH',
+          label: 'Career 2:',
+          url: '/career/nah'
+        },
+        {
+          name: 'MJE',
+          label: 'Career 3:',
+          url: '/career/mje'
+        }, 
+        {
+          name: 'SELF',
+          label: 'Career 4:',
+          url: '/career/self'
+        }, 
+      ]
+    },
+  ];
+
+
+  function renderMenuPage(data) {
+    console.log('renderMenuPage: ', data);
+
+    // dom elements
+    let sideBarHtml = `<div class='side-bar'>`; //document.querySelector('.side-bar');
+    let itemColumnHtml = `<div class='menu-items-column'>`; //document.querySelector('.menu-items-column');
+
+    iconsHtml = '';
+    data.map((item) => {
+      // Add the icons
+      iconsHtml += `<div class='row'>${item.name}</div>`;
+
+      // Loop through the links
+      itemsHtml = `<div class='row'>`;
+      item.links.map((link) => {
+        const label = link.label ?? '';
+        const text = link.name ?? '';
+        const url = link.url ?? '';
+
+        const labelHtml = `<div class='label'>${label}</div>`;
+        const nameHtml = `<div class='name'>${text}</div>`;
+        
+        itemsHtml += `<a href='${url}'>
+                        <div class='text-container'>
+                          ${labelHtml}
+                          ${nameHtml}
+                        </div>                          
+                      </a>
+                      <div class='line'></div>`;
+        
+      });
+      itemsHtml += '</div>';
+      itemColumnHtml += itemsHtml;      
+    });
+
+    itemColumnHtml += `</div>`;
+    sideBarHtml += iconsHtml + `</div>`;  
+    
+    
+    let html = `<section class='menu'>                
+                  <div class='close-nav'>X</div>
+                  <div class='menu-container'>
+                    ${sideBarHtml}
+                    ${itemColumnHtml}
+                  </div>
+                </section>`;
+
+    document.querySelector('.nav-modal').innerHTML = html;
+
+    document.querySelector('.close-nav').addEventListener('click', showMenu);
+  }
+
+  function showMenu() {
+    if (document.querySelector('.menu-container')) {
+      document.querySelector('.nav-modal').innerHTML = '';
+    }
+    else {
+      renderMenuPage(navModalData);
+    }
+  }
+
+
