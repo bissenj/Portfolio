@@ -131,7 +131,7 @@
       <!-- Projects -->
       <section id='projects' class='projects'> 
         <div class='projects-collage active'>
-            <div class='explore'>Explore Projects <img class='chevron-right' src='img/chevron-right.svg'/></span></div>
+            <div class='explore'>Explore Projects <img class='chevron-right' src='img/icons/chevron-right.svg'/></span></div>
         </div>
 
         <div class='section-heading'> 
@@ -209,8 +209,8 @@
             <p>A group of like minded individuals dedicated to creating great work on interesting projects.  If you have looked at my work and think I would be a good fit on your team, please send me an email and lets talk. </p>
             <!-- Links -->
             <div class='contact-links'>
-                <div><img src='~/../img/mail.svg'/></div>
-                <div><img src='~/../img/info.svg'/></div>
+                <div><img src='~/../img/icons/mail.svg'/></div>
+                <div><img src='~/../img/icons/info.svg'/></div>
             </div>
         </div>
             
@@ -244,15 +244,7 @@
 <script src="/Portfolio/js/components/horizontalSlider/horizontalSlider.js"></script>
 
 
-<script>
-    // Check for back button
-    // if(performance.navigation.type == 2){
-    //     console.log("Back button detected");
-    //     //location.reload(true);
-    //     resetBody();      
-    // }
-
-
+<script>    
     console.log("document is loaded");
     resetBody();      
 
@@ -329,11 +321,11 @@
 
 
     // DELAYED JAVASCRIPT COMPONENTS
-    delayedComponentLoad(10);
+    delayedComponentLoad(0);
     
 
     // TEST Projects Button
-    const exploreProjectsButton = document.querySelector('.projects-collage').addEventListener('click', handleExploreProjects);
+    // const exploreProjectsButton = document.querySelector('.projects-collage').addEventListener('click', handleExploreProjects);
 
     function handleExploreProjects() {
         console.log("Click");  
@@ -384,7 +376,7 @@
         let workContainer = document.querySelector('.work');
         workContainer.style.opacity = 0;    
 
-        setTimeout(() => {
+        //setTimeout(() => {
 
             console.log("Loading JS components");
             console.time('components');
@@ -442,16 +434,16 @@
             console.log("Finished loading JS components");
             console.timeEnd('components');
 
-        }, delay);
+        //}, delay);
     }
 
 
-    // Intersection Observer for projects seciton    
+    // Intersection Observer for projects section    
     addObserver({
         selectors: '.projects-collage', 
         fireOnce: true,
         whenIntersecting: (entry) => {console.log("is intersecting"); handleExploreProjects(); },
-        threshold: 1.0
+        threshold: 0.5
         // whenNotIntersecting: (entry) => {console.log("is not intersecting"); handleExploreProjects(); }
     });
 

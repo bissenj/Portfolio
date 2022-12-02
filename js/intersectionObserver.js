@@ -12,7 +12,8 @@ function addObserver(data) {
     const stopObservingOnIntersection = data.fireOnce ?? false;
     const rootMargin = data.rootMargin ?? '0%';
     const threshold = data.threshold ?? 0.0;
-    
+
+    console.log("Creating Intersection Observer", data);
 
     // ---------------------------------------------------------
     // Intersection Observer  
@@ -40,9 +41,7 @@ function addObserver(data) {
                     if (stopObservingOnIntersection) {
                         console.log("Fire Once is True.  Cleaning up observer.");
                         observer.unobserve(entry.target);  
-                    }
-                    //entry.target.classList.add('visible'); 
-                    //observer.unobserve(entry.target);
+                    }                    
                 }
                 else {
                     if (data.whenNotIntersecting) {

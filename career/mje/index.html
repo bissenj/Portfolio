@@ -43,6 +43,7 @@
         <div class='side-bar sticky'></div>
         <div class='detail-page'></div>
     </div>
+    <div class='footer-nav'></div>
     
     <!-- Need a blank state element or image -->
     
@@ -51,6 +52,8 @@
 </main>
 </body>
 
+<script src="/js/intersectionObserver.js"></script>
+<script src="/Portfolio/js/intersectionObserver.js"></script>
 
 <script src="/js/routing.js"></script>
 <script src="/Portfolio/js/routing.js"></script> 
@@ -67,6 +70,32 @@
     //history.pushState({}, "", "../projects/nightlight");
     //var hash = window.location.hash.substr(1);
     //console.log("Hash: ", hash);
+
+    const footerData = {
+        classes: '',
+        links: [
+            {
+                classes: 'left',
+                label: 'Career History',
+                text: 'Self Employed',
+                url: '../../career/self',
+                icon : {
+                    name: 'chevron-right.svg',
+                }
+            },
+            {
+                classes: 'right',
+                label: 'Career History',
+                text: 'Senior Web Developer',
+                url: '../../career/mje',
+                icon : {                    
+                    name: 'chevron-right.svg',
+                }
+            }
+        ]           
+    };
+    const footer = document.querySelector('.work-page .footer-nav');
+    footer.innerHTML = renderDynamicFooter(footerData);
 
     const career = [
         {
@@ -209,138 +238,31 @@
     }, 1000);
 
     function startObservers() {
-        // ---------------------------------------------------------
-        // Intersection Observer 1 
-        // ---------------------------------------------------------
+       
+        // Intersection Observer for slide ins
+        addObserver({
+            selectors: '.scroll-target, .slide-left, .slide-right',
+            fireOnce: true,             
+            whenIntersecting: (entry) => { entry.target.classList.add('visible'); },
+        });       
 
-        // get all the elements we need to watch
-        const targets = document.querySelectorAll('.scroll-target, .slide-left, .slide-right');
-        if (targets.length > 0) {
-            console.log("Targets: ", targets);
-            // what to do with entries that are on screen
-            function handleIntersection(entries) {
-                entries.map((entry) => {
-                    if (entry.isIntersecting) {                    
-                        console.log("On Screen: ", entry);
-                        entry.target.classList.add('visible');                    
-                        
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }
-            // fire up the observer
-            const observer = new IntersectionObserver(handleIntersection);
-            targets.forEach((el) => {
-                observer.observe(el);
-            })
-        }
-
-        // ---------------------------------------------------------
-        // Intersection Observer 2 
-        // ---------------------------------------------------------
-
-        // get all the elements we need to watch
-        const questions = document.querySelectorAll('.question');
-        if (questions.length > 0) {
-            
-            // what to do with entries that are on screen
-            function setActiveQuestion(entries) {
-                entries.map((entry) => {
-                    if (entry.isIntersecting) {                                            
-                        //entry.target.classList.add('active'); 
-                        const index = entry.target.dataset.index;
-                        const menuItems = document.querySelectorAll('.side-bar li');
-                        menuItems[index].classList.add('active');                                               
-                    }
-                    else {
-                        const index = entry.target.dataset.index;
-                        const menuItems = document.querySelectorAll('.side-bar li');
-                        menuItems[index].classList.remove('active');                                               
-                    }
-                });
-            }
-            // fire up the observer
-            const questionObserver = new IntersectionObserver(setActiveQuestion, { 
-                rootMargin: '0px 0px -40% 0px', threshold: 0.0});
-
-                questions.forEach((el) => {
-                    questionObserver.observe(el);
-            })
-        }
+        // Intersection Observer for side menu.        
+        addObserver({
+            selectors: '.question',            
+            whenIntersecting: (entry) => { 
+                const index = entry.target.dataset.index;
+                const menuItems = document.querySelectorAll('.side-bar li');
+                menuItems[index].classList.add('active');   
+            },
+            whenNotIntersecting: (entry) => { 
+                const index = entry.target.dataset.index;
+                const menuItems = document.querySelectorAll('.side-bar li');
+                menuItems[index].classList.remove('active');   
+            },
+            rootMarin: '0px 0px -40% 0px',            
+        });     
     }
-
 
 </script>
 
 </html>
-
-
-<!-- DEAD CODE -->
-
-
-   <!-- Full width Image with Text Overlay -->
-    <!-- <div class='segment p40'>
-        <div class='image-full-width grid-center'>
-            <h1 class='text-overlay'>Field Time Entry<h1/>
-        </div>
-    </div> -->
-
-    <!-- Centered Text Block -->
-    <!-- <div class='segment p80 p-top-0'>
-        <div class='text-block-half grid-center'>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>            
-        </div>
-    </div> -->
-
-    <!-- 2-1 Image collage -->
-    <!-- <div class='segment'>
-        <div class='image-collage-2-1'>
-            <div class='one'></div>
-            <div class='two'></div>
-            <div class='three'></div>
-        </div>
-    </div> -->
-
-    <!-- 2-1 Image collage -->
-    <!-- <div class='segment'>
-        <div class='image-grid-2-1'>
-            <div class='grid-left'>            
-                <div class='one'>One</div>
-                <div class='two'>Two</div>
-            </div>            
-            <div class='three'>Three</div>            
-        </div>
-    </div> -->
-
-     <!-- Centered Text Block -->
-     <!-- <div class='segment p80'>
-        <div class='text-block-half grid-center'>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>            
-        </div>
-    </div> -->
-       
-    <!-- Full Width Image -->
-    <!-- <div class='segment'>
-        <div class='image-full-width grid-center'>          
-        </div>
-    </div> -->
-
-     <!-- 2 text columns -->
-     <!-- <div class='segment p80'>
-        <div class='text-block-2'>
-            <div class='text-block-half grid-center'>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>            
-            </div>
-            <div class='text-block-half grid-center'>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>            
-            </div>
-        </div>        
-    </div> -->

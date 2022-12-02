@@ -348,7 +348,7 @@ div.image7 {
 /* Plus sign over diagonal image element */
 div.row1 > div:after, div.row2 > div:after {  
     content: '+';
-    content: url(../img/plus-circle.svg);    
+    content: url(../img/icons/plus-circle.svg);    
     position: absolute;
     top: 40%;
     right: 30px;

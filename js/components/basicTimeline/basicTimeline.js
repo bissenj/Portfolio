@@ -82,9 +82,9 @@ class BasicTimeline {
         if ((this.componentEl.offsetWidth != this.state.componentWidth) || (this.componentEl.offsetHeight != this.state.componentHeight)) { needsToResize = true;}
 
         if (needsToResize) {
-            console.log("Timeline needs to resize.");
-            console.log("Old W/H: ", this.state.componentWidth, this.state.componentHeight);
-            console.log("New W/H: ", this.componentEl.offsetWidth, this.componentEl.offsetHeight);
+            //console.log("Timeline needs to resize.");
+            //console.log("Old W/H: ", this.state.componentWidth, this.state.componentHeight);
+            //console.log("New W/H: ", this.componentEl.offsetWidth, this.componentEl.offsetHeight);
 
 
             // destroy current component
@@ -94,13 +94,13 @@ class BasicTimeline {
             this.init();
         }
         else {
-            console.log("Timeline - did not need to resize.");
+            //console.log("Timeline - did not need to resize.");
         }
     }
 
     // Render timeline
     render(componentEl, data) {
-        console.log("Rendering new timeline.");
+        //console.log("Rendering new timeline.");
 
         /// 1
         // Create buttons and timeline bar element
@@ -116,7 +116,7 @@ class BasicTimeline {
         this.renderEventMarkers(componentEl, data);
         
 
-        console.log("Finished rendering new timeline.");
+        //console.log("Finished rendering new timeline.");
     }
 
     renderTimelineBar(componentEl) {

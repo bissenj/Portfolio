@@ -339,9 +339,9 @@ function renderAnimatedImageReveal(data) {
     return createNode(html);
 }
 
-// ---------------------------------
+// -----------------------------------------------------------------
 //              PROJECTS
-// ---------------------------------
+// -----------------------------------------------------------------
 
 // Sticky text with long image
 function renderStickySection(data) {
@@ -360,9 +360,9 @@ function renderStickySection(data) {
     return createNode(html);
 }
 
-// ---------------------------------
+// -----------------------------------------------------------------
 //              CAREER
-// ---------------------------------
+// -----------------------------------------------------------------
 
 // CAREER Short Links
 function renderQuickLinks(el, data) {
@@ -403,4 +403,64 @@ function renderQuestionAnswer(data, index) {
         </div>
     `;
     return createNode(html);
+}
+
+
+
+// -----------------------------------------------------------------
+//              FOOTER
+// -----------------------------------------------------------------
+
+// Generic Footer with Navigation
+/* 
+    data: {
+        classes: 'light-blue, topo-background',
+        links: [
+            link : {
+                classes: '',
+                label: 'Career History',
+                text: 'Self Employed',
+                url: 'career/self,
+                icon : {
+                    classes: '',
+                    path: '',
+                }
+            }
+        ]           
+    }
+ */
+function renderDynamicFooter(data) {
+    let classes = data.classes ?? '';
+
+    let html = `<div class='dynamic-footer flex-row-between ${classes}'>`;
+    
+    let elementsHtml = '';
+    data.links.map((item) => {        
+        let itemClasses = item.classes ?? '';  
+        let label = item.label ?? '';      
+        let text = item.text ?? '';
+        let url = item.url ?? '';        
+        
+        if (text) {
+            elementsHtml += 
+                `<div class='footer-nav-item ${itemClasses}'><a href='${url}'>
+                    <div class='label'>${label}</div>
+                    <div class='text'>${text}</div>`;
+                
+            // Add icon if there is one
+            if (item.icon) {
+                let iconClasses = item.icon.classes ?? '';
+                let name = item.icon.name ?? '';
+                if (name) {
+                    elementsHtml += `<div class='icon ${iconClasses}'><img src='../../../img/icons/${name}' /></div>`;
+                }
+            }
+            elementsHtml += `</a></div>`;
+        }        
+    });
+
+    html += elementsHtml;
+    html += '</div>';
+
+    return html;
 }
