@@ -126,10 +126,10 @@
         /* height: 125vh; */
     }
 
-
     .projects-collage {
         position: relative;        
-        min-height: 200px;
+        min-height: 0px;
+        visibility: hidden;
     }
     .projects-collage .explore { display: none; }
     .projects-container {

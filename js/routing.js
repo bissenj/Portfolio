@@ -25,7 +25,7 @@ function navigateToPage(source, dest) {
     // Fix the URL when deployed on GitHubPages by adding in the repo name.
     let destination = '';
     if (location.protocol == "https:") {
-        destination = '/Microanimations'
+        destination = '/Portfolio'
     }       
 
     // update window location

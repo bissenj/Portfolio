@@ -1,9 +1,9 @@
 
-cd C:\Users\Bash Warrior King\Projects\Microanimations
+cd C:\Users\Bash Warrior King\Projects\Portfolio
 
 
 Github Pages
-https://github.com/aspenpeakstudios/Microanimations/settings/pages
+https://github.com/aspenpeakstudios/Portfolio/settings/pages
 
 
 Remote Debugging                  - https://developer.chrome.com/docs/devtools/remote-debugging/
