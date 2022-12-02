@@ -1,0 +1,186 @@
+:root {
+    --gold-text: #FFAF14;
+    --question-background: #FAFAFA;
+    --image-overlay: #217CB0E6;
+    --header-background: #1B4E6CE6;
+    --question-box-shadow: 0px 2px 4px #000000A0;
+
+}
+
+.work-page { 
+    overflow-x: unset;        
+    display: grid;
+    grid-template-rows: 2em 300px 1fr 100px;
+}
+
+.work-page .footer {
+    color: black;        
+    /* border: 1px solid red;       */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;   
+    background-color: var(--header-background);       
+}
+
+.work-page .footer > div {
+    margin: 20px;
+    /* border: 1px solid red; */
+    padding: 5px 20px;
+    min-width: 200px;
+    background-color: var(--gold-text);
+    text-align: center;
+    /* color: white; */
+    cursor: pointer;
+}
+
+.work-page .header {        
+    /* border: 1px solid red;         */        
+}
+.work-page .header-content {
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    height: 2em;
+    background-color: rgba(0,0,0,0.3);
+    background-color: rgba(27, 78, 108, 0.9);
+
+    /* display: grid;
+    grid-template-columns: 1fr 1fr 1fr 8em;
+    gap: 40px;
+    align-items: center; */
+}
+.work-page .header-content .stats {
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height:100%;
+    /* padding-left: 30%; */
+    padding-right:1em;
+}
+.work-page span {
+    /* border: 1px solid red; */
+    text-align: center;
+}
+.work-page .header-content h6 {
+    text-align: center;
+    line-height: 2em; /* why is this taller than the parent? */
+    font-size: 0.9em;
+}
+
+.work-page .company-profile {
+    border: 0px solid red;
+    background-color: skyblue;
+    /* background: linear-gradient(rgba(255,255,255, 0.5), rgba(255,255,255, 0.5)), url('../../img/timeline/nwm.jpg') no-repeat; */
+    /* background-position: 25%; */
+    background: linear-gradient(rgba(33,124,176,.9),
+                                 rgb(0 93 131 / 90%)), 
+                                 url(../../img/timeline/nwm.jpg) no-repeat;        
+    background-size: 100%;
+    background-position: 25%;
+
+    display: grid;
+    place-content: center;
+    font-size: 48px;
+}
+.work-page .content {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1em;
+    /* align-items: start; */
+    align-self: start;
+
+    background: linear-gradient(-180deg,#f6f8f9,hsla(0,0%,96.1%,0));
+}
+
+.side-bar {   
+    /* position: relative;      */
+    /* border: 1px solid purple; */
+    color: black;
+    font-size: 24px;
+    margin: 10px;
+    padding: 20px;
+    /* height: 100%; */
+}   
+.side-bar ul {
+    /* position: sticky;
+    top: 100px; */
+    /* border: 1px solid purple; */
+}
+.side-bar li {
+    position: relative;
+    list-style: none;
+    margin: 40px 0px;
+    text-align: center;        
+}    
+.side-bar li:hover {
+    /* background-color: yellow; */
+    text-decoration: underline;
+    cursor:pointer;
+}
+.side-bar li.active {
+    /* background-color: red; */
+}
+.side-bar li.active:before {
+    content: '';
+    position: absolute;
+    left: 48%;
+    width: 100%;
+    bottom: 0px;        
+    height: 1.2em;
+    transform: skew(-12deg) translate(-50%);
+    background: var(--gold-text); 
+    z-index: -1;
+}
+
+.sticky { 
+    position: sticky;
+    top: 100px;
+    align-self: start;
+}
+
+.detail-page {
+    /* margin-right: 2em; */
+    /* background: #fafafa;         */
+    background: white;
+    
+    margin-top: -3em;
+    margin-bottom: 3em;
+    border: 1px solid #444;
+    box-shadow: 2px 4px 4px #444;
+    box-shadow: var(--question-box-shadow);
+    max-width: 36em;
+}
+
+.question {
+    position: relative;
+    font-size: 32px;
+    padding-bottom: 0.3em;
+    margin-bottom: 1em;
+    /* text-decoration: underline wavy black; */
+
+}  
+.question:before {
+    content: '';
+    position: absolute;
+    left: 48%;
+    width: 100%;
+    bottom: 8px;        
+    height: 14px;
+    transform: skew(-12deg) translate(-50%);
+    background: var(--gold-text);
+    z-index: -1;
+}
+
+.detail-page .segment p {
+    font-size: 20px;
+    /* padding: 0px 12px; */
+}
+
+a.anchor {
+    display: block;
+    position: relative;
+    top: -3.5em;
+    visibility: hidden;
+}

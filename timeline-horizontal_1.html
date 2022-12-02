@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">  
+  <title>Timeline Example</title> 
+  <link rel='stylesheet' href='css/timeline.css' />
+</head>
+
+<body>
+<section style="height:75vh; background-color: rgb(181, 181, 181); display:flex; align-items: center;justify-content: center;"><h1>This is a section</h1></section>
+<section class='timeline-component'>
+    <!-- <div class='timeline-wrapper'> -->
+
+        <!-- Header -->
+        <div class='timeline-header'>
+            <div class='heading'>
+                <span>work</span><span>Experience</span>
+            </div>
+        </div>
+
+        <!-- Timeline Component -->
+        <div class='timeline-container'>
+            <button id="backBtn">  &#5130; </button>
+            <div id="timeline" class="timeline"></div>
+            <button id="forwardBtn"> &#5125; </button>
+        </div>
+
+        <!-- Slideshow Component -->
+        <div class='horizontal-scroller'></div>
+
+        <section style="height:75vh; background-color: rgb(181, 181, 181); display:flex; flex-direction: column; align-items: center;justify-content: center;">
+            <h1>This is the footer section</h1>
+            <div class='footer'>
+                <span id="ScrollLeft"></span>
+                <div id="debug"></div>
+            </div>
+        </section>
+        
+    <!-- </div> -->
+
+</section>
+</body>
+
+<script src="/js/animation.js"></script>
+<script src="/Microanimations/js/animation.js"></script>
+
+<script src="/data/data.js"></script>
+<script src="/Microanimations/data/data.js"></script>
+
+<script>
+
+// ----------------------------------------------------------------------------------------------------------
+// ------------------------------ Event Handlers ------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------------------
+window.onload = () => {
+
+    // Timeline Event Handlers
+    document.querySelector('.timeline').addEventListener('click', handleEventMarkerClick, false);
+    document.querySelector('#backBtn').addEventListener('click', () => {updateSelectedIndexByDirection(-1)}, false);
+    document.querySelector('#forwardBtn').addEventListener('click', () => {updateSelectedIndexByDirection(1)}, false);
+
+    // Slideshow Event Handlers    
+    document.querySelector('.horizontal-scroller').setAttribute("tabindex", 0);  // Div needs a [tab index] or the key press events won't work.
+    document.querySelector('.horizontal-scroller').addEventListener('keydown', function(e) {
+            console.log("Key Press");
+            const key = event.key; // "ArrowRight", "ArrowLeft", "ArrowUp", or "ArrowDown"
+            switch (event.key) {
+                case "ArrowLeft":
+                    //console.log("Left Key Pressed")
+                    updateSelectedIndexByDirection(-1);                    
+                    break;
+                case "ArrowRight":
+                    //console.log("Right Key Pressed")
+                    updateSelectedIndexByDirection(1);
+                    break;                
+            }
+        });    
+  
+}
+
+// Attempts to increment or decrement the selected index and 
+// then update the timeline and slide show.
+function updateSelectedIndexByDirection(direction) {
+    let newIndex = selectedIndex + direction;    
+
+    // boundary checks
+    if (newIndex >= 0 && newIndex < events.length) {        
+        selectedIndex = newIndex;
+        updateSlideShow(selectedIndex);
+    }
+}
+
+function handleEventMarkerClick(e) {        
+
+    // Get the Parent Container
+    let el = event.target;    
+    
+    // Since we're using event delegation, make sure we end up with
+    // an element with an index, or exit early.
+    if (el.classList.contains('timeline')) return;
+    if (!el.classList.contains('event-marker')) {
+        el = el.parentElement;
+    }
+
+    // Get the index
+    let index = parseInt(el.dataset.index);
+
+    // Redraw the timeline and slideshow
+    updateSlideShow(index);
+}   
+
+function callback_updateAnimationState(state) {    
+    mouseState.isAnimating = state;
+    //console.log("New State is: ", state);
+}
+
+// Central location for updating the UI Timeline and Slideshow)
+function updateSlideShow(index) {
+    console.log("updateSlideShow():  ", index);
+
+    // Ignore if there is already an animation taking place
+    if (mouseState.isAnimating) { console.log("Nope.  Currently animating"); return; }
+
+
+    if (Number.isInteger(index)) {
+        callback_updateAnimationState(true);        // Let the app know we are animating
+
+        //window.setTimeout(() =>{
+            //console.log("Start Animating");
+
+            // If we are not changing to a new event, don't update the timeline
+            timeline_SetNewSelectedEvent(index);
+            
+            // find event details container related to the new index.
+            let element = document.querySelector(`.event-details-element[data-index="${index}"]`);    
+
+            // Moves slideshow to the new slide        
+            slideShow_SnapScrollToNewSlide(element, callback_updateAnimationState);    
+
+            //console.log("Finished Animating");
+        //}, 500);
+    }
+    else {
+        console.error("index parameter is invalid.");
+    }
+}
+ 
+// Moves the selected event in the Timeline to a new event.
+function timeline_SetNewSelectedEvent(index) {    
+    // Update our global state.
+    selectedIndex = index;
+
+    // Get the start and end years.
+    let year = events[index].yearStart;
+    let yearEnd = events[index].yearEnd;
+
+    // Fade back in any elements which were behind another element during the last Timeline render.
+    //const markers = document.querySelectorAll('.fade-to-back');           
+    const markers = document.querySelectorAll('.event-marker');           
+    markers.forEach(marker => {        
+        marker.classList.remove('fade-to-back');
+        marker.classList.remove('selected');
+    });
+
+
+    // Loop through all the events to remove the previously active event and set the new event.
+    events.map((event) => {        
+                
+        // Determine if any events are in the middle of the selected timeline.
+        // If any are in the middle, fade them into the background.
+        if ((year != event.yearStart) && (year < event.yearStart) && (event.yearStart < yearEnd)) {
+            let markerEl = document.getElementById(`${event.yearStart}Marker`);            
+            markerEl.classList.add('fade-to-back');            
+        } 
+
+        // Set the selected event
+        if (year == event.yearStart || yearEnd == event.yearStart) {
+            let markerEl = document.getElementById(`${event.yearStart}Marker`);            
+            markerEl.classList.add('selected');  
+        }        
+
+        // Handle the animation for the selected event on the timeline (ie )
+        updateSelectedEventConnector(event, event.yearStart !== year);        
+    });
+}
+
+// Updates the details slideshow
+function updateSelectedEventConnector(event, reset = false) {        
+    let container = document.getElementById(`${event.yearStart}Marker`);
+    let el = document.getElementById(`${event.yearStart}Marker`).querySelector('.event-selected');
+            
+    // FUTURE IMPROVEMENT - don't like how timeline is hardcoded here.
+    let widthPerTick = document.querySelector('.timeline').dataset.widthPerTick;
+    let width = (event.yearEnd - event.yearStart) * widthPerTick;
+    
+    // Add a bit of a delay so the Timeline and Slide show move at the same time.
+    let delay = (reset ? 0 : 250);
+
+    window.setTimeout(() => {
+        if (reset) {
+            width = 0;
+            el.classList.add('no-transition');
+        }
+        else {
+            el.classList.remove('no-transition');    
+        }        
+        el.style.width = `${width}px`;      // Kicks off the animation when this is the selected event.
+    }, delay)
+}
+
+// When the mouse is clicked, save the current state.
+function handleMouseDown(e) {  
+
+    // Hack for TOUCH events
+    if (e.type == 'touchstart') {
+        e.pageX = e.changedTouches[0].pageX;
+    }
+
+    console.log('handleMouseDown(): ', e.target);  
+
+    mouseState.isDown = true;
+    mouseState.startX = e.pageX - mouseState.parentElement.offsetLeft;
+    mouseState.scrollLeft = mouseState.parentElement.scrollLeft;
+    mouseState.parentElement.classList.add('mouseDown');
+}
+// When the mouse button is let up, attempt to update the timeline and slideshow.
+function handleMouseUp(e) { 
+    //console.log("handleMouseUp(): ", e, mouseState);
+    console.log('MouseState: ', mouseState);
+
+    // Reset Stuff - 1
+    mouseState.isDown = false;   
+    mouseState.parentElement.classList.remove('mouseDown'); 
+
+    // If mouse was clicked but we haven't recorded any direction, assume user is not trying to 
+    // update the slideshow
+    if (mouseState.direction == 0) return;
+    
+
+    // If the walk is < WALK_THRESHOLD, user isn't trying to update slideshow
+    const WALK_THRESHOLD = 125;
+    if (Math.abs(mouseState.walk) < WALK_THRESHOLD) {
+        //console.log("Walk is < WALK_THRESHOLD");
+        mouseState.walk = 0;
+        updateSlideShow(selectedIndex);
+        return;
+    }
+
+    // window.setTimeout(() =>{
+
+        // Calculate which slide is most visible on the screen and scroll to it.
+        let slidesInView = getElementsOnScreen('.event-details-element');
+        
+        // Choose the new slide and move to it.
+        if (slidesInView.length > 0) {        
+            let el = slidesInView[0];
+            if (mouseState.direction < 0) {
+                el = slidesInView[slidesInView.length -1];  // Get the last element (which should be the right most one)
+            }
+
+            const index = parseInt(el.dataset.index);        
+            updateSlideShow(index);
+        }
+
+        // Reset stuff - 2    
+        mouseState.direction = 0;
+
+    // }, 500);
+}
+function handleMouseMove(e) { 
+    
+    //debugPrintScrollPosition('.horizontal-scroller', 'ScrollLeft');
+    //console.log(mouseState);
+
+    // if the mouse is not clicked, don't proceed.
+    if (!mouseState.isDown) return;
+
+
+    // Hack for TOUCH events
+    if (e.type == 'touchmove') {
+        e.pageX = e.changedTouches[0].pageX;
+    }
+    
+    //console.log("handleMouseMove(): ", e.pageX); 
+
+    //e.preventDefault();
+
+    // If there is an animation taking place, ignore this event. (or their will be JANK)
+    if (mouseState.isAnimating) return;
+
+    // Calculate how much the mouse has moved and update the scroll position    
+    const x = e.pageX - mouseState.parentElement.offsetLeft;    
+    const walk = (x - mouseState.startX) * 1.0; 
+
+    //console.log("e.pageX: ", Math.round(e.pageX, 2), " Walk: ", Math.round(walk, 2));
+    const WALK_THRESHOLD = 0;  
+    if (Math.abs(walk) > WALK_THRESHOLD)  {
+        //console.log(walk);
+        mouseState.parentElement.scrollLeft = mouseState.scrollLeft - walk;        
+        mouseState.direction = (walk > 0) ? 1 : -1;   
+        mouseState.walk = walk; 
+
+        // Stop any further processing on this event so they don't interfere with
+        // our animations.
+        //e.preventDefault();
+    }
+    else {
+        //mouseState.parentElement.scrollLeft = e.pageX;
+    }
+}
+
+function handleTouchStart(e) {
+    //console.log("handleTouchStart");
+    handleMouseDown(e);
+}
+function handleTouchEnd(e) {
+
+    // NOTES:
+    //    On a touch device the 'touchend' event may occur before the touchmove events are done
+    //    (ie the container is still scrolling).  To handle that, we're going to run a timeout and 
+    //    compare the current scroll position against the last scroll position until they are the same
+    //    which will tell us when the scroll is finished, then we call the normal funcion to 
+    //    update the slideshow.
+
+    let i = 0;  let end = 100;
+    let finished = false;
+    let lastScrollLeft = 0;
+    let loop = window.setInterval(() => {
+
+        let scrollerEl = document.querySelector('.horizontal-scroller');        
+        //console.log("scroll left: ", scrollerEl.scrollLeft);
+        if (lastScrollLeft == scrollerEl.scrollLeft) {
+            console.log("scrolling finished");
+            finished = true;
+        }
+        else {
+            lastScrollLeft = scrollerEl.scrollLeft;
+        }
+
+        i+=1;                       // update so we get out of the loop eventually.        
+        if (i >= end || finished) {     
+            console.log("handleTouchEnd");
+            handleMouseUp(e);
+
+            // Clean up 
+            clearInterval(loop);
+        }    
+    }, 50);
+}
+function handleTouchMove(e) {
+    //console.log("handleTouchMove");
+    handleMouseMove(e);
+}
+
+// ----------------------------------------------------------------------------------------------------------
+// ------------------------------ Render Methods ------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------------------
+function renderEventMarker(index, event, parentEl, offsetX, offsetWidth) { 
+    console.log("offsetWidth: ", offsetWidth);      
+    let html = `<div id='${event.yearStart}Marker' data-year=${event.yearStart} data-index=${index} class='event-marker' style='left:${offsetX}px'>
+                    <div class='event-circle'></div>
+                    <div class='event-arm'></div>
+                    <div class='event-text'>${event.yearStart}</div>
+                    <div class='event-selected' style='width:${offsetWidth};'></div>
+                </div>`;
+
+    parentEl.innerHTML += html;    
+}
+function renderYearTick(year, parentEl, offsetX) {
+    // Check if there is an event marker for this year.  If so, don't do anything.    
+    //let markers = document.querySelector(`.event-details-element[data-year="${selectedIndex}"]`);
+    let markers = events.find(event => event.yearStart == year);
+    
+    if (markers !== undefined) return;
+
+    let html = "";
+    if (year % 5 === 0) {
+        html = `<div class='year-marker' style='left:${offsetX}px'>                    
+                        <div class='year-arm' style='height: ${25}px; top: -12px;'></div>                                            
+                    </div>`;
+    }
+    else {
+        html = `<div class='year-marker' style='left:${offsetX}px'>                    
+                        <div class='year-arm'></div>                    
+                    </div>`;
+    }
+
+    parentEl.innerHTML += html;
+}
+function renderEventHeader(yearStart, yearEnd, name, parentEl) {
+    let html = `<div>${yearStart} - ${yearEnd}</div>
+                <div>${name}</div>
+                `;
+    parentEl.innerHTML = html;
+}
+function renderEventSummary(tools, summary, parentEl) {
+    let html = `<div class='event-tools'>${tools}</div>
+                <div>At a glance:</div>
+                <div class='event-summary'>${summary}</div>
+                `;
+    parentEl.innerHTML = html;
+}
+function renderEventsHorizontal(events, parentEl) {
+    parentEl.innerHTML = "";
+
+    // loop through all the events
+    events.map((event, index) => {
+
+        // TESTING
+        let wrapper = document.createElement("div");
+        wrapper.classList.add('event-details-element-wrapper');
+
+        // Create an element and attach event listeners, then template the rest of the element's contents.
+        let container = document.createElement("div");
+        container.classList.add('event-details-element');
+        container.dataset.index = index;
+
+        // Pointer Event Handlers
+        // container.addEventListener('pointerdown', handleMouseDown);
+        // container.addEventListener('pointerup', handleMouseUp);
+        // container.addEventListener('pointermove', handleMouseMove);
+
+        // Mouse Event Handlers
+        container.addEventListener('mousedown', handleMouseDown);
+        container.addEventListener('mouseup', handleMouseUp);
+        container.addEventListener('mousemove', handleMouseMove);
+
+        // Touch Event Handlers
+        container.addEventListener('touchstart', handleTouchStart);
+        container.addEventListener('touchend', handleTouchEnd);
+        container.addEventListener('touchcancel', (e) => {console.log("cancel")});
+        container.addEventListener('touchmove', handleTouchMove, {passive: true});
+
+        container.addEventListener('mouseleave', (e) => { if (mouseState.isDown) handleMouseUp(e);});
+        
+        let html = `
+                        <!-- Event Header -->
+                        <div class='event-header'>                        
+                            <div>${event.yearStart} - ${event.yearEnd}</div>
+                            <div>${event.name}</div>                        
+                        </div>
+
+                        <!-- Event Summary -->
+                        <!-- <div class='event-summary'> -->
+                            <div class='event-summary'>
+                            <div class='left'>
+                                <div class='event-tools'>${event.tools}</div>
+                                <div>At a glance:</div>
+                                <div>${event.summary}</div>
+                            </div>
+                            <div class='company-image'><img src='img/timeline/${event.image}'/></div>
+                        </div>
+                    `;
+        if (event.story.length > 1000) {            
+            html += `
+                        <!-- Event Body -->
+                        <div class='event-body small'>
+                            <div>What I accomplished and how I grew:</div>
+                            ${event.story}
+                            <div><button class='next'>Next &#5125;</button></div>
+                            <div><button class='more'>More</button></div>                    
+                        </div>                        
+                    `;
+        }
+        else {
+            html += `
+                    <!-- Event Body -->
+                    <div class='event-body'>
+                        <div>What I accomplished and how I grew:</div>
+                        ${event.story}
+                        <div><button class='next'>Next &#5125;</button></div>                            
+                    </div>                        
+                `;
+        }
+        container.innerHTML = html;
+        //parentEl.appendChild(container);
+
+        wrapper.appendChild(container);
+        parentEl.appendChild(wrapper);
+
+        let moreButton = container.querySelector('.more');
+        if (moreButton) {
+            moreButton.addEventListener('click', (e) => {
+                let target = e.target.parentElement.parentElement;
+                console.log(target);
+            
+                if (target.classList.contains('small')) {
+                    target.classList.remove('small');
+                    e.target.innerText = 'Less...';                    
+                }
+                else {
+                    target.classList.add('small');
+                    e.target.innerText = 'More...';
+                    //document.querySelector('.timeline-header').scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+                    document.querySelector('.timeline-header').scrollIntoView({behavior: "smooth"});
+                }               
+            });
+        }
+
+        // container.querySelector('.more').addEventListener('click', (e) => {
+        //     //console.log("click", e);
+        //     let target = e.target.parentElement.parentElement;
+        //     console.log(target);
+            
+        //     if (target.classList.contains('small')) {
+        //         target.classList.remove('small');
+        //     }
+        //     else {
+        //         target.classList.add('small');
+        //     }
+        // });
+
+    });
+}
+
+// This creates the timeline and gets it up and running.
+function initTimeline(timeline_selector, startYear, endYear) {
+    let timelineEl = document.querySelector(timeline_selector);
+
+    // Clear the timeline (in case this is called for a refresh so we don't end up with a gazillion elements)
+    timelineEl.innerHTML = "";
+    
+    // Calculate some stuff needed for rendering
+    const numTicks = endYear - startYear;
+    const timelineWidth = timelineEl.offsetWidth;
+
+    //console.log(timelineEl.clientWidth); console.log(timelineEl.offsetWidth);
+    //console.log(timelineEl.getBoundingClientRect());
+
+    const widthPerTick = timelineWidth / numTicks;
+    timelineEl.dataset.widthPerTick = widthPerTick;     // Store this for later  <-- IMPROVE THIS
+
+    // Add year ticks to the timeline
+    let s = startYear; let offsetX = -10;
+    for(s; s <= endYear; s++) {    
+        renderYearTick(s, timelineEl, offsetX);
+        offsetX += widthPerTick;
+    }
+
+    // Add each event as a marker on the timeline
+    events.map((event, index) => {    
+        const offsetX = (event.yearStart - startYear) * widthPerTick - 20;      // WHY 20?
+        
+        // Need to update width here
+
+        renderEventMarker(index, event, timelineEl, offsetX, 0);
+    });
+
+    // Add each event as a slide in the slideshow
+    renderEventsHorizontal(events, document.querySelector('.horizontal-scroller'));
+    
+    // Start the slideshow
+    window.setTimeout(() => {    
+        updateSlideShow(selectedIndex);    
+    }, 500);
+}
+
+
+// ------------------------------ DOCUMENT IS LOADED --------------------------------------------------------
+
+// Activate
+let selectedIndex = 0;
+
+// Mouse variables
+let mouseState = { parentElement: document.querySelector('.horizontal-scroller'), 
+                   isDown:false, 
+                   startX:0, 
+                   scrollLeft:0,
+                   direction:0,
+                   walk:0,
+                   isAnimating: false
+                }
+
+// Fire up the timeline and slideshow!
+initTimeline('.timeline', 1995, 2025);
+
+
+// On mobile browsers scrolling may trigger a resize event which will mess up our app in some cases.  Store 
+// the current dimentions so we can resize our app at the appropriate time.
+const el = document.querySelector('.timeline-container');
+var TIMELINE_WIDTH = el.clientWidth;
+var TIMELINE_HEIGHT = el.clientHeight;
+
+window.onresize = () => {    
+
+    console.log("Resize Event Detected");
+    console.log("Timeline Width/Height: ", TIMELINE_WIDTH, TIMELINE_HEIGHT);
+
+    const el = document.querySelector('.timeline-container');
+    console.log("Current Timeline W/H: ", el.clientWidth, el.clientHeight);
+
+    if (TIMELINE_WIDTH != el.clientWidth || TIMELINE_HEIGHT != el.clientHeight) {
+        console.log("resize!");
+        initTimeline('.timeline', 1995, 2025);    
+
+        TIMELINE_WIDTH = el.clientWidth;
+        TIMELINE_HEIGHT = el.clientHeight;
+    }
+    else {
+        console.log("resize ignored");
+    }    
+}
+
+</script>
+</html>

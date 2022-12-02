@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">  
+  <title>Page Template</title> 
+  <link rel='stylesheet' href='css/global.css' />  
+  <link rel='stylesheet' href='css/media-queries.css' />
+
+  <style>
+    section { 
+      position: relative;
+      z-index: 2;
+      height: 100vh;
+      width: 100%;
+      background-color: white;
+      display: grid;
+      place-content: center;
+      font-size: 22px;
+      text-transform: uppercase;
+      transition: background-color 2s;
+    }
+
+    section.section-2 {
+      z-index: 0;
+      background-color: hsla(0, 0%, 92%, 0.763);
+    }
+
+    section.section-3 {
+      z-index: 2;
+      background-color: hsla(0, 0%, 79%, 1);
+      box-shadow: 0  0 10px #444;
+    }
+
+    section.section-4 {
+      z-index: 3;
+      background-color: hsla(0, 0%, 100%, 0.5);
+      box-shadow: 0  0 10px #444 inset;
+      clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%);
+    }
+
+    section.section-5 {
+      z-index: 0;
+      background-color: hsla(0, 0%, 92%, 1);   
+      /* overflow:hidden;    */
+      /* clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%); */
+    }
+
+    section.on-screen {
+      /* border: 2px solid firebrick; */
+      background-color: black;
+      color: white;
+    }
+
+    div.overlap {
+      position: absolute;            
+      top: -100%;
+      border: 1px solid red;
+      height: 200%;
+      width: 100%;
+    }
+    div.big-underlay {
+      position: absolute;  
+      z-index: -1;          
+      top: -100%;
+      border: 2px solid purple;
+      height: 300%;
+      width: 100%;
+    }
+    .sprite4 {
+      /* border: 2px solid black; */
+      position: sticky;      
+      /* z-index: 2; */
+      top: 40%;
+      left: calc(50% - 200px/2);
+      width: 200px;
+      /* height: 300px; */
+      /* background: orange; */
+      /* background:url('phone-4.png') no-repeat; */
+      /* background-size: contain; */
+      transition: background-color 1s;
+      transform: scale(0.5);
+      /* filter: blur(2px); */
+      opacity: 0.2;
+    }
+
+    div.image img { height: 100%; width: 100%; display: block;}
+
+
+    .sprite1 {
+      position: sticky;      
+      z-index: 2;
+      top: 35%;
+      left: calc(50% - 225px/2);
+      top: calc(50% - 450px/2);
+      width: 225px;      
+      /* height: 300px;             */
+      transition: background-color 1s;
+
+      background:url('phone-1.png') no-repeat;
+      background-size: contain;
+    }
+    .sprite1.stuck {
+      top: calc(50% - 300px/2);
+      /* background-color: forestgreen; */
+      position: absolute;      
+    }
+    div.overlap.stuck {
+      height: 100%;
+      top: 0%;
+    }
+
+
+    .sprite2 {      
+      position: absolute;      
+      z-index: 1;
+      top: calc(50% - 400px/2);
+      left: calc(25% - 200px/2);
+      width: 200px;
+      /* height: 300px; */
+      background: blue;
+      transition: left 2s, opacity 2s;
+      background:url('phone-2.png') no-repeat;
+      background-size: contain;
+    }
+    .sprite3 {      
+      position: absolute;      
+      z-index: 1;
+      top: calc(50% - 400px/2);
+      left: calc(75% - 200px/2);
+      width: 200px;
+      /* height: 300px; */
+      background: blue;
+      transition: left 2s, opacity 2s;
+      background:url('phone-3.png') no-repeat;
+      background-size: contain;
+    }
+
+    .waiting {
+      left: calc(50% - 200px/2);
+      opacity: 0;
+    }
+
+
+
+
+  </style>
+</head>
+
+<body>
+<main>  
+ 
+  <!-- Section 1:  Layer Height 0 -> Blank -->
+  <section class='section-1'>z-index: 2 - Phone hidden </section>
+
+  <!-- Section 2:  Layer Height 1 -> Pick up phone -->
+  <section class='section-2'>z-index: 0 - Phone over top</section>
+
+  <!-- Section 3:  Layer Height 2 -> Phone under (hidden) -->
+  <section class='section-3'>z-index: 2 - Phone underneath - hidden</section>
+
+  <!-- Section 4:  Layer Height -2 -> Phone under (visible and small)  -->
+  <section class='section-4 fly-low'>z-index: 2 - Phone underneath - visible    
+    <p style='font-size: 22px; text-transform: none; max-width: 30em;'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div class='big-underlay'>
+      <div class='sprite4 image'><img src='phone-4.png'/></div>   
+    </div>
+  </section>
+
+  <!-- Section 5:  Layer Height 1 -> Phone disappears.  New Phone appears and translates with scroll -->
+  <section class='section-5 landing-pad'>z-index: 0 - Phone Stops
+    <div class='overlap'>
+      <div class='sprite1 image'><img src='phone-1.png'/></div>   
+      <div class='sprite2 image waiting'><img src='phone-2.png'/></div>   
+      <div class='sprite3 image waiting'><img src='phone-3.png'/></div>   
+    </div>
+  </section>
+
+  <!-- Section 6:  Layer Height 0 -> Blank -->
+  <section class='section-6'>z-index: 0</section>
+
+
+</main>
+</body>
+
+<!-- <script src="/js/hSlider.js"></script>
+<script src="/Microanimations/js/hSlider.js"></script> -->
+
+<script>
+
+    const sprite = document.querySelector('.sprite1');
+
+    // // ---------------------------------------------------------
+    // // Intersection Observer 2
+    // // --------------------------------------------------------
+    // const flyLow = document.querySelector('.fly-low');
+    // function checkFlyZone(entries) {
+    //     entries.map((entry) => {
+    //       console.log('handleIntersection');
+    //       if (entry.isIntersecting) {
+    //         sprite.classList.add('shrunk');
+    //       }
+    //       else {            
+    //         sprite.classList.remove('shrunk');
+    //       }
+    //   });
+    // }
+    // // fire up the observer
+    // const observer2 = new IntersectionObserver(checkFlyZone, {
+    //       rootMargin: '0%', threshold: 0.0
+    //     });        
+    // observer2.observe(flyLow);
+
+
+    // ---------------------------------------------------------
+    // Intersection Observer
+    // ---------------------------------------------------------
+    // const sprite = document.querySelector('.sprite1');
+
+    // get all the elements we need to watch
+    const targets = document.querySelectorAll('.landing-pad');
+    if (targets.length > 0) {
+        console.log("Targets: ", targets);
+        // what to do with entries that are on screen
+        function handleIntersection(entries) {
+            entries.map((entry) => {
+                console.log('handleIntersection');
+                if (entry.isIntersecting) {
+                    console.log("On Screen: ", entry);
+
+                    // sprite.classList.remove('shrunk');
+                    
+                    //entry.target.classList.add('on-screen');                    
+                    watchForLanding(sprite, entry.target);                    
+                    //observer.unobserve(entry.target);
+                }
+                else {
+                  //entry.target.classList.remove('on-screen');
+                  // sprite.classList.remove('stuck');
+                  stopWatching(sprite, entry.target);
+                  //observer.unobserve(entry.target);
+                }
+            });
+        }
+        // fire up the observer
+        const observer = new IntersectionObserver(handleIntersection, {
+          rootMargin: '0%', threshold: 0.0
+        });
+        targets.forEach((el) => {
+            observer.observe(el);
+        })
+    }
+
+    function watchForLanding(el, container) {
+      console.log('watch for landing');
+      window.addEventListener('scroll', checkBounding );
+    }
+
+    function checkBounding() {
+      if (!sprite.classList.contains('stuck')) {   
+        const target = document.querySelector('.sprite1');
+        const landing = document.querySelector('.landing-pad');
+        
+        const targetBounds = target.getBoundingClientRect();
+        const landingBounds = landing.getBoundingClientRect();
+
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const targetOffset = target.offsetTop + scrollTop;
+        const landingOffset = landing.offsetTop;
+        
+        targetMidPoint = targetBounds.height / 2;
+        landingMidPoint = landingBounds.height / 2;
+
+        const t0 = targetOffset - (targetMidPoint * 2);
+        const l0 = landingOffset + landingMidPoint;
+        //document.querySelector('.sprite1').getBoundingClientRect();
+        //console.log(t0, l0); 
+        // THIS IS THE MAGIC
+        if (t0 > l0) {
+          //console.log('stop:', t0, l0); 
+          sprite.parentElement.classList.add('stuck');
+          sprite.classList.add('stuck'); 
+
+          const lbt = landingBounds.top;
+          const newY = lbt + targetMidPoint;          
+          sprite.style.top = `calc(50% - ${targetMidPoint}px)`;       
+
+          // Update siblings
+          document.querySelector('.sprite2').classList.remove('waiting');
+          document.querySelector('.sprite3').classList.remove('waiting');
+
+          document.querySelector('.landing-pad').classList.add('on-screen');
+        }
+        else {
+          //console.log(t0, l0);
+          // sprite.classList.remove('stuck');
+        }
+      }
+
+    }
+
+    function stopWatching(el, container) {
+      console.log('Stop watching');
+      window.removeEventListener('scroll', checkBounding );
+    }
+
+
+
+</script>
+
+</html>

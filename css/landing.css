@@ -1,0 +1,417 @@
+
+  section.landing {  
+    height: 100vh;
+    position: relative;   
+    display: block;       
+    box-shadow: 0px 4px 6px #444;   
+    z-index: 2;
+    overflow:hidden;    
+
+    /* This is pretty sweet -> https://codepen.io/dev_loop/pen/jOborLv */
+    cursor: url('../img/compass.svg'), pointer;     
+  }
+
+  
+  section .foreground {    
+      position: relative;
+      width: 100%;
+      height: 100%;
+      /* background: rgba(0,0,0,0.1); */
+  
+      /* display: grid;
+      grid-template-columns: 50px 1fr 100px;
+      grid-template-rows: 100px 1fr 100px;
+      grid-template-areas:
+          "ul uc ur"
+          "cl cc cr"
+          "ll lc lr"; */
+  
+      /* transform-origin: 0; */
+      /* transform: translateZ(3px) scale(0.625); */
+  }
+  
+  section .background {       
+      position: absolute;      
+  
+      inline-size: 100%;
+      block-size: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      background: url('../img/hero/lake-mcdonald.jpg'); 
+      /* background: linear-gradient(to top, rgba(0,0,0,0.1), rgba(0,0,0,0.4)), url('../img/hero/lake-mcdonald.webp') no-repeat; */
+      
+      background-size: cover; 
+      background-repeat: no-repeat;
+  
+      /* These need to match the javascript starting values */
+      transform:scale(1.05);  
+      background-position: 50% 50%;
+            
+      transition: opacity 0.5s;   
+      /* animation: animate-background 8s infinite; */
+  }
+  /* section .background::after {
+      content: '';
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      z-index: 10;
+      background: linear-gradient(to right, rgba(0,0,0, 0) 65%, rgba(0,0,0, 0.5));       
+  } */
+
+  @keyframes animate-background {
+    0% { background-position: 50% 50%; }
+    20% { background-position: 51% calc(50% - 2px)}
+    40% { background-position: 51% calc(50% + 3px)}
+    60% { background-position: 50% calc(50% + 2px)}
+    80% { background-position: 51% calc(50% - 1px)}
+    100% { background-position: 50% 50%; }
+  }
+  
+  section .background-0 {
+      background: url('../img/hero/hero-huckleberry-lookout.webp');
+      background-size: cover;
+      background-repeat: no-repeat;
+  }
+  section .background-1 {
+      background: url('../img/hero/hero-great-northern.webp');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+  section .background-2 {
+      background: url('../img/hero/hero-whitefish.webp');
+      background-size: cover;
+      background-repeat: no-repeat;
+  }
+  
+  section .background-3 {
+    background: url('../img/hero/hero-lake-mcdonald.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  section .background-4 {
+    background: url('../img/hero/hero-mt-aeneas.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  .fade-out {
+      opacity: 0;   
+  }
+  .fade-in { 
+      opacity: 1;
+  }
+  
+  @keyframes animate-opacity {
+      0% { opacity: 1; }
+      50% { opacity: 0.3; }
+      100% { opacity: 1; }
+  }
+  
+  /* section .background:hover {
+  
+  } */
+ 
+
+
+.logo {
+    position: absolute;
+    z-index: 0;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    /* display: grid; */
+    /* place-content: center; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.git-page-logo-hack {
+    position: relative;
+    z-index: 10;
+    width:100%;
+    height: 100%;
+    max-width:350px;
+    max-height: 350px;
+    /* content: ""; */
+    /* position: absolute; width: 300%; height: 300%; z-index: 1; */
+    /* top: -58%; */
+    /* left: -112%;     */
+    background: url('../img/logo.webp');  background-repeat: no-repeat; background-size: cover;        
+    background-position-y: 50%;
+    background-position-x: 0%;   
+
+    filter: drop-shadow(4px 4px 4px #444);
+}
+
+.logo img {
+    /* display: none; */
+    display: block;
+    height: 100%;
+    max-height:350px;
+    width: 100%;
+    max-width: 350px;
+
+    filter: drop-shadow(4px 4px 4px #444);
+}
+
+
+
+.nav-menu {
+    /* color: black; */
+    position: relative;
+    z-index: 10;
+    grid-area: uc;
+    position: relative;
+    justify-self: end;    
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    /* border: 1px solid red; */
+}
+
+.nav-menu ul {
+    display: flex;
+    flex-direction: row;    
+    justify-content: space-around;
+
+    /* background-color: rgba(0,0,0,0.05); */
+}
+
+.nav-menu li { 
+    list-style: none;
+    margin: 20px 20px;
+    font-size: 20px;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+.nav-menu li:hover { 
+    color: gold;
+}
+
+.profession {    
+    position: absolute;
+    z-index: 10;    
+    top: 50%;
+    right: -140px;      
+    transform-origin:center;
+    transform:rotate(90deg);
+
+    text-transform: uppercase;    
+    font-size: 14px;
+    letter-spacing: 4px;
+}
+
+.text-with-contrast { 
+    font-weight: 700;
+    text-shadow: -2px -2px 10px #444, 2px 2px 2px #444, 0px 0px 4px #444;
+    text-shadow: 0px 0px 1px #444, 0px 0px 4px #444, 0px 0px 0px #fff;
+    text-shadow: 1px 0px 1px #444, 0px 1px 1px #444;
+    /* text-shadow: 1px 1px 1px #444; */
+}
+
+.nav-carousel { 
+    /* grid-area: cl; */
+    position: absolute;
+    z-index: 10;
+    height: 100%;
+    width: 200px;
+    transition: background-color 1.5s;
+    /* border: 1px solid red; */        
+}
+
+
+.nav-carousel ul {
+    /* padding: 40px 5px; */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;    
+}
+.nav-carousel li { 
+    list-style: none;
+    border: 2px solid white;
+    opacity: 0.5;
+    /* background: rgba(255,255,255, 0.5); */
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    box-shadow: 0 0 2px #444;
+
+    cursor: pointer;
+    /* filter: blur(5px); */
+
+    /* animation: animate-opacity 9s infinite ease-in-out; */
+}
+.nav-carousel li:hover {
+    border-color: var(--color-accent-1);
+    /* border-width: 4px; */
+    box-shadow: 0 0 1px 2px var(--color-accent-1);
+    /* background-color: var(--color-accent-1); */
+    opacity: 1;
+}
+/* .nav-carousel li:nth-child(2) {
+    animation-delay: 600ms;
+}
+.nav-carousel li:nth-child(3) {
+    animation-delay: 1200ms;
+} */
+.nav-carousel li.clicked { 
+    background: rgba(255, 255, 255, 0.6);
+    border-color: rgb(255, 255, 255) !important;
+    animation: 4s pulse-shadow infinite; 
+    opacity: 1;
+}
+.nav-carousel li.line {
+    border-radius: 0;
+    width: 1px;
+    height: 1px;
+    /* background: rgba(255, 255, 255, 0.6); */
+    background: white;
+    border: 0;
+    flex-grow: 2;
+    margin: 8px;
+    box-shadow: none;
+    opacity: 0.2;
+}
+.nav-carousel li:first-child {
+    margin-top: 0px;
+}
+.nav-carousel li:last-child {
+    margin-bottom: 0px;
+}
+/* .nav-carousel li:after {
+    content: ' ';
+    position: absolute;
+    z-index: 100;
+    width: 14px;
+    height: 14px;
+    filter: blur(5px);
+    border: 1px solid red;
+    border-radius: 50%;
+} */
+
+@keyframes pulse-shadow {
+    0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.9);  }    
+    70% { box-shadow: 0 0 0 10px rgba(0,0,0,0); }
+    100% { box-shadow: 0 0 0 0 rgba(0,0,0,0); }    
+}
+
+
+.gradient-line {
+    width: 1px;
+    height: 100%;    
+    position: absolute;
+    top: 0px;
+    left: 100px; 
+    opacity: 0.5;     
+
+    border-left: 1px solid rgba(255, 255, 255, 0.4);
+    animation: animate-opacity 4s infinite ease-in-out;
+    /* background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 40%, rgba(255, 255, 255, 0) 20%);
+    background-position: right;
+    background-size: 1px 1px;
+    background-repeat: repeat-y;  */
+}
+
+/* .nav-carousel::after { */
+.gradient-up {
+    /* content: '';         */
+    width: 1px;
+    height: 100%;    
+    position: absolute;
+    top: 0px;
+    left: 160px;
+    opacity: 0.7;       
+    
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 40%, rgba(255, 255, 255, 0) 20%);
+    background-position: right;
+    background-size: 1px 30px;
+    background-repeat: repeat-y; 
+    /* animation: dashed-border-animation-up 10s infinite linear;      */
+    animation: none;
+}
+.gradient-up.animate {
+    /* animation: dashed-border-animation-up 20s infinite linear;      */
+}
+
+/* .nav-carousel::before { */
+.gradient-down {
+    /* content: '';         */
+    width: 1px;
+    height: 100%;    
+    position: absolute;
+    top: 0px;
+    left: 40px; 
+    opacity: 0.7;      
+    
+    transform: rotate(180deg);
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.8) 40%, rgba(255, 255, 255, 0) 20%);
+    background-position: right;
+    background-size: 1px 30px;
+    background-repeat: repeat-y;     
+    /* animation: dashed-border-animation-down 10s infinite linear;        */
+    animation: none;
+}
+.gradient-down.animate {
+    /* animation: dashed-border-animation-down 22s infinite linear;       */
+}
+
+/* .gradient-border-right {
+    position: absolute;
+    background-image: linear-gradient(to bottom, rgb(255, 255, 255) 40%, rgba(255, 255, 255, 0) 20%);
+    background-position: right;
+    background-size: 1px 30px;
+    background-repeat: repeat-y; 
+    animation: dashed-border-animation-up 10s infinite linear;   
+} */
+@keyframes dashed-border-animation-up {  
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 0.7;
+    }  
+      100% {
+        background-position: right 25px;
+        opacity: 0.5;
+      }
+  }
+
+/* .gradient-border-left {
+    position: absolute;
+    background-image: linear-gradient(to bottom, rgb(255, 255, 255) 40%, rgba(255, 255, 255, 0) 20%);
+    background-position: left;
+    background-size: 1px 30px;
+    background-repeat: repeat-y; 
+    animation: dashed-border-animation-down 10s infinite linear;   
+} */
+@keyframes dashed-border-animation-down {   
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 0.7;
+    }  
+    100% {
+        /* transform: rotate(360deg); */
+        background-position: right 25px;
+        opacity: 0.5;
+      }
+  }
+
+
+
+
+  .version-number {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 100;
+    color: rgba(255,255,255,0.90);     
+    font-size: 16px;  
+  }

@@ -1,0 +1,1 @@
+This project is for testing out front end techniques like parallax, microanimations, carousels, etc.

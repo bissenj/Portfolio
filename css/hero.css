@@ -1,0 +1,528 @@
+
+/* ABOUT */
+section.about {    
+    position: relative;
+    height: 100%;
+    /* min-height: 100vh; */
+    width:100%;
+    display: block;
+    overflow-y: hidden;
+    background-color: white;
+    color: black;
+    /* border-bottom: 20px solid white; */
+
+    /* min-height: 1250px; */
+}
+
+
+/* HIGHLIGHTS */
+section.image-collage {      
+    position: relative;    
+    height: 100%;
+    /* min-height: 150vh; */
+    width:100%;
+    display: block;
+    overflow-y: hidden;
+    background-color: white;
+    color: black;
+    border-bottom: 20px solid white;
+    /* border: 1px solid red; */
+
+    /* min-height: 1250px; */
+}
+
+section.about.foreground-container {
+    
+}
+
+
+/* MODAL FOR TRANSFORMED ELEMENTS SINCE THEY GET THEIR OWN STACKING ORDER */
+.modal-overlay {
+    opacity: 0;
+    display:block;
+    position: fixed;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.5);    
+    transition: opacity 1.5s;
+}
+
+.modal-overlay.show {
+    opacity: 1;    
+}
+.modal-overlay.on-top {
+    z-index: 10;
+}
+
+
+.text-overlay {    
+    position: absolute;
+    width: 100%;
+    height: 40px;
+    top: 0;
+    z-index: 20;
+    border:none;
+    color:white;
+    opacity: 0;
+    /* background: rgba(0,0,0,0.5);   */
+    /* background: linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.6)); */
+
+    padding-left: 20px;
+    /* text-align: right; */
+
+    line-height: 40px;
+    letter-spacing: 1px;
+    /* transform: scale(0.98); */
+    animation: fade-in 1s ease-out;
+    animation-fill-mode: forwards;
+    animation-delay: 2.0s;
+}
+.about-image.transition-out > .text-overlay {
+    animation: fade-out 1000ms ease-out;
+    animation-delay: 0s;
+    animation-fill-mode: forwards;
+}
+.text-overlay .title{ 
+    font-size: 0.9em;   
+    text-shadow: 1px 1px 1px #444;     
+}
+.text-overlay .description{ 
+    font-size: 0.75em;
+}
+
+.close-button{ 
+    opacity: 0;   
+    background: none;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    z-index: 21;    
+    border: none;      
+    color: white;
+    padding: 12px; 
+    transform: rotate(0deg) scale(1.5); 
+    transition: transform 0.5s, opacity 1.5s;  
+}
+.close-button:hover {
+    transform: rotate(360deg) scale(1.55);    
+    cursor: pointer;    
+}
+.close-button:focus {
+    transform: rotate(360deg) scale(1.55);    
+    cursor: pointer;       
+    outline: none;     
+} 
+
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;        
+    }    
+}
+@keyframes fade-out {
+    0% {
+        opacity: 1;        
+    }
+    100% {
+        opacity: 0;
+    }    
+}
+
+/* Animation effects for the Images */
+div.row1 > div.transition-in:before, div.row2 > div.transition-in:before {
+    transform: rotate(0deg);
+    opacity: 1.0; 
+    background-size: 100% 100%;
+    background-position: 0 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;             
+    /* will-change: transform, opacity, top, left, width, height, background-position, background-size; */
+    transition: opacity 2.0s, 
+                transform 2.0s, 
+                top 2.0s, 
+                left 2.0s, 
+                height 2.0s, 
+                width 2.0s,
+                background-position 2.0s,       
+                background-size 2.0s;         
+    /* transition: 2.0s;   */    
+}
+
+.transition-out {
+    background-color: white;
+        
+    animation: undoIt 1s ease-in-out;
+    animation-fill-mode: forwards;
+    /* outline: 9999px solid rgba(0,0,0,0.3);     */
+    /* transition: all 2s, outline 0ms;     */
+
+    transition: 
+        opacity 1.0s, 
+        transform 1.0s ease-in-out, 
+        top 1.0s ease-in-out, 
+        left 1.0s ease-in-out, 
+        height 1s, 
+        width 1s;        
+    /* transition: 1s ease-in-out; */
+}
+@keyframes undoIt {
+    0% {
+        transform: rotate(-30deg);            
+    }    
+    100% {                   
+        transform: rotate(0deg);         
+    }      
+}
+
+
+
+.intro {
+    display: block;
+    letter-spacing: 4px;
+    line-height: 40px;  
+
+    /* Simple Design v1 */
+    margin: 20%;
+    margin-bottom: 0;
+}
+.intro p:nth-child(1) {
+    margin-bottom: 10%;    
+}
+.intro p:nth-child(2) { 
+    font-size: 16px;
+}
+.intro p:nth-child(3) { 
+    text-align: right;
+    margin-top: 10%;
+}
+
+.slant {
+    display:none;
+
+    /* overflow-x: hidden;
+    padding: 5px;
+    position: absolute;
+    right: -32px;    
+    width: 65%;
+    color: white;
+    background-color: black;
+    transform: skew(60deg);  */
+}
+
+.slant div {
+    /* display: flex;
+    justify-content: space-between;
+    transform: skew(-60deg);
+    margin-left: 20px;
+    padding-right: 40px;
+    padding-left: 10px; */
+}
+
+
+/* ----------------------- DIAGONAL IMAGE GRID ------------------------------ */
+
+/* .about { background-color: maroon !important;} */
+
+.diagonal-rects {
+    position:relative; 
+    left: -10px;
+    z-index: 10;
+    
+    width: 150%;                /* This will change via media queries depending on the screen dimensions */
+    /* margin-top: 200px; */
+   
+    background-color:white;  /* cheap way to cover the row gap on inline-block  */
+    transform-origin: 0 0;          
+    transform: rotate(30deg);
+}
+
+
+/* The two image rows */
+div.row1, div.row2 {
+    width: 100%;  
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+/* The elements in the two image rows */
+.row1 > div, .row2 > div {    
+    position: relative;    
+    overflow:hidden;         
+    border: 10px solid white; 
+    
+    transform-origin: 0 0;
+    background-color: white; 
+        
+    transition: 
+        opacity 1.0s, 
+        transform 1.0s ease-in-out, 
+        top 1.0s ease-in-out, 
+        left 1.0s ease-in-out, 
+        height 1s ease-in-out, 
+        width 1s ease-in-out; 
+    /* transition: 1.5s ease-in-out; */
+} 
+.row1 > div {
+    min-height: 340px;
+    max-height: 340px;
+    /* border-top: 20px solid white;      */
+}
+.row2 > div {
+    min-height: 420px;
+    max-height: 420px;
+    border-bottom: 20px solid white;     
+}
+
+/* HOVER STATES */
+.row1 div:hover, .row2 div:hover {         
+    /* cursor:pointer; */
+    /* z-index:11; */
+}
+.about-image:hover {
+    cursor: pointer;
+}
+.about-image.transition-in:hover {
+    cursor: default;
+}
+
+
+/* Customize the size of each image element */
+div.image1 {    
+    width: calc(100% / (8/10));         
+}
+div.image2 {    
+    width: calc(100% / (5/10)); 
+}
+div.image3 {    
+    width: calc(100% / (4/10)); 
+}
+div.image4 { 
+    width: calc(100% / (6/10));     
+}
+div.image5 {     
+    width: calc(100% / (4/10));     
+}
+/* div.image6 { 
+    width: calc(100% / 4);     
+}
+div.image7 {     
+    width: calc(100% / 4);     
+} */
+
+/* ------------------------ ANIMATIONS ------------------------------------ */
+
+/* This kicks off the Transition-In animations */
+.transition-in {
+    border-width: 10px !important;        
+    animation: rotate30 0.5s ease-in-out;      
+    animation-fill-mode: forwards;  
+    /* cursor:pointer !important;      */
+    
+    /* outline: 9999px solid rgba(0,0,0,0.3);     */
+}
+@keyframes rotate30 {
+    0% {   
+        transform: rotate(0deg);        
+    }      
+    /* 75% {
+        transform: rotate(-30deg);                
+    } */
+    100% {        
+        transform: rotate(-30deg);                
+    }    
+}
+
+
+/* ------------------------ IMAGE BEFORES ------------------------------------ */
+
+/* Plus sign over diagonal image element */
+div.row1 > div:after, div.row2 > div:after {  
+    content: '+';
+    content: url(../img/plus-circle.svg);    
+    position: absolute;
+    top: 40%;
+    right: 30px;
+    z-index: 10;
+    color: white;
+    stroke: white;
+    fill:white;
+    transform-origin: 24px 24px;    
+    opacity: 0.5;
+    transition: opacity 0.5s, transform 1s;    
+}
+div.row1 > div:hover::after, div.row2 > div:hover::after { 
+    opacity: 1;
+    transform: rotate(330deg);
+    filter: drop-shadow(0px 0px 1px #777);
+}
+div.row1 > div.transition-in:after, div.row2 > div.transition-in:after { 
+    display:none;
+}
+div.row1 > div.transition-out:after, div.row2 > div.transition-out:after { 
+    display:none;
+}
+/* div.row1 > div.transition-in:hover, div.row2 > div.transition-in:hover { 
+    cursor: pointer;
+} */
+
+/* all diagonal image elements */
+div.row1 > div:before, div.row2 > div:before {  
+    content: "";
+    position: absolute; 
+    z-index: 10;  
+    background-repeat: no-repeat; 
+    transform: rotate(-30deg);   
+    
+    transition: opacity 1.5s, 
+                transform 1.5s, 
+                top 1.5s, 
+                left 1.5s, 
+                height 1.5s, 
+                width 1.5s,
+                background-position 1.5s,
+                background-size 2.0s;  
+    /* transition: 1.5s; */
+    /* transition-delay: 2s;
+    transition-property: background-size; */
+}
+
+/* pseudo element to hold the image in the image elements */
+div.image1::before {         
+    background: url('../img/hero/uphill-ski.webp');
+
+    width: 300%; 
+    height: 300%;
+
+    top: -90%;
+    left: -75%;  
+
+    background-size: 75% 75%;
+
+    background-position-y: -4%;    
+    background-position-x: 24%;   
+}
+div.image2::before {        
+    background: url('../img/hero/lake-mcdonald.webp');    
+
+    width: 300%;
+    height: 300%;
+
+    top: -150%;
+    left: -75%;  
+    
+    background-size: 85% 100%;
+
+    background-position-y: 0%;    
+    background-position-x: -150%;    
+
+}
+div.image3::before {    
+    background: url('../img/hero/bighorns-2.webp'); 
+    
+    width: 300%;
+    height: 300%;
+
+    top: -150%;
+    left: -75%;  
+    
+    /* background-size: 56% 110%;
+    background-position-y: 150%;    
+    background-position-x: 0%;  */
+
+    background-size: 56% 110%;
+    background-position-y: 150%;    
+    background-position-x: 0%; 
+}
+div.image4::before {        
+    background: url('../img/hero/whitefish-sm.webp');  
+
+    width: 300%;
+    height: 300%;
+
+    top: -150%;
+    left: -75%;  
+    
+    background-size: 50% 100%;
+
+    background-position-y: 0%;    
+    background-position-x: 20%;     
+}
+div.image5::before {        
+    background: url('../img/hero/great-northern.webp'); 
+   
+    width: 300%;
+    height: 300%;
+
+    top: -150%;
+    left: -75%;  
+    
+    background-size: 85% 100%;
+
+    background-position-y: 0%;    
+    background-position-x: -55%;
+}
+
+
+.diagonal-filler {
+    position: relative;
+    z-index: 1;
+    bottom: 0px;
+    
+    width: 200%;
+    height: 80vh;
+    
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0), rgba(148, 148, 148,0.5));
+    background: linear-gradient(rgba(228, 228, 228, 0.90), rgba(228, 228, 228, 0.99)), url(../img/projects/topo-map1.jpg);
+    
+    transform-origin: 0 0;  
+    transform: rotate(30deg); 
+}
+
+
+
+
+
+
+
+/*  PROJECTS */
+
+/* section.projects {
+    background-color: rgb(8, 218, 255);
+}
+section:nth-child(4) {
+    background-color: rgb(21, 21, 21);
+}
+section:nth-child(5) {
+    background-color: rgb(220, 239, 170);
+    height: 50vh;
+} */
+
+
+/*  */
+
+/* .logo {    
+    grid-area: cc;
+    margin: auto;    
+    background: url('../img/hero/logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 100%;
+    max-height:400px;
+    width: 100%;
+    max-width: 400px;
+    filter: drop-shadow(4px 4px 4px #444);
+} */
+
+
+/* -------------------------- MEDIA QUERIES -------------------------- */
+/* See media-queries.css */

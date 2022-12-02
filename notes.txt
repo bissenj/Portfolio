@@ -1,0 +1,101 @@
+
+cd C:\Users\Bash Warrior King\Projects\Microanimations
+
+
+Github Pages
+https://github.com/aspenpeakstudios/Microanimations/settings/pages
+
+
+Remote Debugging                  - https://developer.chrome.com/docs/devtools/remote-debugging/
+chrome://inspect#devices
+
+
+Paralaxx:
+https://medium.com/@dailyfire/pure-css-parallax-simple-tricks-da102d0ffdb9
+
+
+// --------------------------------------------------------------
+
+STACKING ORDER
+
+[body]                                    0
+    |
+  [main]                                  2
+      |
+    [modal]                               100
+      |
+    [section *]                           4      
+      |
+    [section imagecollage]                110
+          |
+        [image modal]                     120
+          |
+        [modal-overlay]                   115
+      |  
+    [section projects]
+        |   
+      [projects-collage]                  10
+
+
+
+// --------------------------------------------------------------
+
+Approach an interview like you are going to go snowboarding with a group 
+of people for the first time.  
+
+  Here to have fun and get things done.
+  Confident in your abilities.  
+  An equal.  
+
+Approach the part time aspect like you have to leave at a certain time for 
+other responsibilities.  
+
+  This is how it is.  
+  Make the most of the time we have to get things done.
+  It won't impact the rest of our experience.
+
+
+// --------------------------------------------------------------
+
+
+Goals:
+
+- 1.  Paralaxx Scrolling Basics
+- 2.  Video in Text
+- 3.  Video in Text over background
+- 4.  Cool clipping and masking  [magazine snippet, https://oxygen4fun.supadezign.com/tutorials/masking-images-videos-in-css/]
+- 5.  Text pushing away from images
+6.  Mouse based background image zoom/scaling  [https://www.niarratravel.com/example-itinerary/cape-wine-wildlife-and-waterfalls/]
+7.  Cool background image section transitions
+8.  Locomotive Mouse  [https://www.niarratravel.com/]
+- 9.  Horizontal drag sliders [Zaneray.com, https://miti-navi.com/en/miti-one]
+  9a. Velocity based horizontal dragging and swiping
+10.  Mouse position reveal  [https://www.niarratravel.com/example-itinerary/cape-wine-wildlife-and-waterfalls/]
+11.  Path animation [https://www.niarratravel.com/example-itinerary/cape-wine-wildlife-and-waterfalls/]
+12.  Paralaxx footer [https://www.niarratravel.com/]
+13.  Slide up footer [https://www.goodmeat.co/]
+14.  Svg lines on scroll [https://www.goodmeat.co/process]
+15.  vertical slideshow on scroll [https://www.goodmeat.co/process]
+
+
+
+
+Resources:
+// tutorials
+https://www.youtube.com/watch?v=FJ44qmE5odc&t=4s   // Scrolling Line
+https://www.youtube.com/watch?v=6VjvT5uMm-w&list=PLKVk02SAfunuv6Q07dY06SRH3RMIGH60L&index=5    // Cool sites
+
+
+// Masks
+https://oxygen4fun.supadezign.com/tutorials/masking-images-videos-in-css/
+
+
+// Cool
+https://crustac.fr/en/home/
+
+
+
+
+
+Touch End Issues
+- https://stackoverflow.com/questions/71239600/detect-when-touch-scroll-animation-finishes-within-a-div-there-is-no-scrollan

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">  
+  <title>Career History in 6 questions - NAH</title> 
+  <link rel='stylesheet' href='~/../../../css/global.css' />  
+  <link rel='stylesheet' href='~/../../../css/portfolio-main.css' />  
+  <link rel='stylesheet' href='~/../../../css/career.css' /> 
+  <link rel='stylesheet' href='~/../../../js/components/pageSegments/pageSegments.css' />  
+  <link rel='stylesheet' href='~/../../../css/media-queries.css' />
+
+  <style>
+    .work-page .company-profile {        
+        background-color: skyblue;        
+        background: linear-gradient(rgba(33,124,176,.9),
+                                    rgb(0 93 131 / 90%)), 
+                                    url(../../img/timeline/nah.jpg) no-repeat;        
+        background-size: 100%;
+        background-position: 25%;
+    }
+  </style>
+
+</head>
+
+<body>
+<main>
+
+<!-- Link to Home -->    
+<div class='home-link' title='home' onclick='handleHomeClick()'></div>
+
+<section class='work-page'>
+    <div class='header'>
+        <div class='header-content'>
+            <div class='stats'>
+                <span></span>
+                <span>Northwestern Mutual</span><span>Application Engineer</span><span>2004-2014</span></div>
+            </div>
+    </div> 
+    <div class='company-profile'>Career History in Six Questions Or Less</div>
+    <div class='content'>    
+        <div class='side-bar sticky'></div>
+        <div class='detail-page'></div>
+    </div>
+    <div class='footer'></div>
+    
+    <!-- Need a blank state element or image -->
+    
+</section>
+
+</main>
+</body>
+
+
+<script src="/js/routing.js"></script>
+<script src="/Microanimations/js/routing.js"></script> 
+
+<script src="~/../../../js/components/pageSegments/pageSegments.js"></script>
+<script src="/Microanimations/js/components/pageSegments/pageSegments.js"></script> 
+
+<script>
+    console.log("fire up the javascript");
+    resetBody();
+
+    const career = [
+        {
+            company: 'Niagara Animal Hospital',
+            yearStart: 2014,
+            yearEnd: 2021,
+            title: 'Business Owner',
+            image: 'nah.jpg',
+        }
+    ];
+
+    const navigation = {
+        previous: 'Northwestern Mutual',
+        previousLink: 'nwm',
+        next: 'MJ Electric',
+        nextLink: 'mje'
+    }
+
+    const data = [    
+    {
+            type: 20,
+            summary: 'Summary',
+            question: 'Tell me about this phase of your career',
+            answer: [
+                {
+                    text: 'After 10 years of working at Northwestern Mutual I was ready for new challenges.  My wife is a veterinarian and had always planned on owning her own Animal Hospital so we decided the time was right.',
+                    classes: ''
+                },     
+                {
+                    text: 'The business needed some work and we were motivated and hard working.  Over the course of seven years we turned it from a business that was slowly dying, to a thriving and growing business, which we eventually sold.',
+                    classes: ''
+                },                                               
+            ]
+        },     
+        // {
+        //     type: 20,
+        //     summary: 'Big Transition',
+        //     question: 'You went from corporate employee to business owner, how did that happen?',
+        //     answer: [
+        //         {
+        //             text: 'After 10 years of working at Northwestern Mutual I was ready for new challenges.  My wife is a veterinarian and had always planned on owning her own animal hospital so we decided the time was right and we bought an Animal Hospital near the Upper Peninsula of Michigan.',
+        //             classes: ''
+        //         },                                               
+        //     ]
+        // },   
+        {
+            type: 20,
+            summary: 'Splitting responsibilities',
+            question: 'What were your roles?',
+            answer: [
+                {
+                    text: 'My wife and I split responsibilities organically based on our experience and interests.  She ran the front end of the business as that was her expertise.  I had worked in large organizations and had more experience with HR and Marketing so those areas were a more natural fit for me.',
+                    classes: ''
+                },   
+                {
+                    text: 'Ultimately, I handled the behind the scenes aspects of the business and property.  From the company culture, to marketing, branding and advertising, to analyzing the workload and planning for staffing, designing and maintaining IT infrastructure, paying bills, purchasing new equipment, all the way down to fixing the plumbing and plowing snow.',
+                    classes: ''
+                },                                               
+            ]
+        },  
+        {
+            type: 20,
+            summary: 'Head of Marketing',
+            question: 'You found a way to stay creative...',
+            answer: [
+                {
+                    text: 'Having worked at Northwestern Mutual and seeing how they created very professional internal and external marketing materials, I took over marketing and advertising.  That’s an area I have been interested in for years so was an easy fit.',
+                    classes: ''
+                },   
+                {
+                    text: 'I designed all our internal and external marketing materials like client handouts, staff paperwork,  and newspaper advertisements, to make sure we were delivering a consistent professional message.  I created our social media strategy and content.  Eventually I delegated content creation to younger staff members looking for additional responsibilities and who were much better at social media than I was.',
+                    classes: ''
+                },      
+                {
+                    text: 'Initially our business had no website so I designed, handcoded and maintained our responsive website through a few re-designs.  Clients frequently commented how they liked it and I believe it improved our image and credibility. ',
+                    classes: ''
+                },   
+                {
+                    text: 'To grow our business and team I handled our facebook and google reviews to make sure: A) we were getting reviews, B) to respond appropriately to feedback, and C) to praise and reward our team for doing awesome work.  We had a 4.8 rating after hundreds of reviews when we sold the business.  The community liked us and we are very proud of that.',
+                    classes: ''
+                },                                            
+            ]
+        },  
+        {
+            type: 20,
+            summary: 'Finding IT work',
+            question: 'How were you able to keep your IT skills fresh?',
+            answer: [
+                {
+                    text: 'During this time period I also designed and coded a few responsive websites for local non-profits.  Eventually, when things were going smoothly, I was able to step away during the day and go back to my full time IT career building web apps.',
+                    classes: ''
+                },                                                              
+            ]
+        },  
+        {
+            type: 20,
+            summary: 'New Perspective',
+            question: 'How has your appreciation for being an employee changed?',
+            answer: [
+                {
+                    text: 'There’s a lot more that happens behind the scenes of a business to keep it running than most people realize.  After being a business owner I appreciate as an employee I can go into work and focus on the things I am good at and enjoy.  I also have an understanding of how to be the type of employee I valued as a business owner.',
+                    classes: ''
+                },                                                               
+            ]
+        },  
+                        
+    ];
+
+    const page = document.querySelector('.detail-page');
+    data.map((item, index) => {
+        page.append(renderFactory(item, index));
+    });
+
+    const sideMenu = document.querySelector('.side-bar');
+    if (sideMenu) {
+        sideMenu.append(renderQuickLinks(sideMenu, data));
+    }
+
+    const header = document.querySelector('.header-content .stats');
+    header.innerHTML = renderHeader(career[0]);
+
+    const footer = document.querySelector('.work-page .footer');
+    footer.innerHTML = renderFooter(navigation);
+    
+    function renderHeader(career) {
+        let html = '<span></span>';
+        html += `<span>${career.company}</span>`;
+        html += `<span>${career.title}</span>`;
+        html += `<span>${career.yearStart}-${career.yearEnd}</span>`;
+        return html;
+    };
+
+    function renderFooter(navigation) {
+        let html = ``;
+        html += `<div class='previous' onclick=handleNavClick('${navigation.previousLink}')>${navigation.previous}</div>`;
+        html += `<div class='next'>${navigation.next}</div>`;        
+        return html;
+    }
+
+    function handleNavClick(link) {
+        navigateToPage('nah', `career/${link}`);  
+    }
+    
+    function handleHomeClick() {
+        navigateToPage('nightlight', 'hero.html#work');        
+    }
+
+
+    setTimeout(() => {
+        startObservers();        
+    }, 1000);
+
+    function startObservers() {
+        // ---------------------------------------------------------
+        // Intersection Observer 1 
+        // ---------------------------------------------------------
+
+        // get all the elements we need to watch
+        const targets = document.querySelectorAll('.scroll-target, .slide-left, .slide-right');
+        if (targets.length > 0) {
+            console.log("Targets: ", targets);
+            // what to do with entries that are on screen
+            function handleIntersection(entries) {
+                entries.map((entry) => {
+                    if (entry.isIntersecting) {                    
+                        console.log("On Screen: ", entry);
+                        entry.target.classList.add('visible');                    
+                        
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }
+            // fire up the observer
+            const observer = new IntersectionObserver(handleIntersection);
+            targets.forEach((el) => {
+                observer.observe(el);
+            })
+        }
+
+        // ---------------------------------------------------------
+        // Intersection Observer 2 
+        // ---------------------------------------------------------
+
+        // get all the elements we need to watch
+        const questions = document.querySelectorAll('.text-block-half');
+        if (questions.length > 0) {
+            
+            // what to do with entries that are on screen
+            function setActiveQuestion(entries) {
+                entries.map((entry) => {
+                    if (entry.isIntersecting) {                                            
+                        //entry.target.classList.add('active'); 
+                        const index = entry.target.dataset.index;
+                        const menuItems = document.querySelectorAll('.side-bar li');
+                        menuItems[index].classList.add('active');                                               
+                    }
+                    else {
+                        const index = entry.target.dataset.index;
+                        const menuItems = document.querySelectorAll('.side-bar li');
+                        menuItems[index].classList.remove('active');                                               
+                    }
+                });
+            }
+            // fire up the observer
+            const questionObserver = new IntersectionObserver(setActiveQuestion, { 
+                rootMargin: '0px 0px -30% 0px', threshold: 0.5});
+
+                questions.forEach((el) => {
+                    questionObserver.observe(el);
+            })
+        }
+    }
+
+
+</script>
+
+</html>
+
+
+<!-- DEAD CODE -->
+
+
+   <!-- Full width Image with Text Overlay -->
+    <!-- <div class='segment p40'>
+        <div class='image-full-width grid-center'>
+            <h1 class='text-overlay'>Field Time Entry<h1/>
+        </div>
+    </div> -->
+
+    <!-- Centered Text Block -->
+    <!-- <div class='segment p80 p-top-0'>
+        <div class='text-block-half grid-center'>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>            
+        </div>
+    </div> -->
+
+    <!-- 2-1 Image collage -->
+    <!-- <div class='segment'>
+        <div class='image-collage-2-1'>
+            <div class='one'></div>
+            <div class='two'></div>
+            <div class='three'></div>
+        </div>
+    </div> -->
+
+    <!-- 2-1 Image collage -->
+    <!-- <div class='segment'>
+        <div class='image-grid-2-1'>
+            <div class='grid-left'>            
+                <div class='one'>One</div>
+                <div class='two'>Two</div>
+            </div>            
+            <div class='three'>Three</div>            
+        </div>
+    </div> -->
+
+     <!-- Centered Text Block -->
+     <!-- <div class='segment p80'>
+        <div class='text-block-half grid-center'>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>            
+        </div>
+    </div> -->
+       
+    <!-- Full Width Image -->
+    <!-- <div class='segment'>
+        <div class='image-full-width grid-center'>          
+        </div>
+    </div> -->
+
+     <!-- 2 text columns -->
+     <!-- <div class='segment p80'>
+        <div class='text-block-2'>
+            <div class='text-block-half grid-center'>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>            
+            </div>
+            <div class='text-block-half grid-center'>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>            
+            </div>
+        </div>        
+    </div> -->

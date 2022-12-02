@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">  
+  <link rel="icon" href="/mountain.ico" type="image/bmp">
+  <title>About this site</title> 
+  <link rel='stylesheet' href='css/global.css' />  
+  <link rel='stylesheet' href='css/media-queries.css' />
+  <style>
+    .bc-p-1 { background-color: var(--color-primary-1);}
+    .bc-p-2 { background-color: var(--color-primary-2);}
+    .bc-p-3 { background-color: var(--color-primary-3);}
+    .bc-p-4 { background-color: var(--color-primary-4);}
+    .bc-p-5 { background-color: var(--color-primary-5);}
+    .bc-p-6 { background-color: var(--color-primary-6);}
+    .bc-p-7 { background-color: var(--color-primary-7);}
+    .bc-p-8 { background-color: var(--color-primary-8);}
+    .bc-p-9 { background-color: var(--color-primary-9);}
+
+    .sc-p-1 { background-color: var(--color-secondary-1);}
+    .sc-p-2 { background-color: var(--color-secondary-2);}
+    .sc-p-3 { background-color: var(--color-secondary-3);}
+    .sc-p-4 { background-color: var(--color-secondary-4);}
+    .sc-p-5 { background-color: var(--color-secondary-5);}
+    .sc-p-6 { background-color: var(--color-secondary-6);}
+    .sc-p-7 { background-color: var(--color-secondary-7);}
+    .sc-p-8 { background-color: var(--color-secondary-8);}
+    .sc-p-9 { background-color: var(--color-secondary-9);}
+
+    .s-1 { width: var(--sz-1); }
+    .s-2 { width: var(--sz-2); }
+    .s-3 { width: var(--sz-3); }
+    .s-4 { width: var(--sz-4); }
+    .s-5 { width: var(--sz-5); }
+    .s-6 { width: var(--sz-6); }
+    .s-7 { width: var(--sz-7); }
+    .s-8 { width: var(--sz-8); }
+    .s-9 { width: var(--sz-9); }
+
+    .fs-1 { font-size: var(--fs-1); }
+    .fs-2 { font-size: var(--fs-2); }
+    .fs-3 { font-size: var(--fs-3); }
+    .fs-4 { font-size: var(--fs-4); }
+    .fs-5 { font-size: var(--fs-5); }
+    .fs-6 { font-size: var(--fs-6); }
+    .fs-7 { font-size: var(--fs-7); }
+    .fs-8 { font-size: var(--fs-8); }
+    .fs-9 { font-size: var(--fs-9); }
+
+
+    .primary-colors, .secondary-colors, .spacing {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .ds-c {
+      min-height: 3em;
+      min-width: 6em;
+      color: white;
+      display: grid; place-content: center;
+    }
+    .ds-s {
+      min-height: 1em;
+      /* background-color: var(--color-primary-4); */
+      border: 1px solid var(--color-primary-4);
+    }
+    .ds-fs {
+      margin: 10px;
+      color: var(--bc-p-1);
+    }
+
+  </style>
+</head>
+
+<body>
+<main>
+  <!--  -->
+  <h1>About this site</h1>
+
+  <h2>Art Direction</h2>
+  <p>
+    Carnival ride of photos and interactive components.  Build in some white spaces
+    to give visitors some breathing time (like a rollercoaster).  Take some risks.
+
+    Intended audience is professionals (smart, technical, better than average devices). 
+    Don't worry as much about guiding visitors through the site or supporting old browsers and devices.
+
+    Being tasteful, reserved, or consistent is secondary.  This is meant to show depth and range of skill and style.  
+    I love photos and building interactive components.  Show that.  
+
+    Nail the microanimations on the site.  Focus on timing and composition.    
+  </p>
+
+  <!-- Colors -->
+  <h2>Colors</h2>
+  <div class='primary-colors'></div>
+  <div class='secondary-colors'></div>
+
+  <!-- Spacing -->
+  <h2>Spacing</h2>
+  <div class='spacing'></div>
+
+  <!-- Fonts -->
+  <h2>Fonts</h2>
+
+  <!-- Font Sizes -->
+  <h2>Font Sizes</h2>
+  <div class='font-sizes'></div>
+
+
+</main>
+</body>
+
+<!-- <script src="/js/hSlider.js"></script>
+<script src="/Microanimations/js/hSlider.js"></script> -->
+
+<script>
+  console.log("javascript ready to fire");
+
+  renderPrimaryColors();
+  renderSecondaryColors();
+  renderSpacing();
+  renderFontsizes();
+
+  function renderPrimaryColors() {    
+    console.log("render primary");
+
+    const primary = document.querySelector('.primary-colors');
+    if (primary) {
+      let html = '';
+      for(let i = 1; i < 10; i++) {
+        html += `<div class='ds-c bc-p-${i}'>bc-p-${i}</div>`;
+      }
+      primary.innerHTML = html;
+    }    
+  }
+  function renderSecondaryColors() {    
+    console.log("render secondary");
+
+    const target = document.querySelector('.secondary-colors');
+    if (target) {
+      let html = '';
+      for(let i = 1; i < 10; i++) {
+        html += `<div class='ds-c sc-p-${i}'>sc-p-${i}</div>`;
+      }
+      target.innerHTML = html;
+    }    
+  }
+
+  function renderSpacing() {    
+    console.log("render spacing");
+
+    const target = document.querySelector('.spacing');
+    if (target) {
+      let html = '';
+      for(let i = 1; i < 10; i++) {
+        html += `<div class='ds-s s-${i}'></div>`;
+      }
+      target.innerHTML = html;
+    }    
+  }
+
+  function renderFontsizes() {    
+    console.log("render font sizes");
+
+    const target = document.querySelector('.font-sizes');
+    if (target) {
+      let html = '';
+      for(let i = 1; i < 10; i++) {
+        html += `<div class='ds-fs fs-${i}'>All your base belong to us. fs-${i}</div>`;
+      }
+      target.innerHTML = html;
+    }    
+  }
+
+</script>
+
+</html>

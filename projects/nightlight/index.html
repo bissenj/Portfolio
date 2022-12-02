@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">  
+  <title>Project Case Study - Nightlight</title> 
+  <link rel='stylesheet' href='~/../../../css/global.css' />  
+  <link rel='stylesheet' href='~/../../../css/portfolio-main.css' />  
+  <link rel='stylesheet' href='~/../../../js/components/pageSegments/pageSegments.css' />  
+  <link rel='stylesheet' href='~/../../../css/media-queries.css' />
+</head>
+
+<body>
+<main>
+
+<section class='detail-page'>
+    <!-- Link to Home -->
+    <div class='home-link' title='home' onclick='handleHomeClick()'></div>    
+</section>
+
+</main>
+</body>
+
+<script src="/js/intersectionObserver.js"></script>
+<script src="/Microanimations/js/intersectionObserver.js"></script>
+
+<script src="/js/routing.js"></script>
+<script src="/Microanimations/js/routing.js"></script> 
+
+<script src="~/../../../js/components/pageSegments/pageSegments.js"></script>
+<script src="/Microanimations/js/components/pageSegments/pageSegments.js"></script> 
+
+<script>
+    console.log("fire up the javascript");
+    resetBody();
+    
+
+    const data = [
+        {
+            type: 0,
+            classes: 'box-shadow-2 constrain-width', 
+            image1: 'nightlight/beartooths.jpg', 
+            text1: 'Sharing our experiences',
+            text2: 'React, React Native, Remix, Postgres'
+        }, 
+        {
+            type: 5,            
+            text: [
+                {
+                    text: 'Our family likes to get out in nature and explore.',
+                    classes: 'fs16',
+                },            
+                {text: 'For years we have been sharing our adventures with extended family through photos and video as a way to bring our loved ones along on the adventures when they otherwise can’t be with us. '},            
+            ]            
+        },               
+        {
+            type: 3, 
+            image1: 'nightlight/huckleberry.jpg'
+        },  
+        {
+            type: 5,
+            heading: 'Motivation',
+            text: [
+                {text: 'My parents live 1500 miles away.  They have no idea where many of our photos are taking place and being almost 80, even if they were here, they aren’t going to tag along with us as we posthole through the snow to reach the top of a mountain, snag a few epic pics, eat a PB&J, and then head back down. '},
+                {
+                    text: 'My kids are getting older and are starting to spread their wings.  Sometimes I just want to know roughly where they are and then I don’t have to wonder.  Heck, sometimes I just want my family to know where I am.  If I flip my kayak offshore fishing in November, at least they know where to start looking.',
+                    // image: 'nightlight/kayak.jpg'
+                },
+                {text: 'For years I have been searching for a mobile project that I would actually want to use.  I’ve worked on a few entry level projects in Xamarin and Android Studio but nothing really stuck.'},
+                {text: 'Until recently.'},
+            ]            
+        },   
+        {
+            type: 3, 
+            image1: 'nightlight/craterlake-wizard-island1.webp'
+        }, 
+        // {
+        //     type: 3, 
+        //     image1: 'nightlight/craterlake-fine-dining.jpg'
+        // }, 
+        {
+            type: 5,
+            heading: 'Design Considerations',
+            text: [
+                {text: 'To capture the feeling of exploration I needed a breathtaking photograph to represent the app.  I chose sheer mountains with a thick layer of clouds about halfway up.  I wish I could claim credit for the photograph.  My wife is planning a trip to the Tour Du Monc Blanc in the near future so maybe I’ll get a chance to find its equal.'},            
+            ]            
+        },
+        {
+            type: 3, 
+            classes: 'w85',
+            image1: 'nightlight/adventuremap-login.jpg'
+        },
+        {
+            type: 1,
+            text1: 'The App needed to be lightweight, simple, and fast.  I already have a number of GPS apps for hiking and hunting but they run a bit slow on our mid-level devices.  I just need a screen with a map and some user markers. My kids always want to know our elevation, so overlay that on the map as well.'
+        },  
+        {
+            type: 7, 
+            classes: 'fade-in-sequence',            
+            content: [
+                {
+                    classes: 'image primary',                    
+                    image: 'nightlight/phone-1.png',
+                },
+                {
+                    classes: 'image secondary waiting',                    
+                    image: 'nightlight/phone-2.png',
+                },
+                {
+                    classes: 'image tertiary waiting',                    
+                    image: 'nightlight/phone-3.png',
+                },
+            ],            
+        }, 
+        // {
+        //     type: 1,
+        //     text1: 'The App needed to be lightweight, simple, and fast.  I already have a number of GPS apps for hiking and hunting but they run a bit slow on our mid-level devices.  I just need a screen with a map and some user markers. My kids always want to know our elevation, so overlay that on the map as well.'
+        // },  
+        // {
+        //     type: 6, 
+        //     classes: 'bg0',
+        //     // heading: 'This is new section',
+        //     content: [
+        //         {
+        //             classes: '',
+        //             text: '',
+        //             image: 'nightlight/devices.webp',
+        //         }
+        //     ],            
+        // }, 
+        // {
+        //     type: 3, 
+        //     classes: 'w85',
+        //     image1: 'nightlight/devices.png'
+        // },   
+        {
+            type: 5,
+            heading: 'Architecture',
+            text: [
+                {text: 'For this project I needed a native app installed on our phones which connects to a cloudbased backend API with a postgres database.  Lately I’ve been using Remix.run for React projects.  It makes a great backend for the API and also provides a web front end for our extended family who want to see a map without having to install the native app.  Rather than use an existing authentication service I created my own for the App and Web Frontend using JWT tokens as a refresher in how basic authentication works.  The map data comes from Google Maps and Mapbox.'},            
+            ]            
+        },
+        {
+            type: 0,            
+            image1: 'nightlight/badlands.webp',             
+            text2: 'Annual pilgramage back from the Midwest'
+        },        
+        {
+            type: 5,
+            heading: 'Challenges I expected',
+            text: [
+                {text: 'One of the goals of this project was to learn.  I expect that on every project worth undertaking and particularly in the field of software development.  There was a lot of learning on this project.  The biggest unknown for me was I had never used React Native before.  I was happy to find it  complimented React and Web programming nicely and I couldn’t be happier with the mobile app development experience React Native provided.'},            
+            ]            
+        }, 
+        {
+            type: 5,
+            heading: 'Challenges I didnt expect',
+            classes: 'p-top-0',
+            text: [
+                {text: 'I love maps.  To me they represent opportunity for exploration, hold unknown potential, and are a recipe for excitement.  All of that, wrapped up in a two-dimensional usually well graphically-designed and glossy sheet of paper covering my kitchen table.  They are kind of like wrapped Christmas presents under the tree waiting to be opened.  I figured mapping would be the easy part of this project, and that’s where I went off course.'},            
+                {text: 'I guess I assumed the project would follow this process:  Create an app.  Slap a map on a screen.  Poll for location data.  Store waypoints in database.  Display waypoints on the map.  Deploy to prod and Done.  The big question I didn’t anticipate is when and how often do you poll for location data?  My user base lives in the same house as me which is great for testing, but bad when your users want to know why their phone batteries are dead in the morning.  There’s definitely a balance and compromises to be made with making location data practical.'},            
+                {text: 'On the upside, this was the first software project in my career which caused me to go outside for testing.  Go for a hike (update every 100 yards).  Pick up kids from school (update every 1 mile).   Drive across the country (update every 5 miles).'},            
+            ]            
+        },
+        {
+            type: 3, 
+            image1: 'nightlight/chairlift4.webp'
+        }, 
+        {
+            type: 5,
+            heading: 'Wrapping Up',
+            text: [
+                {text: 'Nightlight has been a fun project so far.  I learned a ton and built a useable system.  Because it’s relatively small it loads faster than our commercial mapping apps.  If we want a quick map or want to know our elevation in the mountains, we flip open Nightlight.  Also extended family appreciates being able track our progress on long summer trips to see where all the family pictures are taking place. '},            
+            ]            
+        }, 
+        {
+            type: 0,            
+            image1: 'nightlight/oregon-fishing.webp',             
+            text2: 'Summer 2022'
+        }, 
+        // {
+        //     type: 3, 
+        //     image1: 'nightlight/oregon-fishing.webp'
+        // }, 
+    ];
+
+
+    const page = document.querySelector('.detail-page');
+    
+
+    data.map((item) => {
+        page.append(renderFactory(item));
+    });
+
+
+    function handleHomeClick() { 
+        navigateToPage('nightlight', 'hero.html#projects');        
+    }
+
+
+    // Slight delay on starting observers
+    setTimeout(() => {
+        startObservers();        
+    }, 1000);
+
+
+    function startObservers() {        
+        // Intersection Observer for slide ins
+        addObserver({
+            selectors: '.scroll-target, .slide-left, .slide-right',
+            fireOnce: true,             
+            whenIntersecting: (entry) => { entry.target.classList.add('visible'); },
+        });
+        
+        // Intersection Observer for 3 phone fade in sequence
+        addObserver({
+            selectors: '.fade-in-sequence',
+            fireOnce: true,             
+            whenIntersecting: (entry) => { 
+                entry.target.classList.add('active');
+                entry.target.querySelector('.secondary').classList.remove('waiting');
+                entry.target.querySelector('.tertiary').classList.remove('waiting');                
+             },
+             threshold: 0.5
+        });
+    }
+
+</script>
+
+</html>

@@ -1,0 +1,455 @@
+
+
+/* -------------------------- MEDIA QUERIES -------------------------- */
+
+
+/* ----------------- HUGE SCREENS ---------------- */
+@media only screen and (min-width: 1351px)  {
+
+    /* Testing Media Query Selection */
+    /* body {   
+        border: 4px solid red;           
+    } */
+
+    /* PAGE SIZING - LANDSCAPE OR PORTRAIT */     
+    @media (orientation: landscape) {        
+        /* .diagonal-filler {        
+            height: 40%;                        
+        } */
+        section.about { 
+            /* height: 130vh; */
+            /* min-height: 1200px; */
+        }
+        .row1 > div {
+            /* min-height: 200px;
+            max-height: 200px; */
+        }
+        .row2 > div {
+            /* min-height: 280px;
+            max-height: 280px; */
+        }
+
+        div.image3::before { 
+            top: -185%;
+        }
+    }
+
+    @media (orientation: portrait) {
+        .diagonal-filler {        
+            height: 60%;
+        }
+
+        section.about {            
+            /* height: 110vh; */
+        }
+    }       
+}
+
+/* ----------------- LARGE SCREENS ---------------- */
+@media only screen and (max-width: 1350px)  {
+
+    /* Testing Media Query Selection */
+    /* body {   
+        border: 4px solid blue;           
+    } */
+    
+    /* section .background {    
+        background-position: 50% 50% !important;
+    } */
+    
+    /* Put your CSS here up to 100px width devices (cover all width between 200px to 767px // */
+    .diagonal-rects { width: 175%;}
+
+    /* div.image1 { 
+        width: calc(100% / (8/10));     
+    }
+    div.image2 {         
+        width: calc(100% / (6/10));     
+    }
+    div.image3 {  
+        width: calc(100% / (5/10));     
+    }
+
+    div.image4 { 
+        width: calc(100% / (6/10));     
+    }
+    div.image5 {     
+        width: calc(100% / (6/10));     
+    } */
+
+    /* SIZE OF ABOUT SECTION */
+    section.about {            
+        /* height: 90vh; */
+    }
+    .diagonal-filler {        
+        height: 60vh;
+    }
+        
+
+    /*  SIZE OF DIAGONAL GRID */
+    .row1 > div {
+        min-height: 300px;        
+    }    
+    .row2 > div {
+        min-height: 380px;        
+    }
+    
+
+    /* PAGE SIZING - LANDSCAPE OR PORTRAIT */     
+    @media (orientation: landscape) {                        
+    }
+
+    @media (orientation: portrait) {
+        /* .diagonal-filler {        
+            height: 40%;
+        } */
+        section.about {            
+            /* height: 60vh;             */
+        }
+        section.image-collage {
+            /* height: 100vh; */
+        }
+    }   
+}
+
+/* ----------------- MEDIUM SCREENS ---------------- */
+@media only screen and (max-width: 1050px)  {
+    /* Testing Media Query Selection */
+    /* body {   
+        border: 4px solid green;           
+    } */
+
+    section.about {
+        /* height: 150vh; */
+    }
+    section.image-collage {
+        /* height: 125vh; */
+    }
+
+
+    .projects-collage {
+        position: relative;        
+        min-height: 200px;
+    }
+    .projects-collage .explore { display: none; }
+    .projects-container {
+        display: block;       
+    }
+    .projects-list { padding: 0;  margin: 20px; }
+    .projects-list.hidden { opacity: 1;}
+    .projects-list.hidden .project-item-container {
+        opacity: 1;
+        transform: none;
+        /* margin-left:20px; */
+    }
+    .projects .section-heading {
+        text-align: left;
+        color: unset;
+        margin-top: 0px;
+        padding: 20px;
+        font-size: 22px;
+    }
+
+
+
+    @media (orientation: portrait) {
+        div.image1::before {    
+            top: -86%;
+            left: -54%;
+            background-size: 90% 59%;
+            background-position-y: 16%;
+            background-position-x: 0%;
+        }
+        div.image2::before {            
+            top: -130%;
+            left: -75%;
+            background-size: 85% 100%;
+            background-position-y: 0%;
+            background-position-x: -150%;
+        }
+        div.image3::before {    
+            top: -150%;
+            left: -75%;
+            background-size: 62% 106%;
+            background-position-y: 15%;
+            background-position-x: -16%;
+        }
+        div.image4::before {    
+            top: -150%;
+            left: -75%;
+            background-size: 60% 100%;
+            background-position-y: 0%;
+            background-position-x: 68%;
+        }
+        div.image5::before {    
+            top: -100%;
+            left: -85%;
+            background-size: 90% 85%;
+            background-position-y: 20%;
+            background-position-x: -71%;
+        }
+    }
+
+
+}
+
+/* ----------------- SMALL SCREENS ---------------- */
+
+@media only screen and (max-width: 768px)  {
+
+    /* Testing Media Query Selection */
+    /* body { border: 4px solid yellow; } */
+
+/* LANDING PAGE */
+
+    /* TODO:  Change to hamburger menu */
+    .nav-menu {
+        display:none;
+    }
+
+    .profession {
+        /* position: relative; */
+        width: 100%;
+        top: 10px;
+        right: 0px;
+        text-align: center;
+        transform: none;
+        font-size: 10px;
+    }
+
+    .logo {
+        top: -100px;
+    }
+
+    .git-page-logo-hack {
+        max-width: 200px;
+        max-height: 200px;
+    }
+
+    .nav-carousel {
+        display: block;
+        width: 100%;
+    }
+    .nav-carousel ul {  
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;  
+        /* transform: rotate(90deg);
+        height: 50%;
+        width: 100%;
+        top: 53%;     */
+    }
+    .nav-carousel li {
+        animation: none;    
+    }
+
+    .gradient-line {
+        display:none;
+        /* left: 32px; */
+    }
+
+    .gradient-down {
+        display:none;
+        /* left: 10px; */
+    }
+
+    .gradient-up {
+        display:none;
+        /* left: 54px; */
+    }
+
+    section .background::after {
+        display: none;
+    }
+
+    div.foreground-container {
+        display: grid;
+        grid-template-rows: 40px 1fr 25%; 
+        grid-auto-columns: 1fr;
+        place-content: center;       
+        /* display: flex; */
+        /* flex-direction: column; */
+        /* justify-content: space-between; */
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    div.carousel-navigation-container {
+        position: relative;
+        place-self: top;
+        /* border: 1px solid red; */
+        width: 100%;
+        height: 100%;
+
+        grid-row-start: 3;
+        place-content: center;
+    }
+
+    .nav-carousel ul {
+        padding: 0;
+        /* align-items:flex-start; */
+    }
+
+    div.logo {
+        grid-row-start: 2;
+        position: relative;
+        top: 0;
+        left: 0;
+        /* border: 1px solid red; */
+
+        width: 100%;
+        height: 100%;
+    }
+
+    div.profession {
+        grid-row-start: 1;
+        place-self: center;       
+        position: relative;
+        top: 0;
+        left: 0;
+        right: 0;
+        /* border: 1px solid red; */
+        /* min-height: 100px; */
+    }
+
+/* ABOUT PAGE */
+    
+    .diagonal-rects { width: 200%;}
+
+    div.image1 { 
+        width: calc(100% / (8/10));     
+    }
+    div.image2 {         
+        width: calc(100% / (4/10));     
+    }
+    div.image3 {  
+        display: none;           
+    }
+
+    div.image4 { 
+        width: calc(100% / (5/10));     
+    }
+    div.image5 {     
+        width: calc(100% / (5/10));     
+    }
+
+    /* ADJUST IMAGE POSITIONS */
+    div.image2::before {    
+        top: -230%;
+        left: -75%;
+    }
+
+    .intro { 
+        margin: 15%;
+        letter-spacing: 0px;
+        word-spacing: 3px;
+        line-height: 32px;    
+    }
+
+    .diagonal-rects { 
+        /* margin-top: 160px; */
+    }
+
+    div.row1 > div:after, div.row2 > div:after {  
+        display: none;
+    }
+
+    /* section.about {
+        height: 125vh;
+    } */
+
+    div.image1::before {    
+        top: -100%;
+        left: -22%;
+        background-size: 89% 77%;
+        background-position: -67% 3%;
+    }
+    div.image2::before {    
+        top: -116%;        
+        width: 250%;
+        background-size: 89% 100%;
+        background-position-y: 0%;
+        background-position-x: -125%;
+    }
+
+
+    /* PAGE SIZING - LANDSCAPE OR PORTRAIT */     
+    @media (orientation: landscape) {  
+        .diagonal-filler {
+            height: 130vh;
+        }      
+    }
+
+    @media (orientation: portrait) {
+
+        /* section.about {
+            height: 100vh;
+        } */
+
+        div.image1::before {    
+            top: -118%;
+            left: -36%;
+            background-size: 90% 72%;
+            background-position-y: 24%;
+            background-position-x: -53%;
+        }
+        div.image4::before {    
+            top: -150%;
+            left: -75%;
+            background-size: 60% 100%;
+            background-position-y: 0%;
+            background-position-x: 68%;
+        }
+        div.image5::before {    
+            top: -100%;
+            left: -85%;
+            background-size: 90% 85%;
+            background-position-y: 20%;
+            background-position-x: -71%;
+        }
+    }    
+}
+
+
+
+/* ----------------- TINY SCREENS ---------------- */
+
+@media only screen and (max-width: 600px)  {
+
+    /* Testing Media Query Selection */
+    /* body { border: 4px solid purple; } */
+   
+
+    .diagonal-rects { 
+        width: 255%;
+    }
+
+    .diagonal-filler {
+        height: 40vh;
+    }
+
+    /* section.about {
+        height: 120vh;            
+    } */
+    /* section.image-collage {
+        height: 225vh;
+        min-height: unset;
+    } */
+
+    @media (orientation: portrait) {
+         /* Testing Media Query Selection */
+        /* body { border: 4px solid red; } */
+
+        /* section.about {
+            height: 100vh;            
+        } */
+        section.image-collage {
+            /* height: 200vh; */
+        }
+
+        /* .diagonal-filler {
+            height: 130vh;
+        } */
+    }
+}

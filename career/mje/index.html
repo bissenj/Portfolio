@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">  
+  <title>Career History in 6 questions - MJE</title> 
+  <link rel='stylesheet' href='~/../../../css/global.css' />  
+  <link rel='stylesheet' href='~/../../../css/portfolio-main.css' />  
+  <link rel='stylesheet' href='~/../../../css/career.css' /> 
+  <link rel='stylesheet' href='~/../../../js/components/pageSegments/pageSegments.css' />  
+  <link rel='stylesheet' href='~/../../../css/media-queries.css' />
+
+  <style>
+    .work-page .company-profile {        
+        background-color: skyblue;        
+        background: linear-gradient(rgba(33,124,176,.9),
+                                    rgb(0 93 131 / 90%)), 
+                                    url(../../img/timeline/mje2.jpg) no-repeat;        
+        background-size: 100%;
+        background-position: 25%;
+    }
+  </style>
+</head>
+
+<body>
+<main>
+
+<!-- Link to Home -->    
+<div class='home-link' title='home' onclick='handleHomeClick()'></div>
+
+<section class='work-page'>
+    <div class='header'>
+        <div class='header-content'>
+            <div class='stats'>
+                <span></span>
+                <span>Northwestern Mutual</span><span>Application Engineer</span><span>2004-2014</span></div>
+            </div>
+    </div> 
+    <div class='company-profile'>Career History in Six Questions Or Less</div>
+    <div class='content'>    
+        <div class='side-bar sticky'></div>
+        <div class='detail-page'></div>
+    </div>
+    
+    <!-- Need a blank state element or image -->
+    
+</section>
+
+</main>
+</body>
+
+
+<script src="/js/routing.js"></script>
+<script src="/Microanimations/js/routing.js"></script> 
+
+<script src="~/../../../js/components/pageSegments/pageSegments.js"></script>
+<script src="/Microanimations/js/components/pageSegments/pageSegments.js"></script> 
+
+<script>
+    console.log("fire up the javascript");
+    resetBody();
+
+
+    // Update the URL
+    //history.pushState({}, "", "../projects/nightlight");
+    //var hash = window.location.hash.substr(1);
+    //console.log("Hash: ", hash);
+
+    const career = [
+        {
+            company: 'M. J. Electric',
+            yearStart: 2018,
+            yearEnd: 2021,
+            title: 'Senior Web Developer',
+            image: '',
+        }
+    ]
+
+    const data = [         
+        {
+            type: 20,
+            summary: 'Working at MJE',
+            question: 'Tell me about working at M.J. Electric.',
+            answer: [
+                {
+                    text: 'M. J. Electric (MJE) is a large national electrical contractor headquartered in Iron Mountain MI.  They have a small IT department who builds a ton of custom in-house highly integrated software and I think thats one of their secrets to success.',
+                    classes: ''
+                }, 
+                {
+                    text: 'I worked on the Web Development team developing in-house apps in Asp.Net and Javascript.  When I was hired, the team was skilled at working with data, but was missing someone with UI/UX experience and that quickly became my niche.',
+                    classes: ''
+                },                                
+            ]
+        },
+        {
+            type: 20,
+            summary: 'So...multiple jobs?',
+            question: 'If you owned a business at the time, why did you go out and get a full time job?',
+            answer: [
+                {
+                    text: 'Yeah so taking a step back for a moment.  I worked for MJE full time while we also owned our small business.  It resulted in me working some crazy hours between the two companies, but it was something I felt I needed to do at the time.',
+                    classes: ''
+                }, 
+                {
+                    text: 'When my wife and I decided to buy a business outside of my field, the thought was that at some point I would return to my career.  After a several years of learning how to run the business, fixing all the things that were broken, and finally delegating tasks like OSHA and social media I was ready to step away during the day.  I really lucked out in that MJE was in town and hiring.  It was a great workplace and my boss liked and trusted me enough that in the rare occasions when I needed to run out to deal with something at the business, I could leave. ',
+                    classes: ''
+                },                
+                {
+                    text: 'People say that to grow you need to step outside of your comfort zone.  Owning a business was definitely outside of my comfort zone at times.  For that reason, it was a breath of fresh air to go back to work in a job I am trained to do, am good at and enjoy, and at a company where somebody else was going to fix the plumbing when it leaked.',
+                    classes: ''
+                },
+            ]
+        },
+        {
+            type: 20,
+            summary: 'You in small teams',
+            question: 'How do you work on a small team?',
+            answer: [
+                {
+                    text: 'Small teams are great.  I have had my most enjoyable and successful project experiences working in small teams of 3-4 individuals.  On a small team you have a chance to connect with one another on a personal level and have the right amount of autonomy to get things done efficiently.',
+                    classes: ''
+                },   
+                {
+                    text: 'There were a few times when I had the opportunity to help team members outside of the web dev team.  For example I was able to write up a quick C# program to move some images and update database records for a co-worker who was otherwise going to spend the rest of the day laboring on a monotonous task.  When a roll-out had issues and the help desk folks were going to spend their evening making calls to resolve issues, myself and a few others volunteered to jump on the phones to help them out. ',
+                    classes: ''
+                }, 
+                {
+                    text: 'Overall I think of team as including anyone who shares a common goal and nothing builds up a team faster than stepping up and helping each other out.',
+                    classes: ''
+                },                          
+            ]
+        },
+        {
+            type: 20,
+            summary: 'Building Software',
+            question: 'What is your approach to building software?',
+            answer: [
+                {
+                    text: 'I think one of the most important aspects of building a software product is to put yourself in the shoes of the user.  What are they trying to accomplish?  What tasks are tedious or take up the most time (usually they will tell you that right away).  Is there are better way to do this?  Once you understand as much as you can about their workflow and goals, then go back to thinking like a software developer and think about what solutions are available to solve their pain points.',
+                    classes: ''
+                },               
+                {
+                    text: 'Manual testing is a great way to prevent user frustrations before the users have a chance to even use the software.  When I’m testing I think about what I like and don’t like about the product.  Is it too slow?  Is it confusing?  Early on there are usually lots of errors encountered and this is a great time to build out how errors in production will work.  How should a user get notified?  What happens when an error occurs…when does the user get notified?  Can they proceed and come back to fix it later?  Basically during testing I’m walking through the product and paying attention to what feels right, and what feels clunky and needs re-working.  Generally I think, am I building the quality of software I would want to use?',
+                    classes: ''
+                },
+                {
+                    text: 'On the front-end I think its especially important to think like a user.  Part of the fun in building software is creatively blending the IT domain with the business domain.  For example, in a previous project mentioned on this site, Field Time Entry, the requirements were to create a timesheet, in the IT world this is basically a table with some numeric values to add up.  Not too different from an excel spreadsheet.  For the user however, this was entering Project Management data, and Payroll data for the current and previous week.  Generally this needed to be accomplished by a specific deadline, and there were a myriad of other taks that needed to be accomplished at the same time.  The users were on a jobsite with life threatening hazards (extreme voltage,   heavy equipment, lots of people to supervise) so the software needed to be as easy as possible to understanding and navigate.  By thinking like a user, rather than copy the prior version of the software which only showed users a single day view,  I created a home screen for the product which showed the prior and current weeks and clearly laid out what hours were entered and submitted for each day of the week, and what work was left to be done.  This was something helpful the users did not have visibility to before and overall it led to the product being well recieved.  Hopefully it even improved the quality of the users work since they did not have to wrestle with their timekeeping software, as much.',
+                    classes: ''
+                },   
+            ]
+        },
+        {
+            type: 20,
+            summary: 'Accomplishments',
+            question: 'What contributions are you most proud of at MJE?',
+            answer: [
+                {
+                    text: 'By joining the company the lasting impacts I left were a consistent design template for all web apps, and a logging and error handling framework.',
+                    classes: ''
+                },                
+                {
+                    text: 'The design template for web apps was something I created and evolved over the course of my 3 years.  When I started there was no uniform application structure or styling.  Each web app had a different style and level of polish and some were confusing to use.  There was also a lack of branding on the apps.  Creating a standard design template for our web apps not only improved the look the apps but also allowed us to add in features like a consistent help messages (who do i call and what is the number?), a version history and release notes screen (these are the new features and bug fixes that you asked for), and internal branding (like an employee uniform, but on software).',
+                    classes: ''
+                },
+                {
+                    text: 'The logging and error handling framework was something I envisioned and persuaded our team to build.  Waiting for users to call in tickets to the help desk and then responding reactively is not an ideal approach to software quality or our relationship with our users.  It’s unlikely that all software bugs would get reported, and usually our business users could be spending their time better than calling in issues with our software.  Idealy we as software developers and supporters should know when our users are having issues with our software and a logging and error handling framework helps with that.  It also was beneficial during the development phase of projects to quickly point out and track down bugs while the software was being written.',
+                    classes: ''
+                },
+                {
+                    text: 'Had I not joined the company these things would not have been created and adopted.',
+                    classes: ''
+                },
+            ]
+        },
+                        
+    ];
+
+    const page = document.querySelector('.detail-page');
+    data.map((item, index) => {
+        page.append(renderFactory(item, index));
+    });
+
+    const sideMenu = document.querySelector('.side-bar');
+    if (sideMenu) {
+        sideMenu.append(renderQuickLinks(sideMenu, data));
+    }
+
+    const header = document.querySelector('.header-content .stats');
+    header.innerHTML = renderHeader(career[0]);
+    
+    function renderHeader(career) {
+        let html = '<span></span>';
+        html += `<span>${career.company}</span>`;
+        html += `<span>${career.title}</span>`;
+        html += `<span>${career.yearStart}-${career.yearEnd}</span>`;
+        return html;
+    };
+
+    
+    function handleHomeClick() {
+        navigateToPage('nightlight', 'hero.html#work');        
+    }
+
+
+    setTimeout(() => {
+        startObservers();        
+    }, 1000);
+
+    function startObservers() {
+        // ---------------------------------------------------------
+        // Intersection Observer 1 
+        // ---------------------------------------------------------
+
+        // get all the elements we need to watch
+        const targets = document.querySelectorAll('.scroll-target, .slide-left, .slide-right');
+        if (targets.length > 0) {
+            console.log("Targets: ", targets);
+            // what to do with entries that are on screen
+            function handleIntersection(entries) {
+                entries.map((entry) => {
+                    if (entry.isIntersecting) {                    
+                        console.log("On Screen: ", entry);
+                        entry.target.classList.add('visible');                    
+                        
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }
+            // fire up the observer
+            const observer = new IntersectionObserver(handleIntersection);
+            targets.forEach((el) => {
+                observer.observe(el);
+            })
+        }
+
+        // ---------------------------------------------------------
+        // Intersection Observer 2 
+        // ---------------------------------------------------------
+
+        // get all the elements we need to watch
+        const questions = document.querySelectorAll('.question');
+        if (questions.length > 0) {
+            
+            // what to do with entries that are on screen
+            function setActiveQuestion(entries) {
+                entries.map((entry) => {
+                    if (entry.isIntersecting) {                                            
+                        //entry.target.classList.add('active'); 
+                        const index = entry.target.dataset.index;
+                        const menuItems = document.querySelectorAll('.side-bar li');
+                        menuItems[index].classList.add('active');                                               
+                    }
+                    else {
+                        const index = entry.target.dataset.index;
+                        const menuItems = document.querySelectorAll('.side-bar li');
+                        menuItems[index].classList.remove('active');                                               
+                    }
+                });
+            }
+            // fire up the observer
+            const questionObserver = new IntersectionObserver(setActiveQuestion, { 
+                rootMargin: '0px 0px -40% 0px', threshold: 0.0});
+
+                questions.forEach((el) => {
+                    questionObserver.observe(el);
+            })
+        }
+    }
+
+
+</script>
+
+</html>
+
+
+<!-- DEAD CODE -->
+
+
+   <!-- Full width Image with Text Overlay -->
+    <!-- <div class='segment p40'>
+        <div class='image-full-width grid-center'>
+            <h1 class='text-overlay'>Field Time Entry<h1/>
+        </div>
+    </div> -->
+
+    <!-- Centered Text Block -->
+    <!-- <div class='segment p80 p-top-0'>
+        <div class='text-block-half grid-center'>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>            
+        </div>
+    </div> -->
+
+    <!-- 2-1 Image collage -->
+    <!-- <div class='segment'>
+        <div class='image-collage-2-1'>
+            <div class='one'></div>
+            <div class='two'></div>
+            <div class='three'></div>
+        </div>
+    </div> -->
+
+    <!-- 2-1 Image collage -->
+    <!-- <div class='segment'>
+        <div class='image-grid-2-1'>
+            <div class='grid-left'>            
+                <div class='one'>One</div>
+                <div class='two'>Two</div>
+            </div>            
+            <div class='three'>Three</div>            
+        </div>
+    </div> -->
+
+     <!-- Centered Text Block -->
+     <!-- <div class='segment p80'>
+        <div class='text-block-half grid-center'>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>            
+        </div>
+    </div> -->
+       
+    <!-- Full Width Image -->
+    <!-- <div class='segment'>
+        <div class='image-full-width grid-center'>          
+        </div>
+    </div> -->
+
+     <!-- 2 text columns -->
+     <!-- <div class='segment p80'>
+        <div class='text-block-2'>
+            <div class='text-block-half grid-center'>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>            
+            </div>
+            <div class='text-block-half grid-center'>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>            
+            </div>
+        </div>        
+    </div> -->

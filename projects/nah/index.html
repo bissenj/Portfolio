@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">  
+  <title>Project Case Study - NAH Website</title> 
+  <link rel='stylesheet' href='~/../../../css/global.css' />  
+  <link rel='stylesheet' href='~/../../../css/portfolio-main.css' />  
+  <link rel='stylesheet' href='~/../../../js/components/pageSegments/pageSegments.css' />  
+  <link rel='stylesheet' href='~/../../../css/media-queries.css' />
+  <style>
+    .color-spans > span {
+        transition: background-color 0.5s, color 0.5s;
+    }
+    .color-spans.active > span:nth-of-type(1) {
+        padding: 0px 5px;
+        background-color: orange;
+        color: black;
+        font-size: 1.2em;        
+    }
+    .color-spans.active > span:nth-of-type(2) {
+        padding: 0 5px;
+        background-color: rgb(3, 147, 166);
+        color: black;
+        font-size: 1.3em;
+        transition-delay: 250ms;
+    }
+    .color-spans.active > span:nth-of-type(3) {
+        padding: 0 5px;
+        background-color: firebrick;
+        color: white;
+        font-size: 1.1em;
+        transition-delay: 500ms;
+    }
+
+    .header-content {
+        position: fixed;
+        z-index: 100;
+        width: 100%;
+        height: 2em;    
+        background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.0));        
+        transition: opacity 0.5s, background-color 0.5s;
+    }
+    .header-content.active {        
+        background: unset;
+        background-color: rgba(255,255,255,0.5);     
+        opacity: 0;
+    }
+    .header-content:hover {   
+        background-color: rgba(255,255,255,0.5);     
+        opacity: 1;
+    }
+
+    .header-content .stats {
+        display: flex; 
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        
+        height:100%;
+        
+        padding-left: 3em;
+        padding-right:1em;
+        
+        color: white;
+        text-transform: uppercase;
+        font-size: 0.8em;
+        letter-spacing: 4px;
+        transition: color 1s;      
+    }
+
+    .header-content.active .stats{
+        color: black;
+        transition-delay: 0.5s; 
+    }
+
+  </style>
+</head>
+
+<body>
+<main>
+
+<section class='detail-page'>
+
+    <!-- Link to Home -->    
+    <div class='header'>
+        <div class='home-link' title='home' onclick='handleHomeClick()'></div>
+        <div class='header-content'>            
+            <div class='stats slide-left'>           
+        </div>
+    </div> 
+   
+</section>
+
+</main>
+</body>
+
+<script src="/js/intersectionObserver.js"></script>
+<script src="/Microanimations/js/intersectionObserver.js"></script>
+
+<script src="/js/routing.js"></script>
+<script src="/Microanimations/js/routing.js"></script> 
+
+<script src="~/../../../js/components/pageSegments/pageSegments.js"></script>
+<script src="/Microanimations/js/components/pageSegments/pageSegments.js"></script> 
+
+<script>
+    console.log("fire up the javascript");
+    resetBody();
+
+
+    const data = [
+        {
+            type: 0,
+            name: 'Case Study: NAH Website', 
+            tech: 'HTML, CSS, JS',         
+            classes: 'header-image box-shadow-2 constrain-width', 
+            image1: 'nah/cool-cat.jpg', 
+            text1: 'Working with purpose',
+            // text2: 'HTML, CSS, JS'
+        }, 
+        {
+            type: 5,            
+            text: [
+                {
+                    text: 'My wife and I bought a business in 2013.',
+                    classes: 'fs16',
+                },            
+                {
+                    text: 'It was an exciting time.  We were on a new adventure building our dreams.  However as newcomers in town it was a common occurrence to meet people and have conversations go like this: '
+                },  
+                {
+                    text: '"Oh you’re the folks who bought the Animal Hospital?  I used to go there until…"',
+                    classes: 'p40 bg2 c1 box-shadow-2'
+                },   
+                {
+                    text: 'That became an awkward pattern. '
+                },  
+                {
+                    text: 'We knew we had a lot of work ahead of us.  The building was showing its age, what little equipment was there was ancient, and there was the reputation to turn around.  This was around the time the show ‘Fixer Upper’ first aired and that’s exactly what we did to the business. '
+                },                  
+            ]            
+        },                       
+        {
+            type: 5,
+            heading: 'When overwhelmed, focus on what you <u>CAN</u> do',
+            classes: 'p-top-0',
+            text: [
+                {
+                    text: 'One aspect of improving our image and capturing people’s attention was we needed a strong online presence.  This was in my wheel house and provided something comfortable to focus on when everything else in the business was out of my comfort zone.  Responsive design had become the standard in recent years so I knew that’s where I had to start.  My whole corporate career was building websites for a single form factor:  Windows desktops running IE 6.  So I studied up on how I could make a website run on a variety of devices and got to work.'
+                },                               
+            ]            
+        },                 
+        {
+            type: 5,
+            classes: 'bg0 c1',
+            heading: 'Staying Authentic',
+            text: [
+                {
+                    text: 'I was pretty serious about being authentic in our marketing.  This was our family business and to maintain authenticity I was against using stock photography.  To come up with content, I tapped into our collection of family pictures and took some photos at the animal hospital.'
+                }, 
+            ]            
+        },              
+        {
+            type: 3, 
+            classes: 'bg0 p-top-0 p-left-100',
+            image1: 'nah/aspen.jpg', 
+            imageClasses: 'w55 m0'            
+        },
+        {
+            type: 3, 
+            classes: 'bg0 p-top-40 p-right-100',
+            image1: 'nah/quality-care.jpg', 
+            imageClasses: 'w50 m1'            
+        },
+        {
+            type: 5,
+            classes: 'bg0 c1',            
+            text: [
+                {
+                    text: 'After a number of years I backed off and used stock photography where it made sense.'
+                }, 
+            ]            
+        },          
+        {
+            type: 5,
+            heading: 'Changing perceptions',
+            classes: 'p-bottom-20',
+            text: [
+                {
+                    text: 'I think there are two ways of running a business.  You can run a business primarily to make money (put money first) or you can run a business to follow your purpose (put service and quality first).  We chose the latter and success followed.',
+                    classes: 'q1',
+                },                                                                                                      
+            ]            
+        },  
+        {
+            type: 5,  
+            classes: 'p-top-0 no-color',          
+            text: [                          
+                {
+                    text: 'When we moved from the city to the remote area where the business was located, we brought along some high tech equipment that no other clinics in the area had.  Things like a surgical laser which could deliver a higher quality surgical experience than traditional scalpels.  If you had to have surgery would you want less pain, bleeding, and risk of infection?  Me too.  My wife was adamant about the types of surgery she would do and how it was going to be done.  We used our website to communicate our equipment and process.  This helped the public perception of our business go from out-of-date to modern and caring.'
+                },    
+                {
+                    text: 'Social media posts don’t stay current for long so on our website I added a topic section to highlight things we wanted our audience to be aware of for longer durations.   At times it was facebook articles, community events, or images showing the care we provided to patients.'
+                },            
+                {
+                    text: 'I also coded an instagram photo wall which was used to show behind the scenes aspects of the hospital, from patients dressed up for Halloween, to patients coming in on their birthday, to staff snuggling with patients.  They say a picture is worth a thousand words.  I can tell you for fact that a cute picture is worth at least a 100 likes.'
+                },                                                 
+            ]            
+        },    
+
+        {
+            type: 11,  
+            classes: 'p80 bg0 c1',             
+            text: 'Our website was the main marketing platform we leveraged to turn our reputation around by <span> highlighting our strengths</span>, <span> showing the extent that we cared about our patients</span>, <span class="active">and showing off our progress visually transforming the building </span>. ',            
+            textClasses: 'p-right-20 color-spans slide-left',
+            image: 'nah/nah-website.png',            
+        }, 
+
+        {
+            type: 5,
+            heading: 'End of an adventure',
+            classes: 'scroll-target no-color',
+            text: [
+                {
+                    text: 'Looking back it was a lot of work but we were probably the right people for the job of building up the business. '
+                }, 
+                {
+                    text: 'My wife is a superstar.  Extremely put together, great with people, and calm in tough situations.  For my part, learning how to run the business and improve our image was exciting.  Having a history of working in highly professional environments gave me a road map to follow.'
+                }, 
+                {
+                    text: 'We worked hard. '
+                },
+                {
+                    text: 'Over time those people who had left came back and brought friends.  Eventually we had more work than one Veterinarian could keep up with and we were fortunate to sell the business to a pair of Veterinarians ready for their own adventures.'
+                }, 
+            ]            
+        },             
+        {
+            type: 3,            
+            classes: 'w50 p-top-0',
+            image1: 'nah/kitten.jpg',                             
+        },         
+    ];
+
+    const page = document.querySelector('.detail-page');
+    
+
+    data.map((item) => {
+        page.append(renderFactory(item));
+    });
+
+
+    const project = { name: data[0].name, tech: data[0].tech };
+    const header = document.querySelector('.header-content .stats');
+    header.innerHTML = renderHeader(project);
+    
+
+    function renderHeader(project) {
+        let html = '';                
+        html += `<span>${project.name}</span>`;
+        html += '<span>&nbsp;</span>';
+        html += '<span></span>';
+        html += `<span>${project.tech}</span>`;        
+        return html;
+    };
+
+
+    function handleHomeClick() {        
+        navigateToPage('nightlight', 'hero.html#projects');       
+    }
+
+
+    setTimeout(() => {
+        startObservers();        
+    }, 1000);
+
+
+    function startObservers() {
+        
+        // Intersection Observer for slide-ins
+        addObserver({
+            selectors: '.scroll-target, .slide-left, .slide-right',
+            fireOnce: true,             
+            whenIntersecting: (entry) => { entry.target.classList.add('visible'); },
+        });
+
+        // Intersection Observer to trigger the color text by long image
+        addObserver({
+            selectors: '.no-color',             
+            whenIntersecting: (entry) => { document.querySelector('.color-spans').classList.remove('active'); },
+            whenNotIntersecting: (entry) => { document.querySelector('.color-spans').classList.add('active'); },
+            rootMargin: '0%',
+            threshold: 0.5
+        });
+            
+        // Intersection Observer for header bar
+        addObserver({
+            selectors: '.header-image',             
+            whenIntersecting: (entry) => { document.querySelector('.header-content').classList.remove('active');  },
+            whenNotIntersecting: (entry) => { document.querySelector('.header-content').classList.add('active'); },
+            rootMargin: '0%',
+            threshold: 0.0
+        });
+
+    } // End of StartObservers()
+
+
+</script>
+
+</html>
+

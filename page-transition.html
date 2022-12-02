@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">  
+  <title>Page Template</title> 
+  <link rel='stylesheet' href='css/global.css' />  
+  <link rel='stylesheet' href='css/portfolio-main.css' />  
+  <link rel='stylesheet' href='css/page-transition.css' />  
+  <link rel='stylesheet' href='css/media-queries.css' />
+</head>
+
+<!-- 
+    What we are trying to accomplish:
+
+    On page transition -> 
+      Option 1:
+          - split all sections, elevate non-current sections and zoom towards user
+          - fade out current section to reveal new page/section.
+ -->
+
+<body>
+<main>
+
+    <div class='viewport-wrapper' onclick='handleZoomOut()'>
+        <div class='viewport'></div>
+    </div>
+
+    <div class='transition-wrapper'>        
+
+        <section class='section center'>
+            This is section 1
+            <button class='zoom-out' onclick='handleZoomOut()'>Zoom Out</button>
+        </section>
+
+        <section class='section center'>
+            This is section 2
+            <button class='zoom-out' onclick='handleZoomOut()'>Zoom Out</button>
+        </section>
+
+        <section class='section center'>
+            This is section 3
+            <button class='zoom-out' onclick='handleZoomOut()'>Zoom Out</button>
+        </section>
+
+        <section class='section center'>
+            This is section 4
+            <button class='zoom-out' onclick=handleZoomOut>Zoom Out</button>
+        </section>        
+
+        
+    </div>        
+
+    
+
+</main>
+</body>
+
+<!-- <script src="/js/hSlider.js"></script>
+<script src="/Microanimations/js/hSlider.js"></script> -->
+
+<script>
+    function handleZoomOut(e) {
+        e = e || window.event;
+        console.log("click", e);
+
+        let el = document.querySelector('.transition-wrapper');        
+        if (el.classList.contains('animate')) { 
+            el.classList.remove('animate');
+        }
+        else {
+            el.classList.add('animate');
+        }
+
+        let vw = document.querySelector('.viewport');        
+        if (vw.classList.contains('animate')) { 
+            vw.classList.remove('animate');
+        }
+        else {
+            vw.classList.add('animate');
+        }
+
+        // let scrollTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;        
+        // window.scrollTo(0, scrollTop - 10);
+
+
+    }
+
+    window.onscroll = () => {
+        let scrollTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;        
+        console.log("scroll", scrollTop);
+
+        // let el = document.querySelector('.viewport');
+        // el.style.top = (scrollTop) + "px";
+
+    }
+</script>
+
+</html>

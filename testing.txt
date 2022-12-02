@@ -1,0 +1,13 @@
+
+
+
+Project:  HORIZONTAL SCROLLER
+
+Test Actions
+1.  Drag and Scroll
+2.  Click Timeline Marker
+3.  Arrow Keys.
+
+Expected Results:  
+A.  Scroller advances one element.
+B.  Element is centered in viewport.

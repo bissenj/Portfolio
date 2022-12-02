@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">  
+  <title>Career History in 6 questions - NWM</title> 
+  <link rel='stylesheet' href='~/../../../css/global.css' />  
+  <link rel='stylesheet' href='~/../../../css/portfolio-main.css' />  
+  <link rel='stylesheet' href='~/../../../css/career.css' /> 
+  <link rel='stylesheet' href='~/../../../js/components/pageSegments/pageSegments.css' />  
+  <link rel='stylesheet' href='~/../../../css/media-queries.css' />
+
+  <style>
+    .work-page .company-profile {        
+        background-color: skyblue;        
+        background: linear-gradient(rgba(33,124,176,.9),
+                                    rgb(0 93 131 / 90%)), 
+                                    url(../../img/timeline/nwm.jpg) no-repeat;        
+        background-size: 100%;
+        background-position: 25%;
+    }
+  </style>
+
+</head>
+
+<body>
+<main>
+
+<!-- Link to Home -->    
+<div class='home-link' title='home' onclick='handleHomeClick()'></div>
+
+<section class='work-page'>
+    <div class='header'>
+        <div class='header-content'>
+            <div class='stats'>
+                <span></span>
+                <span>Northwestern Mutual</span><span>Application Engineer</span><span>2004-2014</span></div>
+            </div>
+    </div> 
+    <div class='company-profile'>Career History in Six Questions Or Less</div>
+    <div class='content'>    
+        <div class='side-bar sticky'></div>
+        <div class='detail-page'></div>
+    </div>
+    
+    <!-- Need a blank state element or image -->
+    
+</section>
+
+</main>
+</body>
+
+
+<script src="/js/routing.js"></script>
+<script src="/Microanimations/js/routing.js"></script> 
+
+<script src="~/../../../js/components/pageSegments/pageSegments.js"></script>
+<script src="/Microanimations/js/components/pageSegments/pageSegments.js"></script> 
+
+<script>
+    console.log("fire up the javascript");
+    resetBody();
+
+    const career = [
+        {
+            company: 'Northwestern Mutual',
+            yearStart: 2004,
+            yearEnd: 2014,
+            title: 'Application Engineer',
+            image: 'nwm.jpg',
+        }
+    ]
+
+    const data = [         
+        {
+            type: 20,
+            summary: 'Working at NWM',
+            question: 'Tell me about working at Northwestern Mutual.',
+            answer: [
+                {
+                    text: 'Northwestern Mutual (NWM) is a large fortune 500 company in the financial services industry.  NWM has a huge IT department, around 2000 employees and contractors while I worked there.  Being such a large team, responsibilities were very siloed and if you needed a solution for something (monitoring, automated testing, infrastructure) there was usually a team in place for that. ',
+                    classes: ''
+                }, 
+                {
+                    text: 'This was my first -real job- out of college and it was an impressive environment.  During my 10 years with Northwestern Mutual I worked on several IT teams and gained a lot of soft skills and  business knowledge I would use later on.',
+                    classes: ''
+                },                                
+            ]
+        },
+        {
+            type: 20,
+            summary: 'Types of Roles',
+            question: 'What were some of your roles?',
+            answer: [
+                {
+                    text: 'My last role was the Application Engineer of the Electronic Files team.  My team handled the software from the time a client started filling out paperwork to the time a policy was issued.  It was a huge system spanning multiple technologies…Mainframe, C#, Java, Message Queues.  I was responsible for knowing how everything fit together and working with other Application Engineers on the team to keep it going and to continually upgrade and evolve it.  Day to day I did a mix of planning, testing, coordinating, and coding.',
+                    classes: ''
+                }, 
+                {
+                    text: 'At one point I worked as an application developer on a Java application used to manage all the assets created by the company’s Graphic Arts department.  That was my first experience developing based off of a prototype and working with a dedicated front end developer, a role that I didnt know existed but recognized as something I wanted to do.  It was also a good experience to be surrounded with the company’s internal and external marketing and I ended using that knowledge later on when we owned a business.',
+                    classes: ''
+                },                                
+            ]
+        },
+        {
+            type: 20,
+            summary: 'Types of Projects',
+            question: 'What types of projects were you involved with?',
+            answer: [
+                {
+                    text: 'I worked on a number of projects ranging in size from solo projects taking a few months to multi-year efforts with huge teams and budgets.  A lot of our changes were legal in nature.  Each state has their own set of laws for dealing with insurance and financial data.  Keeping track of all the state laws generally meant each system had a complicated rule-based subsystem that needed to be kept up to date and insync with the other application’s rule systems as laws changed.  Lots of testing! ',
+                    classes: ''
+                },   
+                {
+                    text: 'Besides development and support I was at times responsible for training users, generating documentation and handling application rollouts.  In IT there is so much required for us to know.  Early on I started creating how-to guides to help myself and other developers making sytem changes, and I also created user guides so users didn’t have to call me anytime they had a question.',
+                    classes: ''
+                },                                          
+            ]
+        },
+        {
+            type: 20,
+            summary: 'Not just coding and testing',
+            question: 'Besides coding and testing what else did you gain experience with?',
+            answer: [
+                {
+                    text: 'Towards the end of my time at NWM, system availability and uptime grew in priority.  As a result, many of us were formally trained in root cause analysis.  Rather than point blame as to why a system had issues we worked to understand all of the multiple causes which led to a system incident and then worked out how to prevent them.  I think this approach led to bringing our huge team closer and improved our system reliability.',
+                    classes: ''
+                },                               
+            ]
+        },
+        {
+            type: 20,
+            summary: 'Craziest Outage',
+            question: 'What was the craziest thing that happened while you worked there?',
+            answer: [
+                {
+                    text: 'Speaking of system reliability.  The wildest outage I remember was when someone tripped over an extension cord in the datacenter and took out a rack of servers.  Most of the company was down for the rest of the day.  On the upside, at least it was a straight forward set of causes rather than one of the mysterious outages where no one is sure where to start looking.',
+                    classes: ''
+                },                
+                
+            ]
+        },
+        {
+            type: 20,
+            summary: 'Reasons for leaving',
+            question: 'What were some of the reasons you decided to leave after 10 years?',
+            answer: [
+                {
+                    text: 'There wasnt enough coding.  I am a hands on person.  I enjoy learning, being technical and working with other developers to solve problems.  The company culture at the time was to move people away from coding as their careers progressed.  I feel good about work when I am building something.  ',
+                    classes: ''
+                },                
+                
+            ]
+        },
+                        
+    ];
+
+    const page = document.querySelector('.detail-page');
+    data.map((item, index) => {
+        page.append(renderFactory(item, index));
+    });
+
+    const sideMenu = document.querySelector('.side-bar');
+    if (sideMenu) {
+        sideMenu.append(renderQuickLinks(sideMenu, data));
+    }
+
+    const header = document.querySelector('.header-content .stats');
+    header.innerHTML = renderHeader(career[0]);
+    
+    function renderHeader(career) {
+        let html = '<span></span>';
+        html += `<span>${career.company}</span>`;
+        html += `<span>${career.title}</span>`;
+        html += `<span>${career.yearStart}-${career.yearEnd}</span>`;
+        return html;
+    };
+
+    
+    function handleHomeClick() {
+        navigateToPage('nightlight', 'hero.html#work');        
+    }
+
+
+    setTimeout(() => {
+        startObservers();        
+    }, 1000);
+
+    function startObservers() {
+        // ---------------------------------------------------------
+        // Intersection Observer 1 
+        // ---------------------------------------------------------
+
+        // get all the elements we need to watch
+        const targets = document.querySelectorAll('.scroll-target, .slide-left, .slide-right');
+        if (targets.length > 0) {
+            console.log("Targets: ", targets);
+            // what to do with entries that are on screen
+            function handleIntersection(entries) {
+                entries.map((entry) => {
+                    if (entry.isIntersecting) {                    
+                        console.log("On Screen: ", entry);
+                        entry.target.classList.add('visible');                    
+                        
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }
+            // fire up the observer
+            const observer = new IntersectionObserver(handleIntersection);
+            targets.forEach((el) => {
+                observer.observe(el);
+            })
+        }
+
+        // ---------------------------------------------------------
+        // Intersection Observer 2 
+        // ---------------------------------------------------------
+
+        // get all the elements we need to watch
+        const questions = document.querySelectorAll('.question');
+        if (questions.length > 0) {
+            
+            // what to do with entries that are on screen
+            function setActiveQuestion(entries) {
+                entries.map((entry) => {
+                    if (entry.isIntersecting) {                                            
+                        //entry.target.classList.add('active'); 
+                        const index = entry.target.dataset.index;
+                        const menuItems = document.querySelectorAll('.side-bar li');
+                        menuItems[index].classList.add('active');                                               
+                    }
+                    else {
+                        const index = entry.target.dataset.index;
+                        const menuItems = document.querySelectorAll('.side-bar li');
+                        menuItems[index].classList.remove('active');                                               
+                    }
+                });
+            }
+            // fire up the observer
+            const questionObserver = new IntersectionObserver(setActiveQuestion, { 
+                rootMargin: '0px 0px -40% 0px', threshold: 0.0});
+
+                questions.forEach((el) => {
+                    questionObserver.observe(el);
+            })
+        }
+    }
+
+
+</script>
+
+</html>
+
+
+<!-- DEAD CODE -->
+
+
+   <!-- Full width Image with Text Overlay -->
+    <!-- <div class='segment p40'>
+        <div class='image-full-width grid-center'>
+            <h1 class='text-overlay'>Field Time Entry<h1/>
+        </div>
+    </div> -->
+
+    <!-- Centered Text Block -->
+    <!-- <div class='segment p80 p-top-0'>
+        <div class='text-block-half grid-center'>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>            
+        </div>
+    </div> -->
+
+    <!-- 2-1 Image collage -->
+    <!-- <div class='segment'>
+        <div class='image-collage-2-1'>
+            <div class='one'></div>
+            <div class='two'></div>
+            <div class='three'></div>
+        </div>
+    </div> -->
+
+    <!-- 2-1 Image collage -->
+    <!-- <div class='segment'>
+        <div class='image-grid-2-1'>
+            <div class='grid-left'>            
+                <div class='one'>One</div>
+                <div class='two'>Two</div>
+            </div>            
+            <div class='three'>Three</div>            
+        </div>
+    </div> -->
+
+     <!-- Centered Text Block -->
+     <!-- <div class='segment p80'>
+        <div class='text-block-half grid-center'>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>            
+        </div>
+    </div> -->
+       
+    <!-- Full Width Image -->
+    <!-- <div class='segment'>
+        <div class='image-full-width grid-center'>          
+        </div>
+    </div> -->
+
+     <!-- 2 text columns -->
+     <!-- <div class='segment p80'>
+        <div class='text-block-2'>
+            <div class='text-block-half grid-center'>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>            
+            </div>
+            <div class='text-block-half grid-center'>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>            
+            </div>
+        </div>        
+    </div> -->
