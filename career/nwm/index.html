@@ -44,6 +44,7 @@
         <div class='side-bar sticky'></div>
         <div class='detail-page'></div>
     </div>
+    <div class='footer-nav'></div>
     
     <!-- Need a blank state element or image -->
     
@@ -183,6 +184,31 @@
         navigateToPage('nightlight', 'index.html#work');        
     }
 
+    const footerData = {
+        classes: '',
+        links: [
+            {
+                classes: 'left',
+                label: 'Career History',
+                text: 'Self Employed',
+                url: '../../career/self',
+                icon : {
+                    name: 'chevron-right.svg',
+                }
+            },
+            {
+                classes: 'right',
+                label: 'Career History',
+                text: 'Business Owner',
+                url: '../../career/nah',
+                icon : {                    
+                    name: 'chevron-right.svg',
+                }
+            }
+        ]           
+    };
+    const footer = document.querySelector('.work-page .footer-nav');
+    footer.innerHTML = renderDynamicFooter(footerData);
 
     setTimeout(() => {
         startObservers();        
