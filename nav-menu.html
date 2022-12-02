@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">  
+  <title>Nav Menu</title> 
+  <link rel='stylesheet' href='css/global.css' />  
+  <link rel='stylesheet' href='css/portfolio-main.css' />  
+  <link rel='stylesheet' href='css/media-queries.css' />
+  <style>
+    section.menu {
+      width: 100%;
+      height: 100vh;
+
+      color: white;
+      background-color: rgba(0,0,0,0.5);
+
+      font-size: 14px;
+    }
+
+    section.menu .menu-container {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      height: 100%;
+    }
+
+    section.menu .menu-container .side-bar {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      
+      padding: 0px 20px;
+      /* border: 1px solid red; */
+    }
+   
+    .side-bar .row {
+      /* border: 1px solid green; */
+      display: grid;
+      place-content: center;
+      height: 100%;
+      width: 100%;
+    }
+
+    section.menu .menu-container .menu-items-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;     
+      height: 100%; 
+    }
+
+    .menu-items-column .row {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      border-bottom: 1px solid white;
+      border-left: 1px solid white;
+      padding: 0 20px;      
+    }
+
+    .menu-items-column .row > a {             
+      padding: 14px 6px;
+      border: 1px solid white;
+      flex-grow: 2;
+      text-align: center;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .menu-items-column .row > a:hover {                   
+      color: black;
+      background-color: rgba(255,255,255,0.5);
+      border-color: black;
+    }
+
+    .menu-items-column div.text-container {
+      text-align: start;
+      margin: 0 auto;
+    }
+
+    .menu-items-column div.label {             
+      font-size: 14px;      
+      color: rgb(202, 202, 202);
+    }
+    .menu-items-column div.name {             
+      font-size: 18px;
+    }
+
+    .menu-items-column .row > div.line { 
+      flex-grow: 1;
+      height: 1px;      
+      margin: 10px;
+      padding: 0px;      
+      border: none;
+      border-bottom: 1px solid white;     
+    }
+
+    .menu-items-column .row > div.line:last-of-type {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+<main>
+  <section class='menu'>
+    <div class='menu-container'>
+      <div class='side-bar'></div>
+      <div class='menu-items-column'></div>
+    </div>
+
+  </section>
+</main>
+</body>
+
+<!-- <script src="/js/hSlider.js"></script>
+<script src="/Portfolio/js/hSlider.js"></script> -->
+
+<script>
+
+  const data = [
+    {
+      name: 'home',
+      icon: 'home.svg',
+      links: [
+        {
+          name: 'Home',
+          label: '',
+          url: '/'
+        },
+        {
+          name: 'About',
+          label: '',
+          url: '/index.html#about'
+        },
+        {
+          name: 'Projects',
+          label: '',
+          url: '/index.html#projects'
+        },
+        {
+          name: 'Career',
+          label: '',
+          url: '/index.html#career'
+        },
+        {
+          name: 'Contact',
+          label: '',
+          url: '/index.html#contact'
+        },
+      ]
+    },
+    {
+      name: 'projects',
+      icon: 'picture',
+      links: [
+        {
+          name: 'Nightlight',
+          label: 'Project 1:',
+          url: '/projects/nightlight'
+        },
+        {
+          name: 'Field Time Entry',
+          label: 'Project 2:',
+          url: '/projects/fte'
+        },
+        {
+          name: 'NAH Website',
+          label: 'Project 3:',
+          url: '/projects/nah'
+        }, 
+      ]
+    },
+    {
+      name: 'Career',
+      icon: 'briefcase',
+      links: [
+        {
+          name: 'NWM',
+          label: 'Career 1:',
+          url: '/career/nwm'
+        },
+        {
+          name: 'NAH',
+          label: 'Career 2:',
+          url: '/career/nah'
+        },
+        {
+          name: 'MJE',
+          label: 'Career 3:',
+          url: '/career/mje'
+        }, 
+        {
+          name: 'SELF',
+          label: 'Career 4:',
+          url: '/career/self'
+        }, 
+      ]
+    },
+  ];
+
+
+  function renderMenuPage(data) {
+    console.log('renderMenuPage: ', data);
+
+    // dom elements
+    const sideBar = document.querySelector('.side-bar');
+    const itemColumn = document.querySelector('.menu-items-column');
+
+    iconsHtml = '';
+    data.map((item) => {
+      // Add the icons
+      iconsHtml += `<div class='row'>${item.name}</div>`;
+
+      // Loop through the links
+      itemsHtml = `<div class='row'>`;
+      item.links.map((link) => {
+        const label = link.label ?? '';
+        const text = link.name ?? '';
+        const url = link.url ?? '';
+
+        const labelHtml = `<div class='label'>${label}</div>`;
+        const nameHtml = `<div class='name'>${text}</div>`;
+        
+        itemsHtml += `<a href='${url}'>
+                        <div class='text-container'>
+                          ${labelHtml}
+                          ${nameHtml}
+                        </div>                          
+                      </a>
+                      <div class='line'></div>`;
+        
+      });
+      itemsHtml += '</div>';
+      itemColumn.innerHTML += itemsHtml;      
+    });
+
+    sideBar.innerHTML = iconsHtml;    
+  }
+
+  renderMenuPage(data);
+
+</script>
+
+</html>
