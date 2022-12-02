@@ -15,6 +15,7 @@
         may still have the body faded out and nothing will show up.
 */
 
+
 function navigateToPage(source, dest) {
     console.log('navigateToPage(): ', source, dest);
 
