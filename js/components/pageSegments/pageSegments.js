@@ -452,7 +452,7 @@ function renderDynamicFooter(data) {
                 let iconClasses = item.icon.classes ?? '';
                 let name = item.icon.name ?? '';
                 if (name) {
-                    elementsHtml += `<div class='icon ${iconClasses}'><img src='../../../img/icons/${name}' /></div>`;
+                    elementsHtml += `<div class='icon ${iconClasses}'><img src='~/../../../img/icons/${name}' /></div>`;
                 }
             }
             elementsHtml += `</a></div>`;
