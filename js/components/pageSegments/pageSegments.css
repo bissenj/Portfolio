@@ -408,6 +408,8 @@ p.fs16 { font-size: 1.6em; max-width: 20em;}
 
 .sticky { 
     position: sticky;
+    position: -webkit-sticky;
+
     top: 100px;
     align-self: start;
 }

@@ -112,6 +112,8 @@
 
 .sticky { 
     position: sticky;
+    position: -webkit-sticky;
+
     top: 100px;
     align-self: start;
 }
