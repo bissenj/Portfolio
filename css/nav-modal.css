@@ -9,11 +9,11 @@
       section.menu {
         position: fixed;
         z-index: 200;
-        top: 3%;
+        top: 6%;
         left: 3%;
   
         width: 94%;
-        height: 90vh;
+        height: 80vh;
   
         color: white;
         background-color: rgba(0,0,0,0.5);
@@ -33,6 +33,18 @@
         background-color: rgba(0,0,0,0.9);
       }
   
+      section.menu .title {
+        position: fixed;
+        top: 10px;
+        left: 00px;
+        width: 100%;
+        text-align: center;
+        z-index: 200;
+        font-size: 1.2em;
+        /* cursor: pointer; */
+        /* transform: scale(2); */
+      }
+
       section.menu .close-nav {
         position: fixed;
         top: 10px;
@@ -146,13 +158,13 @@
     /* ----------------- SMALL SCREENS ---------------- */
   
     @media only screen and (max-width: 1000px)  {
-      section.menu .menu-container .menu-items-column { padding-top: 60px;}
+      /* section.menu .menu-container .menu-items-column { padding-top: 60px;} */
       section.menu .menu-container  { display: block;}
       section.menu .menu-container .side-bar { display: none; }
       .menu-items-column .row { 
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
+        gap: 0px 20px;
   
         border-left: none;
   

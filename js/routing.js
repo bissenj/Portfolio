@@ -167,6 +167,7 @@ const navModalData = [
     
     
     let html = `<section class='menu'>                
+                  <div class='title'>Mountains and Code - Site Map</div>
                   <div class='close-nav'>X</div>
                   <div class='menu-container'>
                     ${sideBarHtml}
