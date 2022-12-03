@@ -57,6 +57,23 @@ main {
     /* background-color: #e2e2e2; */
 }
 
+.nav-menu {
+    position: fixed;
+    z-index: 19; 
+    top: 10px;
+    right: 40px;
+    color: white;
+    opacity: 1;
+    font-size: 0.6em;
+    background-color: rgba(0,0,0,0.1);
+    padding: 4px 10px;
+    cursor: pointer;
+    color: gray;
+    /* text-transform: uppercase; */
+}
+
+
+
 section.projects-page {
     overflow-x: unset;    
 }

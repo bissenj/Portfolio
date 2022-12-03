@@ -202,11 +202,6 @@
 
 /* LANDING PAGE */
 
-    /* TODO:  Change to hamburger menu */
-    .nav-menu {
-        display:none;
-    }
-
     .profession {
         /* position: relative; */
         width: 100%;
