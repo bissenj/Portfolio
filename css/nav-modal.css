@@ -91,6 +91,10 @@
       .menu-items-column .row:last-of-type {        
         border-bottom: 0px solid white;        
       }
+      .side-bar .row > img {
+        margin: 0 auto;
+        display: block;
+      }
   
       .menu-items-column .row > a {             
         padding: 14px 6px;

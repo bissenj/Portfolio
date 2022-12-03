@@ -47,7 +47,7 @@ function resetBody() {
 
 const navModalData = [
     {
-      name: 'home',
+      name: 'Home',
       icon: 'home.svg',
       links: [
         {
@@ -78,8 +78,8 @@ const navModalData = [
       ]
     },
     {
-      name: 'projects',
-      icon: 'picture',
+      name: 'Projects',
+      icon: 'map.svg',
       links: [
         {
           name: 'Nightlight',
@@ -100,7 +100,7 @@ const navModalData = [
     },
     {
       name: 'Career',
-      icon: 'briefcase',
+      icon: 'briefcase.svg',
       links: [
         {
           name: 'NWM',
@@ -137,7 +137,7 @@ const navModalData = [
     iconsHtml = '';
     data.map((item) => {
       // Add the icons
-      iconsHtml += `<div class='row'>${item.name}</div>`;
+      iconsHtml += `<div class='row'><img src='~/../img/icons/${item.icon}' alt='${item.name}'/><div>${item.name}</div></div>`;
 
       // Loop through the links
       itemsHtml = `<div class='row'>`;
