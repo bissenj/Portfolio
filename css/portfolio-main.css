@@ -47,24 +47,25 @@ main {
 
 
 section { 
-    position: relative;
-    /* height: 100vh; */
-    height: 100%;
-    
-    color: white;     
-    /* font-size: 3em;   */
-    
+    position: relative;    
+    height: 100%;    
+    color: white; 
     overflow-x: hidden;    
 }
 
 main {
-    background-color: #e2e2e2;
+    /* background-color: #e2e2e2; */
 }
+
+section.projects-page {
+    overflow-x: unset;    
+}
+
 section.work {
 
     background: linear-gradient(rgba(228, 228, 228, 0.95), rgba(228, 228, 228, 0.90)), url(../img/projects/topo-map1.jpg);
     /* background-size: cover; */
-
+    overflow-x: hidden;    
     opacity: 0;
 }
 
