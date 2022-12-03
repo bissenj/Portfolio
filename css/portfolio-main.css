@@ -68,8 +68,13 @@ main {
     background-color: rgba(0,0,0,0.1);
     padding: 4px 10px;
     cursor: pointer;
-    color: gray;
-    /* text-transform: uppercase; */
+    color: #686767;
+    border: 1px solid rgba(0,0,0,0);
+    /* border: 1px solid #686767; */
+   
+}
+.nav-menu:hover {   
+    border: 1px solid #686767;
 }
 
 

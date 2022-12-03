@@ -183,9 +183,11 @@ const navModalData = [
   function showMenu() {
     if (document.querySelector('.menu-container')) {
       document.querySelector('.nav-modal').innerHTML = '';
+      document.querySelector('.nav-menu').style.opacity = 1;
     }
     else {
       renderMenuPage(navModalData);
+      document.querySelector('.nav-menu').style.opacity = 0;
     }
   }
 

@@ -200,25 +200,49 @@
     /* Testing Media Query Selection */
     /* body { border: 4px solid yellow; } */
 
-/* LANDING PAGE */
+    /* LANDING PAGE */
+    .version-number {
+        top: 40px;
+    }
+    
+    .nav-menu {
+        right: 20px;
+        background-color: rgba(255,255,255,0.2);
+    }
 
-    .profession {
-        /* position: relative; */
+    .foreground {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .profession {        
         width: 100%;
         top: 10px;
         right: 0px;
         text-align: center;
         transform: none;
         font-size: 10px;
+
+        padding: 15px 0px;
+
+        background: linear-gradient(to top, rgba(0,0,0,0), rgba(0,0,0,0.2), rgba(0,0,0,0.2));
     }
 
-    .logo {
-        top: -100px;
+    .foreground .logo {
+        top: 10%;
     }
 
-    .git-page-logo-hack {
-        max-width: 200px;
-        max-height: 200px;
+    div.carousel-navigation-container {
+        position: relative;
+        place-self: top;
+        
+        width: 100%;
+        height: 30%;
+
+        grid-row-start: 3;
+        place-content: center;
+
+        background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.6));
     }
 
     .nav-carousel {
@@ -228,70 +252,28 @@
     .nav-carousel ul {  
         display: flex;
         flex-direction: row;
-        justify-content: space-around;  
-        /* transform: rotate(90deg);
-        height: 50%;
-        width: 100%;
-        top: 53%;     */
+        justify-content: space-around;          
     }
     .nav-carousel li {
         animation: none;    
     }
 
-    .gradient-line {
-        display:none;
-        /* left: 32px; */
+    .gradient-line, .gradient-down, .gradient-up, section .background::after {
+        display:none;        
+    }    
+
+    .nav-carousel li.line {
+        margin: 0px 8px;
     }
-
-    .gradient-down {
-        display:none;
-        /* left: 10px; */
-    }
-
-    .gradient-up {
-        display:none;
-        /* left: 54px; */
-    }
-
-    section .background::after {
-        display: none;
-    }
-
-    div.foreground-container {
-        display: grid;
-        grid-template-rows: 40px 1fr 25%; 
-        grid-auto-columns: 1fr;
-        place-content: center;       
-        /* display: flex; */
-        /* flex-direction: column; */
-        /* justify-content: space-between; */
-        position: relative;
-        width: 100%;
-        height: 100%;
-    }
-
-    div.carousel-navigation-container {
-        position: relative;
-        place-self: top;
-        /* border: 1px solid red; */
-        width: 100%;
-        height: 100%;
-
-        grid-row-start: 3;
-        place-content: center;
-    }
-
     .nav-carousel ul {
-        padding: 0;
-        /* align-items:flex-start; */
+        padding: 0;        
     }
 
     div.logo {
         grid-row-start: 2;
         position: relative;
         top: 0;
-        left: 0;
-        /* border: 1px solid red; */
+        left: 0;        
 
         width: 100%;
         height: 100%;
@@ -303,9 +285,12 @@
         position: relative;
         top: 0;
         left: 0;
-        right: 0;
-        /* border: 1px solid red; */
-        /* min-height: 100px; */
+        right: 0;        
+    }
+
+    .git-page-logo-hack {
+        max-width: 250px;
+        max-height: 250px;
     }
 
 /* ABOUT PAGE */
@@ -342,17 +327,9 @@
         line-height: 32px;    
     }
 
-    .diagonal-rects { 
-        /* margin-top: 160px; */
-    }
-
     div.row1 > div:after, div.row2 > div:after {  
         display: none;
     }
-
-    /* section.about {
-        height: 125vh;
-    } */
 
     div.image1::before {    
         top: -100%;
