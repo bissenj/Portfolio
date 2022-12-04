@@ -364,18 +364,6 @@ function renderStickySection(data) {
 //              CAREER
 // -----------------------------------------------------------------
 
-// CAREER Short Links
-function renderQuickLinks(el, data) {
-    console.log('data: ', data);
-    let html = `<nav><ul>`;
-    data.map((item, index) => {
-        html += `<li><a href='#question${index}'>${item.summary}</a></li>`;
-    });
-    html += '</ul></nav>';
-    return createNode(html);
-}
-
-
 
 function renderQuestionAnswer(data, index) {
     const question = data.question ?? '';    

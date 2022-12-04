@@ -27,11 +27,9 @@
 <body>
 <main>
 
-<!-- Link to Home -->    
-<div class='home-link' title='home' onclick='handleHomeClick()'></div>
-
 <section class='work-page'>
     <div class='header'>
+        <div class='home-link' title='home' role='button'></div>        
         <div class='header-content'>
             <div class='stats'>
                 <span></span>
@@ -43,10 +41,8 @@
         <div class='side-bar sticky'></div>
         <div class='detail-page'></div>
     </div>
-    <div class='footer-nav'></div>
-    
-    <!-- Need a blank state element or image -->
-    
+    <div class='footer-nav'></div>    
+    <!-- Need a blank state element or image? -->    
 </section>
 
 </main>
@@ -61,16 +57,16 @@
 <script src="~/../../../js/components/pageSegments/pageSegments.js"></script>
 <script src="/Portfolio/js/components/pageSegments/pageSegments.js"></script> 
 
+<script src="/js/careerDetailPage.js"></script>
+<script src="/Portfolio/js/careerDetailPage.js"></script> 
+
 <script>
     console.log("fire up the javascript");
     resetBody();
 
-
-    // Update the URL
-    //history.pushState({}, "", "../projects/nightlight");
-    //var hash = window.location.hash.substr(1);
-    //console.log("Hash: ", hash);
-
+    /*
+        DATA
+    */    
     const footerData = {
         classes: '',
         links: [
@@ -94,10 +90,8 @@
             }
         ]           
     };
-    const footer = document.querySelector('.work-page .footer-nav');
-    footer.innerHTML = renderDynamicFooter(footerData);
-
-    const career = [
+    
+    const headerData = [
         {
             company: 'M. J. Electric',
             yearStart: 2018,
@@ -107,7 +101,7 @@
         }
     ]
 
-    const data = [         
+    const pageData = [         
         {
             type: 20,
             summary: 'Working at MJE',
@@ -206,63 +200,15 @@
                         
     ];
 
-    const page = document.querySelector('.detail-page');
-    data.map((item, index) => {
-        page.append(renderFactory(item, index));
-    });
-
-    const sideMenu = document.querySelector('.side-bar');
-    if (sideMenu) {
-        sideMenu.append(renderQuickLinks(sideMenu, data));
+    const navigationData = {
+        from: 'career/mje',
+        to: 'index.html'
     }
 
-    const header = document.querySelector('.header-content .stats');
-    header.innerHTML = renderHeader(career[0]);
+    // Render the page
+    GenerateCareerDetailPage(pageData, headerData, footerData, navigationData);
     
-    function renderHeader(career) {
-        let html = '<span></span>';
-        html += `<span>${career.company}</span>`;
-        html += `<span>${career.title}</span>`;
-        html += `<span>${career.yearStart}-${career.yearEnd}</span>`;
-        return html;
-    };
-
-    
-    function handleHomeClick() {
-        navigateToPage('nightlight', 'index.html#career');        
-    }
-
-
-    setTimeout(() => {
-        startObservers();        
-    }, 1000);
-
-    function startObservers() {
-       
-        // Intersection Observer for slide ins
-        addObserver({
-            selectors: '.scroll-target, .slide-left, .slide-right',
-            fireOnce: true,             
-            whenIntersecting: (entry) => { entry.target.classList.add('visible'); },
-        });       
-
-        // Intersection Observer for side menu.        
-        addObserver({
-            selectors: '.question',            
-            whenIntersecting: (entry) => { 
-                const index = entry.target.dataset.index;
-                const menuItems = document.querySelectorAll('.side-bar li');
-                menuItems[index].classList.add('active');   
-            },
-            whenNotIntersecting: (entry) => { 
-                const index = entry.target.dataset.index;
-                const menuItems = document.querySelectorAll('.side-bar li');
-                menuItems[index].classList.remove('active');   
-            },
-            rootMarin: '0px 0px -40% 0px',            
-        });     
-    }
-
+    console.log("career page dynamically generated");
 </script>
 
 </html>

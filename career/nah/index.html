@@ -27,32 +27,30 @@
 
 <body>
 <main>
-
-<!-- Link to Home -->    
-<div class='home-link' title='home' onclick='handleHomeClick()'></div>
-
-<section class='work-page'>
-    <div class='header'>
-        <div class='header-content'>
-            <div class='stats'>
-                <span></span>
-                <span>Northwestern Mutual</span><span>Application Engineer</span><span>2004-2014</span></div>
-            </div>
-    </div> 
-    <div class='company-profile'>Career History in Six Questions Or Less</div>
-    <div class='content'>    
-        <div class='side-bar sticky'></div>
-        <div class='detail-page'></div>
-    </div>
-    <div class='footer-nav'></div>
     
-    <!-- Need a blank state element or image -->
-    
-</section>
+    <section class='work-page'>
+        <div class='header'>
+            <div class='home-link' title='home' role='button'></div>        
+            <div class='header-content'>
+                <div class='stats'>
+                    <span></span>
+                    <span>Northwestern Mutual</span><span>Application Engineer</span><span>2004-2014</span></div>
+                </div>
+        </div> 
+        <div class='company-profile'>Career History in Six Questions Or Less</div>
+        <div class='content'>    
+            <div class='side-bar sticky'></div>
+            <div class='detail-page'></div>
+        </div>
+        <div class='footer-nav'></div>    
+        <!-- Need a blank state element or image? -->    
+    </section>
 
 </main>
 </body>
 
+<script src="/js/intersectionObserver.js"></script>
+<script src="/Portfolio/js/intersectionObserver.js"></script>
 
 <script src="/js/routing.js"></script>
 <script src="/Portfolio/js/routing.js"></script> 
@@ -60,11 +58,14 @@
 <script src="~/../../../js/components/pageSegments/pageSegments.js"></script>
 <script src="/Portfolio/js/components/pageSegments/pageSegments.js"></script> 
 
+<script src="/js/careerDetailPage.js"></script>
+<script src="/Portfolio/js/careerDetailPage.js"></script> 
+
 <script>
     console.log("fire up the javascript");
     resetBody();
 
-    const career = [
+    const headerData = [
         {
             company: 'Niagara Animal Hospital',
             yearStart: 2014,
@@ -74,7 +75,7 @@
         }
     ];
     
-    const data = [    
+    const pageData = [    
     {
             type: 20,
             summary: 'Summary',
@@ -163,37 +164,12 @@
         },  
                         
     ];
-
-    const page = document.querySelector('.detail-page');
-    data.map((item, index) => {
-        page.append(renderFactory(item, index));
-    });
-
-    const sideMenu = document.querySelector('.side-bar');
-    if (sideMenu) {
-        sideMenu.append(renderQuickLinks(sideMenu, data));
-    }
-
-    const header = document.querySelector('.header-content .stats');
-    header.innerHTML = renderHeader(career[0]);
-    
-    function renderHeader(career) {
-        let html = '<span></span>';
-        html += `<span>${career.company}</span>`;
-        html += `<span>${career.title}</span>`;
-        html += `<span>${career.yearStart}-${career.yearEnd}</span>`;
-        return html;
-    };
-
-    
-    function handleNavClick(link) {
-        navigateToPage('nah', `career/${link}`);  
-    }
-    
-    function handleHomeClick() {
-        navigateToPage('nightlight', 'index.html#career');        
-    }
-
+        
+    const navigationData = {
+        from: 'career/nah',
+        to: 'index.html'
+    }    
+       
     const footerData = {
         classes: '',
         links: [
@@ -217,76 +193,17 @@
             }
         ]           
     };
-    const footer = document.querySelector('.work-page .footer-nav');
-    footer.innerHTML = renderDynamicFooter(footerData);
+   
+    // function handleNavClick(link) {
+    //     navigateToPage('nah', `career/${link}`);  
+    // }
+    
 
-
-    setTimeout(() => {
-        startObservers();        
-    }, 1000);
-
-    function startObservers() {
-        // ---------------------------------------------------------
-        // Intersection Observer 1 
-        // ---------------------------------------------------------
-
-        // get all the elements we need to watch
-        const targets = document.querySelectorAll('.scroll-target, .slide-left, .slide-right');
-        if (targets.length > 0) {
-            console.log("Targets: ", targets);
-            // what to do with entries that are on screen
-            function handleIntersection(entries) {
-                entries.map((entry) => {
-                    if (entry.isIntersecting) {                    
-                        console.log("On Screen: ", entry);
-                        entry.target.classList.add('visible');                    
-                        
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }
-            // fire up the observer
-            const observer = new IntersectionObserver(handleIntersection);
-            targets.forEach((el) => {
-                observer.observe(el);
-            })
-        }
-
-        // ---------------------------------------------------------
-        // Intersection Observer 2 
-        // ---------------------------------------------------------
-
-        // get all the elements we need to watch
-        const questions = document.querySelectorAll('.text-block-half');
-        if (questions.length > 0) {
-            
-            // what to do with entries that are on screen
-            function setActiveQuestion(entries) {
-                entries.map((entry) => {
-                    if (entry.isIntersecting) {                                            
-                        //entry.target.classList.add('active'); 
-                        const index = entry.target.dataset.index;
-                        const menuItems = document.querySelectorAll('.side-bar li');
-                        menuItems[index].classList.add('active');                                               
-                    }
-                    else {
-                        const index = entry.target.dataset.index;
-                        const menuItems = document.querySelectorAll('.side-bar li');
-                        menuItems[index].classList.remove('active');                                               
-                    }
-                });
-            }
-            // fire up the observer
-            const questionObserver = new IntersectionObserver(setActiveQuestion, { 
-                rootMargin: '0px 0px -30% 0px', threshold: 0.5});
-
-                questions.forEach((el) => {
-                    questionObserver.observe(el);
-            })
-        }
-    }
-
-
+    // Render the page
+    GenerateCareerDetailPage(pageData, headerData, footerData, navigationData);
+    
+    console.log("career page dynamically generated");
+   
 </script>
 
 </html>

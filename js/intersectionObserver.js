@@ -13,7 +13,7 @@ function addObserver(data) {
     const rootMargin = data.rootMargin ?? '0%';
     const threshold = data.threshold ?? 0.0;
 
-    console.log("Creating Intersection Observer", data);
+    //console.log("Creating Intersection Observer", data);
 
     // ---------------------------------------------------------
     // Intersection Observer  
@@ -26,11 +26,11 @@ function addObserver(data) {
         // what to do with entries that are on screen
         function handleIntersection(entries) {
 
-            console.log('threshold: ', threshold);
+            //console.log('threshold: ', threshold);
 
             entries.map((entry) => {
                 if (entry.isIntersecting) {                    
-                    console.log("On Screen: ", entry);
+                    //console.log("On Screen: ", entry);
 
                     // Call function to do something
                     if (data.whenIntersecting) {
@@ -39,7 +39,7 @@ function addObserver(data) {
 
                     // Should this code only work once?
                     if (stopObservingOnIntersection) {
-                        console.log("Fire Once is True.  Cleaning up observer.");
+                        //console.log("Fire Once is True.  Cleaning up observer.");
                         observer.unobserve(entry.target);  
                     }                    
                 }
@@ -57,3 +57,4 @@ function addObserver(data) {
         })
     }
 }
+
