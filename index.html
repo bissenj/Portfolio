@@ -26,8 +26,8 @@
     <div class='nav-modal'></div>
 
     <!-- Element 4:  Site Navigation -->
-    <div class='nav-menu'>  
-        <div onclick=showMenu()>Menu</div>                      
+    <div id='menutoggle' class='nav-menu' aria-haspopup="true" aria-controls="site-map">          
+        <div onclick=showMenu()><img src='~/../img/icons/map.svg' alt='Show Menu'/></div>                      
     </div>
 
 <main>   
@@ -203,8 +203,8 @@
             <p>A group of like minded individuals dedicated to creating great work on interesting projects.  If you have looked at my work and think I would be a good fit on your team, please send me an email and lets talk. </p>
             <!-- Links -->
             <div class='contact-links'>
-                <div><img src='~/../img/icons/mail.svg'/></div>
-                <div><img src='~/../img/icons/info.svg'/></div>
+                <div role='button'><img src='~/../img/icons/mail.svg' alt='get email address'/></div>
+                <div role='button'><img src='~/../img/icons/info.svg' alt='site information'/></div>
             </div>
         </div>
             

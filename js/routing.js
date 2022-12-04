@@ -201,13 +201,13 @@ const navModalData = [
         const labelHtml = `<div class='label'>${label}</div>`;
         const nameHtml = `<div class='name'>${text}</div>`;
         
-        itemsHtml += `<a href='${url}' class='hidden' style='transition-delay: ${delay}ms'>
+        itemsHtml += `<a href='${url}' class='hidden' style='transition-delay: ${delay}ms' role="menuitem">
                         <div class='text-container'>
                           ${labelHtml}
                           ${nameHtml}
                         </div>                          
                       </a>
-                      <div class='line'></div>`;
+                      <div class='line hidden' style='transition-delay: ${delay}ms' ></div>`;
         
         delay += 50;
       });
@@ -219,9 +219,9 @@ const navModalData = [
     sideBarHtml += iconsHtml + `</div>`;  
     
     
-    let html = `<section id='site-map' class='menu'>                
+    let html = `<section id='site-map' class='menu' role='menu' aria-labelledby='menutoggle'>                
                   <div class='title'>Mountains and Code - Site Map</div>
-                  <div class='close-nav'>X</div>
+                  <div class='close-nav' role='button'>X</div>
                   <div class='menu-container'>
                     ${sideBarHtml}
                     ${itemColumnHtml}
@@ -246,10 +246,17 @@ const navModalData = [
 
     setTimeout(() => {
       //document.querySelector('.nav-modal section.menu').classList.remove('hidden');
+      document.querySelectorAll('.line.hidden').forEach((el) => {
+        el.classList.remove('hidden');
+      });
+    }, 600);
+
+    setTimeout(() => {
+      //document.querySelector('.nav-modal section.menu').classList.remove('hidden');
       document.querySelectorAll('.row.hidden').forEach((el) => {
         el.classList.remove('hidden');
       });
-    }, 800);
+    }, 900);
 
     // setTimeout(() => {
     //   //document.querySelector('.nav-modal section.menu').classList.remove('hidden');
@@ -260,12 +267,18 @@ const navModalData = [
 
   function showMenu() {
     if (document.getElementById('site-map')) {
-      document.querySelector('.nav-modal').innerHTML = '';
-      document.querySelector('.nav-menu').style.opacity = 1;
+      document.querySelector('.nav-modal').style.opacity = 0;   // Fade out modal
+      document.querySelector('.nav-menu').style.opacity = 1;    // Fade in menu button
+      setTimeout(() => {
+        document.querySelector('.nav-modal').innerHTML = '';    // Clear the modal
+        console.log("modal cleared");  
+      }, 500)
+      
     }
     else {
+      document.querySelector('.nav-modal').style.opacity = 1;   // Fade in modal
       renderMenuPage(navModalData);
-      document.querySelector('.nav-menu').style.opacity = 0;
+      document.querySelector('.nav-menu').style.opacity = 0;    // Fade out menu button
     }
   }
 
