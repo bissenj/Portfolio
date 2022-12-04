@@ -15,7 +15,49 @@
         may still have the body faded out and nothing will show up.
 */
 
+function handleLinkClick(e) {
+  console.log('handleLinkClick: ', e);
 
+  e.preventDefault();
+ 
+  let link = e.target.href;
+  if (!link) {
+    link = e.target.parentNode.parentNode.href;
+  }
+  console.log('link: ', link);
+
+  // Figure out if we are staying on the same page or 
+  // going to a different page.  This is assuming only the
+  // index page has hash tag routing.
+
+  //console.log(link.indexOf('#'));
+  const stayOnPage = (link.indexOf('#') > 0) ? true : false;
+
+  if (stayOnPage) {
+    const id = link.substring(link.indexOf('#'));
+    console.log('Href: ', link, id);
+  
+    const target = document.querySelector(id);
+
+    // Scroll up or down the page.
+    target.scrollIntoView({behavior: "smooth"});
+    showMenu();
+    console.log("Scroll Into View: ", target);
+  }
+  else {
+    const route = link.substring(link.indexOf('/'));
+
+    // Navigate with our custom fade transition.
+    showMenu();
+    navigateToPage('link', route);
+    console.log("Navigate to Page: ", route);
+  } 
+
+  return false;
+}
+
+
+// Navigate to a new page using a custom fade in/out transition.
 function navigateToPage(source, dest) {
     console.log('navigateToPage(): ', source, dest);
 
@@ -42,7 +84,7 @@ function resetBody() {
 }
 
 
-// FULL SCREEN NAVIGATION MODAL
+// FULL SCREEN NAVIGATION MODAL ----------------------------------------
 
 
 const navModalData = [
@@ -135,12 +177,16 @@ const navModalData = [
     let itemColumnHtml = `<div class='menu-items-column'>`; //document.querySelector('.menu-items-column');
 
     iconsHtml = '';
+    
+    let pause = 50;
     data.map((item) => {
       // Add the icons
-      iconsHtml += `<div class='row'><img src='~/../img/icons/${item.icon}' alt='${item.name}'/><div>${item.name}</div></div>`;
+      iconsHtml += `<div class='row hidden' style='transition-delay: ${pause}ms'><img src='~/../img/icons/${item.icon}' alt='${item.name}'/><div>${item.name}</div></div>`;
+      pause += 50;
 
       // Loop through the links
       itemsHtml = `<div class='row'>`;
+      let delay = 50;
       item.links.map((link) => {
         const label = link.label ?? '';
         const text = link.name ?? '';
@@ -149,7 +195,7 @@ const navModalData = [
         const labelHtml = `<div class='label'>${label}</div>`;
         const nameHtml = `<div class='name'>${text}</div>`;
         
-        itemsHtml += `<a href='${url}'>
+        itemsHtml += `<a href='${url}' class='hidden' style='transition-delay: ${delay}ms'>
                         <div class='text-container'>
                           ${labelHtml}
                           ${nameHtml}
@@ -157,6 +203,7 @@ const navModalData = [
                       </a>
                       <div class='line'></div>`;
         
+        delay += 50;
       });
       itemsHtml += '</div>';
       itemColumnHtml += itemsHtml;      
@@ -166,7 +213,7 @@ const navModalData = [
     sideBarHtml += iconsHtml + `</div>`;  
     
     
-    let html = `<section class='menu'>                
+    let html = `<section id='site-map' class='menu'>                
                   <div class='title'>Mountains and Code - Site Map</div>
                   <div class='close-nav'>X</div>
                   <div class='menu-container'>
@@ -177,11 +224,36 @@ const navModalData = [
 
     document.querySelector('.nav-modal').innerHTML = html;
 
+    // Create Event Handlers
     document.querySelector('.close-nav').addEventListener('click', showMenu);
+    const links = document.querySelectorAll('.menu-container .row a').forEach((el) =>{
+      el.addEventListener('click', handleLinkClick);
+    });
+
+    // Transition in
+    setTimeout(() => {
+      //document.querySelector('.nav-modal section.menu').classList.remove('hidden');
+      document.querySelectorAll('a.hidden').forEach((el) => {
+        el.classList.remove('hidden');
+      });
+    }, 100);
+
+    setTimeout(() => {
+      //document.querySelector('.nav-modal section.menu').classList.remove('hidden');
+      document.querySelectorAll('.row.hidden').forEach((el) => {
+        el.classList.remove('hidden');
+      });
+    }, 800);
+
+    setTimeout(() => {
+      //document.querySelector('.nav-modal section.menu').classList.remove('hidden');
+      document.querySelector('section.menu').classList.add('dark');
+    }, 1000);
+    
   }
 
   function showMenu() {
-    if (document.querySelector('.menu-container')) {
+    if (document.getElementById('site-map')) {
       document.querySelector('.nav-modal').innerHTML = '';
       document.querySelector('.nav-menu').style.opacity = 1;
     }
