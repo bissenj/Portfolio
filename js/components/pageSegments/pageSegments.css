@@ -444,6 +444,15 @@ p.fs16 { font-size: 1.6em; max-width: 20em;}
     opacity: 1;
 }
 
+.scaled-down {
+    transition: transform 1.5s;
+    transform: scale(0.8);    
+}
+
+.scaled-down.visible {
+    transform: scale(1);
+}
+
 
 /* ----------------- SMALL SCREENS ---------------- */
 

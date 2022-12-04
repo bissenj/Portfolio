@@ -8,10 +8,16 @@
   <title>Project Case Study - Field Time Entry</title> 
   <link rel='stylesheet' href='~/../../../css/global.css' />  
   <link rel='stylesheet' href='~/../../../css/portfolio-main.css' />  
-  <link rel='stylesheet' href='~/../../../js/components/pageSegments/pageSegments.css' />  
+  <link rel='stylesheet' href='~/../../../js/components/pageSegments/pageSegments.css' /> 
+  <link rel='stylesheet' href='~/../../../css/nav-modal.css' /> 
+  <link rel='stylesheet' href='~/../../../css/project-detail-page.css' />    
   <link rel='stylesheet' href='~/../../../css/media-queries.css' />
 
   <style>
+    /* .nav-menu {
+        top: 40px;
+        right: 20px;
+    } */
     :root {
         --footer-background: #000000db;
     }
@@ -21,12 +27,29 @@
 <body>
 <main>
 
+<!-- <div class='nav-modal'></div> -->
+
+<!-- Element 4:  Site Navigation -->
+<!-- <div id='menutoggle' class='nav-menu' aria-haspopup="true" aria-controls="site-map">          
+    <div onclick=showMenu()><img src='~/../../../img/icons/map.svg' alt='Show Menu'/></div>                      
+</div> -->
+
+
 <section class='projects-page'>
 
-    <!-- Link to Home -->
-    <div class='home-link' title='home' onclick='handleHomeClick()'></div>
-    <div class='detail-page'></div>
-    <div class='footer-nav'></div>
+    <!-- project page template -->
+    <section class='projects-page'>
+                
+        <div class='header'>            
+            <div class='home-link' title='home' role='button'></div>  
+            <div class='header-content'>            
+                <div class='stats'></div>                 
+            </div>
+        </div> 
+        <div class='detail-page'></div>
+        <div class='footer-nav'></div>
+
+    </section>
     
 </section>
 
@@ -43,18 +66,25 @@
 <script src="~/../../../js/components/pageSegments/pageSegments.js"></script>
 <script src="/Portfolio/js/components/pageSegments/pageSegments.js"></script> 
 
+<script src="/js/projectDetailPage.js"></script>
+<script src="/Portfolio/js/projectDetailPage.js"></script> 
+
+
 <script>
     console.log("fire up the javascript");
     resetBody();
    
 
-    const data = [
+    // Data
+    const pageData = [
         {
             type: 0,
-            classes: 'box-shadow-2 constrain-width', 
+            name: 'Case Study: Field Time Entry', 
+            tech: 'Asp.net, JQuery, Kendo UI',    
+            classes: 'header-image box-shadow-2 constrain-width', 
             image1: 'fte/mje-jobsite.jpg', 
             text1: 'An upgrade project with a legacy',
-            text2: 'Asp.net, JQuery, Kendo UI'
+            // text2: 'Asp.net, JQuery, Kendo UI'
         }, 
         {
             type: 5,            
@@ -79,7 +109,8 @@
         },               
         {
             type: 3, 
-            image1: 'fte/mje-transmission-lines.jpg'
+            image1: 'fte/mje-transmission-lines.jpg',
+            // classes: 'scaled-down'
         },  
         {
             type: 5,
@@ -201,20 +232,7 @@
         //     image1: 'nightlight/oregon-fishing.webp'
         // }, 
     ];
-
-
-    const page = document.querySelector('.detail-page');
-    
-
-    data.map((item) => { 
-        page.append(renderFactory(item)); 
-    });
-    
-
-    function handleHomeClick() { 
-        navigateToPage('nightlight', 'index.html#projects'); 
-    }
-
+    const headerData = { name: pageData[0].name, tech: pageData[0].tech };
     const footerData = {
         classes: '',
         links: [
@@ -238,24 +256,20 @@
             }
         ]           
     };
-    const footer = document.querySelector('.projects-page .footer-nav');
-    footer.innerHTML = renderDynamicFooter(footerData);
-
-    setTimeout(() => { 
-        startObservers(); 
-    }, 1000);
-
-
-    function startObservers() {
-            
-        // Intersection Observer for slide ins
-        addObserver({
-            selectors: '.scroll-target, .slide-left, .slide-right',
-            fireOnce: true,             
-            whenIntersecting: (entry) => { entry.target.classList.add('visible'); },
-        });       
-
+    const navigationData = {
+        from: 'projects/fte',
+        to: 'index.html'
     }
+   
+    
+    // Render the page
+    GenerateProjectDetailPage(pageData, headerData, footerData, navigationData);
+
+
+    /*
+        PAGE SPECIFIC LOGIC BELOW HERE
+    */
+
 
 </script>
 

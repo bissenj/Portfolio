@@ -26,7 +26,7 @@
     <div class='nav-modal'></div>
 
     <!-- Element 4:  Site Navigation -->
-    <div id='menutoggle' class='nav-menu' aria-haspopup="true" aria-controls="site-map">          
+    <div id='menutoggle' class='nav-menu' aria-haspopup="true" aria-controls="site-map" title='show menu'>          
         <div onclick=showMenu()><img src='~/../img/icons/map.svg' alt='Show Menu'/></div>                      
     </div>
 
@@ -57,15 +57,15 @@
                 <div class='nav-carousel'>            
                     <ul role="radiogroup">
                         <li class='line'></li>
-                        <li data-index=0 role="radio"></li>
+                        <li data-index=0 role="radio" title='Change background image'></li>
                         <li class='line'></li>
-                        <li data-index=1 role="radio"></li>
+                        <li data-index=1 role="radio" title='Change background image'></li>
                         <li class='line'></li>
-                        <li data-index=2 role="radio"></li>
+                        <li data-index=2 role="radio" title='Change background image'></li>
                         <li class='line'></li>  
-                        <li data-index=3 role="radio"></li>
+                        <li data-index=3 role="radio" title='Change background image'></li>
                         <li class='line'></li> 
-                        <li data-index=4 class='clicked' role="radio"></li>
+                        <li data-index=4 class='clicked' role="radio" title='Change background image'></li>
                         <li class='line'></li>                        
                     </ul>
                 </div>
@@ -105,14 +105,14 @@
         <div class='diagonal-rects'>
             <!-- Row 1 -->
             <div class='row1'>               
-                <div class='about-image image1' data-index=0></div> 
-                <div class='about-image image2' data-index=1></div> 
-                <div class='about-image image3' data-index=2></div>
+                <div class='about-image image1' data-index=0 aria-haspopup="true" title='Click to expand image'></div> 
+                <div class='about-image image2' data-index=1 aria-haspopup="true" title='Click to expand image'></div> 
+                <div class='about-image image3' data-index=2 aria-haspopup="true" title='Click to expand image'></div>
             </div>       
             <!-- Row 2  -->
             <div class='row2'>
-                <div class='about-image image4' data-index=3></div>
-                <div class='about-image image5' data-index=4></div>                
+                <div class='about-image image4' data-index=3 aria-haspopup="true" title='Click to expand image'></div>
+                <div class='about-image image5' data-index=4 aria-haspopup="true" title='Click to expand image'></div>                
             </div>           
         </div>
 
@@ -124,8 +124,8 @@
     
       <!-- Projects -->
       <section id='projects' class='projects'> 
-        <div class='projects-collage active'>
-            <div class='explore'>Explore Projects <img class='chevron-right' src='img/icons/chevron-right.svg'/></span></div>
+        <div class='projects-collage active' title='Click to toggle image'>
+            <div class='explore' role='button'>Explore Projects <img class='chevron-right' src='img/icons/chevron-right.svg'/></span></div>
         </div>
 
         <div class='section-heading'> 
@@ -137,7 +137,7 @@
         <div class='projects-container'>            
             <div class='projects-list hidden'>
                 <ul>                    
-                    <li class='project-item-container' data-index=0 onclick='handleProjectsClick(0)'}>                        
+                    <li class='project-item-container' role='link' title='Click to view project' data-index=0 onclick='handleProjectsClick(0)'}>                        
                         <div class='number'>01</div>
                         <div class='divider'></div>
                         <div class='project'>
@@ -145,7 +145,7 @@
                             <div class='summary'>A solution for the question: "So where are you guys?"  I built a GPS mapping and tracking platform with React and React Native so our families could stay up to date on our extended travels.  It was a lot of fun.</div>
                         </div>                                                
                     </li>                    
-                    <li class='project-item-container' data-index=1 onclick='handleProjectsClick(1)'>
+                    <li class='project-item-container' role='link' title='Click to view project' data-index=1 onclick='handleProjectsClick(1)'>
                         <div class='number'>02</div>
                         <div class='divider'></div>
                         <div class='project'>
@@ -153,7 +153,7 @@
                             <div class='summary'>Building on the edge of our seats.  This was a three person project to replace an outdated and heavily integrated time keeping system for our company.  It turned out to be wildly successful.</div>
                         </div>                        
                     </li>
-                    <li class='project-item-container' data-index=2  onclick='handleProjectsClick(2)'>
+                    <li class='project-item-container' role='link' title='Click to view project' data-index=2  onclick='handleProjectsClick(2)'>
                         <div class='number'>03</div>
                         <div class='divider'></div>
                         <div class='project'>

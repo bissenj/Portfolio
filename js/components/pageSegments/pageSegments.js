@@ -62,6 +62,7 @@ function createImage(data) {
     
     if (image !== '') {    
         let classesHtml = ` class='${classes} scroll-target'`;       
+        // let classesHtml = ` class='${classes}'`;       
 
         html += `<div ${classesHtml}><img src='${IMAGE_PATH}/${image}'></img></div>`;    
         // html += `<img src='${IMAGE_PATH}/${image}'></img>`;    

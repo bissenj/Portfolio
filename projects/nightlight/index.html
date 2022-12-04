@@ -9,19 +9,26 @@
   <link rel='stylesheet' href='~/../../../css/global.css' />  
   <link rel='stylesheet' href='~/../../../css/portfolio-main.css' />  
   <link rel='stylesheet' href='~/../../../js/components/pageSegments/pageSegments.css' />  
+  <link rel='stylesheet' href='~/../../../css/project-detail-page.css' />  
   <link rel='stylesheet' href='~/../../../css/media-queries.css' />
 </head>
 
 <body>
 <main>
 
-<section class='projects-page'>    
-    <!-- Link to Home -->
-    <div class='home-link' title='home' onclick='handleHomeClick()'></div>        
-    <div class='detail-page'></div>
-    <div class='footer-nav'></div>
-</section>
-
+    <!-- project page template -->
+    <section class='projects-page'>
+                
+        <div class='header'>            
+            <div class='home-link' title='home' role='button'></div>  
+            <div class='header-content'>            
+                <div class='stats'>           
+            </div>
+        </div> 
+        <div class='detail-page'></div>
+        <div class='footer-nav'></div>  
+          
+    </section>
 
 </main>
 </body>
@@ -35,17 +42,22 @@
 <script src="~/../../../js/components/pageSegments/pageSegments.js"></script>
 <script src="/Portfolio/js/components/pageSegments/pageSegments.js"></script> 
 
+<script src="/js/projectDetailPage.js"></script>
+<script src="/Portfolio/js/projectDetailPage.js"></script> 
+
 <script>
     console.log("fire up the javascript");
     resetBody();
 
-    const data = [
+    const pageData = [
         {
             type: 0,
-            classes: 'box-shadow-2 constrain-width', 
+            name: 'Case Study: Nightlight', 
+            tech: 'React, React Native, Remix, Postgres',
+            classes: 'header-image box-shadow-2 constrain-width', 
             image1: 'nightlight/beartooths.jpg', 
             text1: 'Sharing our experiences',
-            text2: 'React, React Native, Remix, Postgres'
+            // text2: 'React, React Native, Remix, Postgres'
         }, 
         {
             type: 5,            
@@ -187,17 +199,7 @@
         //     image1: 'nightlight/oregon-fishing.webp'
         // }, 
     ];
-
-    const page = document.querySelector('.detail-page');
-    
-    data.map((item) => {
-        page.append(renderFactory(item));
-    });
-
-    function handleHomeClick() { 
-        navigateToPage('nightlight', 'index.html#projects');        
-    }
-
+    const headerData = { name: pageData[0].name, tech: pageData[0].tech };
     const footerData = {
         classes: '',
         links: [
@@ -221,36 +223,32 @@
             }
         ]           
     };
-    const footer = document.querySelector('.projects-page .footer-nav');
-    footer.innerHTML = renderDynamicFooter(footerData);
-
-
-    // Slight delay on starting observers
-    setTimeout(() => {
-        startObservers();        
-    }, 1000);
-
-
-    function startObservers() {        
-        // Intersection Observer for slide ins
-        addObserver({
-            selectors: '.scroll-target, .slide-left, .slide-right',
-            fireOnce: true,             
-            whenIntersecting: (entry) => { entry.target.classList.add('visible'); },
-        });
-        
-        // Intersection Observer for 3 phone fade in sequence
-        addObserver({
-            selectors: '.fade-in-sequence',
-            fireOnce: true,             
-            whenIntersecting: (entry) => { 
-                entry.target.classList.add('active');
-                entry.target.querySelector('.secondary').classList.remove('waiting');
-                entry.target.querySelector('.tertiary').classList.remove('waiting');                
-             },
-             threshold: 0.5
-        });
+    const navigationData = {
+        from: 'projects/nightlight',
+        to: 'index.html'
     }
+
+        
+    // Render the page
+    GenerateProjectDetailPage(pageData, headerData, footerData, navigationData);
+
+
+    /*
+        PAGE SPECIFIC LOGIC BELOW HERE
+    */
+
+    // Intersection Observer for 3 phone fade in sequence
+    addObserver({
+        selectors: '.fade-in-sequence',
+        fireOnce: true,             
+        whenIntersecting: (entry) => { 
+            entry.target.classList.add('active');
+            entry.target.querySelector('.secondary').classList.remove('waiting');
+            entry.target.querySelector('.tertiary').classList.remove('waiting');                
+            },
+            threshold: 0.5
+    });
+
 
 </script>
 
