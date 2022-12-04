@@ -45,7 +45,13 @@ function handleLinkClick(e) {
     console.log("Scroll Into View: ", target);
   }
   else {
-    const route = link.substring(link.indexOf('/'));
+    /*  
+      input = https://aspenpeakstudios.github.io/projects/fte  
+      output = projects/fte
+    */
+    let route = link.substring(link.indexOf('//') + 2);   // strip off the https://
+    route = route.substring(route.indexOf('/')+1);      // strip everything up to first slash
+
 
     // Navigate with our custom fade transition.
     showMenu();
@@ -245,10 +251,10 @@ const navModalData = [
       });
     }, 800);
 
-    setTimeout(() => {
-      //document.querySelector('.nav-modal section.menu').classList.remove('hidden');
-      document.querySelector('section.menu').classList.add('dark');
-    }, 1000);
+    // setTimeout(() => {
+    //   //document.querySelector('.nav-modal section.menu').classList.remove('hidden');
+    //   document.querySelector('section.menu').classList.add('dark');
+    // }, 1000);
     
   }
 
