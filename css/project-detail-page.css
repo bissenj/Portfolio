@@ -38,3 +38,27 @@
     color: black;
     transition-delay: 0.5s; 
 }
+
+
+
+
+/* ----------------- SMALL SCREENS ---------------- */
+
+@media only screen and (max-width: 950px)  {
+
+    .text-overlay {
+        font-size: 1.3em;
+        letter-spacing: 6px;
+    }
+
+    .header-content .stats {
+        font-size: 0.6em;
+        letter-spacing: 2px;
+    }
+
+}
+
+@media only screen and (max-width: 850px)  {
+
+
+}

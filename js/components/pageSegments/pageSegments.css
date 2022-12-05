@@ -461,6 +461,10 @@ p.fs16 { font-size: 1.6em; max-width: 20em;}
         width: 85%;
         margin: 0 auto;
     }  
+    .w55 {
+        width: 85%;
+        margin: 0 auto;
+    }  
     .detail-page { font-size: 18px; }
     p.fs16 { font-size: 1.1em;}  
 

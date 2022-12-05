@@ -202,7 +202,7 @@ const navModalData = [
         const nameHtml = `<div class='name'>${text}</div>`;
         
         itemsHtml += `<a href='${url}' class='hidden' style='transition-delay: ${delay}ms' role="menuitem">
-                        <div class='text-container'>
+                        <div class='split-container'>
                           ${labelHtml}
                           ${nameHtml}
                         </div>                          

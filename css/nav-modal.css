@@ -184,7 +184,7 @@
         transition: color 0.3s;   
       }
   
-      .menu-items-column div.text-container {
+      .menu-items-column div.split-container {
         text-align: start;
         margin: 0 auto;
       }
