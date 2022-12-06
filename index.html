@@ -11,7 +11,8 @@
   <link rel='stylesheet' href='css/landing.css' />
   <link rel='stylesheet' href='css/hero.css' />
   <link rel='stylesheet' href='css/projects.css' />
-  <link rel='stylesheet' href='css/work-history-slides.css' />
+  <link rel='stylesheet' href='css/career-slides.css' />
+  <!-- <link rel='stylesheet' href='css/work-history-slides.css' /> -->
   <link rel='stylesheet' href='js/components/basicTimeline/basicTimeline.css' />
   <link rel='stylesheet' href='js/components/horizontalSlider/horizontalSlider.css' />
   <link rel='stylesheet' href='css/control-grid.css' />
@@ -169,18 +170,30 @@
     
     <!-- Work -->
     <section id='career' class='work'>
-        <div class='section-heading' style='width: 100%;        
-            padding-right: 5%;
-            margin-top: 60px;
-            text-align: center;
-            font-size: 36px;        
-            text-transform: uppercase;
-       '> 
-            Career History     
-        </div>
+        <!-- Slider and other components -->
+        <style>
+            section.work .slideshow-container {
+                background: none;
+                width: 100%;
+                box-shadow: none;
+                margin-bottom: 0px;
+                margin-top: 0px;
+                height: 50%;
+                min-height: unset;
+            }
+            section.work .horizontalSlider {
+                min-height: unset;
+                /* height: 600px; */
+            }
+            section.work .basic-timeline {
+                background-color: var(--primary-10);
+            }
+
+            section.work .card {
+                max-height: 50vh;
+            }
+        </style>
         <div class='slideshow-container'>         
-            <div class='basic-timeline'></div>
-            <div id='workHistorySlider1' class='horizontalSlider -bg9'></div>
             <div class='bg10 flex-row-apart'>
                 <!-- <div>
                     <button class='timeline-shutdown'>Deconstruct</button>
@@ -189,6 +202,17 @@
                     <div class='control-grid'></div>
                 </div>
             </div>
+            <div class='section-heading' style='width: 100%;        
+            padding-right: 5%;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 36px;        
+            text-transform: uppercase;
+       '> 
+            Career History     
+        </div>
+            <div id='workHistorySlider1' class='horizontalSlider -bg9'></div>
+            <div class='basic-timeline'></div>
         </div>
     </section>
     
@@ -276,50 +300,84 @@
         }
     }
 
-    function handleCareerClick(index) {
-        console.log("handle career click", index);
-        const url = events[index].link;
-        navigateToPage('home', `career/${url}`);
-    }
+
+    function renderSlide(item) {
+        let summaryText = '';
+        if (item.link) {
+            summaryText = `<a href='${item.link}'>${item.summary}</a>`;
+        }
+        else {
+            summaryText = `${item.summary}`;
+        }
+
+        let html = `<div class='card'>
+            <div class='image-container'>        
+                <div class='hero-image-container'>
+                <img src='~/../img/${item.backgroundImage}' alt='${item.backgroundAlt}'/>
+                <div class='hero-text-container'><a href='${item.backgroundLink}' target='new'>${item.backgroundText}<a/></div>
+                </div>
+                <div class='avatar-image-container'><img src='~/../img/${item.brandImage}' alt='${item.brandAlt}'/></div>
+                <div class='location-image-container'><img src='~/../img/collage/location.png' alt='Location Icon'/></div>
+            </div>
+            <div class='details'>
+                <div class='header'><h1>${item.company}</h1></div>        
+                <div class='body'><p>${summaryText}</p></div>        
+                <div class='footer'>
+                <div class='years'><span>${item.yearStart}</span><span>-${item.yearEnd}</span></div>
+                <div class='job-title'>${item.title}</div>
+                </div>
+            </div>
+            </div>`;
+
+            return html;
+        }
+
+
+
+    // function handleCareerClick(index) {
+    //     console.log("handle career click", index);
+    //     const url = events[index].link;
+    //     navigateToPage('home', `career/${url}`);
+    // }
 
 
     // Custom Render function for the slides
-    function renderSlide(item, index) {
-        // let html = `<div class='slide flex-center hide-content' data-id=${item.id} style='background-color:${item.background}'> <span class=''>${item.text}</span> </div>`;
-        // return html;
+    // function renderSlide(item, index) {
+    //     // let html = `<div class='slide flex-center hide-content' data-id=${item.id} style='background-color:${item.background}'> <span class=''>${item.text}</span> </div>`;
+    //     // return html;
 
-        let html = `
-                <div class='slide hide-content bg9' data-id=${index}' onclick='()=>{console.log("click")}' > 
-                    <!-- Event Header -->
-                    <div class='event-header'>                        
-                        <div>${item.yearStart} - ${item.yearEnd}</div>
-                        <div>${item.name}</div>                        
-                    </div>
+    //     let html = `
+    //             <div class='slide hide-content bg9' data-id=${index}' onclick='()=>{console.log("click")}' > 
+    //                 <!-- Event Header -->
+    //                 <div class='event-header'>                        
+    //                     <div>${item.yearStart} - ${item.yearEnd}</div>
+    //                     <div>${item.name}</div>                        
+    //                 </div>
 
-                    <!-- Event Summary -->                                
-                    <div class='event-summary'>
-                        <div class='left'>
-                            <div class='event-tools'>${item.tools}</div>                    
-                            <div>At a glance:</div>
-                            <div>${item.summary}</div>
-                        </div>
-                        <div class='company-image'><img src='img/timeline/${item.image}'/></div>
-                    </div>         
-                    <div class='career-more-button' data-index=${index} aria-role='button'>more</div>           
-                </div>`;                  
-        return html;
-    }
-    function generateSlideEventHandlers() {
-        const slides = document.querySelectorAll('.career-more-button');
-        slides.forEach((el) => {
-            el.addEventListener('pointerdown', (e) => {
-                //navigateToPage('home', 'career/mje');
-                const index = e.target.dataset.index;
-                console.log("e: ", e, "index: ", index);
-                handleCareerClick(index);
-             })
-        });
-    }
+    //                 <!-- Event Summary -->                                
+    //                 <div class='event-summary'>
+    //                     <div class='left'>
+    //                         <div class='event-tools'>${item.tools}</div>                    
+    //                         <div>At a glance:</div>
+    //                         <div>${item.summary}</div>
+    //                     </div>
+    //                     <div class='company-image'><img src='img/timeline/${item.image}'/></div>
+    //                 </div>         
+    //                 <div class='career-more-button' data-index=${index} aria-role='button'>more</div>           
+    //             </div>`;                  
+    //     return html;
+    // }
+    // function generateSlideEventHandlers() {
+    //     const slides = document.querySelectorAll('.career-more-button');
+    //     slides.forEach((el) => {
+    //         el.addEventListener('pointerdown', (e) => {
+    //             //navigateToPage('home', 'career/mje');
+    //             const index = e.target.dataset.index;
+    //             console.log("e: ", e, "index: ", index);
+    //             handleCareerClick(index);
+    //          })
+    //     });
+    // }
 
 
     // DELAYED JAVASCRIPT COMPONENTS
@@ -387,8 +445,9 @@
             let slideContainer1 = document.getElementById('workHistorySlider1');
             //slideContainer1.style.opacity = 0;    
             
-            const slider1 = new HorizontalSlider(slideContainer1, events, renderSlide, 100, false, 0, generateSlideEventHandlers);
-            setTimeout(()=>{workContainer.style.opacity = 1;}, 2000);
+            // const slider1 = new HorizontalSlider(slideContainer1, events, renderSlide, 100, false, 0, generateSlideEventHandlers);
+            const slider1 = new HorizontalSlider(slideContainer1, cardData, renderSlide, 100, false, 2);
+            setTimeout(()=>{workContainer.style.opacity = 1;}, 100);
 
             // Create basic timeline
             const basicTimelineEl = document.querySelector('.basic-timeline');
