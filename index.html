@@ -186,11 +186,15 @@
                 /* height: 600px; */
             }
             section.work .basic-timeline {
-                background-color: var(--primary-10);
+                background-color: var(--primary-10);                
+                /* display: none; */
             }
 
             section.work .card {
-                max-height: 50vh;
+                /* height: 100%;
+                width: 100%; */
+                max-height: 60vh;
+                /* max-width: 100vh; */
             }
         </style>
         <div class='slideshow-container'>         
@@ -304,33 +308,45 @@
     function renderSlide(item) {
         let summaryText = '';
         if (item.link) {
-            summaryText = `<a href='${item.link}'>${item.summary}</a>`;
+            summaryText = `<a href="${item.link}">${item.summary}</a>`;
         }
         else {
             summaryText = `${item.summary}`;
         }
 
-        let html = `<div class='card'>
-            <div class='image-container'>        
-                <div class='hero-image-container'>
-                <img src='~/../img/${item.backgroundImage}' alt='${item.backgroundAlt}'/>
-                <div class='hero-text-container'><a href='${item.backgroundLink}' target='new'>${item.backgroundText}<a/></div>
-                </div>
-                <div class='avatar-image-container'><img src='~/../img/${item.brandImage}' alt='${item.brandAlt}'/></div>
-                <div class='location-image-container'><img src='~/../img/collage/location.png' alt='Location Icon'/></div>
-            </div>
-            <div class='details'>
-                <div class='header'><h1>${item.company}</h1></div>        
-                <div class='body'><p>${summaryText}</p></div>        
-                <div class='footer'>
-                <div class='years'><span>${item.yearStart}</span><span>-${item.yearEnd}</span></div>
-                <div class='job-title'>${item.title}</div>
-                </div>
-            </div>
-            </div>`;
+        //console.log('summary text: ', summaryText);
 
-            return html;
-        }
+        let html = 
+        `
+            <div class='card hide-content'>
+                <div class='image-container'>        
+                    <div class='hero-image-container'>
+                        <img src='~/../img/${item.backgroundImage}' alt='${item.backgroundAlt}'/>
+                        <div class='hero-text-container'>
+                            <a href='${item.backgroundLink}' target='new'>${item.backgroundText}</a>
+                        </div>
+                    </div>
+                    <div class='avatar-image-container'>
+                        <img src='~/../img/${item.brandImage}' alt='${item.brandAlt}'/>
+                    </div>
+                    <div class='location-image-container'>
+                        <img src='~/../img/collage/location.png' alt='Location Icon'/>
+                    </div>
+                </div>
+                <div class='details'>
+                    <div class='header'><h1>${item.company}</h1></div>        
+                    <div class='body'><p>${summaryText}</p></div>        
+                    <div class='footer'>
+                        <div class='years'><span>${item.yearStart}</span><span>-${item.yearEnd}</span></div>
+                        <div class='job-title'>${item.title}</div>
+                    </div>
+                </div>                    
+            </div>            
+        `;
+
+        //console.log('html: ', html);
+        return html;
+    }
 
 
 
@@ -446,7 +462,7 @@
             //slideContainer1.style.opacity = 0;    
             
             // const slider1 = new HorizontalSlider(slideContainer1, events, renderSlide, 100, false, 0, generateSlideEventHandlers);
-            const slider1 = new HorizontalSlider(slideContainer1, cardData, renderSlide, 100, false, 2);
+            const slider1 = new HorizontalSlider(slideContainer1, cardData, renderSlide, 100, false, 0, 0.7);
             setTimeout(()=>{workContainer.style.opacity = 1;}, 100);
 
             // Create basic timeline

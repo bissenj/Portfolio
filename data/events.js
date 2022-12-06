@@ -95,7 +95,7 @@ const cardData = [
       backgroundLink: 'https://mam.org/visit/', backgroundText: 'Milwaukee Art Museum',
       brandImage: 'collage/nwm-brand.jpg', brandAlt: 'Picture of Northwestern Mutual Building',
       company: 'Northwestern Mutual', 
-      summary: 'Fortune 500 company based out of Milwaukee, Wisconsin.  My first career job out of college and an amazing opportunity to work in a huge, very mature, organization. (more)',
+      summary: 'Fortune 500 company based out of Milwaukee, Wisconsin.  My first career job out of college and an amazing opportunity to work in a huge, very mature, organization. <span>more</span>',
       link: 'career/nwm',
       yearStart: '2004',
       yearEnd: '2014',
