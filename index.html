@@ -193,7 +193,7 @@
             section.work .card {
                 /* height: 100%;
                 width: 100%; */
-                max-height: 58vh;
+                max-height: 55vh;
                 max-width: 90vh;
             }
         </style>
@@ -202,17 +202,18 @@
                 <!-- <div>
                     <button class='timeline-shutdown'>Deconstruct</button>
                 </div> -->
-                <div class='right-edge p10-20'>
+                <div class='space-between p10-20'>
+                    <div><!--Career--></div>                    
                     <div class='control-grid'></div>
                 </div>
             </div>
             <div class='section-heading' style='width: 100%;        
-            padding-right: 5%;
-            margin-top: 20px;
-            text-align: center;
-            font-size: 36px;        
-            text-transform: uppercase;
-       '> 
+                padding-right: 5%;
+                margin-top: 20px;
+                text-align: center;
+                font-size: 36px;        
+                text-transform: uppercase;
+        '> 
             Career History     
         </div>
             <div id='workHistorySlider1' class='horizontalSlider -bg9'></div>
@@ -309,7 +310,7 @@
     const ratio = width / height;
     console.log("Screen Aspect Ratio: ", ratio);
     if (ratio > 0.9) {
-        slideOffset = 0.5;
+        slideOffset = 0.50;
     }
     
 

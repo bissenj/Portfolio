@@ -133,7 +133,7 @@ const cardData = [
       backgroundLink: 'https://peakvisor.com/adm/montana.html', backgroundText: 'Montana',
       brandImage: 'collage/self-brand.jpg', brandAlt: 'Picture of MJE Headquarters',
       company: 'Mountains and Code', 
-      summary: 'After selling our business we took some time off to travel out west and visit national parks.  Then we left the Midwest and achieved our long term goal of moving to Montana.  During this time I did web work for a few small organizations and spent time improving my design and tech skills.',
+      summary: 'After selling our business we took time off to travel and visit national parks.  Then we left the Midwest and achieved our long term goal of moving to Montana.  During this time I did web work for a few small organizations and spent time improving my design and tech skills.',
       link: 'career/self',
       yearStart: '2021',
       yearEnd: '2023',

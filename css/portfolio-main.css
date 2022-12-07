@@ -165,6 +165,12 @@ section.center {
     flex-direction: row;
     justify-content: flex-end;
 }
+.space-between {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 
 /* PADDING */
 .p10 {
