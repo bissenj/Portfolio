@@ -14,7 +14,9 @@
     overflow: hidden;
     
     box-shadow: 0 5px 15px #777, 0px 4px 6px #444;
+    cursor: pointer;
 }
+
 
 
 /* .card.hide-content .details  {
@@ -34,6 +36,9 @@
 .card.hide-content .avatar-image-container {
     opacity: 0;
 }
+.card.hide-content .hero-text-container {
+    opacity: 1;
+}
 
 
 .card img {
@@ -44,11 +49,11 @@
     position: relative;
     height: 45%;
     transition: height 1s, opacity 0.3s;
-    transition-delay: 0.5s;
+    transition-delay: 0.2s;
 
     user-select: none;
 }    
-.card .image-container:hover { 
+/* .card .image-container:hover { 
     height: 100%;    
 }
 .card .image-container:hover .avatar-image-container {
@@ -56,10 +61,27 @@
 }
 .card .image-container:hover .hero-text-container {
     opacity: 1;
-}
+}*/
 .card .image-container:hover .location-image-container {
     transform: scale(1.5);
+} 
+
+.card .image-container.active { 
+    height: 100%;    
 }
+.card .image-container.active .avatar-image-container {
+    opacity: 0;
+}
+.card .image-container.active .hero-text-container {
+    opacity: 1;
+}
+.card .image-container.active .location-image-container {
+    transform: scale(1.5);
+} 
+.card .image-container.active .hero-text-details-container {
+    opacity: 1;
+}
+
 
 .hero-text-container {
     position: absolute;
@@ -78,6 +100,19 @@
 .hero-text-container a:hover { 
     text-decoration: underline;
     color: unset;
+}
+.hero-text-details-container {
+    position: absolute;
+    bottom: 0;
+    left: 0px;
+    width: 100%;
+    padding: 20px;
+    padding-top: 40px;
+    line-height: 1.5em; 
+    /* background-color: rgba(0,0,0,0.5); */
+    background: linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.6) 50%);
+    transition: opacity 1.0s;    
+    opacity: 0;
 }
 .hero-image-container {
     position: relative;
@@ -172,9 +207,10 @@
     
 .details .body p a {
     color: #6C636F;       
-    text-decoration: none;      
+    text-decoration: none; 
+    margin-left: 6px;     
 }
-.details .body p a::before {       
+/* .details .body p a::before {       
     content: 'View Career Notes >';
     position: absolute;    
     top:0;
@@ -190,7 +226,7 @@
     place-content: center;
     opacity: 0;
     border-radius: 10px;
-}
+} */
 .details .body p a:hover {    
     color: #2e4a5a;;      
     font-weight: 700;    
@@ -198,13 +234,15 @@
 }
 
 .details .body p a span {
-    border-bottom: 4px solid #ff9700;
+    position:relative;
+    border-bottom: 4px solid #ff9700;    
 }
 
-.details .body p a:hover:before{
+
+/* .details .body p a:hover:before{
     z-index: 200;
     opacity: 1;
-}
+} */
 
 
 .details .footer {

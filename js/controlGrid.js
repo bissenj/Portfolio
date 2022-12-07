@@ -32,7 +32,7 @@ class ControlGrid {
 
         this.init();
 
-        console.log("Control Grid Loaded. Selected Index: ", this.state.selectedIndex);
+        //console.log("Control Grid Loaded. Selected Index: ", this.state.selectedIndex);
     }
 
     // Private Methods
@@ -105,7 +105,7 @@ class ControlGrid {
 
     // Public Methods
     setIndex(index) {
-        console.log("Control Grid - setIndex: ", index);
+        //console.log("Control Grid - setIndex: ", index);
 
         this.selectedIndex = index;
 

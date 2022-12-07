@@ -15,6 +15,30 @@
         may still have the body faded out and nothing will show up.
 */
 
+
+// TESTING:  ADDED THIS TO HANDLE URLS FROM ANCHOR LINKS
+function routeToUrl(url) {
+  console.log('RouteToUrl(): ', url);
+
+    // Fade out screen
+    document.querySelector('body').classList.add('fade');
+    
+    // // HACK FOR GITHUB PAGES
+    // // Fix the URL when deployed on GitHubPages by adding in the repo name.
+    // let destination = '';
+    // if (location.protocol == "https:") {
+    //     destination = '/Portfolio'
+    // }       
+
+    // update window location
+    setTimeout(() =>{         
+        window.location = url;
+    },500);    
+}
+
+
+
+// THIS ONLY WORKS FROM THE SITE MAP MODAL, RIGHT NOW.
 function handleLinkClick(e) {
   console.log('handleLinkClick: ', e);
 

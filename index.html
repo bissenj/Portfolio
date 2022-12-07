@@ -193,8 +193,8 @@
             section.work .card {
                 /* height: 100%;
                 width: 100%; */
-                max-height: 60vh;
-                /* max-width: 100vh; */
+                max-height: 58vh;
+                max-width: 90vh;
             }
         </style>
         <div class='slideshow-container'>         
@@ -282,10 +282,36 @@
     const VERSION_NUMBER = "[0131-12/6/2022]";
     document.querySelector('.version-number').innerHTML = VERSION_NUMBER;
 
+    
+    // Current index shared amongst the slider, timeline and control grid;
+    let selectedIndex = 2;
 
-    // TODO:  Move this to its own component    
-    let selectedIndex = 0;
-    //const slideData = [{id: 1, text: "This is Slide 1", background: "#FFCF47"}, {id: 2, text: "Slide 2", background: "#7ADCEF"}, {id: 3, text: "3rd Slide", background: "#a78df5" }, {id:4, text:"Last Slide.  4", background: "#ff8686"}];
+    // Determines how many slides are visible on the screen.  
+    // 1.0 = Each slide is 100% view width, so 1 slide is visible. 
+    // 0.8 = Each slide is 80% view width.  This shows just enough of the other slides to 
+    //       let user know this is a horizontal slider. 
+    // 0.5 = Each slide is 50% view width, so 3 slides are visible (one full slide centered and 
+    //       two partial slides on the sides).  This works well when screen width is much larger than height.
+    // General Idea:  If width is much larger than height, cards look weird and slideOffset 
+    //                needs to decrease, and vice-versa.
+    //                
+    let slideOffset = 0.8;
+
+    // get screen view width and height.
+    var width = window.innerWidth
+                    || document.documentElement.clientWidth
+                    || document.body.clientWidth;
+
+    var height = window.innerHeight
+                    || document.documentElement.clientHeight
+                    || document.body.clientHeight;
+
+    const ratio = width / height;
+    console.log("Screen Aspect Ratio: ", ratio);
+    if (ratio > 0.9) {
+        slideOffset = 0.5;
+    }
+    
 
     function handleProjectsClick(index) {
         // console.log("handle projects click", index);
@@ -308,13 +334,20 @@
     function renderSlide(item) {
         let summaryText = '';
         if (item.link) {
-            summaryText = `<a href="${item.link}">${item.summary}</a>`;
+            summaryText = `${item.summary} <a href="${item.link}"><span>More<span></a>`;
         }
         else {
             summaryText = `${item.summary}`;
         }
 
-        //console.log('summary text: ', summaryText);
+        let backgroundDetails = '';
+        if (item.backgroundTextDetails) {
+            backgroundDetails = `
+                        <div class='hero-text-details-container'>
+                            <p>${item.backgroundTextDetails}</p>
+                        </div>
+                        `;
+        }
 
         let html = 
         `
@@ -325,6 +358,7 @@
                         <div class='hero-text-container'>
                             <a href='${item.backgroundLink}' target='new'>${item.backgroundText}</a>
                         </div>
+                        ${backgroundDetails}
                     </div>
                     <div class='avatar-image-container'>
                         <img src='~/../img/${item.brandImage}' alt='${item.brandAlt}'/>
@@ -342,64 +376,69 @@
                     </div>
                 </div>                    
             </div>            
-        `;
-
-        //console.log('html: ', html);
+        `;        
         return html;
     }
 
 
+    // Dynamically generates the event handlers for the slides.
+    // 1.  Click on 'more' link navigates to career page
+    // 2.  Click on 'location' icon toggles hero image panel to expand/contract.
+    //     A.  on card mouse-out contract the hero image panel.
+    //     B.  on scroll, contract the hero image panel.
+    function generateSlideEventHandlers() {
+        const locationIcons = document.querySelectorAll('.card .location-image-container');
+        locationIcons.forEach((el) => {
+            el.addEventListener('pointerdown', (e) => {                
+                toggleLocationInformation(el);
+             })
+        });
 
-    // function handleCareerClick(index) {
-    //     console.log("handle career click", index);
-    //     const url = events[index].link;
-    //     navigateToPage('home', `career/${url}`);
-    // }
+        const links = document.querySelectorAll('.card .details p a');
+        links.forEach((el) => {
+            el.addEventListener('click', (e) => {
+                console.log('click', e.target, e.target.parentNode);
+                const el = (e.target.href) ? e.target : e.target.parentNode;
+
+                const href = el.href;
+                console.log('href:', href);
+                if (href) {
+                    e.preventDefault();                    
+                    routeToUrl(href);      // routing.js - handles a link click.
+                    return false;
+                }                
+             })
+        });
 
 
-    // Custom Render function for the slides
-    // function renderSlide(item, index) {
-    //     // let html = `<div class='slide flex-center hide-content' data-id=${item.id} style='background-color:${item.background}'> <span class=''>${item.text}</span> </div>`;
-    //     // return html;
+    }
 
-    //     let html = `
-    //             <div class='slide hide-content bg9' data-id=${index}' onclick='()=>{console.log("click")}' > 
-    //                 <!-- Event Header -->
-    //                 <div class='event-header'>                        
-    //                     <div>${item.yearStart} - ${item.yearEnd}</div>
-    //                     <div>${item.name}</div>                        
-    //                 </div>
+    function toggleLocationInformation(el) {
+        const parent = el.parentNode;
 
-    //                 <!-- Event Summary -->                                
-    //                 <div class='event-summary'>
-    //                     <div class='left'>
-    //                         <div class='event-tools'>${item.tools}</div>                    
-    //                         <div>At a glance:</div>
-    //                         <div>${item.summary}</div>
-    //                     </div>
-    //                     <div class='company-image'><img src='img/timeline/${item.image}'/></div>
-    //                 </div>         
-    //                 <div class='career-more-button' data-index=${index} aria-role='button'>more</div>           
-    //             </div>`;                  
-    //     return html;
-    // }
-    // function generateSlideEventHandlers() {
-    //     const slides = document.querySelectorAll('.career-more-button');
-    //     slides.forEach((el) => {
-    //         el.addEventListener('pointerdown', (e) => {
-    //             //navigateToPage('home', 'career/mje');
-    //             const index = e.target.dataset.index;
-    //             console.log("e: ", e, "index: ", index);
-    //             handleCareerClick(index);
-    //          })
-    //     });
-    // }
+        if (parent.classList.contains('active')) {
+            parent.classList.remove('active');
+        }
+        else {
+            parent.classList.add('active');
+        }
+    }
 
+    function resetSlide(el) {
+        console.log('reset slide', el);
+
+        const target = el.querySelector('.image-container');
+        if (target) {
+
+            if (target.classList.contains('active')) {
+                target.classList.remove('active');
+            }
+        }        
+    }
 
     // DELAYED JAVASCRIPT COMPONENTS
     delayedComponentLoad(0);
     
-
     // TEST Projects Button
     const exploreProjectsButton = document.querySelector('.projects-collage').addEventListener('click', handleExploreProjects);
 
@@ -454,20 +493,20 @@
 
         //setTimeout(() => {
 
-            console.log("Loading JS components");
-            console.time('components');
+            //console.log("Loading JS components");
+            //console.time('components');
 
             // App loads    
             let slideContainer1 = document.getElementById('workHistorySlider1');
             //slideContainer1.style.opacity = 0;    
             
             // const slider1 = new HorizontalSlider(slideContainer1, events, renderSlide, 100, false, 0, generateSlideEventHandlers);
-            const slider1 = new HorizontalSlider(slideContainer1, cardData, renderSlide, 100, false, 0, 0.7);
+            const slider1 = new HorizontalSlider(slideContainer1, cardData, renderSlide, 100, false, selectedIndex, slideOffset, generateSlideEventHandlers, resetSlide);
             setTimeout(()=>{workContainer.style.opacity = 1;}, 100);
 
             // Create basic timeline
             const basicTimelineEl = document.querySelector('.basic-timeline');
-            const basicTimeline1 = new BasicTimeline(basicTimelineEl, events, 0, true);
+            const basicTimeline1 = new BasicTimeline(basicTimelineEl, events, selectedIndex, true);
 
             // Create control grid    
             let controlGridContainer1 = document.querySelector('.control-grid');
@@ -508,8 +547,8 @@
                 basicTimeline1.handleResize();        
             }     
                         
-            console.log("Finished loading JS components");
-            console.timeEnd('components');
+            //console.log("Finished loading JS components");
+            //console.timeEnd('components');
 
         //}, delay);
     }

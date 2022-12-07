@@ -12,6 +12,7 @@
     - startingSlide [int]:  which slide to start on
     - slideWidth [0-1]: percentage width of the slide vs it's parent
     - click callback:  transition to another page when slide is clicked
+    - unSelect callback:  function to call when slide is about to transition out of being selected slide
 
 
   PUBLIC METHODS:
@@ -42,6 +43,7 @@ class HorizontalSlider {
   data = undefined;
   slideRenderFunction = undefined;
   slideCreateEventHandlers = undefined;
+  slideUnSelectHandler = undefined;
   selectedIndex = 0;
   posInitial = 0;
   posFinal = 0;
@@ -62,13 +64,15 @@ class HorizontalSlider {
   componentWidth = 0;   // for detecting resize events
   componentHeight = 0;  // for detecting resize events
 
-  constructor(componentEl, data, renderFunction, threshold = 100, wrap = false, index = 0, slideSize = 1, createClickHandlers) {
+  constructor(componentEl, data, renderFunction, threshold = 100, wrap = false, index = 0, 
+              slideSize = 1, createClickHandlers, unSelectHandlers) {
     
     // Store parameters
     this.componentEl = componentEl;
     this.data = data;
     this.slideRenderFunction = renderFunction;  
     this.slideCreateEventHandlers = createClickHandlers; 
+    this.slideUnSelectHandler = unSelectHandlers;
     this.threshold = threshold;
     this.allowWrap = wrap;
     this.selectedIndex = index;
@@ -99,7 +103,7 @@ class HorizontalSlider {
     this.viewport.ontouchstart = (e) => this.dragStart(e);    
 
     // - Animation
-    this.viewport.ontransitionend = (e) => this.transitionEnd(e);
+    //this.viewport.ontransitionend = (e) => this.transitionEnd(e);
 
 
 
@@ -218,7 +222,7 @@ class HorizontalSlider {
 
   // Drag Start
   dragStart(e) {
-    console.log("Drag start: ", e);
+    //console.log("Drag start: ", e);
     e.preventDefault();    // this will prevent any hrefs from working on mobile...
 
     if (this.allowMove) {
@@ -260,7 +264,9 @@ class HorizontalSlider {
       this.moveSlides(-1, 'drag');
     }
     else {      
-      this.slidegroup.style.left = (this.posInitial) + "px";
+      console.log("not enough");
+      //this.slidegroup.style.left = (this.posInitial) + "px";
+      this.moveSlides(0, 'drag');
     }
 
     // Clear out event handlers.
@@ -302,8 +308,10 @@ class HorizontalSlider {
 
   moveSlides(direction, action) {
 
+    //console.log('moveSlides(): ', direction, action);
+    
     // Bail if we're not actually moving anywhere
-    if (direction == 0) return;
+    //if (direction == 0) return;
 
     // Bail if we're hitting a boundary (this only applies to no-wrap sliders)
     if (!this.allowWrap) {      
@@ -321,7 +329,12 @@ class HorizontalSlider {
       this.slidegroup.classList.add('animating');
 
       // Hide content as slide moves off screen
-      this.slidegroup.children[this.selectedIndex].classList.add('hide-content');
+      if (direction != 0) {
+        this.slidegroup.children[this.selectedIndex].classList.add('hide-content');
+
+        // Custom callback to reset slide before it moves away from being selected.
+        this.slideUnSelectHandler(this.slidegroup.children[this.selectedIndex]);
+      }
 
 
       if (!action) {         
@@ -361,13 +374,20 @@ class HorizontalSlider {
       this.dispatchOnSlide(newIndex);
       
       this.allowMove = false;
+
+      // enable controls on the slideshow after the slide is done transitioning
+      setTimeout(() => {
+        this.transitionEnd();
+      }, 1000);
     }
   }
 
 
   // Called when the slide transition has finished.  This then takes care of wrapping the indexes
   // and sending out an animation complete event.
-  transitionEnd(e) {    
+  transitionEnd() {  
+    // console.log("transitionEnd(): ", e);  
+    console.log("transitionEnd(): ");  
     this.slidegroup.classList.remove('animating');      
 
     // logic to handle wrapping the slides - Update the position and set new selected index
