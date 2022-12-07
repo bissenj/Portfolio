@@ -130,9 +130,9 @@ class BasicTimeline {
 
             <!-- Timeline Component -->
             <div class='timeline-container' tabIndex='0'>
-                <button id="backBtn" role="button">  &#5130; </button>
+                <!-- <button id="backBtn" role="button">  &#5130; </button> -->
                 <div class="timeline"></div>
-                <button id="forwardBtn" role="button"> &#5125; </button>
+                <!-- <button id="forwardBtn" role="button"> &#5125; </button> -->
             </div>
             `;
 
@@ -239,14 +239,14 @@ class BasicTimeline {
     addEventHandlers(componentEl) {
 
         // Buttons
-        const backButton = componentEl.querySelector('#backBtn');
-        const forwardButton = componentEl.querySelector('#forwardBtn');
-        backButton.onclick = () => {                        
-            this.setIndex(this.state.index - 1);
-        }
-        forwardButton.onclick = () => {            
-            this.setIndex(this.state.index + 1);          
-        }
+        // const backButton = componentEl.querySelector('#backBtn');
+        // const forwardButton = componentEl.querySelector('#forwardBtn');
+        // backButton.onclick = () => {                        
+        //     this.setIndex(this.state.index - 1);
+        // }
+        // forwardButton.onclick = () => {            
+        //     this.setIndex(this.state.index + 1);          
+        // }
 
         
         // Keys

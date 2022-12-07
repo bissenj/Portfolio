@@ -223,7 +223,7 @@ class HorizontalSlider {
   // Drag Start
   dragStart(e) {
     //console.log("Drag start: ", e);
-    e.preventDefault();    // this will prevent any hrefs from working on mobile...
+    // e.preventDefault();    // this will prevent any hrefs from working on mobile...
 
     if (this.allowMove) {
 
