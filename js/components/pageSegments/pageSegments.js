@@ -71,9 +71,11 @@ function createImage(data) {
     return html;
 }
 
-function createText(data) {  
-    //console.log('createImage: ', data);  
-    let classes = data.class ?? '';
+function createText(data) { 
+    if (data.text.includes('<ul>'))  {
+        console.log('createText - input: ', data);  
+    }
+    let classes = data.classes ?? '';
     let text = data.text ?? '';
 
     let html = '';
@@ -86,6 +88,10 @@ function createText(data) {
         }        
         html += `<p ${classesHtml}>${text}</p>`;            
     }     
+
+    if (data.text.includes('<ul>'))  {
+        console.log('createText - output: ', html);  
+    }
     return html;
 }
 
@@ -371,15 +377,20 @@ function renderQuestionAnswer(data, index) {
     const optionalClasses = data.classes ?? '';
 
     let questionHtml = '';
-    if (question != '') {
-        questionHtml = `<a class='anchor' id='question${index}'></a><h5 class='question' data-index=${index}>${question}</h5>`;
+    if (question != '') {    
+        if (data.summary.startsWith('-')) {
+            questionHtml = `<a class='anchor' id='question${index}'></a><h6 class='question sub-item' data-index=${index}>${question}</h6>`;                
+        }   
+        else { 
+            questionHtml = `<a class='anchor' id='question${index}'></a><h5 class='question' data-index=${index}>${question}</h5>`;                
+        }
     }
 
     let paragraphHtml = '';
     data.answer.map((item) => {
         let classes = item.classes ?? '';         
         //paragraphHtml += `<p class='${classes}'>${item.text}</p>`;
-        paragraphHtml += createText({text: item.text, class: item.class});
+        paragraphHtml += createText({text: item.text, classes: item.classes});
     });
 
     let html = `

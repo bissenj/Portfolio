@@ -76,7 +76,13 @@ function renderHeader(career) {
 function renderQuickLinks(el, data) {   
     let html = `<nav><ul>`;
     data.map((item, index) => {
-        html += `<li><a href='#question${index}'>${item.summary}</a></li>`;
+
+        if (item.summary.startsWith('-')) {            
+            html += `<li style='font-size: 0.7em;'><a href='#question${index}'>${item.summary}</a></li>`;
+        }
+        else {
+            html += `<li><a href='#question${index}'>${item.summary}</a></li>`;
+        }
     });
     html += '</ul></nav>';
     return createNode(html);        // pageSegments.js
