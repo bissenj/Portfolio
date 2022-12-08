@@ -222,8 +222,13 @@ class HorizontalSlider {
 
   // Drag Start
   dragStart(e) {
-    //console.log("Drag start: ", e);
-    // e.preventDefault();    // this will prevent any hrefs from working on mobile...
+    console.log("Drag start: ", e);
+    
+    
+    // CAREFUL HERE
+    // this will prevent any hrefs from working on mobile...
+    // but commenting this out breaks dragging on desktop (when clicking on an image).
+    e.preventDefault();   
 
     if (this.allowMove) {
 
