@@ -187,8 +187,8 @@ div.row1 > div.transition-in:before, div.row2 > div.transition-in:before {
 
 .intro {
     display: block;
-    letter-spacing: 4px;
-    line-height: 40px;  
+    letter-spacing: 2px;
+    line-height: 36px;  
 
     /* Simple Design v1 */
     margin: 20%;
@@ -198,7 +198,7 @@ div.row1 > div.transition-in:before, div.row2 > div.transition-in:before {
     margin-bottom: 10%;    
 }
 .intro p:nth-child(2) { 
-    font-size: 16px;
+    font-size: 20px;
 }
 .intro p:nth-child(3) { 
     text-align: right;
@@ -208,23 +208,23 @@ div.row1 > div.transition-in:before, div.row2 > div.transition-in:before {
 .slant {
     display:none;
 
-    /* overflow-x: hidden;
+    overflow-x: hidden;
     padding: 5px;
     position: absolute;
     right: -32px;    
     width: 65%;
     color: white;
     background-color: black;
-    transform: skew(60deg);  */
+    transform: skew(60deg); 
 }
 
 .slant div {
-    /* display: flex;
+    display: flex;
     justify-content: space-between;
     transform: skew(-60deg);
     margin-left: 20px;
     padding-right: 40px;
-    padding-left: 10px; */
+    padding-left: 10px;
 }
 
 

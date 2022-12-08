@@ -203,3 +203,51 @@ section.center {
     justify-content: space-between;
     align-items: center;
 }
+
+/* ANIMATIONS & INTERSECTION OBSERVER */
+.slide-left {
+    transition: transform 2s, opacity 2s;
+    transform: translateX(-60px);
+    opacity: 0;
+}
+.slide-left.visible {
+    transform: translateX(0px);
+    opacity: 1;
+}
+
+.slide-right {
+    transition: transform 2s, opacity 2s;
+    transform: translateX(60px);
+    opacity: 0;
+}
+.slide-right.visible {
+    transform: translateX(0px);
+    opacity: 1;
+}
+
+.slide-in {
+    transition: transform 2s, opacity 2s;
+    transform: translateX(20px);
+    opacity: 0;
+}
+.slide-in.visible {
+    transform: translateX(0px);
+    opacity: 1;
+}
+
+.scroll-target {
+    transition: opacity 2s;
+    opacity: 0;
+}
+.scroll-target.visible {
+    opacity: 1;
+}
+
+.scaled-down {
+    transition: transform 1.5s;
+    transform: scale(0.8);    
+}
+
+.scaled-down.visible {
+    transform: scale(1);
+}

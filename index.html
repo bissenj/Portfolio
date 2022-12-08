@@ -79,8 +79,8 @@
     <section id='about' class='about'>           
         <!-- TEXT -->
         <div class='intro'>     
-            <p>Hi, I'm John</p>            
-            <p>
+            <p class='slide-in'>Hi, I'm John</p>            
+            <p class='slide-in'>
                 For over two decades I have used my software development and design skills to help companies reach their goals.
                 I take work seriously and make sure projects succeed. 
                 I can lead.
@@ -89,7 +89,7 @@
                 Mountains and Code is a combination of some of my professional work and some of my outside interests.  
                 Thanks for being here.  
             </p>
-            <p>Lets have some fun.</p>
+            <p class='slide-in'>Lets have some fun.</p>
         </div>
         
         <!-- Divider -->
@@ -563,6 +563,14 @@
         threshold: 0.5
         // whenNotIntersecting: (entry) => {console.log("is not intersecting"); handleExploreProjects(); }
     });
+
+    // Intersection Observer for slide-ins
+    addObserver({
+        selectors: '.slide-in',
+        fireOnce: true,             
+        whenIntersecting: (entry) => { entry.target.classList.add('visible'); },
+    });   
+        
 
 
 </script>

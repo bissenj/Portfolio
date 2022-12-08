@@ -271,17 +271,41 @@
 /* ----------------- SMALL SCREENS ---------------- */
     
 @media only screen and (max-width: 1250px)  {    
-    .card {          
+    /* .card {          
         font-size: 18px;
         width: 80%;
-    }         
+    }          */
 }
 
  @media only screen and (max-width: 950px)  {    
-    .card {          
+    /* .card {          
         font-size: 18px;
         width: 80%;
-    } 
+    }  */
+}
+
+
+/* Minimum aspect ratio */
+@media (min-aspect-ratio: 7/5) {
+    .card {      
+      /* border: 2px solid red; */
+      font-size: 0.9vw;
+    }    
+}
+  
+/* Maximum aspect ratio */
+@media (max-aspect-ratio: 3/2) {
+    .card {
+        /* border: 4px solid blue; */
+        font-size: 1.1vw;
+    }
+
+    @media (orientation: portrait) {
+        .card {
+            /* border: 2px solid blue; */
+            font-size: 1.4vw;
+        }
+    }
 }
 
 
