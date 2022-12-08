@@ -56,6 +56,8 @@ class HorizontalSlider {
   slideWidth = 0;     
   totalWidth = 0;       // deprecated
   slideSize = 1;
+  slideSizeNarrow = 1;
+  slideSizeWide = 1;
   maxLeft = 0;
   minLeft = 0;
   threshold = 100;
@@ -65,7 +67,7 @@ class HorizontalSlider {
   componentHeight = 0;  // for detecting resize events
 
   constructor(componentEl, data, renderFunction, threshold = 100, wrap = false, index = 0, 
-              slideSize = 1, createClickHandlers, unSelectHandlers) {
+              slideSizeNarrow = 1, slideSizeWide = 1, createClickHandlers, unSelectHandlers) {
     
     // Store parameters
     this.componentEl = componentEl;
@@ -76,7 +78,9 @@ class HorizontalSlider {
     this.threshold = threshold;
     this.allowWrap = wrap;
     this.selectedIndex = index;
-    this.slideSize = slideSize;
+    this.slideSize = slideSizeNarrow;
+    this.slideSizeNarrow = slideSizeNarrow;
+    this.slideSizeWide = slideSizeWide;
 
     // Initialize
     this.init();
@@ -105,12 +109,45 @@ class HorizontalSlider {
     // - Animation
     //this.viewport.ontransitionend = (e) => this.transitionEnd(e);
 
+    
+    /* ASPECT RATIO */    
+    if (this.slideSize != 1) {
+      // Determines how many slides are visible on the screen.  
+      // 1.0 = Each slide is 100% view width, so 1 slide is visible. 
+      // 0.8 = Each slide is 80% view width.  This shows just enough of the other slides to 
+      //       let user know this is a horizontal slider. 
+      // 0.5 = Each slide is 50% view width, so 3 slides are visible (one full slide centered and 
+      //       two partial slides on the sides).  This works well when screen width is much larger than height.
+      // General Idea:  If width is much larger than height, cards look weird and slideOffset 
+      //                needs to decrease, and vice-versa.
+      //                
+      
+      // get screen view width and height.
+      var width = window.innerWidth
+                      || document.documentElement.clientWidth
+                      || document.body.clientWidth;
+
+      var height = window.innerHeight
+                      || document.documentElement.clientHeight
+                      || document.body.clientHeight;
+
+      const ratio = width / height;
+      console.log("Screen Aspect Ratio: ", ratio);
+      if (ratio > 0.9) {
+          console.log("Setting slide size to wide: ", this.slideSizeWide);
+          this.slideSize = this.slideSizeWide; //0.50;
+      }
+      else {
+        console.log("Setting slide size back to narrow: ", this.slideSizeNarrow);
+        this.slideSize = this.slideSizeNarrow; 
+      }
+    }
+    /* END ASPECT RATIO */
 
 
     // This is what gets moved across the viewport.
     this.slidegroup = this.componentEl.querySelector('.slide-group'); 
     
-
     // Calculated and Adjust slider based on the slideSize.
     this.slidegroup.style.gridAutoColumns = (this.slideSize * 100) + "%";
     this.slideWidth = this.slidegroup.offsetWidth * this.slideSize;  

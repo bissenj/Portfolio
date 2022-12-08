@@ -296,22 +296,22 @@
     // General Idea:  If width is much larger than height, cards look weird and slideOffset 
     //                needs to decrease, and vice-versa.
     //                
-    let slideOffset = 0.8;
+    //let slideOffset = 0.8;
 
-    // get screen view width and height.
-    var width = window.innerWidth
-                    || document.documentElement.clientWidth
-                    || document.body.clientWidth;
+    // // get screen view width and height.
+    // var width = window.innerWidth
+    //                 || document.documentElement.clientWidth
+    //                 || document.body.clientWidth;
 
-    var height = window.innerHeight
-                    || document.documentElement.clientHeight
-                    || document.body.clientHeight;
+    // var height = window.innerHeight
+    //                 || document.documentElement.clientHeight
+    //                 || document.body.clientHeight;
 
-    const ratio = width / height;
-    console.log("Screen Aspect Ratio: ", ratio);
-    if (ratio > 0.9) {
-        slideOffset = 0.50;
-    }
+    // const ratio = width / height;
+    // console.log("Screen Aspect Ratio: ", ratio);
+    // if (ratio > 0.9) {
+    //     slideOffset = 0.50;
+    // }
     
 
     function handleProjectsClick(index) {
@@ -502,7 +502,7 @@
             //slideContainer1.style.opacity = 0;    
             
             // const slider1 = new HorizontalSlider(slideContainer1, events, renderSlide, 100, false, 0, generateSlideEventHandlers);
-            const slider1 = new HorizontalSlider(slideContainer1, cardData, renderSlide, 100, false, selectedIndex, slideOffset, generateSlideEventHandlers, resetSlide);
+            const slider1 = new HorizontalSlider(slideContainer1, cardData, renderSlide, 100, false, selectedIndex, 0.8, 0.5, generateSlideEventHandlers, resetSlide);
             setTimeout(()=>{workContainer.style.opacity = 1;}, 100);
 
             // Create basic timeline
