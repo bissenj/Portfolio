@@ -224,12 +224,6 @@ class HorizontalSlider {
   dragStart(e) {
     console.log("Drag start: ", e);
     
-    
-    // CAREFUL HERE
-    // this will prevent any hrefs from working on mobile...
-    // but commenting this out breaks dragging on desktop (when clicking on an image).
-    e.preventDefault();   
-
     if (this.allowMove) {
 
       this.posInitial = this.slidegroup.offsetLeft;
@@ -249,6 +243,17 @@ class HorizontalSlider {
         this.viewport.onmouseup = (e) => this.dragEnd(e);
         this.viewport.onmouseleave = (e) => this.dragEnd(e);
         this.viewport.onmousemove = (e) => this.dragUpdate(e);
+
+
+        // Prevent Default when it's not a touch event
+
+        // CAREFUL HERE
+        // this will prevent any hrefs from working on mobile...
+        // but commenting this out breaks dragging on desktop (when clicking on an image).
+        e.preventDefault();        
+        
+        // TODO - Look into why prevent default is needed here but not on mobile.
+        //        Maybe start here:  https://developer.chrome.com/blog/scrolling-intervention/
       }    
     }
   }
