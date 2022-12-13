@@ -277,6 +277,14 @@
         width: 95%;
     } 
 
+    .card .image-container {
+        height: 35%;
+    }
+
+    .card .details {
+        height: 65%;
+    }
+
     .location-image-container {
         display: none;
     }
@@ -300,10 +308,11 @@
         padding-top: unset; 
     }
 
-    .details .body p::first-letter {
-        /* font-size:1.2em; */
+    .details .body p::first-letter {        
         font-size: unset; 
         line-height: unset; 
+        font-size: 1.0rem;
+        line-height: 1.0vh;
         color: #c4c4c4;      
     }
 }
@@ -313,7 +322,7 @@
 @media (min-aspect-ratio: 7/5) {
     .card {      
       /* border: 2px solid red; */
-      font-size: 0.9vw;
+      font-size: 1.0vw;
     }    
 }
   
