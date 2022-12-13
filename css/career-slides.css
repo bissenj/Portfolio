@@ -3,9 +3,7 @@
     position: relative;
     width: 85%;      
     height: 100%;
-    /* max-height: 80vh;       */
-
-    /* margin: 10px auto;       */
+    
     margin: 40px auto;
     border-radius: 15px;
 
@@ -15,20 +13,16 @@
     
     box-shadow: 0 5px 15px #777, 0px 4px 6px #444;
     cursor: pointer;
+
+    /* -------------------------- */
+
+    max-height: 55vh;
+    max-width: 90vh;    
 }
 
 
-
-/* .card.hide-content .details  {
-    opacity: 0.25;    
-    transform: translateY(5px);        
-} */
-
-.card.hide-content .image-container  {
-    /* opacity: 0.75;     */
-    /* background-color: rgba(255,255,255,0.5); */
-    height: 100%;
-    /* transform: translateY(5px);         */
+.card.hide-content .image-container  {    
+    height: 100%;    
 }
 .card.hide-content .hero-image-container {
     opacity: 0.5;
@@ -53,15 +47,7 @@
 
     user-select: none;
 }    
-/* .card .image-container:hover { 
-    height: 100%;    
-}
-.card .image-container:hover .avatar-image-container {
-    opacity: 0;
-}
-.card .image-container:hover .hero-text-container {
-    opacity: 1;
-}*/
+
 .card .image-container:hover .location-image-container {
     transform: scale(1.5);
 } 
@@ -108,8 +94,7 @@
     width: 100%;
     padding: 20px;
     padding-top: 40px;
-    line-height: 1.5em; 
-    /* background-color: rgba(0,0,0,0.5); */
+    line-height: 1.5em;     
     background: linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.6) 50%);
     transition: opacity 1.0s;    
     opacity: 0;

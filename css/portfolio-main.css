@@ -108,29 +108,55 @@ section.work {
 section.work .slideshow-container {
 
     /* height: 100vh;   */
-    height: 100%;  
-    background: linear-gradient(
+    /* height: 100%;   */
+    /* background: linear-gradient(
         var(--slider-image-overlay),
         var(--slider-image-overlay)),
-        url('../img/hero/kayak-scene.webp');
+        url('../img/hero/kayak-scene.webp'); */
         /* url('../img/timeline/snow_up_bw_white.png'); */
-    background-size: cover;  
-    background-position: 25%;  
+    /* background-size: cover;  
+    background-position: 25%;   */
         
     transition: opacity 2s;
 
     /* background: white; */
     /* border-bottom: 20px solid white;     */
 
-    width: 80%;    
+    /* width: 80%;     */
     margin: 80px auto;
     /* margin-bottom: 80px; */
     /* padding-top: 80px; */
 
     box-shadow: 0 0 4px #444;
     box-shadow: 0 0 28px #999, 1px 2px 3px #444;
+
+
+    /* -------------------- */
+    background: none;
+    width: 100%;
+    box-shadow: none;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    height: 50%;
+    min-height: unset;
 }
 
+section.work .basic-timeline {
+    background-color: var(--primary-10);                    
+}
+
+section.work .card {
+    margin: 20px auto;
+    max-height: 60vh;
+}
+section.work .section-heading {
+    width: 100%;        
+    padding-right: 5%;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 36px;        
+    text-transform: uppercase;
+}
 
 
 section.center {

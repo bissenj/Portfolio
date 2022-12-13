@@ -381,6 +381,12 @@
             background-position-x: -71%;
         }
     }    
+
+    /* WORK */
+    section.work .section-heading {
+        font-size: 22px;
+        margin-top: 20px;
+    }
 }
 
 
