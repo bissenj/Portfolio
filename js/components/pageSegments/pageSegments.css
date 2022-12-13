@@ -43,6 +43,10 @@ main {
     transition: opacity 1s ease-out;
 } */
 
+.header-image {
+    min-height: 300px;
+}
+
 .detail-page {
     position: relative;
     z-index: 2;
