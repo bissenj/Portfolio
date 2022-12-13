@@ -28,7 +28,7 @@
 
     <!-- Element 4:  Site Navigation -->
     <div id='menutoggle' class='nav-menu' aria-haspopup="true" aria-controls="site-map" title='show menu' onclick=showMenu()>          
-        <img src='~/../img/icons/map.svg' alt='Show Menu'/>                      
+        <img src='~/../img/icons/map.svg' alt='Show Menu'/>                              
     </div>
 
 <main>   
@@ -38,9 +38,19 @@
         <!-- Element 1:  Full Page Background -->
         <div class='background scroll' data-rate='0.5' data-transform='scale(1.05)'></div>
 
+
         <div class='foreground'>
-            <!-- Version number for debugging -->
-            <div class='version-number ts1'>Version Number</div>
+
+            <!-- Nav Menu -->
+            <div class='home-menu'>
+                <ul>                
+                    <li><a href='#about'>About</a></li>
+                    <!-- <li><a href='#skills'>Skills</a>Skills</li> -->
+                    <li><a href='#projects'>Projects</a></li>
+                    <li><a href='#career'>Career</a></li>
+                    <li><a href='#contact'>Contact</a></li>                
+                </ul>
+            </div>            
 
             <!-- Element 1:  Text -->
             <div class='profession'>
@@ -66,8 +76,8 @@
                         <li class='line'></li>  
                         <li data-index=3 role="radio" title='Change background image'></li>
                         <li class='line'></li> 
-                        <li data-index=4 class='clicked' role="radio" title='Change background image'></li>
-                        <li class='line'></li>                        
+                        <!-- <li data-index=4 class='clicked' role="radio" title='Change background image'></li>
+                        <li class='line'></li>                         -->
                     </ul>
                 </div>
                 <div class='gradient-down animate'></div>
@@ -121,7 +131,7 @@
        <div class='diagonal-filler'></div> 
         
     </section>
-   
+
     
       <!-- Projects -->
       <section id='projects' class='projects'> 
@@ -238,7 +248,7 @@
             <!-- Links -->
             <div class='contact-links'>
                 <div role='button'><img src='~/../img/icons/mail.svg' alt='get email address'/></div>
-                <div role='button'><img src='~/../img/icons/info.svg' alt='site information'/></div>
+                <!-- <div role='button'><img src='~/../img/icons/info.svg' alt='site information'/></div> -->
             </div>
         </div>
             
@@ -286,7 +296,7 @@
 
     // Update version number
     const VERSION_NUMBER = "[0131-12/6/2022]";
-    document.querySelector('.version-number').innerHTML = VERSION_NUMBER;
+    // document.querySelector('.version-number').innerHTML = VERSION_NUMBER;
 
     
     // Current index shared amongst the slider, timeline and control grid;
@@ -471,9 +481,9 @@
     // });
 
     
-    // const links = document.querySelectorAll('.nav-menu ul li a').forEach((el) =>{
-    //     el.addEventListener('click', handleMenuClick);
-    // });    
+    const links = document.querySelectorAll('.home-menu ul li a').forEach((el) =>{
+        el.addEventListener('click', handleMenuClick);
+    });    
 
     // TODO move this to Routing component
     // Testing menu clicks
@@ -574,7 +584,14 @@
         selectors: '.slide-in',
         fireOnce: true,             
         whenIntersecting: (entry) => { entry.target.classList.add('visible'); },
-    });   
+    });  
+    
+    // Intersection Observer for the site map
+    addObserver({
+        selectors: '.landing',        
+        whenIntersecting: (entry) => { document.querySelector('.nav-menu').classList.remove('visible'); },
+        whenNotIntersecting: (entry) => { document.querySelector('.nav-menu').classList.add('visible'); },
+    });  
         
 
 

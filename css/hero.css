@@ -427,8 +427,21 @@ div.image2::before {
     background-position-x: -150%;    
 
 }
-div.image3::before {    
+/* div.image3::before {    
     background: url('../img/hero/bighorns-2.webp'); 
+    
+    width: 300%;
+    height: 300%;
+
+    top: -150%;
+    left: -75%;  
+   
+    background-size: 56% 110%;
+    background-position-y: 150%;    
+    background-position-x: 0%; 
+} */
+div.image3::before {    
+    background: url('../img/hero/kayak-scene-2.webp'); 
     
     width: 300%;
     height: 300%;
@@ -440,9 +453,9 @@ div.image3::before {
     background-position-y: 150%;    
     background-position-x: 0%;  */
 
-    background-size: 56% 110%;
-    background-position-y: 150%;    
-    background-position-x: 0%; 
+    background-size: 40% 90%;
+    background-position-y: 50%;    
+    background-position-x: 20%; 
 }
 div.image4::before {        
     background: url('../img/hero/whitefish-sm.webp');  

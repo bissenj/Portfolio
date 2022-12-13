@@ -292,7 +292,8 @@ const navModalData = [
   function showMenu() {
     if (document.getElementById('site-map')) {
       document.querySelector('.nav-modal').style.opacity = 0;   // Fade out modal
-      document.querySelector('.nav-menu').style.opacity = 1;    // Fade in menu button
+      //document.querySelector('.nav-menu').style.opacity = 1;    // Fade in menu button
+      document.querySelector('.nav-menu').classList.add('visible');    // Fade out menu button
       setTimeout(() => {
         document.querySelector('.nav-modal').innerHTML = '';    // Clear the modal
         console.log("modal cleared");  
@@ -302,7 +303,8 @@ const navModalData = [
     else {
       document.querySelector('.nav-modal').style.opacity = 1;   // Fade in modal
       renderMenuPage(navModalData);
-      document.querySelector('.nav-menu').style.opacity = 0;    // Fade out menu button
+      //document.querySelector('.nav-menu').style.opacity = 0;    // Fade out menu button
+      document.querySelector('.nav-menu').classList.remove('visible');    // Fade out menu button
     }
   }
 

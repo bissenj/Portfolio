@@ -458,6 +458,10 @@ p.fs16 { font-size: 1.6em; max-width: 20em;}
 /* ----------------- SMALL SCREENS ---------------- */
 
 @media only screen and (max-width: 768px)  {
+    .p40 {
+        padding: 20px;
+    }
+
     .w50 {
         width: 85%;
         margin: 0 auto;

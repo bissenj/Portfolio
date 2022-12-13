@@ -264,7 +264,7 @@ section.projects .imagery.active {
 .project-item-container .divider {
     height: 56px;
     width: 6px;
-    background-color: gold;
+    background-color: var(--accent-1);
     margin: 0 auto;
 }
 .project-item-container .title {

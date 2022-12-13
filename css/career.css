@@ -1,5 +1,6 @@
 :root {
-    --gold-text: #FFAF14;
+    /* --gold-text: #FFAF14; */
+    --gold-text: var(--accent-1);
     --question-background: #FAFAFA;
     --image-overlay: #217CB0E6;
     --header-background: #1B4E6CE6;
@@ -88,7 +89,8 @@
     position: relative;
     list-style: none;
     margin: 40px 0px;
-    text-align: center;        
+    text-align: center; 
+    font-size: 20px;       
 }    
 .side-bar li:hover {
     /* background-color: yellow; */
@@ -212,7 +214,8 @@ a.anchor {
     .detail-page {
         margin: 0px auto;
         border-color: #919191;
-        /* box-shadow: none; */
+        box-shadow: none;
+        border: none;
         /* padding-bottom: 100px; */
     }
     .work-page .company-profile {
@@ -222,13 +225,33 @@ a.anchor {
         display: grid;
         grid-template-columns: 2fr;
         padding: 20px;
+        background: white;
     }
 
     .side-bar { display: none; }
 
+    .question { 
+        font-size: 26px;
+        margin-top: 2em;
+    }
+    .question:before {
+        height: 6px;
+        bottom: 0px;        
+    }
+
+    .detail-page .segment p {
+        font-size: 16px;
+    }
+
 }
 
 @media only screen and (max-width: 850px)  {
+    .work-page .header-content .stats {
+        font-size: 0.5em;
+    }
 
+    .work-page .company-profile {
+        font-size: 20px;
+    }
 
 }

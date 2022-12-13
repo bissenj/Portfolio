@@ -179,7 +179,8 @@
 }
 
 .details .header h1 {
-    color: #ff9700;   
+    /* color: #ff9700;    */
+    color: var(--accent-1);
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: 1.3em;
@@ -235,7 +236,8 @@
 
 .details .body p a span {
     position:relative;
-    border-bottom: 4px solid #ff9700;    
+    /* border-bottom: 4px solid #ff9700;     */
+    border-bottom: 4px solid var(--accent-1);
 }
 
 
