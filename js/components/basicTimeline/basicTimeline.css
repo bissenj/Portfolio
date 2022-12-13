@@ -231,6 +231,16 @@
 /* ----------------- SMALL SCREENS ---------------- */
 
 @media only screen and (max-width: 768px)  {
+
+    .timeline-container {
+        padding: 80px 20px;
+        padding-bottom: 30px;
+    }
+
+    .event-marker {
+        height: unset;
+    }
+
     .event-text { 
         font-size: 14px;
         bottom: 55px;
