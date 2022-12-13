@@ -277,6 +277,10 @@
         width: 95%;
     } 
 
+    .location-image-container {
+        display: none;
+    }
+
     .avatar-image-container { 
         /* display: none; */
 
@@ -286,6 +290,21 @@
         right: 0;
         height: 100%;
         border-radius: 0;
+    }
+
+    .details .body {
+        padding-bottom: unset;
+    }
+    .details .body p {
+        padding: 0;  
+        padding-top: unset; 
+    }
+
+    .details .body p::first-letter {
+        /* font-size:1.2em; */
+        font-size: unset; 
+        line-height: unset; 
+        color: #c4c4c4;      
     }
 }
 
