@@ -223,3 +223,32 @@
     transition-delay: 250ms;
     opacity: 0;
 }
+
+
+
+
+
+/* ----------------- SMALL SCREENS ---------------- */
+
+@media only screen and (max-width: 768px)  {
+    .event-text { 
+        font-size: 14px;
+        bottom: 55px;
+    }
+
+    .event-circle {
+        width: 15px;
+        height: 15px;
+        left: 12px;        
+    }
+
+    .event-arm {
+        bottom: 12px;
+    }
+
+    .event-selected { 
+        height: 4px;
+        bottom: 6px;
+        left: 22px;
+    }
+}

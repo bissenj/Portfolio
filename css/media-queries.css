@@ -387,6 +387,17 @@
         font-size: 22px;
         margin-top: 20px;
     }
+
+    /* CONTACT */
+
+    section.contact .contact-content h1 {
+        font-size: 20px;
+        /* text-align: center; */
+    }
+
+    section.contact .contact-content p {
+        font-size: 16px;        
+    }
 }
 
 
