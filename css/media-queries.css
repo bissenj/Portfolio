@@ -150,6 +150,12 @@
         font-size: 22px;
     }
 
+    .projects-list.hidden .project-item-container {
+        opacity: 0;
+        transform: translateX(20px);
+        transition: opacity 1.0s, transform 1.0s; 
+    }
+
 
 
     @media (orientation: portrait) {

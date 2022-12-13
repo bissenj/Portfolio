@@ -494,6 +494,12 @@ p.fs16 { font-size: 1.6em; max-width: 20em;}
         width: 200px;                
         transition: left 2s, opacity 2s;    
       }    
+
+
+      .footer-nav { 
+        font-size: 16px;
+      }
+      
 }
 
 
