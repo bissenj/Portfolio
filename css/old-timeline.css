@@ -62,7 +62,7 @@ section.timeline-component {
     justify-content: space-between;
     align-items: center;
     gap: 12px;
-    padding: 100px 20px;
+    padding: 110px 20px;
     padding-bottom: 40px;
     /* background-color: rgba(0, 0, 0, 0.5);  */
     /* background:rgba(217, 217,217, 0.25);        */
@@ -336,7 +336,7 @@ section.timeline-component {
     bottom: -10px;
     left: 0px;  
     width: 60px;
-    height: 105px;            
+    /* height: 105px;             */
 }
 .event-marker > * {
     color: var(--slideshow-foreground);  

@@ -22,7 +22,7 @@
     justify-content: space-between;
     align-items: center;
     gap: 12px;
-    padding: 100px 20px;
+    padding: 110px 20px;
     padding-bottom: 40px;
     
     /* background-color: rgba(63,131,183,0.6);  */
@@ -90,7 +90,7 @@
     bottom: -10px;
     left: 0px;  
     width: 60px;
-    height: 105px;            
+    /* height: 105px;             */
 }
 .event-marker > * {
     color: var(--slideshow-foreground);  
