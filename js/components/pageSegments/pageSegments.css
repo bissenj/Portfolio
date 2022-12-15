@@ -101,7 +101,18 @@ main {
     grid-template-columns: 1fr 1fr;
     gap: 60px;
 }
-.segment h4 {
+.segment h2 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1.4em;
+    max-width: 25em;
+
+}
+.segment h2, .segment p {
+    margin-bottom: 30px;
+    line-height: 1.7em;
+}
+/* .segment h4 {
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: 1.4em;
@@ -111,7 +122,7 @@ main {
 .segment h4, .segment p {
     margin-bottom: 30px;
     line-height: 1.7em;
-}
+} */
 .segment p:last-of-type {
     margin-bottom: 0px;
 }

@@ -237,7 +237,7 @@ function renderTextBlocksWithHeading(data) {
 
     let headingHtml = '';
     if (heading != '') {
-        headingHtml = `<h4>${heading}</h4>`;
+        headingHtml = `<h2>${heading}</h2>`;
     }
 
     let paragraphHtml = '';
