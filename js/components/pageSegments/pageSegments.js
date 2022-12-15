@@ -332,8 +332,9 @@ function renderAnimatedImageReveal(data) {
         
         // Add an image        
         let image = item.image ?? '';
+        let imageAlt = item.imageAlt ?? '';
         if (image != '') {
-            elementsHtml += `<div class='${classes}'><img src='${IMAGE_PATH}/${image}'></img></div>`;                        
+            elementsHtml += `<div class='${classes}'><img src='${IMAGE_PATH}/${image}' alt='${imageAlt}'></img></div>`;                        
         }        
         
     });
@@ -360,8 +361,9 @@ function renderStickySection(data) {
     let textClasses = data.textClasses ?? '';
 
     let image = data.image ?? '';
+    let imageAlt = data.imageAlt ?? '';
     let imageClasses = data.imageClasses ?? '';
-    let imageContainer = createImage({image: image, class: imageClasses});
+    let imageContainer = createImage({image: image, class: imageClasses, alt: imageAlt});
 
     let html = `<div class='sticky-container ${classes}'>`;
     html += `<div class='sticky ${textClasses}'>${text}</div>`;

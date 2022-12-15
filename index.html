@@ -27,235 +27,204 @@
 
 <body class='fade'>   
     <div class='nav-modal'></div>
+    
+    <main>     
+        <!-- Hero Image -->
+        <section class='landing'>  
 
-    <!-- Site Navigation -->
-    <div id='menutoggle' class='nav-menu' aria-haspopup="true" aria-role="button" aria-controls="site-map" title='show menu' onclick=showMenu()>          
-        <img src='~/../img/icons/map.svg' alt='Show Menu'/>                              
-    </div>
-
-<main>   
-    <!-- Hero Image -->
-    <section class='landing'>  
-
-        <!-- Element 1:  Full Page Background -->
-        <div class='background scroll' data-rate='0.5' data-transform='scale(1.05)'></div>
-
-
-        <div class='foreground'>
-
-            <!-- Nav Menu -->
-            <div class='home-menu'>
-                <ul>                
-                    <li><a href='#about'>About</a></li>
-                    <!-- <li><a href='#skills'>Skills</a>Skills</li> -->
-                    <li><a href='#projects'>Projects</a></li>
-                    <li><a href='#career'>Career</a></li>
-                    <li><a href='#contact'>Contact</a></li>                
-                </ul>
-            </div>            
-
-            <!-- Element 1:  Text -->
-            <div class='profession'>
-                Full Stack | UI Developer | Designer
+            <!-- Site Navigation -->
+            <div id='menutoggle' class='nav-menu' aria-haspopup="true" aria-role="button" aria-controls="site-map" title='show menu' onclick=showMenu()>          
+                <img src='~/../img/icons/map.svg' alt='Show Menu'/>                              
             </div>
 
-            <!-- Element 2:  Logo -->
-            <div class='logo'>
-                <div class='git-page-logo-hack'></div>                
+            <!-- Element 1:  Full Page Background -->
+            <div class='background scroll' data-rate='0.5' data-transform='scale(1.05)'></div>
+
+
+            <div class='foreground'>
+
+                <!-- Nav Menu -->
+                <div class='home-menu'>
+                    <ul>                
+                        <li><a href='#about'>About</a></li>
+                        <!-- <li><a href='#skills'>Skills</a>Skills</li> -->
+                        <li><a href='#projects'>Projects</a></li>
+                        <li><a href='#career'>Career</a></li>
+                        <li><a href='#contact'>Contact</a></li>                
+                    </ul>
+                </div>            
+
+                <!-- Element 1:  Text -->
+                <div class='profession'>
+                    Full Stack | UI Developer | Designer
+                </div>
+
+                <!-- Element 2:  Logo -->
+                <div class='logo'>
+                    <div class='git-page-logo-hack'></div>                
+                </div>
+
+                <!-- Element 3:  Carousel Navigation  -->
+                <div class='carousel-navigation-container'>
+                    <div class='gradient-up animate'></div>                                        
+                    <div class='nav-carousel'>            
+                        <ul role="radiogroup">
+                            <li class='line'></li>
+                            <li data-index=0 role="radio" title='Change background image'></li>
+                            <li class='line'></li>
+                            <li data-index=1 role="radio" title='Change background image'></li>
+                            <li class='line'></li>
+                            <li data-index=2 role="radio" title='Change background image'></li>
+                            <li class='line'></li>  
+                            <li data-index=3 role="radio" title='Change background image'></li>
+                            <li class='line'></li> 
+                            <!-- <li data-index=4 class='clicked' role="radio" title='Change background image'></li>
+                            <li class='line'></li>                         -->
+                        </ul>
+                    </div>
+                    <div class='gradient-down animate'></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section id='about' class='about'>           
+            <!-- TEXT -->
+            <div class='intro'>     
+                <p class='slide-in'>Hi, I'm John</p>            
+                <p class='slide-in'>
+                    For over two decades I have used my software development and design skills to help companies reach their goals.
+                    I take work seriously and make sure projects succeed. 
+                    I can lead.
+                    I can be led.
+                    I like to mentor but am humble enough to recognize everyone can teach me something.  
+                    Mountains and Code is a combination of some of my professional work and some of my outside interests.  
+                    <!-- Thanks for being here.   -->
+                </p>
+                <p class='slide-in'>Thanks for being here.</p>
+                <!-- <p class='slide-in'>Lets have some fun.</p> -->
+            </div>
+            
+            <!-- Divider -->
+            <!-- <div>
+                <div class='slant'><div><span>Full Stack Developer</span><span>Pretty Outdoorsy</span></div></div>
+            </div> -->
+        </section>
+
+
+        <!-- TODO:  Should be its own component for delayed rendering, and
+                    its a good canditate for being dynamic anyway
+        -->
+        <section class='image-collage'>
+            <div class='diagonal-rects'>
+                <!-- Row 1 -->
+                <div class='row1'>               
+                    <div class='about-image image1' data-index=0 aria-haspopup="true" title='Click to expand image'></div> 
+                    <div class='about-image image2' data-index=1 aria-haspopup="true" title='Click to expand image'></div> 
+                    <div class='about-image image3' data-index=2 aria-haspopup="true" title='Click to expand image'></div>
+                </div>       
+                <!-- Row 2  -->
+                <div class='row2'>
+                    <div class='about-image image4' data-index=3 aria-haspopup="true" title='Click to expand image'></div>
+                    <div class='about-image image5' data-index=4 aria-haspopup="true" title='Click to expand image'></div>                
+                </div>           
             </div>
 
-            <!-- Element 3:  Carousel Navigation  -->
-            <div class='carousel-navigation-container'>
-                <div class='gradient-up animate'></div>                                        
-                <div class='nav-carousel'>            
-                    <ul role="radiogroup">
-                        <li class='line'></li>
-                        <li data-index=0 role="radio" title='Change background image'></li>
-                        <li class='line'></li>
-                        <li data-index=1 role="radio" title='Change background image'></li>
-                        <li class='line'></li>
-                        <li data-index=2 role="radio" title='Change background image'></li>
-                        <li class='line'></li>  
-                        <li data-index=3 role="radio" title='Change background image'></li>
-                        <li class='line'></li> 
-                        <!-- <li data-index=4 class='clicked' role="radio" title='Change background image'></li>
-                        <li class='line'></li>                         -->
+            <!-- Decorative Gradient -->
+            <div class='diagonal-filler'></div>             
+        </section>
+        
+        <!-- Projects -->
+        <section id='projects' class='projects'> 
+            <div class='projects-collage active' title='Click to toggle image'>
+                <div class='explore' role='button'>Explore Projects <img class='chevron-right' src='img/icons/chevron-right.svg' alt='Explore Projects'/></span></div>
+            </div>
+
+            <div class='section-heading'> 
+                Project Case Studies      
+            </div>
+            
+            <div class='projects-container'>            
+                <div class='projects-list hidden'>
+                    <ul>                    
+                        <li class='project-item-container' role='link' title='Click to view project' data-index=0 onclick='handleProjectsClick(0)'}>                        
+                            <div class='number'>01</div>
+                            <div class='divider'></div>
+                            <div class='project'>
+                                <span class='title'>Nightlight</span>
+                                <div class='summary'>A solution for the question: "So where are you guys?"  I built a GPS mapping and tracking platform with React and React Native so our families could stay up to date on our extended travels.  It was a lot of fun.</div>
+                            </div>                                                
+                        </li>                    
+                        <li class='project-item-container' role='link' title='Click to view project' data-index=1 onclick='handleProjectsClick(1)'>
+                            <div class='number'>02</div>
+                            <div class='divider'></div>
+                            <div class='project'>
+                                <span class='title'>Field Time Entry</span>
+                                <div class='summary'>Building on the edge of our seats.  This was a three person project to replace an outdated and heavily integrated time keeping system for our company.  It turned out to be wildly successful.</div>
+                            </div>                        
+                        </li>
+                        <li class='project-item-container' role='link' title='Click to view project' data-index=2  onclick='handleProjectsClick(2)'>
+                            <div class='number'>03</div>
+                            <div class='divider'></div>
+                            <div class='project'>
+                                <span class='title'>Niagara Animal Hospital</span>
+                                <div class='summary'>Our business needed a website and I knew a guy.</div>
+                            </div>                        
+                        </li>
                     </ul>
                 </div>
-                <div class='gradient-down animate'></div>
+            </div>   
+        </section>
+
+        
+        <!-- Work -->
+        <section id='career' class='work'>
+            <!-- Slider and other components -->           
+            <div class='slideshow-container'>         
+                <div class='bg10 flex-row-apart'>
+                    <!-- <div>
+                        <button class='timeline-shutdown'>Deconstruct</button>
+                    </div> -->
+                    <div class='space-between p10-20'>
+                        <div><!--Career--></div>                    
+                        <div class='control-grid'></div>
+                    </div>
+                </div>
+                <div class='section-heading'> 
+                    Career History     
+                </div>
+                <div id='workHistorySlider1' class='horizontalSlider -bg9'></div>
+                <div class='basic-timeline'></div>
             </div>
-        </div>
-    </section>
-
-    <!-- About -->
-    <section id='about' class='about'>           
-        <!-- TEXT -->
-        <div class='intro'>     
-            <p class='slide-in'>Hi, I'm John</p>            
-            <p class='slide-in'>
-                For over two decades I have used my software development and design skills to help companies reach their goals.
-                I take work seriously and make sure projects succeed. 
-                I can lead.
-                I can be led.
-                I like to mentor but am humble enough to recognize everyone can teach me something.  
-                Mountains and Code is a combination of some of my professional work and some of my outside interests.  
-                <!-- Thanks for being here.   -->
-            </p>
-            <p class='slide-in'>Thanks for being here.</p>
-            <!-- <p class='slide-in'>Lets have some fun.</p> -->
-        </div>
+        </section>
         
-        <!-- Divider -->
-        <!-- <div>
-            <div class='slant'><div><span>Full Stack Developer</span><span>Pretty Outdoorsy</span></div></div>
-        </div> -->
-    </section>
-
-
-    <!-- TODO:  Should be its own component for delayed rendering, and
-                its a good canditate for being dynamic anyway
-     -->
-    <section class='image-collage'>
-        <div class='diagonal-rects'>
-            <!-- Row 1 -->
-            <div class='row1'>               
-                <div class='about-image image1' data-index=0 aria-haspopup="true" title='Click to expand image'></div> 
-                <div class='about-image image2' data-index=1 aria-haspopup="true" title='Click to expand image'></div> 
-                <div class='about-image image3' data-index=2 aria-haspopup="true" title='Click to expand image'></div>
-            </div>       
-            <!-- Row 2  -->
-            <div class='row2'>
-                <div class='about-image image4' data-index=3 aria-haspopup="true" title='Click to expand image'></div>
-                <div class='about-image image5' data-index=4 aria-haspopup="true" title='Click to expand image'></div>                
-            </div>           
-        </div>
-
-        <!-- Decorative Gradient -->
-       <div class='diagonal-filler'></div> 
-        
-    </section>
-
     
-      <!-- Projects -->
-      <section id='projects' class='projects'> 
-        <div class='projects-collage active' title='Click to toggle image'>
-            <div class='explore' role='button'>Explore Projects <img class='chevron-right' src='img/icons/chevron-right.svg' alt='Explore Projects'/></span></div>
-        </div>
-
-        <div class='section-heading'> 
-            Project Case Studies      
-        </div>
-        
-        <!-- <div class='imagery'></div>      -->
-
-        <div class='projects-container'>            
-            <div class='projects-list hidden'>
-                <ul>                    
-                    <li class='project-item-container' role='link' title='Click to view project' data-index=0 onclick='handleProjectsClick(0)'}>                        
-                        <div class='number'>01</div>
-                        <div class='divider'></div>
-                        <div class='project'>
-                            <span class='title'>Nightlight</span>
-                            <div class='summary'>A solution for the question: "So where are you guys?"  I built a GPS mapping and tracking platform with React and React Native so our families could stay up to date on our extended travels.  It was a lot of fun.</div>
-                        </div>                                                
-                    </li>                    
-                    <li class='project-item-container' role='link' title='Click to view project' data-index=1 onclick='handleProjectsClick(1)'>
-                        <div class='number'>02</div>
-                        <div class='divider'></div>
-                        <div class='project'>
-                            <span class='title'>Field Time Entry</span>
-                            <div class='summary'>Building on the edge of our seats.  This was a three person project to replace an outdated and heavily integrated time keeping system for our company.  It turned out to be wildly successful.</div>
-                        </div>                        
-                    </li>
-                    <li class='project-item-container' role='link' title='Click to view project' data-index=2  onclick='handleProjectsClick(2)'>
-                        <div class='number'>03</div>
-                        <div class='divider'></div>
-                        <div class='project'>
-                            <span class='title'>Niagara Animal Hospital</span>
-                            <div class='summary'>Our business needed a website and I knew a guy.</div>
-                        </div>                        
-                    </li>
-                </ul>
-            </div>
-        </div>   
-    </section>
-
-    
-    <!-- Work -->
-    <section id='career' class='work'>
-        <!-- Slider and other components -->
-        <style>
-            /* section.work .slideshow-container {
-                background: none;
-                width: 100%;
-                box-shadow: none;
-                margin-bottom: 0px;
-                margin-top: 0px;
-                height: 50%;
-                min-height: unset;
-            } */
-            /* section.work .horizontalSlider {
-                min-height: 65vh;
-                display: flex; 
-                align-items: center;                
-            } */
-            /* section.work .slide-viewer {
-                min-height: 65vh;
-            } */
-            /* section.work .basic-timeline {
-                background-color: var(--primary-10);                                
-            } */
-
-            /* section.work .card {                
-                max-height: 55vh;
-                max-width: 90vh;
-            } */
-        </style>
-        <div class='slideshow-container'>         
-            <div class='bg10 flex-row-apart'>
-                <!-- <div>
-                    <button class='timeline-shutdown'>Deconstruct</button>
-                </div> -->
-                <div class='space-between p10-20'>
-                    <div><!--Career--></div>                    
-                    <div class='control-grid'></div>
+        <!-- Contact -->
+        <section id='contact' class='contact' >
+            <!-- Contents -->
+            <div class='contact-content'>
+                <!-- Heading -->
+                <h1>I'm looking for a homebase</h1>
+                <!-- Paragraph -->
+                <p>A group of like minded individuals dedicated to creating great work on interesting projects.  If you have looked at my work and think I would be a good fit on your team, please send me an email and lets talk. </p>
+                <!-- Links -->
+                <div class='contact-links'>
+                    <div role='button'><img src='~/../img/icons/mail.svg' alt='get email address'/></div>
+                    <!-- <div role='button'><img src='~/../img/icons/info.svg' alt='site information'/></div> -->
                 </div>
             </div>
-            <div class='section-heading'> 
-                Career History     
-            </div>
-            <div id='workHistorySlider1' class='horizontalSlider -bg9'></div>
-            <div class='basic-timeline'></div>
-        </div>
-    </section>
-    
-  
-    <!-- Contact -->
-    <section id='contact' class='contact' >
-        <!-- Contents -->
-        <div class='contact-content'>
-            <!-- Heading -->
-            <h1>I'm looking for a homebase</h1>
-            <!-- Paragraph -->
-            <p>A group of like minded individuals dedicated to creating great work on interesting projects.  If you have looked at my work and think I would be a good fit on your team, please send me an email and lets talk. </p>
-            <!-- Links -->
-            <div class='contact-links'>
-                <div role='button'><img src='~/../img/icons/mail.svg' alt='get email address'/></div>
-                <!-- <div role='button'><img src='~/../img/icons/info.svg' alt='site information'/></div> -->
-            </div>
-        </div>
-            
-    </section>
+                
+        </section>
 
-    <!-- Footer -->
-    <footer>
-        <a href='/'>            
-            <div class='mountains'>Mountains</div>
-            <div class='andcode'>and code</div>            
-        </a>
-      </footer>
+        <!-- Footer -->
+        <footer>
+            <a href='/'>            
+                <div class='mountains'>Mountains</div>
+                <div class='andcode'>and code</div>            
+            </a>
+        </footer>
 
-</main>
+    </main>
 </body>
 
 <script src="/js/intersectionObserver.js"></script>
@@ -288,39 +257,12 @@
     resetBody();      
 
     // Update version number
-    const VERSION_NUMBER = "[0131-12/6/2022]";
+    //const VERSION_NUMBER = "[0131-12/6/2022]";
     // document.querySelector('.version-number').innerHTML = VERSION_NUMBER;
 
     
     // Current index shared amongst the slider, timeline and control grid;
     let selectedIndex = 2;
-
-    // Determines how many slides are visible on the screen.  
-    // 1.0 = Each slide is 100% view width, so 1 slide is visible. 
-    // 0.8 = Each slide is 80% view width.  This shows just enough of the other slides to 
-    //       let user know this is a horizontal slider. 
-    // 0.5 = Each slide is 50% view width, so 3 slides are visible (one full slide centered and 
-    //       two partial slides on the sides).  This works well when screen width is much larger than height.
-    // General Idea:  If width is much larger than height, cards look weird and slideOffset 
-    //                needs to decrease, and vice-versa.
-    //                
-    //let slideOffset = 0.8;
-
-    // // get screen view width and height.
-    // var width = window.innerWidth
-    //                 || document.documentElement.clientWidth
-    //                 || document.body.clientWidth;
-
-    // var height = window.innerHeight
-    //                 || document.documentElement.clientHeight
-    //                 || document.body.clientHeight;
-
-    // const ratio = width / height;
-    // console.log("Screen Aspect Ratio: ", ratio);
-    // if (ratio > 0.9) {
-    //     slideOffset = 0.50;
-    // }
-    
 
     function handleProjectsClick(index) {
         // console.log("handle projects click", index);
@@ -418,8 +360,6 @@
                 }                
              })
         });
-
-
     }
 
     function toggleLocationInformation(el) {

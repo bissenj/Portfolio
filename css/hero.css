@@ -362,13 +362,13 @@ div.row1 > div:after, div.row2 > div:after {
     transition: opacity 0.5s, transform 1s;    
 }
 div.row1 > div:hover, div.row2 > div:hover { 
-    opacity: 0.5;
-    /* filter: saturate(0); */
+    /* opacity: 0.5; */
+    filter: saturate(0);
     /* background-color: gold; */
 }
 div.row1 > div.clone:hover, div.row2 > div.clone:hover { 
-    opacity: 1;
-    /* filter: unset; */
+    /* opacity: 1; */
+    filter: unset;
 }
 div.row1 > div:hover::after, div.row2 > div:hover::after { 
     opacity: 1;

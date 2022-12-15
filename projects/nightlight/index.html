@@ -56,8 +56,8 @@
             tech: 'React, React Native, Remix, Postgres',
             classes: 'header-image box-shadow-2 constrain-width', 
             image1: 'nightlight/beartooths.jpg', 
-            text1: 'Sharing our experiences',
-            // text2: 'React, React Native, Remix, Postgres'
+            image1Alt: 'Family hiking in the Bear Tooth mountains.',
+            text1: 'Sharing our experiences',            
         }, 
         {
             type: 5,            
@@ -71,29 +71,24 @@
         },               
         {
             type: 3, 
-            image1: 'nightlight/huckleberry.jpg'
+            image1: 'nightlight/huckleberry.jpg',
+            image1Alt: 'Family hiking in snow covered mountains.',
         },  
         {
             type: 5,
             heading: 'Motivation',
             text: [
                 {text: 'My parents live 1500 miles away.  They have no idea where many of our photos are taking place and being almost 80, even if they were here, they aren’t going to tag along with us as we posthole through the snow to reach the top of a mountain, snag a few epic pics, eat a PB&J, and then head back down. '},
-                {
-                    text: 'My kids are getting older and are starting to spread their wings.  Sometimes I just want to know roughly where they are and then I don’t have to wonder.  Heck, sometimes I just want my family to know where I am.  If I flip my kayak offshore fishing in November, at least they know where to start looking.',
-                    // image: 'nightlight/kayak.jpg'
-                },
+                {text: 'My kids are getting older and are starting to spread their wings.  Sometimes I just want to know roughly where they are and then I don’t have to wonder.  Heck, sometimes I just want my family to know where I am.  If I flip my kayak offshore fishing in November, at least they know where to start looking.'},
                 {text: 'For years I have been searching for a mobile project that I would actually want to use.  I’ve worked on a few entry level projects in Xamarin and Android Studio but nothing really stuck.'},
                 {text: 'Until recently.'},
             ]            
         },   
         {
             type: 3, 
-            image1: 'nightlight/craterlake-wizard-island1.webp'
-        }, 
-        // {
-        //     type: 3, 
-        //     image1: 'nightlight/craterlake-fine-dining.jpg'
-        // }, 
+            image1: 'nightlight/craterlake-wizard-island1.webp',
+            image1Alt: 'Wizard Island in Crater Lake in the background, devices with Nighlight running in the foreground.',
+        },        
         {
             type: 5,
             heading: 'Design Considerations',
@@ -104,7 +99,8 @@
         {
             type: 3, 
             classes: 'w85',
-            image1: 'nightlight/adventuremap-login.jpg'
+            image1: 'nightlight/adventuremap-login.jpg',
+            image1Alt: 'Login screen for Nightlight React web page',
         },
         {
             type: 1,
@@ -117,38 +113,20 @@
                 {
                     classes: 'image primary',                    
                     image: 'nightlight/phone-1.png',
+                    imageAlt: 'Device showing Nightlight login screen.',
                 },
                 {
                     classes: 'image secondary waiting',                    
                     image: 'nightlight/phone-2.png',
+                    imageAlt: 'Device showing Nightlight map screen hiking at Mt Rainier.',
                 },
                 {
                     classes: 'image tertiary waiting',                    
                     image: 'nightlight/phone-3.png',
+                    imageAlt: 'Device showing Nightlight map screen camping at Mt Rainier.',
                 },
             ],            
-        }, 
-        // {
-        //     type: 1,
-        //     text1: 'The App needed to be lightweight, simple, and fast.  I already have a number of GPS apps for hiking and hunting but they run a bit slow on our mid-level devices.  I just need a screen with a map and some user markers. My kids always want to know our elevation, so overlay that on the map as well.'
-        // },  
-        // {
-        //     type: 6, 
-        //     classes: 'bg0',
-        //     // heading: 'This is new section',
-        //     content: [
-        //         {
-        //             classes: '',
-        //             text: '',
-        //             image: 'nightlight/devices.webp',
-        //         }
-        //     ],            
-        // }, 
-        // {
-        //     type: 3, 
-        //     classes: 'w85',
-        //     image1: 'nightlight/devices.png'
-        // },   
+        },          
         {
             type: 5,
             heading: 'Architecture',
@@ -158,7 +136,8 @@
         },
         {
             type: 0,            
-            image1: 'nightlight/badlands.webp',             
+            image1: 'nightlight/badlands.webp',    
+            image1Alt: 'Badlands landscape in the background, device with Nightlight running in the foreground.',         
             text2: 'Annual pilgramage back from the Midwest'
         },        
         {
@@ -180,7 +159,8 @@
         },
         {
             type: 3, 
-            image1: 'nightlight/chairlift4.webp'
+            image1: 'nightlight/chairlift4.webp',
+            image1Alt: 'Chairlift at Whitefish Mountain Resort in the background, devices with Nighlight running in the foreground.',
         }, 
         {
             type: 5,
@@ -192,12 +172,9 @@
         {
             type: 0,            
             image1: 'nightlight/oregon-fishing.webp',             
+            image1Alt: 'Fishing on the Oregon coast in the foreground, device showing Nightlight Adventure Map in the foreground.',
             text2: 'Summer 2022'
-        }, 
-        // {
-        //     type: 3, 
-        //     image1: 'nightlight/oregon-fishing.webp'
-        // }, 
+        },         
     ];
     const headerData = { name: pageData[0].name, tech: pageData[0].tech };
     const footerData = {
