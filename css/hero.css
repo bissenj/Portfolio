@@ -194,6 +194,9 @@ div.row1 > div.transition-in:before, div.row2 > div.transition-in:before {
     margin: 20%;
     margin-bottom: 0;
 }
+.intro p {
+    margin-top: 2em;
+}
 .intro p:nth-child(1) {
     margin-bottom: 10%;    
 }
@@ -202,8 +205,7 @@ div.row1 > div.transition-in:before, div.row2 > div.transition-in:before {
     margin-top: 2em;
 }
 .intro p:nth-child(4) { 
-    text-align: right;
-    margin-top: 10%;
+    text-align: right;    
 }
 
 .slant {
