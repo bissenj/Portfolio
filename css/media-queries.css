@@ -255,7 +255,7 @@
         display: block;
         width: 100%;
     }
-    .nav-carousel ul {  
+    .nav-carousel .image-list {  
         display: flex;
         flex-direction: row;
         justify-content: space-around;          
@@ -268,11 +268,15 @@
         display:none;        
     }    
 
-    .nav-carousel li.line {
+    .nav-carousel .image-list.line {
         margin: 0px 8px;
     }
-    .nav-carousel ul {
+    .nav-carousel .image-list {
         padding: 0;        
+    }
+    .nav-carousel .image-list > div:last-child, .nav-carousel .image-list > div:first-child {
+        margin-bottom: unset;
+        margin-top: unset;
     }
 
     div.logo {
@@ -292,6 +296,10 @@
         top: 0;
         left: 0;
         right: 0;        
+    }
+
+    div.profession .accent { 
+        border: none;
     }
 
     .git-page-logo-hack {

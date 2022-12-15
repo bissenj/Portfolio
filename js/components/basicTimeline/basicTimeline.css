@@ -100,7 +100,7 @@
 .event-marker.selected > * {    
     color: var(--timeline-selected-foreground);  
     background-color: var(--timeline-selected-foreground);
-    border-color: var(--timeline-selected-foreground);          
+    /* border-color: var(--timeline-selected-foreground);           */
 }
 .event-marker.selected > .event-circle {
     background: var(--accent-1a);
