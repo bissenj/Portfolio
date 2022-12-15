@@ -29,7 +29,12 @@
     .nav-menu:hover {   
       /* border: 1px solid #686767; */
       border: 1px solid white;
-      background-color: rgba(0, 69, 108, 0.5);
+      /* background-color: rgba(0, 69, 108, 0.5);       */
+      /* background-color: var(--accent-1);               */
+
+      /* background: linear-gradient(90deg, hsla(39, 100%, 50%, 1) 0%, hsla(3, 100%, 64%, 1) 100%); */
+      background: var(--accent-1);
+
       /* background-color: rgba(241, 149, 0, 0.5); */
       transform: scale(1.1);
     }  

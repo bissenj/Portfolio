@@ -56,7 +56,9 @@
 
                 <!-- Element 1:  Text -->
                 <div class='profession'>
-                    Full Stack | UI Developer | Designer
+                    <span class='accent p05b'>
+                        Full Stack | UI Developer | Designer
+                    </span>
                 </div>
 
                 <!-- Element 2:  Logo -->
@@ -102,17 +104,17 @@
         <section id='about' class='about'>           
             <!-- TEXT -->
             <div class='intro'>     
-                <p class='slide-in'>Hi, I'm John</p>            
+                <p class='slide-in'>Hi, I'm John,</p>            
                 <p class='slide-in'>
                     For over two decades I have used my software development and design skills to help companies reach their goals.
-                    I take work seriously and make sure projects succeed. 
+                    <span class='accent1'>I take work seriously</span> and make sure projects succeed. 
                     I can lead.
                     I can be led.
                     I like to mentor but am humble enough to recognize everyone can teach me something.  
-                    Mountains and Code is a combination of some of my professional work and some of my outside interests.  
+                    <span class='accent1'>Mountains and Code</span> is a combination of some of my professional work and some of my outside interests.  
                     <!-- Thanks for being here.   -->
                 </p>
-                <p class='slide-in'>Thanks for being here.</p>
+                <p class='slide-in'><span class='accent'>Thanks for being here.</span></p>
                 <!-- <p class='slide-in'>Lets have some fun.</p> -->
             </div>
             
@@ -130,14 +132,24 @@
             <div class='diagonal-rects'>
                 <!-- Row 1 -->
                 <div class='row1'>               
-                    <div class='about-image image1' data-index=0 aria-haspopup="true" title='Click to expand image'></div> 
-                    <div class='about-image image2' data-index=1 aria-haspopup="true" title='Click to expand image'></div> 
-                    <div class='about-image image3' data-index=2 aria-haspopup="true" title='Click to expand image'></div>
+                    <div class='about-image image1' data-index=0 aria-haspopup="true" title='Click to expand image'>
+                        <div class='inner'><span>Full Size</span></div>
+                    </div> 
+                    <div class='about-image image2' data-index=1 aria-haspopup="true" title='Click to expand image'>
+                        <div class='inner'><span>Full Size</span></div>
+                    </div> 
+                    <div class='about-image image3' data-index=2 aria-haspopup="true" title='Click to expand image'>
+                        <div class='inner'><span>Full Size</span></div>
+                    </div>
                 </div>       
                 <!-- Row 2  -->
                 <div class='row2'>
-                    <div class='about-image image4' data-index=3 aria-haspopup="true" title='Click to expand image'></div>
-                    <div class='about-image image5' data-index=4 aria-haspopup="true" title='Click to expand image'></div>                
+                    <div class='about-image image4' data-index=3 aria-haspopup="true" title='Click to expand image'>
+                        <div class='inner'><span>Full Size</span></div>
+                    </div>
+                    <div class='about-image image5' data-index=4 aria-haspopup="true" title='Click to expand image'>
+                        <div class='inner'><span>Full Size</span></div>
+                    </div>                
                 </div>           
             </div>
 
@@ -240,7 +252,7 @@
             <!-- Contents -->
             <div class='contact-content'>
                 <!-- Heading -->
-                <h1>I'm looking for a homebase</h1>
+                <h1><span class='accent p05b'>I'm looking for a homebase</span></h1>
                 <!-- Paragraph -->
                 <p>A group of like minded individuals dedicated to creating great work on interesting projects.  If you have looked at my work and think I would be a good fit on your team, please send me an email and lets talk. </p>
                 <!-- Links -->
@@ -321,7 +333,7 @@
     function renderSlide(item) {
         let summaryText = '';
         if (item.link) {
-            summaryText = `${item.summary} <a href="${item.link}"><span>More<span></a>`;
+            summaryText = `${item.summary} <a href="${item.link}"><span class='accent'>More<span></a>`;
         }
         else {
             summaryText = `${item.summary}`;

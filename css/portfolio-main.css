@@ -199,6 +199,12 @@ section.center {
 }
 
 /* PADDING */
+.p05 {
+    padding: 5px;
+}
+.p05b {
+    padding-bottom: 5px;
+}
 .p10 {
     padding: 10px;
 }
@@ -276,4 +282,16 @@ section.center {
 
 .scaled-down.visible {
     transform: scale(1);
+}
+
+
+.accent {
+    /* background-color: var(--accent-1); */
+    /* border-bottom: 4px solid var(--accent-1); */    
+
+    border-bottom: 4px solid;
+    border-image-slice: 1;
+    border-width: 4px;
+    /* border-image-source: linear-gradient(90deg, hsla(39, 100%, 50%, 1) 0%, hsla(3, 100%, 64%, 1) 100%); */
+    border-image-source: linear-gradient(90deg, hsla(39, 100%, 50%, 1) 0%, hsla(24, 100%, 50%, 1) 100%);
 }

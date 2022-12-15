@@ -5,6 +5,7 @@
     --slideshow-background: #565656; 
     --slideshow-foreground: white;
     --timeline-selected-foreground: orange; 
+    /* --timeline-selected-foreground: linear-gradient(90deg, hsla(39, 100%, 50%, 1) 0%, hsla(3, 100%, 64%, 1) 100%); */
     --slide-element-border: #fff;
     --event-text-label: #aaa;
 
@@ -17,7 +18,10 @@
     --gradient-dark-half: 0, 0, 0, 0.5;
 
     --accent-color1: orange;
-    --accent-1: orange;
+    /* --accent-1: orange; */
+    --accent-1: linear-gradient(90deg, hsla(39, 100%, 50%, 1) 0%, hsla(3, 100%, 64%, 1) 100%);
+    --accent-1: linear-gradient(90deg, hsla(39, 100%, 50%, 1) 0%, hsla(24, 100%, 50%, 1) 100%);
+    --accent-1a: linear-gradient(180deg, hsla(39, 100%, 50%, 1) 0%, hsla(24, 100%, 50%, 1) 100%);
 
     --primary-1: hsl(0deg 0% 100% / 50%);
     --primary-4: hsla(202deg 81% 69% / 89%);

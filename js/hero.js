@@ -9,6 +9,7 @@ var ImageModal = {
     el: {
         //imageNode: 'div.image2', //document.querySelector('div.image1'),
         imageNodes: document.querySelectorAll('div.about-image'),
+        imageNodes2: document.querySelectorAll('div.about-image > .inner'),
         animating: false,
     },
 
@@ -22,7 +23,14 @@ var ImageModal = {
             node.addEventListener("click", function(event) {
                 ImageModal.handleClick(event);
             });
-        })        
+        })     
+        
+         // HACK click handlers 2
+         ImageModal.el.imageNodes2.forEach((node) => {
+            node.addEventListener("click", function(event) {
+                ImageModal.handleClick(event);
+            });
+        })   
     },    
 
      // Functions
@@ -31,15 +39,24 @@ var ImageModal = {
      handleClick: function(event) {
         if (!ImageModal.el.animating) {
             console.log("Click!");
+
+            // Make sure we have the correct element
+            let targetEl = event.target;
+            if (targetEl.classList.contains('inner')) {
+                targetEl = event.target.parentNode;
+            }
+            if (targetEl.parentNode.classList.contains('inner')) {
+                targetEl = event.target.parentNode.parentNode;
+            }
             
 
             // Get window.computedValues for height, width
-            let w = window.getComputedStyle(event.target).getPropertyValue("width");        
-            let h = window.getComputedStyle(event.target).getPropertyValue("height");   
-            let bounding = event.target.getBoundingClientRect();     
+            let w = window.getComputedStyle(targetEl).getPropertyValue("width");        
+            let h = window.getComputedStyle(targetEl).getPropertyValue("height");   
+            //let bounding = targetEl.getBoundingClientRect();     
                         
             // PARENT
-            const parent = event.target.parentNode;     // ie div.row1 or div.row2
+            const parent = targetEl.parentNode;     // ie div.row1 or div.row2
          
             // CALCULATE LEFT POSITION
             // -----------------------
@@ -56,7 +73,7 @@ var ImageModal = {
             for (const node of parent.children) {            
                 
                 widthAtPosition.push(cummulativeWidth);
-                if (node == event.target) {                
+                if (node == targetEl) {                
                     break;  // If we found our node, we're done.
                 }            
                 widthAtPosition[index++] = cummulativeWidth; 
@@ -74,11 +91,11 @@ var ImageModal = {
             // HACK FOR NOW
             let newTop = 0;
             if (parent.classList.contains('row2')) {                   
-                newTop = event.target.parentNode.parentNode.children[0].offsetHeight; 
+                newTop = targetEl.parentNode.parentNode.children[0].offsetHeight; 
             }
             
             // 1.  Clone the element
-            const newElement = event.target.cloneNode();
+            const newElement = targetEl.cloneNode();
             newElement.classList.add('clone');
             newElement.tabIndex = 0;
             // newElement.style.maxHeight = 'default';
@@ -99,7 +116,7 @@ var ImageModal = {
             };
             
             // Get the index so we know what caption to display.
-            const dataIndex = event.target.dataset.index;
+            const dataIndex = targetEl.dataset.index;
             const caption = imageCollage[dataIndex].caption;
 
             const textElement = document.createElement('div');

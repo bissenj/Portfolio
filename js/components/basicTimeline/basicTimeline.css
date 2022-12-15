@@ -95,13 +95,23 @@
 .event-marker > * {
     color: var(--slideshow-foreground);  
     background-color: var(--slideshow-foreground);
-    border-color: var(--slideshow-foreground);  
+    border-color: var(--slideshow-foreground);      
 }
 .event-marker.selected > * {    
     color: var(--timeline-selected-foreground);  
     background-color: var(--timeline-selected-foreground);
-    border-color: var(--timeline-selected-foreground);      
+    border-color: var(--timeline-selected-foreground);          
 }
+.event-marker.selected > .event-circle {
+    background: var(--accent-1a);
+}
+.event-marker.selected > .event-selected {
+    background: var(--accent-1);
+}
+.event-marker.selected > .event-arm {
+    background: var(--accent-1a);
+}
+
 .event-marker:hover {
     cursor:pointer;
 }  

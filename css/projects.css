@@ -267,7 +267,10 @@ section.projects .imagery.active {
 .project-item-container .divider {
     height: 56px;
     width: 6px;
-    background-color: var(--accent-1);
+    /* background-color: var(--accent-1); */
+    /* background: linear-gradient(180deg, hsla(39, 100%, 50%, 1) 0%, hsla(3, 100%, 64%, 1) 100%); */
+    background: var(--accent-1a);
+
     margin: 0 auto;
 }
 .project-item-container .title {
