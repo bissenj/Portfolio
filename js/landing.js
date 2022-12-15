@@ -55,7 +55,7 @@ if (ALLOW_JAVASCRIPT) {
 
 // EFFECT 2:  Image Carousel
 const backgrounds = ['hero-huckleberry-lookout.webp', 'hero-great-northern.webp', 'hero-whitefish.webp', 'hero-lake-mcdonald.webp'];
-const carouselEls = document.querySelectorAll('.nav-carousel li');
+const carouselEls = document.querySelectorAll('.nav-carousel .image-list > div');
 //console.log("Carousel Els: ", carouselEls);
 carouselEls.forEach((item) => {        
     item.addEventListener('click', () => {
