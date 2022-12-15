@@ -48,13 +48,13 @@ class ControlGrid {
 
             //componentEl.tabIndex=0;
             // Just in case aria-role is not set for the component.
-            componentEl.setAttribute("role", "radiogroup");            
+            componentEl.setAttribute("role", "tablist");            
 
             let html = "<span>01</span>";   
            
             let i = 0; 
             for(i = 0; i < quantity; i++) {
-                html += `<div class='control-box ${this.state.theme}' data-index=${i} role="radio" tabIndex=0></div>`;
+                html += `<div class='control-box ${this.state.theme}' data-index=${i} type="button" role="tab" tabIndex=0></div>`;
             }  
             html += `<span>0${i}</span>`;   
             componentEl.innerHTML = html;
