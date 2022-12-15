@@ -79,6 +79,7 @@ var ImageModal = {
             
             // 1.  Clone the element
             const newElement = event.target.cloneNode();
+            newElement.classList.add('clone');
             newElement.tabIndex = 0;
             // newElement.style.maxHeight = 'default';
             newElement.style.overflow = 'hidden';

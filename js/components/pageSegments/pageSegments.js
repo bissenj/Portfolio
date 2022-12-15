@@ -57,6 +57,7 @@ function createImage(data) {
     //console.log('createImage: ', data);  
     let classes = data.class ?? '';
     let image = data.image ?? '';
+    let alt = data.alt ?? '';
 
     let html = '';
     
@@ -64,7 +65,7 @@ function createImage(data) {
         let classesHtml = ` class='${classes} scroll-target'`;       
         // let classesHtml = ` class='${classes}'`;       
 
-        html += `<div ${classesHtml}><img src='${IMAGE_PATH}/${image}'></img></div>`;    
+        html += `<div ${classesHtml}><img src='${IMAGE_PATH}/${image}' alt='${alt}'></img></div>`;    
         // html += `<img src='${IMAGE_PATH}/${image}'></img>`;    
     }
      
@@ -101,12 +102,13 @@ function renderOops() {
 
 
 function renderFullWidthImage(data) {
-    const image1 = data.image1 ?? '';    
+    const image1 = data.image1 ?? '';   
+    const image1Alt = data.image1Alt ?? ''; 
     const optionalClasses = data.classes ?? '';
     const imageClasses = data.imageClasses ?? '';
 
     // Logic
-    let imageContainer = createImage({image: image1, class: imageClasses});
+    let imageContainer = createImage({image: image1, class: imageClasses, alt: image1Alt});
 
     let html = `
         <!-- Full width Image -->
@@ -121,6 +123,7 @@ function renderFullWidthImage(data) {
 
 function renderFullWidthImageWithTextOverlay(data) {
     const image1 = data.image1 ?? '';
+    const image1Alt = data.image1Alt ?? ''; 
     const text1 = data.text1 ?? '';
     const text2 = data.text2 ?? '';
     const optionalClasses = data.classes ?? '';
@@ -128,7 +131,7 @@ function renderFullWidthImageWithTextOverlay(data) {
     // Logic
     let imageContainer = '';
     if (image1 != '') {
-        imageContainer = `<img class='scroll-target' src='${IMAGE_PATH}/${image1}'></img>`;                        
+        imageContainer = `<img class='scroll-target' src='${IMAGE_PATH}/${image1}' alt='${image1Alt}'></img>`;                        
     }
     //let imageContainer = createImage({image: image1});
 

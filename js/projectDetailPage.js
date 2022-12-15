@@ -14,10 +14,10 @@ function GenerateProjectDetailPage(pageData, headerData, footerData, navigationD
         });   
 
         // Sidemenu
-        const sideMenu = document.querySelector('.side-bar');
-        if (sideMenu) {
-            sideMenu.append(renderQuickLinks(sideMenu, pageData));
-        }
+        // const sideMenu = document.querySelector('.side-bar');
+        // if (sideMenu) {
+        //     sideMenu.append(renderQuickLinks(sideMenu, pageData));
+        // }
     }
     else {
         console.error('GenerateProjectDetailPage(): page data missing.');

@@ -3,9 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">  
-  <link rel="icon" href="/mountain.ico" type="image/bmp">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">   -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <!-- <link rel="icon" href="/mountain.ico" type="image/bmp"> -->
+  <link rel="icon" type="image/png" href="mountain.png" />
   <title>Mountains and Code</title> 
+
+
   <link rel='stylesheet' href='css/global.css' />
   <link rel='stylesheet' href='css/portfolio-main.css' />
   <link rel='stylesheet' href='css/landing.css' />
@@ -18,16 +22,14 @@
   <link rel='stylesheet' href='css/control-grid.css' />
   <link rel='stylesheet' href='css/contact.css' />
   <link rel='stylesheet' href='css/nav-modal.css' />
-  <link rel='stylesheet' href='css/media-queries.css' />
-  
+  <link rel='stylesheet' href='css/media-queries.css' />  
 </head>
 
-<body class='fade'>
-    <!-- <div class='modal'></div> -->
+<body class='fade'>   
     <div class='nav-modal'></div>
 
-    <!-- Element 4:  Site Navigation -->
-    <div id='menutoggle' class='nav-menu' aria-haspopup="true" aria-controls="site-map" title='show menu' onclick=showMenu()>          
+    <!-- Site Navigation -->
+    <div id='menutoggle' class='nav-menu' aria-haspopup="true" aria-role="button" aria-controls="site-map" title='show menu' onclick=showMenu()>          
         <img src='~/../img/icons/map.svg' alt='Show Menu'/>                              
     </div>
 
@@ -97,9 +99,10 @@
                 I can be led.
                 I like to mentor but am humble enough to recognize everyone can teach me something.  
                 Mountains and Code is a combination of some of my professional work and some of my outside interests.  
-                Thanks for being here.  
+                <!-- Thanks for being here.   -->
             </p>
-            <p class='slide-in'>Lets have some fun.</p>
+            <p class='slide-in'>Thanks for being here.</p>
+            <!-- <p class='slide-in'>Lets have some fun.</p> -->
         </div>
         
         <!-- Divider -->
@@ -136,7 +139,7 @@
       <!-- Projects -->
       <section id='projects' class='projects'> 
         <div class='projects-collage active' title='Click to toggle image'>
-            <div class='explore' role='button'>Explore Projects <img class='chevron-right' src='img/icons/chevron-right.svg'/></span></div>
+            <div class='explore' role='button'>Explore Projects <img class='chevron-right' src='img/icons/chevron-right.svg' alt='Explore Projects'/></span></div>
         </div>
 
         <div class='section-heading'> 
@@ -565,7 +568,7 @@
         selectors: '.projects-collage', 
         fireOnce: true,
         whenIntersecting: (entry) => {console.log("is intersecting"); handleExploreProjects(); },
-        threshold: 0.5
+        threshold: 0.9
         // whenNotIntersecting: (entry) => {console.log("is not intersecting"); handleExploreProjects(); }
     });
 
