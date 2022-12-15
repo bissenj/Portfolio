@@ -27,15 +27,15 @@
 
 <body class='fade'>   
     <div class='nav-modal'></div>
+
+     <!-- Site Navigation -->
+     <div id='menutoggle' class='nav-menu' aria-haspopup="true" aria-role="button" aria-controls="site-map" title='show menu' onclick=showMenu()>          
+        <img src='~/../img/icons/map.svg' alt='Show Menu'/>                              
+    </div>
     
     <main>     
         <!-- Hero Image -->
         <section class='landing'>  
-
-            <!-- Site Navigation -->
-            <div id='menutoggle' class='nav-menu' aria-haspopup="true" aria-role="button" aria-controls="site-map" title='show menu' onclick=showMenu()>          
-                <img src='~/../img/icons/map.svg' alt='Show Menu'/>                              
-            </div>
 
             <!-- Element 1:  Full Page Background -->
             <div class='background scroll' data-rate='0.5' data-transform='scale(1.05)'></div>
@@ -46,8 +46,7 @@
                 <!-- Nav Menu -->
                 <div class='home-menu'>
                     <ul>                
-                        <li><a href='#about'>About</a></li>
-                        <!-- <li><a href='#skills'>Skills</a>Skills</li> -->
+                        <li><a href='#about'>About</a></li>                        
                         <li><a href='#projects'>Projects</a></li>
                         <li><a href='#career'>Career</a></li>
                         <li><a href='#contact'>Contact</a></li>                
@@ -77,9 +76,7 @@
                             <li data-index=2 role="radio" title='Change background image'></li>
                             <li class='line'></li>  
                             <li data-index=3 role="radio" title='Change background image'></li>
-                            <li class='line'></li> 
-                            <!-- <li data-index=4 class='clicked' role="radio" title='Change background image'></li>
-                            <li class='line'></li>                         -->
+                            <li class='line'></li>                             
                         </ul>
                     </div>
                     <div class='gradient-down animate'></div>
@@ -145,9 +142,34 @@
             </div>
             
             <div class='projects-container'>            
-                <div class='projects-list hidden'>
-                    <ul>                    
-                        <li class='project-item-container' role='link' title='Click to view project' data-index=0 onclick='handleProjectsClick(0)'}>                        
+                <div class='projects-list hidden'>                                      
+                        <div class='project-item-container' role='link' title='Click to view project' data-index=0 onclick='handleProjectsClick(0)'>                        
+                            <div class='number'>01</div>
+                            <div class='divider'></div>
+                            <div class='project'>
+                                <span class='title'>Nightlight</span>
+                                <div class='summary'>A solution for the question: "So where are you guys?"  I built a GPS mapping and tracking platform with React and React Native so our families could stay up to date on our extended travels.  It was a lot of fun.</div>
+                            </div>                                                
+                        </div>                    
+                        <div class='project-item-container' role='link' title='Click to view project' data-index=1 onclick='handleProjectsClick(1)'>
+                            <div class='number'>02</div>
+                            <div class='divider'></div>
+                            <div class='project'>
+                                <span class='title'>Field Time Entry</span>
+                                <div class='summary'>Building on the edge of our seats.  This was a three person project to replace an outdated and heavily integrated time keeping system for our company.  It turned out to be wildly successful.</div>
+                            </div>                        
+                        </div>
+                        <div class='project-item-container' role='link' title='Click to view project' data-index=2  onclick='handleProjectsClick(2)'>
+                            <div class='number'>03</div>
+                            <div class='divider'></div>
+                            <div class='project'>
+                                <span class='title'>Niagara Animal Hospital</span>
+                                <div class='summary'>Our business needed a website and I knew a guy.</div>
+                            </div>                        
+                        </div>                    
+
+                    <!-- <ul>                    
+                        <li class='project-item-container' role='link' title='Click to view project' data-index=0 onclick='handleProjectsClick(0)'>                        
                             <div class='number'>01</div>
                             <div class='divider'></div>
                             <div class='project'>
@@ -171,7 +193,7 @@
                                 <div class='summary'>Our business needed a website and I knew a guy.</div>
                             </div>                        
                         </li>
-                    </ul>
+                    </ul> -->
                 </div>
             </div>   
         </section>

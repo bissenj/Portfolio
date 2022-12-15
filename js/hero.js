@@ -244,6 +244,12 @@ var ImageModal = {
         if (!ImageModal.el.animating) {
             console.log("showModals()");
 
+            // Hide page sitemap
+            const siteMap = document.querySelector('.nav-menu');
+            if (siteMap) {
+                siteMap.classList.remove('visible');
+            }
+
             ImageModal.el.animating = true;
 
             const pageModal = document.createElement('div');                
@@ -280,6 +286,12 @@ var ImageModal = {
     },
     hideModals: () => { 
         //console.log("hideModals()");
+
+        // Show page sitemap
+        const siteMap = document.querySelector('.nav-menu');
+        if (siteMap) {
+            siteMap.classList.add('visible');
+        }
 
         const pageModal = document.querySelector('.modal');
         pageModal.remove();            

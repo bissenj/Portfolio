@@ -150,7 +150,7 @@ section.projects .imagery.active {
     background-size: cover;        
     
     position: absolute;
-    z-index: 10;
+    z-index: 9;
     top: 0;
     left: 0;
 
@@ -223,6 +223,7 @@ section.projects .imagery.active {
     margin-right: 10%;
     grid-column-start: 2;    
 }
+
 .projects-list > ul {
     
     display: flex;
@@ -250,6 +251,8 @@ section.projects .imagery.active {
     opacity: 1;
     transition: opacity 1s ease-in-out, transform 1.5s ease-in-out;  
     padding: 10px;  
+
+    margin-bottom: 20px;
 }
 .project-item-container:hover {
     box-shadow: 0 0 1px #444;
