@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">  
+  <meta name="description" content="--Unique Description Here--">
+  <title>Page Template</title> 
+  <link rel='stylesheet' href='css/global.css' />  
+  <link rel='stylesheet' href='css/media-queries.css' />
+
+  <style>
+    .container { 
+      position: relative;
+    }
+
+    .underline {
+      position: relative;
+      background-color: gray;
+      /* width: 100%; */
+      height: 2em;
+
+      /*                 TL   TR        BR        TL     */
+      clip-path: polygon(0 0, 100% 0%, 100% 57%, 0 11%);
+
+      background: linear-gradient(90deg, hsla(39, 100%, 50%, 1) 0%, hsla(24, 100%, 50%, 1) 100%);
+    }
+
+    .accent {
+      position: relative;
+      font-size: 10em;
+    }
+    .accent::after {
+      content: '';
+      position: absolute;     
+      height: 2em;
+      top: 115%;
+      left: 0;
+      width: 100%;
+
+      /*                 TL   TR        BR        TL     */
+      clip-path: polygon(0 0, 100% 0%, 100% 20%, 0 5%);
+      background: linear-gradient(90deg, hsla(39, 100%, 50%, 1) 0%, hsla(24, 100%, 50%, 1) 100%);
+    }
+    
+  </style>
+</head>
+
+<body>
+<main>
+
+  <div class='container'>
+    <p>This is a paragraph</p>
+    <div class='underline'></div>
+  </div>
+
+  <div class='container'>
+    <p>This is a 
+      <div>
+        <span class='accent'>paragraph</span>   
+        
+      </div>
+    </p>    
+
+  </div>
+
+
+</main>
+</body>
+
+<!-- <script src="/js/hSlider.js"></script>
+<script src="/Portfolio/js/hSlider.js"></script> -->
+
+<script>
+</script>
+
+</html>

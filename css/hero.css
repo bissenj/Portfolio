@@ -197,10 +197,11 @@ div.row1 > div.transition-in:before, div.row2 > div.transition-in:before {
 .intro p:nth-child(1) {
     margin-bottom: 10%;    
 }
-.intro p:nth-child(2) { 
+.intro p:nth-child(2), .intro p:nth-child(3) { 
     font-size: 20px;
+    margin-top: 2em;
 }
-.intro p:nth-child(3) { 
+.intro p:nth-child(4) { 
     text-align: right;
     margin-top: 10%;
 }
