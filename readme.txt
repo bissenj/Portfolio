@@ -1,1 +1,1 @@
-This project is for testing out front end techniques like parallax, microanimations, carousels, etc.
+Personal Dev Portfolio and place to work on UI/UX
