@@ -58,7 +58,10 @@
 
 }
 
-@media only screen and (max-width: 850px)  {
-
-
+@media only screen and (max-width: 768px)  {
+    .header-content .stats {
+        font-size: 0.5em;
+        letter-spacing: 2px;
+        padding-left: 40px;
+    }
 }

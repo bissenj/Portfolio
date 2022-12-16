@@ -175,7 +175,11 @@
                             <div class='divider'></div>
                             <div class='project'>
                                 <span class='title'>Nightlight</span>
-                                <div class='summary'>A solution for the question: "So where are you guys?"  I built a GPS mapping and tracking platform with React and React Native so our families could stay up to date on our extended travels.  It was a lot of fun.</div>
+                                <div class='summary'>A solution for the question: "So where are you guys?"  I built a GPS mapping and tracking platform with React and React Native so our families could stay up to date on our extended travels.  It was a lot of fun.                                      
+                                    <span class='accent-icon'>
+                                        <img class='chevron-right' src='img/icons/chevron-right.svg' alt='Explore Projects'/>
+                                    </span>                                    
+                                </div>
                             </div>                                                
                         </div>                    
                         <div class='project-item-container' role='link' title='Click to view project' data-index=1 onclick='handleProjectsClick(1)'>
@@ -183,7 +187,11 @@
                             <div class='divider'></div>
                             <div class='project'>
                                 <span class='title'>Field Time Entry</span>
-                                <div class='summary'>Building on the edge of our seats.  This was a three person project to replace an outdated and heavily integrated time keeping system for our company.  It turned out to be wildly successful.</div>
+                                <div class='summary'>Building on the edge of our seats.  This was a three person project to replace an outdated and heavily integrated time keeping system for our company.  It turned out to be wildly successful.                                       
+                                    <span class='accent-icon'>
+                                        <img class='chevron-right' src='img/icons/chevron-right.svg' alt='Explore Projects'/>
+                                    </span>
+                                </div>
                             </div>                        
                         </div>
                         <div class='project-item-container' role='link' title='Click to view project' data-index=2  onclick='handleProjectsClick(2)'>
@@ -191,7 +199,11 @@
                             <div class='divider'></div>
                             <div class='project'>
                                 <span class='title'>Niagara Animal Hospital</span>
-                                <div class='summary'>Our business needed a website and I knew a guy.</div>
+                                <div class='summary'>Our business needed a website and I knew a guy.                                       
+                                    <span class='accent-icon'>
+                                        <img class='chevron-right' src='img/icons/chevron-right.svg' alt='Explore Projects'/>
+                                    </span>
+                                </div>
                             </div>                        
                         </div>                    
 
@@ -335,6 +347,10 @@
         let summaryText = '';
         if (item.link) {
             summaryText = `${item.summary} <a href="${item.link}"><span class='accent'>More<span></a>`;
+
+            // summaryText = `${item.summary} <a href="${item.link}"><span class='accent-icon'>
+            //                             <img class='chevron-right' src='img/icons/chevron-right.svg' alt='Explore Projects'/>
+            //                         </span> </a>`;
         }
         else {
             summaryText = `${item.summary}`;

@@ -234,8 +234,8 @@ section.projects .imagery.active {
     height: 100%;
 }
 .projects-list .project {
-    display: grid;
-    grid-template-rows: 32px 1fr;
+    /* display: grid;
+    grid-template-rows: 32px 1fr; */
 }
 .projects-list.hidden {
     /* opacity: 0; */

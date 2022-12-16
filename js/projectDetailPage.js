@@ -11,13 +11,7 @@ function GenerateProjectDetailPage(pageData, headerData, footerData, navigationD
         const page = document.querySelector('.detail-page');
         pageData.map((item) => {
             page.append(renderFactory(item));
-        });   
-
-        // Sidemenu
-        // const sideMenu = document.querySelector('.side-bar');
-        // if (sideMenu) {
-        //     sideMenu.append(renderQuickLinks(sideMenu, pageData));
-        // }
+        });          
     }
     else {
         console.error('GenerateProjectDetailPage(): page data missing.');
@@ -67,7 +61,7 @@ function GenerateProjectDetailPage(pageData, headerData, footerData, navigationD
 function renderHeader(project) {
     let html = '';                
     html += `<span class='scroll-target'>${project.name}</span>`;
-    html += '<span>&nbsp;</span>';
+    html += '<span></span>';
     html += '<span></span>';
     html += `<span class='slide-left'>${project.tech}</span>`;        
     return html;

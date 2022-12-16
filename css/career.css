@@ -220,6 +220,8 @@ a.anchor {
     }
     .work-page .company-profile {
         font-size: 32px;
+        padding: 10px;
+        text-align: center;
     }
     .work-page .content {
         display: grid;
@@ -247,7 +249,7 @@ a.anchor {
 
 @media only screen and (max-width: 850px)  {
     .work-page .header-content .stats {
-        font-size: 0.5em;
+        font-size: 0.65em;
     }
 
     .work-page .company-profile {
