@@ -1,32 +1,9 @@
 
-/* section:nth-child(1), section:nth-child(2) {
-    display: none;    
-} */
-
-section.projects {    
-    /* background: linear-gradient(rgba(255,255,255,0.97), rgba(255,255,255,0.97)), url(../img/projects/topo-map1.jpg); */
-    /* background-size: cover; */
+section.projects {      
 
     display: block;
-    background: white;
-    /* background: #d8d8d8; */
-    color: black;
-    /* background: linear-gradient(#1c69f03d, #1c69f026); */
-
-    /* padding-top: 80px; */
-    
-    /* Animated gradient effect */
-    /* background: linear-gradient(15deg, rgba(238,119,82, 0.7), #e73c7e, rgba(35,166,213, 0.8), #23d5ab);
-    background-size: 400% 400%;
-    animation: gradient-wave 24s ease infinite; */
-
-    /* background:white; */
-    /* background: linear-gradient(#fff 30%, #1c69f026); */
-
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
-
+    background: white;    
+    color: black;   
     height: 100%;
     overflow-x: hidden;    
 }
@@ -38,15 +15,11 @@ section.projects .explore {
     top: calc(50% - 70px); 
     left: calc(50% - 120px);
     padding: 45px 60px; 
-    /* padding-left: 36px; */
-
-            
+                
     text-align:right;
     color: white;
     background-color: rgba(0,0,0,0.5);
-    transition: background-color 0.5s;
-    /* background: linear-gradient(to right, rgba(0,0,0,0.0) 30%, rgba(0,0,0,0.7) 60%); */
-    /* transform: skew(15); */
+    transition: background-color 0.5s;   
 }
 
 section.projects .explore:hover {
@@ -62,40 +35,6 @@ section.projects .explore:hover {
     top: 4px;
 }
 
-/* section.projects .text::before {    
-    content: '';       
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top:0px;
-    z-index: -1;        
-    background-color: rgba(0,0,0,0.7);    
-    transform: skew(-30deg);  
-    padding-left: 120px;
-    margin-left: -30px; 
-} */
-
-
-/* section.projects .imagery {
-    background: url(../img/projects/collage.png), linear-gradient(#1c69f03d, #1c69f026); 
-    background-repeat: no-repeat;
-    background-position: 25%;
-    background-size: 100%;
-    background-size: cover;        
-    
-    width: 100%;
-    height: 100%;    
-    
-    transition: transform 2s, height 2s, width 2s;
-}
-
-section.projects .imagery.active {
-    width: 35%;
-    height: 35%;
-    transform: translateX(-200px);
-} */
-
-
 @keyframes gradient-wave {
     0% {
         background-position: 0% 50%;
@@ -108,8 +47,6 @@ section.projects .imagery.active {
         background-position: 0% 50%;
     }
 }
-
-
 
 
 /* PROJECTS LAYOUT ->  2 COL.  Left Col (Image).  Right Col (3 rows)  */
@@ -127,23 +64,17 @@ section.projects .imagery.active {
 }
 
 .projects .section-heading {
-    width:100%;
-    /* padding: 60px; */
-    /* padding-bottom:0px; */
+    width:100%;   
     padding-right: 5%;
     margin-top: 60px;
     
     text-align: center;
-    font-size: 36px; 
-    /* color: rgb(242, 242, 242); */
-    /* color: white; */
-    text-transform: uppercase;
-    /* text-shadow: 1px 2px 3px #eee, 0 0 0 #000, 1px 2px 3px #eee; */
+    font-size: 36px;     
+    text-transform: uppercase;    
 }
 
 .projects-collage {
-    background: url(../img/projects/collage.webp), linear-gradient(#1c69f03d, #1c69f026), linear-gradient(#ffffff, #ffffff); 
-    /* background: rgba(0,0,0,0.5); */
+    background: url(../img/projects/collage.webp), linear-gradient(#1c69f03d, #1c69f026), linear-gradient(#ffffff, #ffffff);     
     background-repeat: no-repeat;
     background-position: -90%;
     background-size: 100%;
@@ -164,29 +95,10 @@ section.projects .imagery.active {
     background-size: 80%;
     transition: clip-path 1s, background-size 1s;
 
-    cursor: pointer;
-
-    /* width: 30%; */
-    /* height: 50%;   */
-    /* transform: translate(40%, 50%);     */
-    /* top: 28%; */
-    /* left: 14%; */
-    /* justify-self: center; */
-    
-    /* transition: transform 2s, height 2s, width 2s; */
-
-    /* grid-column-start: 1;     */
-    /* max-height: 350px;
-    max-width: 350px;    */
-    /* margin: 80px;     */
-    /* margin-left: 10%; */
-
-    /* transition: transform 2s, width 2s, height 2s, top 2s, left 2s; */
+    cursor: pointer;    
 }
-.projects-collage.active {
-    
-    z-index: 9;
-    /* grid-column-start: -1; */
+.projects-collage.active {    
+    z-index: 9;    
     width: 100%;
     height: 100%;
     top: 0;
@@ -195,17 +107,7 @@ section.projects .imagery.active {
     background-size: 100%;     
 
     -webkit-clip-path: inset(0% 0% 0% 0%);
-    clip-path: inset(0% 0% 0% 0%);
-    
-    
-    /* transition: clip-path 2s; */
-    /* transform: translateX(0px);     */
-    /* top: 40%;
-    left: 40%; */
-    /* max-width: unset;
-    max-height: unset; */
-    /* margin:0;     */
-    /* transform: translateX(-200px); */
+    clip-path: inset(0% 0% 0% 0%);    
 }
 
 .projects-collage.active .explore {
@@ -233,19 +135,11 @@ section.projects .imagery.active {
     gap:40px;
     height: 100%;
 }
-.projects-list .project {
-    /* display: grid;
-    grid-template-rows: 32px 1fr; */
-}
-.projects-list.hidden {
-    /* opacity: 0; */
-}
 
 /* Three column layout for each case study */
 .project-item-container {
     display: grid;
-    grid-template-columns: 30px 30px 1fr;
-    /* border: 1px solid red; */
+    grid-template-columns: 30px 30px 1fr;    
     align-self: flex-start;   
     
     opacity: 1;
@@ -266,9 +160,7 @@ section.projects .imagery.active {
 }
 .project-item-container .divider {
     height: 56px;
-    width: 6px;
-    /* background-color: var(--accent-1); */
-    /* background: linear-gradient(180deg, hsla(39, 100%, 50%, 1) 0%, hsla(3, 100%, 64%, 1) 100%); */
+    width: 6px;    
     background: var(--accent-1a);
 
     margin: 0 auto;

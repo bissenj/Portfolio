@@ -1,11 +1,4 @@
 
-/* section.contact {
-    background-color: black;
-    background: linear-gradient(30deg, rgba(255, 255, 255, 0), rgba(148, 148, 148,0.5));
-    height: 75vh;
-} */
-
-
 #contact {
     background: linear-gradient(to top, rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url('../img/hero/jewel_basin.webp') no-repeat;
     background-size: cover;      
@@ -18,19 +11,16 @@
     height: 100%;
     padding: 20%; 
 }
-.contact-content h1 {
-    /* font-family: 'Dela Gothic One', cursive; */
+.contact-content h1 {    
     font-weight: 700;
     text-transform: uppercase;
     line-height: 1.8em;
     letter-spacing: 3px;
-    margin-bottom: 20px;
-    /* font-size: 1.2em; */
+    margin-bottom: 20px;    
 }
 .contact-content p {            
     line-height: 1.6em;
-    margin-bottom: 20px;
-    /* letter-spacing: 1px; */
+    margin-bottom: 20px;    
 }
 .contact-links {
     display: flex;

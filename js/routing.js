@@ -38,7 +38,7 @@ function routeToUrl(url) {
 
 
 
-// THIS ONLY WORKS FROM THE SITE MAP MODAL, RIGHT NOW.
+// THIS ONLY WORKS FROM THE SITE MAP MODAL AND FOOTER, RIGHT NOW.
 function handleLinkClick(e) {
   console.log('handleLinkClick: ', e);
 

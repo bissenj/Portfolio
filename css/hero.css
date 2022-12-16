@@ -2,34 +2,26 @@
 /* ABOUT */
 section.about {    
     position: relative;
-    height: 100%;
-    /* min-height: 100vh; */
+    height: 100%;    
     width:100%;
     display: block;
     overflow-y: hidden;
     background-color: white;
-    color: black;
-    /* border-bottom: 20px solid white; */
-
-    /* min-height: 1250px; */
+    color: black;    
 }
 
 
 /* HIGHLIGHTS */
 section.image-collage {      
     position: relative;    
-    height: 100%;
-    /* min-height: 150vh; */
+    height: 100%;   
     width:100%;
     display: block;
     overflow-y: hidden;
     background-color: white;
     color: black;
     border-bottom: 20px solid white;
-    overflow-x: hidden;    
-    /* border: 1px solid red; */
-
-    /* min-height: 1250px; */
+    overflow-x: hidden;        
 }
 
 section.about.foreground-container {
@@ -67,16 +59,12 @@ section.about.foreground-container {
     z-index: 20;
     border:none;
     color:white;
-    opacity: 0;
-    /* background: rgba(0,0,0,0.5);   */
-    /* background: linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.6)); */
+    opacity: 0;    
 
-    padding-left: 20px;
-    /* text-align: right; */
+    padding-left: 20px;    
 
     line-height: 40px;
-    letter-spacing: 1px;
-    /* transform: scale(0.98); */
+    letter-spacing: 1px;    
     animation: fade-in 1s ease-out;
     animation-fill-mode: forwards;
     animation-delay: 2.0s;
@@ -233,16 +221,13 @@ div.row1 > div.transition-in:before, div.row2 > div.transition-in:before {
 
 /* ----------------------- DIAGONAL IMAGE GRID ------------------------------ */
 
-/* .about { background-color: maroon !important;} */
-
 .diagonal-rects {
     position:relative; 
     left: -10px;
     z-index: 10;
     
     width: 150%;                /* This will change via media queries depending on the screen dimensions */
-    /* margin-top: 200px; */
-   
+       
     background-color:white;  /* cheap way to cover the row gap on inline-block  */
     transform-origin: 0 0;          
     transform: rotate(30deg);
@@ -273,13 +258,11 @@ div.row1, div.row2 {
         top 1.0s ease-in-out, 
         left 1.0s ease-in-out, 
         height 1s ease-in-out, 
-        width 1s ease-in-out; 
-    /* transition: 1.5s ease-in-out; */
+        width 1s ease-in-out;     
 } 
 .row1 > div {
     min-height: 340px;
-    max-height: 340px;
-    /* border-top: 20px solid white;      */
+    max-height: 340px;    
 }
 .row2 > div {
     min-height: 420px;
@@ -288,10 +271,6 @@ div.row1, div.row2 {
 }
 
 /* HOVER STATES */
-.row1 div:hover, .row2 div:hover {         
-    /* cursor:pointer; */
-    /* z-index:11; */
-}
 .about-image:hover {
     cursor: pointer;
 }
@@ -316,12 +295,6 @@ div.image4 {
 div.image5 {     
     width: calc(100% / (4/10));     
 }
-/* div.image6 { 
-    width: calc(100% / 4);     
-}
-div.image7 {     
-    width: calc(100% / 4);     
-} */
 
 /* ------------------------ ANIMATIONS ------------------------------------ */
 
@@ -329,18 +302,12 @@ div.image7 {
 .transition-in {
     border-width: 10px !important;        
     animation: rotate30 0.5s ease-in-out;      
-    animation-fill-mode: forwards;  
-    /* cursor:pointer !important;      */
-    
-    /* outline: 9999px solid rgba(0,0,0,0.3);     */
+    animation-fill-mode: forwards;      
 }
 @keyframes rotate30 {
     0% {   
         transform: rotate(0deg);        
-    }      
-    /* 75% {
-        transform: rotate(-30deg);                
-    } */
+    }          
     100% {        
         transform: rotate(-30deg);                
     }    
@@ -369,8 +336,7 @@ div.row1 > div:after, div.row2 > div:after {
     z-index:10;
     width: 0%;
     height: 100%;
-    bottom: 0%;
-    /* background-color: var(--accent-1); */
+    bottom: 0%;    
     background-color: hsla(39, 100%, 50%, 1);
     background: linear-gradient(90deg, hsla(39, 100%, 50%, 1) 0%, hsla(3, 100%, 64%, 1) 100%);
     background: var(--accent-1);
@@ -393,25 +359,21 @@ div.row1 > div:after, div.row2 > div:after {
 /* Corrent issue with touch devices triggering a :hover state and it getting stuck */
 @media (hover:hover) {
     div.row1 > div:hover .inner, div.row2 > div:hover .inner { 
-        width: 100%;
-        /* height: 20%; */
+        width: 100%;        
         opacity: 0.95;
     }
     div.row1 > div:hover .inner > span, div.row2 > div:hover .inner > span { 
-        opacity: 1;
-        /* height: 100%; */
+        opacity: 1;        
     }
 }
 
 
-div.row1 > div.clone:hover, div.row2 > div.clone:hover { 
-    /* opacity: 1; */
+div.row1 > div.clone:hover, div.row2 > div.clone:hover {     
     filter: unset;
 }
 div.row1 > div:hover::after, div.row2 > div:hover::after { 
     opacity: 1;
-    transform: translateX(-10px) rotate(330deg) scale(1.2) ;
-    /* filter: drop-shadow(0px 0px 1px #777); */
+    transform: translateX(-10px) rotate(330deg) scale(1.2) ;    
 }
 div.row1 > div.transition-in:after, div.row2 > div.transition-in:after { 
     display:none;
@@ -419,9 +381,6 @@ div.row1 > div.transition-in:after, div.row2 > div.transition-in:after {
 div.row1 > div.transition-out:after, div.row2 > div.transition-out:after { 
     display:none;
 }
-/* div.row1 > div.transition-in:hover, div.row2 > div.transition-in:hover { 
-    cursor: pointer;
-} */
 
 /* all diagonal image elements */
 div.row1 > div:before, div.row2 > div:before {  
@@ -438,10 +397,7 @@ div.row1 > div:before, div.row2 > div:before {
                 height 1.5s, 
                 width 1.5s,
                 background-position 1.5s,
-                background-size 2.0s;  
-    /* transition: 1.5s; */
-    /* transition-delay: 2s;
-    transition-property: background-size; */
+                background-size 2.0s;      
 }
 
 /* pseudo element to hold the image in the image elements */
@@ -548,42 +504,3 @@ div.image5::before {
     transform-origin: 0 0;  
     transform: rotate(30deg); 
 }
-
-
-
-
-
-
-
-/*  PROJECTS */
-
-/* section.projects {
-    background-color: rgb(8, 218, 255);
-}
-section:nth-child(4) {
-    background-color: rgb(21, 21, 21);
-}
-section:nth-child(5) {
-    background-color: rgb(220, 239, 170);
-    height: 50vh;
-} */
-
-
-/*  */
-
-/* .logo {    
-    grid-area: cc;
-    margin: auto;    
-    background: url('../img/hero/logo.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    height: 100%;
-    max-height:400px;
-    width: 100%;
-    max-width: 400px;
-    filter: drop-shadow(4px 4px 4px #444);
-} */
-
-
-/* -------------------------- MEDIA QUERIES -------------------------- */
-/* See media-queries.css */

@@ -1,25 +1,25 @@
 :root {
-    --color-accent-1: hsl(51,100%,50%);    
+    /* --color-accent-1: hsl(51,100%,50%);     */
 
-    /* Pro Mode */
-    --slideshow-background: #565656; 
+    
+    /* --slideshow-background: #565656;  */
     --slideshow-foreground: white;
     --timeline-selected-foreground: orange; 
-    /* --timeline-selected-foreground: linear-gradient(90deg, hsla(39, 100%, 50%, 1) 0%, hsla(3, 100%, 64%, 1) 100%); */
-    --slide-element-border: #fff;
-    --event-text-label: #aaa;
+    
+    /* --slide-element-border: #fff; */
+    /* --event-text-label: #aaa; */
 
-    --slider-image-overlay: hsl(202deg 50% 57% / 50%);
-    --slider-gradient-dark: hsl(202deg 50% 57% / 89%);
-    --slider-gradient-light: hsl(202deg 50% 57% / 5%);
+    /* --slider-image-overlay: hsl(202deg 50% 57% / 50%); */
+    /* --slider-gradient-dark: hsl(202deg 50% 57% / 89%); */
+    /* --slider-gradient-light: hsl(202deg 50% 57% / 5%); */
 
-    --gradient-dark-low:  0, 0, 0, 0.5;
+    /* --gradient-dark-low:  0, 0, 0, 0.5;
     --gradient-dark-high: 0, 0, 0, 0.35;
-    --gradient-dark-half: 0, 0, 0, 0.5;
+    --gradient-dark-half: 0, 0, 0, 0.5; */
 
     --accent-color1: orange;
     /* --accent-1: orange; */
-    --accent-1: linear-gradient(90deg, hsla(39, 100%, 50%, 1) 0%, hsla(3, 100%, 64%, 1) 100%);
+    /* --accent-1: linear-gradient(90deg, hsla(39, 100%, 50%, 1) 0%, hsla(3, 100%, 64%, 1) 100%); */
     --accent-1: linear-gradient(90deg, hsla(39, 100%, 50%, 1) 0%, hsla(24, 100%, 50%, 1) 100%);
     --accent-1a: linear-gradient(180deg, hsla(39, 100%, 50%, 1) 0%, hsla(24, 100%, 50%, 1) 100%);
 
@@ -34,7 +34,7 @@
       
 
     /* DESIGN SYSTEM */
-    --color-primary-1: hsl(209, 61%, 16%);
+    /* --color-primary-1: hsl(209, 61%, 16%);
     --color-primary-2:  hsl(211, 39%, 23%);
     --color-primary-3:  hsl(209, 34%, 30%);
     --color-primary-4:  hsl(209, 28%, 39%);
@@ -43,9 +43,9 @@
     --color-primary-7:  hsl(211, 27%, 70%);
     --color-primary-8:  hsl(210, 31%, 80%);
     --color-primary-9:  hsl(212, 33%, 89%);
-    --color-primary-10:  hsl(210, 36%, 96%);
+    --color-primary-10:  hsl(210, 36%, 96%); */
 
-    --color-secondary-1: hsl(15, 86%, 30%);
+    /* --color-secondary-1: hsl(15, 86%, 30%);
     --color-secondary-2:  hsl(22, 82%, 39%);
     --color-secondary-3: hsl(29, 80%, 44%);
     --color-secondary-4:  hsl(36, 77%, 49%);
@@ -54,9 +54,9 @@
     --color-secondary-7:  hsl(48, 94%, 68%);
     --color-secondary-8:  hsl(48, 95%, 76%);
     --color-secondary-9:  hsl(48, 100%, 88%);
-    --color-secondary-10:  hsl(49, 100%, 96%);
+    --color-secondary-10:  hsl(49, 100%, 96%); */
 
-    --sz-1: 4px;
+    /* --sz-1: 4px;
     --sz-2: 8px;
     --sz-3: 12px;
     --sz-4: 16px;
@@ -64,9 +64,9 @@
     --sz-6: 32px;
     --sz-7: 48px;
     --sz-8: 64px;
-    --sz-9: 96px;
+    --sz-9: 96px; */
     
-    --fs-1: 12px;
+    /* --fs-1: 12px;
     --fs-2: 14px;
     --fs-3: 16px;
     --fs-4: 18px;
@@ -76,7 +76,7 @@
     --fs-8: 36px;
     --fs-9: 48px;
     --fs-10: 60px;
-    --fs-11: 72px;
+    --fs-11: 72px; */
 
 
     /* Dark Mode */
@@ -90,7 +90,7 @@
     --gradient-dark-high: 0, 0, 0, 0.85;
     --gradient-dark-half: 0, 0, 0, 0.5; */
 
-    --year-text: 22px;
+    /* --year-text: 22px; */
 
     /* Light Mode */
     /* --slideshow-background: white; 

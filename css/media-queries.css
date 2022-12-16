@@ -1,8 +1,4 @@
 
-
-/* -------------------------- MEDIA QUERIES -------------------------- */
-
-
 /* ----------------- HUGE SCREENS ---------------- */
 @media only screen and (min-width: 1351px)  {
 
@@ -12,23 +8,7 @@
     } */
 
     /* PAGE SIZING - LANDSCAPE OR PORTRAIT */     
-    @media (orientation: landscape) {        
-        /* .diagonal-filler {        
-            height: 40%;                        
-        } */
-        section.about { 
-            /* height: 130vh; */
-            /* min-height: 1200px; */
-        }
-        .row1 > div {
-            /* min-height: 200px;
-            max-height: 200px; */
-        }
-        .row2 > div {
-            /* min-height: 280px;
-            max-height: 280px; */
-        }
-
+    @media (orientation: landscape) {                    
         div.image3::before { 
             top: -185%;
         }
@@ -37,11 +17,7 @@
     @media (orientation: portrait) {
         .diagonal-filler {        
             height: 60%;
-        }
-
-        section.about {            
-            /* height: 110vh; */
-        }
+        }        
     }       
 }
 
@@ -52,39 +28,13 @@
     /* body {   
         border: 4px solid blue;           
     } */
-    
-    /* section .background {    
-        background-position: 50% 50% !important;
-    } */
-    
-    /* Put your CSS here up to 100px width devices (cover all width between 200px to 767px // */
+     
     .diagonal-rects { width: 175%;}
 
-    /* div.image1 { 
-        width: calc(100% / (8/10));     
-    }
-    div.image2 {         
-        width: calc(100% / (6/10));     
-    }
-    div.image3 {  
-        width: calc(100% / (5/10));     
-    }
-
-    div.image4 { 
-        width: calc(100% / (6/10));     
-    }
-    div.image5 {     
-        width: calc(100% / (6/10));     
-    } */
-
-    /* SIZE OF ABOUT SECTION */
-    section.about {            
-        /* height: 90vh; */
-    }
+    /* SIZE OF ABOUT SECTION */    
     .diagonal-filler {        
         height: 60vh;
-    }
-        
+    }        
 
     /*  SIZE OF DIAGONAL GRID */
     .row1 > div {
@@ -93,23 +43,6 @@
     .row2 > div {
         min-height: 380px;        
     }
-    
-
-    /* PAGE SIZING - LANDSCAPE OR PORTRAIT */     
-    @media (orientation: landscape) {                        
-    }
-
-    @media (orientation: portrait) {
-        /* .diagonal-filler {        
-            height: 40%;
-        } */
-        section.about {            
-            /* height: 60vh;             */
-        }
-        section.image-collage {
-            /* height: 100vh; */
-        }
-    }   
 }
 
 /* ----------------- MEDIUM SCREENS ---------------- */
@@ -118,14 +51,7 @@
     /* body {   
         border: 4px solid green;           
     } */
-
-    section.about {
-        /* height: 150vh; */
-    }
-    section.image-collage {
-        /* height: 125vh; */
-    }
-
+   
     .projects-collage {
         position: relative;        
         min-height: 0px;
@@ -139,8 +65,7 @@
     .projects-list.hidden { opacity: 1;}
     .projects-list.hidden .project-item-container {
         opacity: 1;
-        transform: none;
-        /* margin-left:20px; */
+        transform: none;        
     }
     .projects .section-heading {
         text-align: left;
@@ -165,10 +90,6 @@
     .project-item-container:nth-child(3) {
         transition-delay: 0.9s;
     }
-
-
-
-
 
     @media (orientation: portrait) {
         div.image1::before {    
@@ -213,14 +134,11 @@
         padding: 20% 10%;
     }
     section.contact .contact-content h1 {
-        font-size: 20px;
-        /* text-align: center; */
+        font-size: 20px;        
     }
     section.contact .contact-content p {
         font-size: 18px;        
     }
-
-
 }
 
 /* ----------------- SMALL SCREENS ---------------- */
@@ -233,8 +151,7 @@
     /* LANDING PAGE */   
     
     .nav-menu {
-        right: 20px;
-        /* background-color: rgba(255,255,255,0.2); */
+        right: 20px;        
     }
 
     .foreground {
@@ -395,11 +312,7 @@
     }
 
     @media (orientation: portrait) {
-
-        /* section.about {
-            height: 100vh;
-        } */
-
+       
         div.image1::before {    
             top: -118%;
             left: -36%;
@@ -433,10 +346,7 @@
     }
     .project-item-container .number {
         font-size: 0.9em;
-    }    
-    .project .title {
-        /* font-size: 0.8em; */
-    }
+    }        
 
     /* WORK */
     section.work .section-heading {
@@ -449,13 +359,11 @@
         padding: 200px 5%;
     }
     section.contact .contact-content h1 {
-        font-size: 16px;
-        /* text-align: center; */
+        font-size: 16px;        
     }
     section.contact .contact-content p {
         font-size: 16px;        
     }
-
 }
 
 
@@ -466,15 +374,11 @@
     /* Testing Media Query Selection */
     /* body { border: 4px solid purple; } */
 
-    .slide-left {
-        transition: transform 2s, opacity 2s;
-        /* transform: translateX(-60px); */
-        opacity: 0;
+    .slide-left {        
+        transform: translateX(0px);        
     }    
-    .slide-right {
-        transition: transform 2s, opacity 2s;
-        /* transform: translateX(60px); */
-        opacity: 0;
+    .slide-right {        
+        transform: translateX(0px);        
     }   
 
     .diagonal-rects { 
@@ -485,28 +389,9 @@
         height: 40vh;
     }
 
-    /* section.about {
-        height: 120vh;            
-    } */
-    /* section.image-collage {
-        height: 225vh;
-        min-height: unset;
-    } */
-
     @media (orientation: portrait) {
          /* Testing Media Query Selection */
-        /* body { border: 4px solid red; } */
-
-        /* section.about {
-            height: 100vh;            
-        } */
-        section.image-collage {
-            /* height: 200vh; */
-        }
-
-        /* .diagonal-filler {
-            height: 130vh;
-        } */
+        /* body { border: 4px solid red; } */       
     }
 
     footer {

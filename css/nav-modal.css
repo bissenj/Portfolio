@@ -26,16 +26,9 @@
       opacity: 1;
       z-index: 19;  
     }
-    .nav-menu:hover {   
-      /* border: 1px solid #686767; */
-      border: 1px solid white;
-      /* background-color: rgba(0, 69, 108, 0.5);       */
-      /* background-color: var(--accent-1);               */
-
-      /* background: linear-gradient(90deg, hsla(39, 100%, 50%, 1) 0%, hsla(3, 100%, 64%, 1) 100%); */
-      background: var(--accent-1);
-
-      /* background-color: rgba(241, 149, 0, 0.5); */
+    .nav-menu:hover {         
+      border: 1px solid white;      
+      background: var(--accent-1);      
       transform: scale(1.1);
     }  
     .nav-menu img {
@@ -71,11 +64,9 @@
         width: 94%;
         height: 80vh;
   
-        color: white;
-        /* background-color: rgba(0,0,0,0.5); */
+        color: white;        
         background: linear-gradient(120deg, rgba(0, 0, 0, 0.8) 35%, rgba(0, 0, 0, 0.3)), url(../img/projects/topo-map1.jpg);
-    
-          
+              
         font-size: 14px;
 
         transition: opacity 0.5s, transform 0.5s, background-color 1.0s;
@@ -101,9 +92,7 @@
         width: 100%;
         text-align: center;
         z-index: 200;
-        font-size: 1.2em;        
-        /* cursor: pointer; */
-        /* transform: scale(2); */
+        font-size: 1.2em;                
       }
 
       section.menu .close-nav {
@@ -132,8 +121,7 @@
         flex-direction: column;
         align-items: center;
         
-        padding: 0px 20px;
-        /* border: 1px solid red; */
+        padding: 0px 20px;       
       }
      
       .side-bar .row {       
@@ -175,9 +163,7 @@
         padding: 14px 6px;
         border: 1px solid white;
         border-radius: 3px;
-        background-color: rgba(0,0,0,0.3);        
-        /* background-color: var(--color-primary-9); */
-        /* background-color: var(--primary-9); */
+        background-color: rgba(0,0,0,0.3);                
         flex-grow: 2;
         text-align: center;
   
@@ -195,8 +181,7 @@
         
         background: var(--accent-1);
       }
-      .menu-items-column .row > a:hover div.label {                   
-        /* color: rgb(1, 51, 85);      */
+      .menu-items-column .row > a:hover div.label {                           
         color: rgb(75, 45, 2);
         transition: color 0.3s;   
       }
@@ -231,8 +216,7 @@
   
     /* ----------------- SMALL SCREENS ---------------- */
   
-    @media only screen and (max-width: 1000px)  {
-      /* section.menu .menu-container .menu-items-column { padding-top: 60px;} */
+    @media only screen and (max-width: 1000px)  {      
       section.menu .menu-container  { display: block;}
       section.menu .menu-container .side-bar { display: none; }
       .menu-items-column .row { 
@@ -247,8 +231,7 @@
     }
 
 
-    @media only screen and (max-width:450px)  {
-      /* section.menu .menu-container .menu-items-column { padding-top: 60px;} */
+    @media only screen and (max-width:450px)  {      
       section.menu .menu-container  { display: block;}
       section.menu .menu-container .side-bar { display: none; }
       .menu-items-column .row { 
