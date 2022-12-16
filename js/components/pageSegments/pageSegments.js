@@ -146,18 +146,7 @@ function renderFullWidthImageWithTextOverlay(data) {
     if (text2 != '') {
         text2Container = `<div class='top-right slide-left'>${text2}</div>`;
     }
-
-    //console.log("imageContainer: ", imageContainer);
     
-    // let html = `
-    //     <!-- Full width Image with Text Overlay -->
-    //     <div class='segment ${optionalClasses}'>
-    //         <div class='image-full-width grid-center'>
-    //             <h1 class='text-overlay'>${text1}<h1/>
-    //         </div>
-    //     </div>
-    // `;
-
     let html = `
         <!-- Full width Image with Text Overlay -->
         <div class='segment ${optionalClasses}'>
@@ -247,20 +236,6 @@ function renderTextBlocksWithHeading(data) {
         if (item.text) {
             paragraphHtml += `<p class='${classes}'>${item.text}</p>`;
         }
-
-        // Need to get grid out of place-content center before using this.
-        // if (item.image) {
-        //     paragraphHtml += createImage({image: item.image, class: classes});
-        // }
-
-        //let imageContainer = createImage({image: item.image});
-        // let image = item.image ?? '';
-        // if (image != '') {
-        //     //imageContainer = `<img src='${IMAGE_PATH}/${image}'></img>`;                        
-        //     imageContainer = createImage({image});
-        // }
-        
-        //paragraphHtml += imageContainer;
 
     });
 
@@ -416,24 +391,6 @@ function renderQuestionAnswer(data, index) {
 //              FOOTER
 // -----------------------------------------------------------------
 
-// Generic Footer with Navigation
-/* 
-    data: {
-        classes: 'light-blue, topo-background',
-        links: [
-            link : {
-                classes: '',
-                label: 'Career History',
-                text: 'Self Employed',
-                url: 'career/self,
-                icon : {
-                    classes: '',
-                    path: '',
-                }
-            }
-        ]           
-    }
- */
 function renderDynamicFooter(data) {
     let classes = data.classes ?? '';
 

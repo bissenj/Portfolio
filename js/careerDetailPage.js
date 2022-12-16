@@ -59,7 +59,7 @@ function GenerateCareerDetailPage(pageData, headerData, footerData, navigationDa
     // After page has time to load, fire up the intersection observers
     setTimeout(() => {        
         startCareerPageObservers();   
-    }, 1500);
+    }, 200);
 }
 
 
