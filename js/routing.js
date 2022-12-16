@@ -44,9 +44,14 @@ function handleLinkClick(e) {
 
   e.preventDefault();
  
+  let fromMenu = false;
   let link = e.target.href;
   if (!link) {
+    link = e.target.parentNode.href;
+  }
+  if (!link) {
     link = e.target.parentNode.parentNode.href;
+    fromMenu = true;
   }
   console.log('link: ', link);
 
@@ -65,7 +70,9 @@ function handleLinkClick(e) {
 
     // Scroll up or down the page.
     target.scrollIntoView({behavior: "smooth"});
-    showMenu();
+    if (fromMenu) {
+      showMenu();
+    }
     console.log("Scroll Into View: ", target);
   }
   else {
@@ -78,7 +85,9 @@ function handleLinkClick(e) {
 
 
     // Navigate with our custom fade transition.
-    showMenu();
+    if (fromMenu) {
+      showMenu();
+    }
     navigateToPage('link', route);
     console.log("Navigate to Page: ", route);
   } 
@@ -101,9 +110,11 @@ function navigateToPage(source, dest) {
         destination = '/Portfolio'
     }       
 
+    const newLocation = `${destination}/${dest}`;
     // update window location
-    setTimeout(() =>{         
-        window.location = `${destination}/${dest}`;
+    setTimeout(() =>{    
+      console.log('Navigating to: ', newLocation)     
+        window.location = newLocation;
     },500);    
 }
 
@@ -327,7 +338,7 @@ function renderFooter() {
   setTimeout(() => {
       // Wire up the home link button
       const headerHome = document.querySelector('footer a');
-      headerHome.addEventListener('click', () => navigateToPage('footer', 'index.html'));
+      headerHome.addEventListener('click', handleLinkClick);
   }, 10);
 
 
