@@ -11,7 +11,8 @@
 .work-page { 
     overflow-x: unset;        
     display: grid;
-    grid-template-rows: 2em 300px 1fr 100px;
+    /* grid-template-rows: 2em 300px 1fr 100px; */
+    grid-template-rows: 2em 300px 1fr;
 }
 
 .work-page .header-content {
@@ -117,7 +118,8 @@
     bottom: -5px;
     height: 1.6em;
     /* transform: skew(-12deg) translate(-50%); */
-    background: var(--gold-text);
+    /* background: var(--gold-text); */
+    background: var(--accent-1a);
     z-index: -1;
 }
 

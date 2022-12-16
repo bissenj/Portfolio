@@ -46,6 +46,8 @@ function GenerateCareerDetailPage(pageData, headerData, footerData, navigationDa
     else {
         console.error('GenerateCareerDetailPage(): footer data missing.');
     }
+
+    renderFooter();
     
 
     // lOAD THE NAVIGATION

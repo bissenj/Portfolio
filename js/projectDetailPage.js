@@ -40,6 +40,8 @@ function GenerateProjectDetailPage(pageData, headerData, footerData, navigationD
     else {
         console.error('GenerateProjectDetailPage(): footer data missing.');
     }
+
+    renderFooter();
     
 
     // lOAD THE NAVIGATION

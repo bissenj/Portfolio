@@ -114,9 +114,9 @@ function resetBody() {
 }
 
 
-// FULL SCREEN NAVIGATION MODAL ----------------------------------------
-
-
+/* 
+        FULL SCREEN NAVIGATION MODAL
+*/
 const navModalData = [
     {
       name: 'Home',
@@ -197,8 +197,6 @@ const navModalData = [
       ]
     },
   ];
-
-
   function renderMenuPage(data) {
     console.log('renderMenuPage: ', data);
 
@@ -288,7 +286,6 @@ const navModalData = [
     // }, 1000);
     
   }
-
   function showMenu() {
     if (document.getElementById('site-map')) {
       document.querySelector('.nav-modal').style.opacity = 0;   // Fade out modal
@@ -309,3 +306,21 @@ const navModalData = [
   }
 
 
+/* 
+    FOOTER
+*/
+
+function renderFooter() {  
+  let html = '';
+  html +=  `<a href='/'>            
+              <div class='mountains'>Mountains</div>
+              <div class='andcode'>and code</div>            
+            </a>`;
+  
+  const footer = document.querySelector('footer');
+  if (footer) {
+        //let footerHtml = renderFooter();        
+        footer.innerHTML = html;
+  }
+  //return html;
+}      

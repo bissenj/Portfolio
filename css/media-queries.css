@@ -156,6 +156,18 @@
         transition: opacity 1.0s, transform 1.0s; 
     }
 
+    .project-item-container:nth-child(1) {
+        transition-delay: 0.0s;
+    }
+    .project-item-container:nth-child(2) {
+        transition-delay: 0.45s;
+    }
+    .project-item-container:nth-child(3) {
+        transition-delay: 0.9s;
+    }
+
+
+
 
 
     @media (orientation: portrait) {
@@ -339,6 +351,9 @@
         letter-spacing: 0px;
         word-spacing: 3px;
         line-height: 32px;    
+    }
+    .intro p:nth-child(4) {
+        text-align: left;
     }
 
     div.row1 > div:after, div.row2 > div:after {  
