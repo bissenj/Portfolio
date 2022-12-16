@@ -91,9 +91,26 @@ footer .andcode {
     letter-spacing: 6px;     
 }
 footer a {
+    position: relative;
     padding: 20px;
     cursor: pointer;
     border: 1px solid rgb(56, 56, 56);
+    transition: background-color 0.3s;
+}
+/* footer a:before {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    background: var(--accent-1);
+    opacity: 0.5;
+} */
+footer a:hover {
+    border: 1px solid rgb(200,200,200);
+    background-color: rgba(88, 88, 88, 0.2);
 }
 
 

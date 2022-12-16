@@ -9,7 +9,7 @@ if (ALLOW_JAVASCRIPT) {
     console.log("Screen Width: ", screenWidth);
 
     // Enable javascript effects only if window is wider than tablet breakpoint in CSS
-    if (screenWidth > 767) {
+    if (screenWidth > 900) {
 
         // EFFECT 1:  FUNKY BACKGROUND MOVE EFFECT
         const DAMPER = 150;  
@@ -18,7 +18,15 @@ if (ALLOW_JAVASCRIPT) {
         let startY = -1;
 
         // Animate the background image and decorative dashed lines
-        el.addEventListener('mousemove', (function(e) {        
+        el.addEventListener('mousemove', (function(e) {    
+            
+            // Check if user has scrolled past the hero image.  If so,
+            // don't do anything.
+            const isVisible = (window.scrollY > 400) ? false : true;            
+            if (!isVisible) return; 
+            
+            
+
             var amountMovedX = (e.pageX * 1 / DAMPER);  
             var amountMovedY = (e.pageY * 1 / DAMPER);
             
@@ -71,14 +79,13 @@ carouselEls.forEach((item) => {
             backgroundEl.classList.remove('fade-in');
             backgroundEl.classList.add('fade-out');
             window.setTimeout(() => {
-
-                // TODO - FIX THIS!
+                
                 // HACK FOR GITHUB PAGES
                 if (location.protocol !== "https:") {
-                    backgroundEl.style.background = "url('../img/hero/" + backgrounds[index] + "')";
+                    backgroundEl.style.background = "linear-gradient(to top, rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('../img/hero/" + backgrounds[index] + "')";
                 }
                 else {
-                    backgroundEl.style.background = "url('~/../img/hero/" + backgrounds[index] + "')";
+                    backgroundEl.style.background = "linear-gradient(to top, rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('~/../img/hero/" + backgrounds[index] + "')";
                 }                
                 backgroundEl.style.backgroundSize = "cover";            
                 backgroundEl.style.backgroundRepeat = "no-repeat";

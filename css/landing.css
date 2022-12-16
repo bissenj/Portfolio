@@ -56,29 +56,32 @@
     100% { background-position: 50% 50%; }
   }
   
-  section .background-0 {
-      background: url('../img/hero/hero-huckleberry-lookout.webp');
+  /* section .background-0 {      
+      background: linear-gradient(to top, rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('../img/hero/hero-huckleberry-lookout.webp') no-repeat;
       background-size: cover;
       background-repeat: no-repeat;
-  }
-  section .background-1 {
+  } */
+  /* section .background-1 {
       background: url('../img/hero/hero-great-northern.webp');
+      background: linear-gradient(to top, rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('../img/hero/hero-great-northern.webp') no-repeat;
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
-  }
-  section .background-2 {
+  } */
+  /* section .background-2 {
       background: url('../img/hero/hero-whitefish.webp');
+      background: linear-gradient(to top, rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('../img/hero/hero-whitefish.webp') no-repeat;
+      
       background-size: cover;
       background-repeat: no-repeat;
-  }
+  } */
   
-  section .background-3 {
+  /* section .background-3 {
     background: url('../img/hero/hero-lake-mcdonald.webp');
+    background: linear-gradient(to top, rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('../img/hero/hero-lake-mcdonald.webp') no-repeat;
     background-size: cover;
     background-repeat: no-repeat;
-  }
-
+  } */
   /* section .background-4 {
     background: url('../img/hero/hero-mt-aeneas.webp');
     background-size: cover;
