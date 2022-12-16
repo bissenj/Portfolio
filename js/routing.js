@@ -322,5 +322,14 @@ function renderFooter() {
         //let footerHtml = renderFooter();        
         footer.innerHTML = html;
   }
+
+
+  setTimeout(() => {
+      // Wire up the home link button
+      const headerHome = document.querySelector('footer a');
+      headerHome.addEventListener('click', () => navigateToPage('footer', 'index.html'));
+  }, 10);
+
+
   //return html;
 }      
