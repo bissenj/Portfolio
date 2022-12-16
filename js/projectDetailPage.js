@@ -53,7 +53,7 @@ function GenerateProjectDetailPage(pageData, headerData, footerData, navigationD
     // After page has time to load, fire up the intersection observers
     setTimeout(() => {        
         startProjectPageObservers();   
-    }, 1000);
+    }, 1500);
 }
 
 
