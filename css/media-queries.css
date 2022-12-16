@@ -208,6 +208,18 @@
         }
     }
 
+    /* CONTACT */
+    section.contact .contact-content {
+        padding: 20% 10%;
+    }
+    section.contact .contact-content h1 {
+        font-size: 20px;
+        /* text-align: center; */
+    }
+    section.contact .contact-content p {
+        font-size: 18px;        
+    }
+
 
 }
 
@@ -433,17 +445,18 @@
     }
 
     /* CONTACT */
-
+    section.contact .contact-content {
+        padding: 200px 5%;
+    }
     section.contact .contact-content h1 {
-        font-size: 20px;
+        font-size: 16px;
         /* text-align: center; */
     }
-
     section.contact .contact-content p {
         font-size: 16px;        
     }
-}
 
+}
 
 
 /* ----------------- TINY SCREENS ---------------- */
@@ -494,5 +507,15 @@
         /* .diagonal-filler {
             height: 130vh;
         } */
+    }
+
+    footer {
+        overflow-x: hidden;
+    }
+    footer .mountains {
+        font-size: 5vw;
+    }
+    footer .andcode {
+        font-size: 4vw;
     }
 }

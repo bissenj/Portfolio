@@ -247,6 +247,10 @@ a.anchor {
         font-size: 16px;
     }
 
+    .detail-page ul li {
+        font-size: 16px;
+    }
+
 }
 
 @media only screen and (max-width: 850px)  {
