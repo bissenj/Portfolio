@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="John's developer portfolio and digital place to try out ux/ui techniques">  
+  <meta name="description" content="John's developer portfolio and digital place to try out ux/ui stuff.">  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">    
   <link rel="icon" type="image/png" href="coding.png" />
-  <title>Mountains and Code</title> 
+  <title>Mountains and Code - Home</title> 
 
   <link rel='stylesheet' href='css/global.css' />
   <link rel='stylesheet' href='css/portfolio-main.css' />
@@ -16,7 +16,7 @@
   <link rel='stylesheet' href='css/career-slides.css' />  
   <link rel='stylesheet' href='js/components/basicTimeline/basicTimeline.css' />
   <link rel='stylesheet' href='js/components/horizontalSlider/horizontalSlider.css' />
-  <link rel='stylesheet' href='css/control-grid.css' />
+  <link rel='stylesheet' href='js/components/controlGrid/control-grid.css' />
   <link rel='stylesheet' href='css/contact.css' />
   <link rel='stylesheet' href='css/nav-modal.css' />
   <link rel='stylesheet' href='css/media-queries.css' />  
@@ -34,13 +34,13 @@
         <!-- Hero Image -->
         <section class='landing bs1'>  
 
-            <!-- Element 1:  Full Page Background -->
+            <!-- Full Page Background Image -->
             <div class='background scroll' data-rate='0.5' data-transform='scale(1.05)'></div>
 
-
+            <!-- UI Elements -->
             <div class='foreground'>
 
-                <!-- Nav Menu -->
+                <!-- Element 1:  Nav Menu -->
                 <div class='home-menu'>
                     <ul>                
                         <li><a href='#about'>About</a></li>                        
@@ -50,19 +50,19 @@
                     </ul>
                 </div>            
 
-                <!-- Element 1:  Text -->
+                <!-- Element 2:  Text -->
                 <div class='profession'>
                     <span class='accent p05b'>
                         Full Stack | UI Developer | Designer
                     </span>
                 </div>
 
-                <!-- Element 2:  Logo -->
+                <!-- Element 3:  Logo -->
                 <div class='logo'>
                     <div class='git-page-logo-hack'></div>                
                 </div>
 
-                <!-- Element 3:  Carousel Navigation  -->
+                <!-- Element 4:  Carousel Navigation  -->
                 <div class='carousel-navigation-container'>
                     <div class='gradient-up animate'></div>                                        
                     <div class='nav-carousel'>            
@@ -83,6 +83,7 @@
             </div>
         </section>
 
+        
         <!-- About -->
         <section id='about' class='about'>           
             <!-- TEXT -->
@@ -103,6 +104,8 @@
             </div>
         </section>
       
+
+        <!-- Interactive Diagonal Images -->
         <section class='image-collage'>
             <div class='diagonal-rects'>
                 <!-- Row 1 -->
@@ -132,6 +135,7 @@
             <div class='diagonal-filler'></div>             
         </section>
         
+
         <!-- Projects -->
         <section id='projects' class='projects'> 
             <div class='projects-collage active' title='Click to toggle image'>
@@ -144,42 +148,42 @@
             
             <div class='projects-container'>            
                 <div class='projects-list hidden'>                                      
-                        <div class='project-item-container' role='link' title='Click to view project' data-index=0 onclick='handleProjectsClick(0)'>                        
-                            <div class='number'>01</div>
-                            <div class='divider'></div>
-                            <div class='project'>
-                                <span class='title'>Nightlight</span>
-                                <div class='summary'>A solution for the question: "So where are you guys?"  I built a GPS mapping and tracking platform with React and React Native so our families could stay up to date on our extended travels.  It was a lot of fun.                                      
-                                    <span class='accent-icon'>
-                                        <img class='chevron-right' src='img/icons/chevron-right.svg' alt='Explore Projects'/>
-                                    </span>                                    
-                                </div>
-                            </div>                                                
-                        </div>                    
-                        <div class='project-item-container' role='link' title='Click to view project' data-index=1 onclick='handleProjectsClick(1)'>
-                            <div class='number'>02</div>
-                            <div class='divider'></div>
-                            <div class='project'>
-                                <span class='title'>Field Time Entry</span>
-                                <div class='summary'>Building on the edge of our seats.  This was a three person project to replace an outdated and heavily integrated time keeping system for our company.  It turned out to be wildly successful.                                       
-                                    <span class='accent-icon'>
-                                        <img class='chevron-right' src='img/icons/chevron-right.svg' alt='Explore Projects'/>
-                                    </span>
-                                </div>
-                            </div>                        
-                        </div>
-                        <div class='project-item-container' role='link' title='Click to view project' data-index=2  onclick='handleProjectsClick(2)'>
-                            <div class='number'>03</div>
-                            <div class='divider'></div>
-                            <div class='project'>
-                                <span class='title'>Niagara Animal Hospital</span>
-                                <div class='summary'>Our business needed a website and I knew a guy.                                       
-                                    <span class='accent-icon'>
-                                        <img class='chevron-right' src='img/icons/chevron-right.svg' alt='Explore Projects'/>
-                                    </span>
-                                </div>
-                            </div>                        
-                        </div>  
+                    <div class='project-item-container' role='link' title='Click to view project' data-index=0 onclick='handleProjectsClick(0)'>                        
+                        <div class='number'>01</div>
+                        <div class='divider'></div>
+                        <div class='project'>
+                            <span class='title'>Nightlight</span>
+                            <div class='summary'>A solution for the question: "So where are you guys?"  I built a GPS mapping and tracking platform with React and React Native so our families could stay up to date on our extended travels.  It was a lot of fun.                                      
+                                <span class='accent-icon'>
+                                    <img class='chevron-right' src='img/icons/chevron-right.svg' alt='Explore Projects'/>
+                                </span>                                    
+                            </div>
+                        </div>                                                
+                    </div>                    
+                    <div class='project-item-container' role='link' title='Click to view project' data-index=1 onclick='handleProjectsClick(1)'>
+                        <div class='number'>02</div>
+                        <div class='divider'></div>
+                        <div class='project'>
+                            <span class='title'>Field Time Entry</span>
+                            <div class='summary'>Building on the edge of our seats.  This was a three person project to replace an outdated and heavily integrated time keeping system for our company.  It turned out to be wildly successful.                                       
+                                <span class='accent-icon'>
+                                    <img class='chevron-right' src='img/icons/chevron-right.svg' alt='Explore Projects'/>
+                                </span>
+                            </div>
+                        </div>                        
+                    </div>
+                    <div class='project-item-container' role='link' title='Click to view project' data-index=2  onclick='handleProjectsClick(2)'>
+                        <div class='number'>03</div>
+                        <div class='divider'></div>
+                        <div class='project'>
+                            <span class='title'>Niagara Animal Hospital</span>
+                            <div class='summary'>Our business needed a website and I knew a guy.                                       
+                                <span class='accent-icon'>
+                                    <img class='chevron-right' src='img/icons/chevron-right.svg' alt='Explore Projects'/>
+                                </span>
+                            </div>
+                        </div>                        
+                    </div>  
                 </div>
             </div>   
         </section>
@@ -242,8 +246,11 @@
 <script type="module" src="/js/hero.js"></script>
 <script type="module" src="/Portfolio/js/hero.js"></script>
 
-<script src="/js/controlGrid.js"></script>
-<script src="/Portfolio/js/controlGrid.js"></script>
+<script src="/js/careerSlides.js"></script>
+<script src="/Portfolio/js/careerSlides.js"></script>
+
+<script src="js/components/controlGrid/controlGrid.js"></script>
+<script src="js/components/controlGrid/Portfolio/js/controlGrid.js"></script>
 
 <script src="/data/events.js"></script>
 <script src="/Portfolio/data/events.js"></script>
@@ -257,13 +264,14 @@
 
 <script>    
     console.log("document is loaded");
-    resetBody();      
+    resetBody();      // Make sure the opacity is set correctly so the page is visible.
 
     // Current index shared amongst the slider, timeline and control grid;
     let selectedIndex = 2;
 
-    function handleProjectsClick(index) {
-        // console.log("handle projects click", index);
+    // When the user clicks on a project, transition to that screen.
+    // Maybe in the future inline this instead, like a React component.
+    function handleProjectsClick(index) {        
         switch(index) {
             case 0: 
                 navigateToPage('home', 'projects/nightlight')
@@ -280,121 +288,14 @@
     }
 
 
-    // SLIDE SHOW
-    function renderSlide(item) {
-        let summaryText = '';
-        if (item.link) {
-            summaryText = `${item.summary} <a href="${item.link}"><span class='accent'>More<span></a>`;            
-        }
-        else {
-            summaryText = `${item.summary}`;
-        }
-
-        let backgroundDetails = '';
-        if (item.backgroundTextDetails) {
-            backgroundDetails = `
-                        <div class='hero-text-details-container'>
-                            <p>${item.backgroundTextDetails}</p>
-                        </div>
-                        `;
-        }
-
-        let html = 
-        `
-            <div class='card hide-content'>
-                <div class='image-container'>        
-                    <div class='hero-image-container'>
-                        <img src='~/../img/${item.backgroundImage}' alt='${item.backgroundAlt}'/>
-                        <div class='hero-text-container'>
-                            <a href='${item.backgroundLink}' target='new'>${item.backgroundText}</a>
-                        </div>
-                        ${backgroundDetails}
-                    </div>
-                    <div class='avatar-image-container'>
-                        <img src='~/../img/${item.brandImage}' alt='${item.brandAlt}'/>
-                    </div>
-                    <div class='location-image-container'>
-                        <img src='~/../img/collage/location.png' alt='Location Icon'/>
-                    </div>
-                </div>
-                <div class='details'>
-                    <div class='header'><h1>${item.company}</h1></div>        
-                    <div class='body'><p>${summaryText}</p></div>        
-                    <div class='footer'>
-                        <div class='years'><span>${item.yearStart}</span><span>-${item.yearEnd}</span></div>
-                        <div class='job-title'>${item.title}</div>
-                    </div>
-                </div>                    
-            </div>            
-        `;        
-        return html;
-    }
-
-
-    // SLIDE SHOW
-    // Dynamically generates the event handlers for the slides.
-    // 1.  Click on 'more' link navigates to career page
-    // 2.  Click on 'location' icon toggles hero image panel to expand/contract.
-    //     A.  on card mouse-out contract the hero image panel.
-    //     B.  on scroll, contract the hero image panel.
-    function generateSlideEventHandlers() {
-        const locationIcons = document.querySelectorAll('.card .location-image-container');
-        locationIcons.forEach((el) => {
-            el.addEventListener('pointerdown', (e) => {                
-                toggleLocationInformation(el);
-             })
-        });
-
-        const links = document.querySelectorAll('.card .details p a');
-        links.forEach((el) => {
-            el.addEventListener('click', (e) => {
-                console.log('click', e.target, e.target.parentNode);
-                const el = (e.target.href) ? e.target : e.target.parentNode;
-
-                const href = el.href;
-                console.log('href:', href);
-                if (href) {
-                    e.preventDefault();                    
-                    routeToUrl(href);      // routing.js - handles a link click.
-                    return false;
-                }                
-             })
-        });
-    }
-
-    // SLIDE SHOW
-    function toggleLocationInformation(el) {
-        const parent = el.parentNode;
-
-        if (parent.classList.contains('active')) {
-            parent.classList.remove('active');
-        }
-        else {
-            parent.classList.add('active');
-        }
-    }
-
-    // SLIDE SHOW
-    function resetSlide(el) {
-        console.log('reset slide', el);
-
-        const target = el.querySelector('.image-container');
-        if (target) {
-
-            if (target.classList.contains('active')) {
-                target.classList.remove('active');
-            }
-        }        
-    }
-
-    // DELAYED JAVASCRIPT COMPONENTS
+    // Delay the loading of the WORK section javascript components.
     delayedComponentLoad(0);
     
-    // Projects Button
-    const exploreProjectsButton = document.querySelector('.projects-collage').addEventListener('click', handleExploreProjects);
 
-    function handleExploreProjects() {
-        console.log("Click");  
+    // Projects Button 
+    // Expand/Minify the projects image.
+    const exploreProjectsButton = document.querySelector('.projects-collage').addEventListener('click', handleExploreProjects);
+    function handleExploreProjects() {        
         const projectImage = document.querySelector('.projects-collage');
         const projectList = document.querySelector('.projects-list');
         if (projectImage.classList.contains('active')) {
@@ -416,52 +317,44 @@
     // });
 
     
+    // Event handler for the navigation link at the top of the page.
+    // We're overriding the hyperlink and scrolling down the page instead of jumping.
+    // Creating the links as hyperlinks in case JS isn't enabled.
     const links = document.querySelectorAll('.home-menu ul li a').forEach((el) =>{
-        el.addEventListener('click', handleMenuClick);
-    });    
-
-    // TODO move this to Routing component
-    // Testing menu clicks
-    function handleMenuClick(e) {
-        console.log('handleMenuClick: ', e);
-        e.preventDefault();
-        const s = e.target.href;
-        const id = s.substring(s.indexOf('#'));
-        console.log('Href: ', s, id);
-
-        const target = document.querySelector(id);
-        target.scrollIntoView({behavior: "smooth"});
-
-        return false;
-    }
+        el.addEventListener('click', handleLinkClick);
+    });        
 
     
+    // Allow the heavy javascript components to get loaded after the LCP stuff loads.
+    // Note:  Currently not delaying the load, because it got annoying.
     function delayedComponentLoad(delay) {
         
         let workContainer = document.querySelector('.work');
-        workContainer.style.opacity = 0;    
+        workContainer.style.opacity = 0;    // Hide WORK section so when components load its not janky
 
         //setTimeout(() => {
-
-            //console.log("Loading JS components");
-            //console.time('components');
-
-            // App loads    
-            let slideContainer1 = document.getElementById('workHistorySlider1');
-            //slideContainer1.style.opacity = 0;    
             
-            // const slider1 = new HorizontalSlider(slideContainer1, events, renderSlide, 100, false, 0, generateSlideEventHandlers);
+            /// The WORK section is three interactive components that all share a selected_index and 
+            //  need to notify each another if any one of them update the selected_index.
+            //
+            //  TODO:
+            //     If a user clicks around too fast, the selected index will get out of sync
+            //     since there is a delay on sliding the horizontal slider.  
+            //     Deal with this in the future. 
+            
+            // Career slideshow component
+            let slideContainer1 = document.getElementById('workHistorySlider1');
             const slider1 = new HorizontalSlider(slideContainer1, cardData, renderSlide, 100, false, selectedIndex, 0.8, 0.5, generateSlideEventHandlers, resetSlide);
-            setTimeout(()=>{workContainer.style.opacity = 1;}, 100);
-
+                       
             // Create basic timeline
             const basicTimelineEl = document.querySelector('.basic-timeline');
-            const basicTimeline1 = new BasicTimeline(basicTimelineEl, events, selectedIndex, true);
+            const basicTimeline1 = new BasicTimeline(basicTimelineEl, cardData, selectedIndex, true);
 
             // Create control grid    
             let controlGridContainer1 = document.querySelector('.control-grid');
-            const controlGrid1 = new ControlGrid(controlGridContainer1, events.length, selectedIndex, 'line');
+            const controlGrid1 = new ControlGrid(controlGridContainer1, cardData.length, selectedIndex, 'line');
 
+            // When the horizontal slider is updated, notify the other two components
             slideContainer1.addEventListener('onslide', (e) => {
                 //console.log("Caught Event: onSlide", e);      
                 if (e.detail.index != selectedIndex) {
@@ -471,6 +364,7 @@
                 }
             });
 
+            // When the control grid is updated, notify the other two components
             controlGridContainer1.addEventListener('onindexchange', (e) => {        
                 //console.log("Caught Event: onindexchange", e);      
                 if (e.detail.index != selectedIndex) {
@@ -478,8 +372,9 @@
                     basicTimeline1.setIndex(e.detail.index);
                     slider1.setIndex(e.detail.index);
                 }
-            })
+            });
 
+            // When the timeline is updated, notify the other two components.
             basicTimelineEl.addEventListener('onindexchange', (e) => {  
                 //console.log("Caught Event: onindexchange", e);      
                 if (e.detail.index != selectedIndex) {
@@ -489,7 +384,13 @@
                 }
             }); 
 
-            /*  HANDLE RESIZE  */
+            // Show WORK section, we're assuming the components loaded at this point
+            setTimeout(()=>{workContainer.style.opacity = 1;}, 100);
+
+
+            /// RESIZE
+            // If the window resizes, the horizontal slider and the timeline are going to be out of whack,
+            // So have them re-create themselves.
             window.onresize = () => {  
                 console.log("Resize Event Detected"); 
 
@@ -503,11 +404,11 @@
         //}, delay);
     }
 
-    // create footer
+    // Create the standard footer for this site.
     renderFooter();    
 
 
-    // Intersection Observer for projects section    
+    // Intersection Observer for projects section so it minimizes as user gets about halfway through it.
     addObserver({
         selectors: '.projects-collage', 
         fireOnce: true,
@@ -516,20 +417,19 @@
         // whenNotIntersecting: (entry) => {console.log("is not intersecting"); handleExploreProjects(); }
     });
 
-    // Intersection Observer for slide-ins
+    // Intersection Observer for slide-ins (ie text that fades in)
     addObserver({
         selectors: '.slide-in',
         fireOnce: true,             
         whenIntersecting: (entry) => { entry.target.classList.add('visible'); },
     });  
     
-    // Intersection Observer for the site map
+    // Intersection Observer for the site map icon.  It should show up starting at the about section.
     addObserver({
         selectors: '.landing',        
         whenIntersecting: (entry) => { document.querySelector('.nav-menu').classList.remove('visible'); },
         whenNotIntersecting: (entry) => { document.querySelector('.nav-menu').classList.add('visible'); },
-    });  
-        
+    });         
 
 
 </script>

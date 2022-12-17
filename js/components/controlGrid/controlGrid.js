@@ -74,14 +74,28 @@ class ControlGrid {
     }
 
     // Set the event handlers for this component
-    // Keyboard: left / right updates index    
-    addEventHandlers(componentEl) {                  
+    // Keyboard: left / right updates index, tab and enter sets the index    
+    addEventHandlers(componentEl) {   
+        const LEFT_ARROW_KEY = '37';
+        const RIGHT_ARROW_KEY = '39';
+        const ENTER_KEY = '13';
+        
         // Add support for arrow keys to move through list.
         componentEl.onkeydown = (e) => {
-            console.log('onkeydown');      
+            //console.log('onkeydown', e.keyCode, this.state.selectedIndex);      
             e = e || window.event;  
-            if (e.keyCode == '37') this.setIndex(this.state.index - 1);
-            if (e.keyCode == '39') this.setIndex(this.state.index + 1);
+
+            if (e.keyCode == LEFT_ARROW_KEY) this.setIndex(this.state.selectedIndex - 1, true);
+            if (e.keyCode == RIGHT_ARROW_KEY) this.setIndex(this.state.selectedIndex + 1, true);
+            if (e.keyCode == ENTER_KEY) {                
+                const selected = document.activeElement;     // Get the focused element
+                if (selected) {
+                    const index = parseInt(selected.dataset.index);   // convert it to a string
+                    if (Number.isInteger(index)) {      // make sure it's valid
+                        this.setIndex(index, true);
+                    }
+                }                
+            }
         }
     }
 
@@ -104,15 +118,19 @@ class ControlGrid {
     }
 
     // Public Methods
-    setIndex(index) {
-        //console.log("Control Grid - setIndex: ", index);
+    setIndex(index, sendDispatch = false) {
+        console.log("Control Grid - setIndex: ", index);
 
-        this.selectedIndex = index;
+        this.state.selectedIndex = index;
 
         const boxes = this.componentEl.querySelectorAll('.control-box');
         for(let i = 0; i < boxes.length; i++) {
             if (index == i) { boxes[i].classList.add('selected'); }
             else { boxes[i].classList.remove('selected'); }
+        }
+
+        if (sendDispatch) {
+            this.dispatchIndexChanged(this.state.selectedIndex);
         }
 
     }
@@ -124,7 +142,7 @@ class ControlGrid {
 
     // Triggered when selected index is changed
     dispatchIndexChanged(index) {
-        //console.log("Control Grid -> onIndexChange: ", index);
+        console.log("Control Grid -> onIndexChange: ", index);
         const event = new CustomEvent('onindexchange', {
             bubbles: true,
             detail: { 

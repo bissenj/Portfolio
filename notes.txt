@@ -8,7 +8,8 @@ Deployment Process:
 4.  Remove notes.txt 
 5.  Login into github web as mountainsandcode
 6.  Upload new code.
-7.  Deploy and verify.
+7.  Change links for github pages
+8.  Deploy and verify.
 
 
 
