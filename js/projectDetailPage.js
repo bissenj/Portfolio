@@ -50,10 +50,11 @@ function GenerateProjectDetailPage(pageData, headerData, footerData, navigationD
     }
 
 
-    // After page has time to load, fire up the intersection observers
+    // After page has time to load, fire up the intersection observers which
+    // will animate the text when the page fades in.
     setTimeout(() => {        
         startProjectPageObservers();   
-    }, 200);
+    }, 1500);
 }
 
 
