@@ -1,5 +1,7 @@
 /*
     CONTROL GRID
+
+    AUTHOR:  mountainsandcode
    
     Creates a vertical or horizontal grid of clickable boxes.  Generally used with a slider
     to show and update position.   [] [] || []

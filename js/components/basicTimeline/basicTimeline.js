@@ -1,5 +1,7 @@
 /*
   BASIC TIMELINE
+  
+  AUTHOR:  mountainsandcode
 
   SUMMARY
     - Creates a basic horizontal timeline component from an array of events with a start and end year.

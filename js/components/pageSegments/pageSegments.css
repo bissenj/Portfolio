@@ -6,7 +6,7 @@
 
 /* These styles cover the projects and career detail pages */
 main {
-    min-height: 100vh;
+    min-height: 150vh;
     animation: fade-in 2.0s ease-in-out;
     animation-fill-mode: forwards;
     transition: opacity 1s;
@@ -26,7 +26,7 @@ main {
     width: 24px;
     background: url('../../../img/icons/compass.svg');
     transition: transform 1s ease-out;
-    /* filter: drop-shadow(0px 0px 10px #444); */
+    filter: drop-shadow(0px 0px 1px #444);
 }
 .home-link:hover {
     transition: transform 0.5s;

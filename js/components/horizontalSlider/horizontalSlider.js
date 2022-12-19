@@ -1,6 +1,8 @@
 /*
   UNIVERSAL SLIDER
 
+  AUTHOR:  mountainsandcode
+
   OPTIONS  
     - wrap [true/false]:  
             - true:  when reaching last slide, next slide is 

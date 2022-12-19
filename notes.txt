@@ -1,5 +1,10 @@
-Version:
-#100 - 12/16/2022
+Version History:
+#0101 - 12/19/2022 - Ensure detail screens always have scrollbar.  
+                   - Don't compress and skew html/css/js due to issues in prod,
+                   - Fix for routing using custom domain in prod
+                   - Added author to components
+#0100 - 12/16/2022 - Initial Prod Deploy
+
 
 Deployment Process:
 1.  Test out in aspenpeakstudios (Test).
