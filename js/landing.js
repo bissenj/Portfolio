@@ -6,7 +6,7 @@ if (ALLOW_JAVASCRIPT) {
 
     // Get window width
     const screenWidth = window.innerWidth;
-    console.log("Screen Width: ", screenWidth);
+    //console.log("Screen Width: ", screenWidth);
 
     // Enable javascript effects only if window is wider than tablet breakpoint in CSS
     if (screenWidth > 900) {

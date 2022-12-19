@@ -18,7 +18,7 @@
 
 // TESTING:  ADDED THIS TO HANDLE URLS FROM ANCHOR LINKS
 function routeToUrl(url) {
-  console.log('RouteToUrl(): ', url);
+  //console.log('RouteToUrl(): ', url);
 
     // Fade out screen
     document.querySelector('body').classList.add('fade');
@@ -40,7 +40,7 @@ function routeToUrl(url) {
 
 // THIS ONLY WORKS FROM THE SITE MAP MODAL AND FOOTER, RIGHT NOW.
 function handleLinkClick(e) {
-  console.log('handleLinkClick: ', e);
+  //console.log('handleLinkClick: ', e);
 
   e.preventDefault();
  
@@ -53,7 +53,7 @@ function handleLinkClick(e) {
     link = e.target.parentNode.parentNode.href;
     fromMenu = true;
   }
-  console.log('link: ', link);
+  //console.log('link: ', link);
 
   // Figure out if we are staying on the same page or 
   // going to a different page.  This is assuming only the
@@ -64,7 +64,7 @@ function handleLinkClick(e) {
 
   if (stayOnPage) {
     const id = link.substring(link.indexOf('#'));
-    console.log('Href: ', link, id);
+    //console.log('Href: ', link, id);
   
     const target = document.querySelector(id);
 
@@ -73,7 +73,7 @@ function handleLinkClick(e) {
     if (fromMenu) {
       showMenu();
     }
-    console.log("Scroll Into View: ", target);
+    //console.log("Scroll Into View: ", target);
   }
   else {
     /*  
@@ -89,7 +89,7 @@ function handleLinkClick(e) {
       showMenu();
     }
     navigateToPage('link', route);
-    console.log("Navigate to Page: ", route);
+    //console.log("Navigate to Page: ", route);
   } 
 
   return false;
@@ -98,7 +98,7 @@ function handleLinkClick(e) {
 
 // Navigate to a new page using a custom fade in/out transition.
 function navigateToPage(source, dest) {
-    console.log('navigateToPage(): ', source, dest);
+    //console.log('navigateToPage(): ', source, dest);
 
     // Fade out screen
     document.querySelector('body').classList.add('fade');
@@ -106,7 +106,7 @@ function navigateToPage(source, dest) {
     // HACK FOR GITHUB PAGES
     // Fix the URL when deployed on GitHubPages by adding in the repo name.
     let destination = '';
-    console.log("location:", location);
+    //console.log("location:", location);
     if (location.protocol == "https:" && location.href.includes('github')) {
         destination = '/Portfolio'
     }       
@@ -114,14 +114,14 @@ function navigateToPage(source, dest) {
     const newLocation = `${destination}/${dest}`;
     // update window location
     setTimeout(() =>{    
-      console.log('Navigating to: ', newLocation)     
+      //console.log('Navigating to: ', newLocation)     
         window.location = newLocation;
     },500);    
 }
 
 // This needs to be on every page.
 function resetBody() {
-    console.log("Reset Body");
+    //console.log("Reset Body");
     document.querySelector('body').classList.remove('fade');
 }
 
@@ -210,7 +210,7 @@ const navModalData = [
     },
   ];
   function renderMenuPage(data) {
-    console.log('renderMenuPage: ', data);
+    //console.log('renderMenuPage: ', data);
 
     // dom elements
     let sideBarHtml = `<div class='side-bar'>`; //document.querySelector('.side-bar');

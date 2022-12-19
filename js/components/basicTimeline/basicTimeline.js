@@ -389,8 +389,8 @@ class BasicTimeline {
         // Update our global state.
         this.state.index = newIndex;
 
-        console.log('State: ', this.state.index);
-        console.log('State: ', this.state.data[newIndex]);
+        //console.log('State: ', this.state.index);
+        //console.log('State: ', this.state.data[newIndex]);
         
         // Get the start and end years.
         let year = this.state.data[this.state.index].yearStart;

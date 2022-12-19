@@ -134,13 +134,13 @@ class HorizontalSlider {
                       || document.body.clientHeight;
 
       const ratio = width / height;
-      console.log("Screen Aspect Ratio: ", ratio);
+      //console.log("Screen Aspect Ratio: ", ratio);
       if (ratio > 0.9) {
-          console.log("Setting slide size to wide: ", this.slideSizeWide);
+          //console.log("Setting slide size to wide: ", this.slideSizeWide);
           this.slideSize = this.slideSizeWide; //0.50;
       }
       else {
-        console.log("Setting slide size back to narrow: ", this.slideSizeNarrow);
+        //console.log("Setting slide size back to narrow: ", this.slideSizeNarrow);
         this.slideSize = this.slideSizeNarrow; 
       }
     }
@@ -157,7 +157,7 @@ class HorizontalSlider {
     this.maxLeft = this.slideWidth * (this.data.length-1) - this.slidePadding;  
     this.minLeft = this.slidePadding;
 
-    console.log(this.slideWidth, this.slidePadding);
+    //console.log(this.slideWidth, this.slidePadding);
 
     //this.slideWidth = this.slidegroup.offsetWidth / 2;  // NEED to modify this to slides visible.
 
