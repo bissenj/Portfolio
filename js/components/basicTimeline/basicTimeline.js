@@ -76,7 +76,7 @@ class BasicTimeline {
         this.state.componentWidth = this.componentEl.offsetWidth
         this.state.componentHeight = this.componentEl.offsetHeight;
 
-        console.log("Timeline initialized");
+        //console.log("Timeline initialized");
     } 
 
     // If the components size changes the slide withs will be incorrect.  Recalculate the widths.
