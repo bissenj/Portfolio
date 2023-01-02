@@ -1,9 +1,14 @@
 Version History:
+#0102 - 01/02/2023 - Minor wording update.  
+                   - Fix for js paths on githubpages
 #0101 - 12/19/2022 - Ensure detail screens always have scrollbar.  
                    - Don't compress and skew html/css/js due to issues in prod,
                    - Fix for routing using custom domain in prod
                    - Added author to components
 #0100 - 12/16/2022 - Initial Prod Deploy
+
+
+
 
 
 Deployment Process:

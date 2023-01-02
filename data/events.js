@@ -59,7 +59,7 @@ const cardData = [
       id: 0, backgroundImage: 'collage/uwp-background.jpg', backgroundAlt: 'Picture of guys floating canoes down rapids',
       backgroundLink: 'https://www.northernontario.travel/paddling/quetico-canoe-routes', 
       backgroundText: 'Quetico Provincial Park',
-      backgroundTextDetails: 'An early trip as my college buddies and I learned how to have fun and be comfortable in the wilderness.',
+      backgroundTextDetails: 'An early trip as my college buddies and I learned how to have fun and be comfortable in wild places.',
       brandImage: 'collage/uwp-brand.webp', brandAlt: 'Picture of University of Wisconsin-Platteville',
       company: 'UW-Platteville', 
       summary: 'Graduated with a degree in Computer Science and focus on Software Engineering. During college I interned at Avista, a local aviation software testing and development company.  On weekends I had a paying gig as drummer in a local cover band.',
