@@ -107,7 +107,7 @@ function toggleLocationInformation(el) {
 
 // SLIDE SHOW - CURRENT SLIDE IS ABOUT TO CHANGE
 function resetSlide(el) {
-    console.log('reset slide', el);
+    //console.log('reset slide', el);
 
     const target = el.querySelector('.image-container');
     if (target) {

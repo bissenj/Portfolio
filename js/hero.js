@@ -38,7 +38,7 @@ var ImageModal = {
      // Take clicked element and puts it in a lightbox.
      handleClick: function(event) {
         if (!ImageModal.el.animating) {
-            console.log("Click!");
+            //console.log("Click!");
 
             // Make sure we have the correct element
             let targetEl = event.target;
@@ -200,7 +200,7 @@ var ImageModal = {
             // Set flag so we don't animate until this is done.
             ImageModal.el.animating = true;
 
-            console.log("Transition Out!", event.target);
+            //console.log("Transition Out!", event.target);
                     
             // Fade the close button out
             // event.target.style.opacity = 0;

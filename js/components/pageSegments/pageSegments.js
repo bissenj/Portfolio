@@ -84,9 +84,9 @@ function createImage(data) {
 }
 
 function createText(data) { 
-    if (data.text.includes('<ul>'))  {
-        console.log('createText - input: ', data);  
-    }
+    // if (data.text.includes('<ul>'))  {
+    //     console.log('createText - input: ', data);  
+    // }
     let classes = data.classes ?? '';
     let text = data.text ?? '';
 
@@ -101,9 +101,9 @@ function createText(data) {
         html += `<p ${classesHtml}>${text}</p>`;            
     }     
 
-    if (data.text.includes('<ul>'))  {
-        console.log('createText - output: ', html);  
-    }
+    // if (data.text.includes('<ul>'))  {
+    //     console.log('createText - output: ', html);  
+    // }
     return html;
 }
 

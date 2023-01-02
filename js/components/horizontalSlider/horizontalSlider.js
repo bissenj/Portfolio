@@ -261,7 +261,7 @@ class HorizontalSlider {
 
   // Drag Start
   dragStart(e) {
-    console.log("Drag start: ", e);
+    //console.log("Drag start: ", e);
     
     if (this.allowMove) {
 
@@ -313,7 +313,7 @@ class HorizontalSlider {
       this.moveSlides(-1, 'drag');
     }
     else {      
-      console.log("not enough");
+      //console.log("not enough");
       //this.slidegroup.style.left = (this.posInitial) + "px";
       this.moveSlides(0, 'drag');
     }
@@ -436,7 +436,7 @@ class HorizontalSlider {
   // and sending out an animation complete event.
   transitionEnd() {  
     // console.log("transitionEnd(): ", e);  
-    console.log("transitionEnd(): ");  
+    //console.log("transitionEnd(): ");  
     this.slidegroup.classList.remove('animating');      
 
     // logic to handle wrapping the slides - Update the position and set new selected index

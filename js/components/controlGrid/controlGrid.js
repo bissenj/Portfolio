@@ -121,7 +121,7 @@ class ControlGrid {
 
     // Public Methods
     setIndex(index, sendDispatch = false) {
-        console.log("Control Grid - setIndex: ", index);
+        //console.log("Control Grid - setIndex: ", index);
 
         this.state.selectedIndex = index;
 
@@ -144,7 +144,7 @@ class ControlGrid {
 
     // Triggered when selected index is changed
     dispatchIndexChanged(index) {
-        console.log("Control Grid -> onIndexChange: ", index);
+        //console.log("Control Grid -> onIndexChange: ", index);
         const event = new CustomEvent('onindexchange', {
             bubbles: true,
             detail: { 
