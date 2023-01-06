@@ -47,6 +47,7 @@ class HorizontalSlider {
   slideCreateEventHandlers = undefined;
   slideUnSelectHandler = undefined;
   selectedIndex = 0;
+  nextSelectedIndex = 0;
   posInitial = 0;
   posFinal = 0;
   posX1 = 0;
@@ -429,6 +430,10 @@ class HorizontalSlider {
         this.transitionEnd();
       }, 1000);
     }
+    else {
+      //console.log("Hey - I'm Busy Animating.  Can't move right now.  Setting nextSelectedIndex to ", direction);
+      this.nextSelectedIndex = direction;
+    }
   }
 
 
@@ -436,7 +441,7 @@ class HorizontalSlider {
   // and sending out an animation complete event.
   transitionEnd() {  
     // console.log("transitionEnd(): ", e);  
-    //console.log("transitionEnd(): ");  
+    console.log("transitionEnd(): ");  
     this.slidegroup.classList.remove('animating');      
 
     // logic to handle wrapping the slides - Update the position and set new selected index
@@ -469,8 +474,19 @@ class HorizontalSlider {
     this.slidegroup.children[this.selectedIndex].classList.remove('hide-content');
 
 
-    // This was a terrible idea.
-    //this.dispatchOnSlideComplete(newIndex);    
+    // TODO:  Consider adding this back in if component wants to be notified when
+    //        the slide animations are complete.
+    //this.dispatchOnSlideComplete(newIndex);   
+    
+    
+    // 20230106 - Handle bug where selected index changes when slide is currently animated,
+    //            which causes this component to be out of sync with other components sharing the 
+    //            selected index.
+    if (this.nextSelectedIndex !== 0) {
+      this.moveSlides(this.nextSelectedIndex);
+      this.nextSelectedIndex = 0;    // Reset
+    }
+
   }
 
 
