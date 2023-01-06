@@ -267,7 +267,10 @@ const navModalData = [
     // Create Event Handlers
     document.querySelector('.close-nav').addEventListener('click', showMenu);
     const links = document.querySelectorAll('.menu-container .row a').forEach((el) =>{
-      el.addEventListener('click', handleLinkClick);
+      el.addEventListener('click', (e) => { 
+        handleLinkClick(e); 
+        showMenu();           // close the menu modal
+      });
     });
 
     // Transition in

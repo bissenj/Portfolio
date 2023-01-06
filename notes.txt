@@ -1,4 +1,5 @@
 Version History:
+#0103 - 01/06/2023 - Fix for nav menu not closing when staying on same page.
 #0102 - 01/02/2023 - Minor wording update.                      
                    - Fix for js paths on githubpages
 #0101 - 12/19/2022 - Ensure detail screens always have scrollbar.  
