@@ -200,12 +200,7 @@ const navModalData = [
           name: 'MJE',
           label: 'Career 3:',
           url: '/career/mje'
-        }, 
-        {
-          name: 'SELF',
-          label: 'Career 4:',
-          url: '/career/self'
-        }, 
+        },         
       ]
     },
   ];
