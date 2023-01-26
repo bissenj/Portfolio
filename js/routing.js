@@ -77,7 +77,7 @@ function handleLinkClick(e) {
   }
   else {
     /*  
-      input = https://aspenpeakstudios.github.io/projects/fte  
+      input = https://[username].github.io/projects/fte  
       output = projects/fte
     */
     let route = link.substring(link.indexOf('//') + 2);   // strip off the https://
@@ -107,9 +107,9 @@ function navigateToPage(source, dest) {
     // Fix the URL when deployed on GitHubPages by adding in the repo name.
     let destination = '';
     //console.log("location:", location);
-    // if (location.protocol == "https:" && location.href.includes('github')) {
-    //     destination = '/Portfolio'
-    // }       
+    if (location.protocol == "https:" && location.href.includes('github')) {
+        destination = '/Portfolio'
+    }       
 
     const newLocation = `${destination}/${dest}`;
     // update window location
