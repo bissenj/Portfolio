@@ -42,6 +42,12 @@ function GenerateCareerDetailPage(pageData, headerData, footerData, navigationDa
     if (footerData) {
         const footer = document.querySelector('.work-page .footer-nav');
         footer.innerHTML = renderDynamicFooter(footerData);
+
+        // Wire up smooth transition to next page
+        const footerLinks = document.querySelectorAll('.footer-nav-item a');
+        footerLinks.forEach((item) => {
+            item.addEventListener('click', handleLinkClick);
+        });
     }
     else {
         console.error('GenerateCareerDetailPage(): footer data missing.');

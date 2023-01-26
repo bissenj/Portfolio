@@ -36,6 +36,12 @@ function GenerateProjectDetailPage(pageData, headerData, footerData, navigationD
     if (footerData) {
         const footer = document.querySelector('.projects-page .footer-nav');
         footer.innerHTML = renderDynamicFooter(footerData);
+
+        // Wire up smooth transition to next page
+        const footerLinks = document.querySelectorAll('.footer-nav-item a');
+        footerLinks.forEach((item) => {
+            item.addEventListener('click', handleLinkClick);
+        });
     }
     else {
         console.error('GenerateProjectDetailPage(): footer data missing.');

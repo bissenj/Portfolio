@@ -49,30 +49,41 @@
             type: 0,
             name: 'Case Study: Nightlight', 
             tech: 'React, React Native, Remix, Postgres',
-            classes: 'header-image box-shadow-2 constrain-width', 
-            image1: 'nightlight/beartooths.jpg', 
-            image1Alt: 'Family hiking in the Bear Tooth mountains.',
-            text1: 'Sharing our experiences',            
+            classes: 'header-image box-shadow-2 constrain-width',                 
+            image: 
+            {
+                path: 'nightlight/beartooths.jpg', 
+                alt: 'Family hiking in the Bear Tooth mountains.',                
+            },            
+            wording: [
+                {
+                    text: 'Sharing our experiences',                    
+                }
+            ]       
         }, 
         {
             type: 5,            
-            text: [
+            wording: [
                 {
                     text: 'Our family likes to get out in nature and explore.',
                     classes: 'fs16',
                 },            
-                {text: 'For years we have been sharing our adventures with extended family through photos and video as a way to bring our loved ones along on the adventures when they otherwise can’t be with us. '},            
+                {
+                    text: 'For years we have been sharing our adventures with extended family through photos and video as a way to bring our loved ones along on the adventures when they otherwise can’t be with us. '
+                },            
             ]            
         },               
         {
             type: 3, 
-            image1: 'nightlight/huckleberry.jpg',
-            image1Alt: 'Family hiking in snow covered mountains.',
+            image: {
+                path: 'nightlight/huckleberry.jpg',
+                alt: 'Family hiking in snow covered mountains.',
+            },            
         },  
         {
             type: 5,
             heading: 'Motivation',
-            text: [
+            wording: [
                 {text: 'My parents live 1500 miles away.  They have no idea where many of our photos are taking place and being almost 80, even if they were here, they aren’t going to tag along with us as we posthole through the snow to reach the top of a mountain, snag a few epic pics, eat a PB&J, and then head back down. '},
                 {text: 'My kids are getting older and are starting to spread their wings.  Sometimes I just want to know roughly where they are and then I don’t have to wonder.  Heck, sometimes I just want my family to know where I am.  If I flip my kayak offshore fishing in November, at least they know where to start looking.'},
                 {text: 'For years I have been searching for a mobile project that I would actually want to use.  I’ve worked on a few entry level projects in Xamarin and Android Studio but nothing really stuck.'},
@@ -81,25 +92,29 @@
         },   
         {
             type: 3, 
-            image1: 'nightlight/craterlake-wizard-island1.webp',
-            image1Alt: 'Wizard Island in Crater Lake in the background, devices with Nighlight running in the foreground.',
+            image: {
+                path: 'nightlight/craterlake-wizard-island1.webp',
+                alt: 'Wizard Island in Crater Lake in the background, devices with Nighlight running in the foreground.',
+            },            
         },        
         {
             type: 5,
             heading: 'Design Considerations',
-            text: [
+            wording: [
                 {text: 'To capture the feeling of exploration I needed a breathtaking photograph to represent the app.  I chose sheer mountains with a thick layer of clouds about halfway up.  I wish I could claim credit for the photograph.  My wife is planning a trip to the Tour Du Monc Blanc in the near future so maybe I’ll get a chance to find its equal.'},            
             ]            
         },
         {
             type: 3, 
             classes: 'w85',
-            image1: 'nightlight/adventuremap-login.jpg',
-            image1Alt: 'Login screen for Nightlight React web page',
+            image: {
+                path: 'nightlight/adventuremap-login.jpg',
+                alt: 'Login screen for Nightlight React web page',
+            },            
         },
         {
             type: 1,
-            text1: 'The App needed to be lightweight, simple, and fast.  I already have a number of GPS apps for hiking and hunting but they run a bit slow on our mid-level devices.  I just need a screen with a map and some user markers. My kids always want to know our elevation, so overlay that on the map as well.'
+            text: 'The App needed to be lightweight, simple, and fast.  I already have a number of GPS apps for hiking and hunting but they run a bit slow on our mid-level devices.  I just need a screen with a map and some user markers. My kids always want to know our elevation, so overlay that on the map as well.'
         },  
         {
             type: 7, 
@@ -125,51 +140,88 @@
         {
             type: 5,
             heading: 'Architecture',
-            text: [
+            wording: [
                 {text: 'For this project I needed a native app installed on our phones which connects to a cloudbased backend API with a postgres database.  Lately I’ve been using Remix.run for React projects.  It makes a great backend for the API and also provides a web front end for our extended family who want to see a map without having to install the native app.  Rather than use an existing authentication service I created my own for the App and Web Frontend using JWT tokens as a refresher in how basic authentication works.  The map data comes from Google Maps and Mapbox.'},            
             ]            
         },
         {
-            type: 0,            
-            image1: 'nightlight/badlands.webp',    
-            image1Alt: 'Badlands landscape in the background, device with Nightlight running in the foreground.',         
-            text2: 'Annual pilgrimage back from the Midwest'
+            type: 0,                        
+            image: {
+                path: 'nightlight/badlands.webp',    
+                alt: 'Badlands landscape in the background, device with Nightlight running in the foreground.',                         
+            },
+            wording: [
+                {
+                    text: '',
+                },
+                {
+                    text: 'Annual pilgrimage back from the Midwest',
+                }
+            ]
         },        
         {
             type: 5,
             heading: 'Challenges I expected',
-            text: [
-                {text: 'One of the goals of this project was to learn.  I expect that on every project worth undertaking and particularly in the field of software development.  There was a lot of learning on this project.  The biggest unknown for me was I had never used React Native before.  I was happy to find it  complimented React and Web programming nicely and I couldn’t be happier with the mobile app development experience React Native provided.'},            
+            wording: [
+                {
+                    text: 'One of the goals of this project was to learn.  I expect that on every project worth undertaking and particularly in the field of software development.  There was a lot of learning on this project.  The biggest unknown for me was I had never used React Native before.  I was happy to find it  complimented React and Web programming nicely and I couldn’t be happier with the mobile app development experience React Native provided.'
+                },            
             ]            
         }, 
         {
             type: 5,
             heading: 'Challenges I didnt expect',
             classes: 'p-top-0',
-            text: [
-                {text: 'I love maps.  To me they represent opportunity for exploration, hold unknown potential, and are a recipe for excitement.  All of that, wrapped up in a two-dimensional usually well graphically-designed and glossy sheet of paper covering my kitchen table.  They are kind of like wrapped Christmas presents under the tree waiting to be opened.  I figured mapping would be the easy part of this project, and that’s where I went off course.'},            
-                {text: 'I guess I assumed the project would follow this process:  Create an app.  Slap a map on a screen.  Poll for location data.  Store waypoints in database.  Display waypoints on the map.  Deploy to prod and Done.  The big question I didn’t anticipate is when and how often do you poll for location data?  My user base lives in the same house as me which is great for testing, but bad when your users want to know why their phone batteries are dead in the morning.  There’s definitely a balance and compromises to be made with making location data practical.'},            
-                {text: 'On the upside, this was the first software project in my career which caused me to go outside for testing.  Go for a hike (update every 100 yards).  Pick up kids from school (update every 1 mile).   Drive across the country (update every 5 miles).'},            
+            wording: [
+                {
+                    text: 'I love maps.  To me they represent opportunity for exploration, hold unknown potential, and are a recipe for excitement.  All of that, wrapped up in a two-dimensional usually well graphically-designed and glossy sheet of paper covering my kitchen table.  They are kind of like wrapped Christmas presents under the tree waiting to be opened.  I figured mapping would be the easy part of this project, and that’s where I went off course.'
+                },            
+                {
+                    text: 'I guess I assumed the project would follow this process:  Create an app.  Slap a map on a screen.  Poll for location data.  Store waypoints in database.  Display waypoints on the map.  Deploy to prod and Done.  The big question I didn’t anticipate is when and how often do you poll for location data?  My user base lives in the same house as me which is great for testing, but bad when your users want to know why their phone batteries are dead in the morning.  There’s definitely a balance and compromises to be made with making location data practical.'
+                },            
+                {
+                    text: 'On the upside, this was the first software project in my career which caused me to go outside for testing.  Go for a hike (update every 100 yards).  Pick up kids from school (update every 1 mile).   Drive across the country (update every 5 miles).'
+                },            
             ]            
         },
         {
-            type: 0, 
-            image1: 'nightlight/chairlift4.webp',
-            image1Alt: 'Chairlift at Whitefish Mountain Resort in the background, devices with Nighlight running in the foreground.',
-            text2: 'Testing from the chairlift at Whitefish Mountain'
+            type: 0,                         
+            image: {
+                path: 'nightlight/chairlift4.webp',
+                alt: 'Chairlift at Whitefish Mountain Resort in the background, devices with Nighlight running in the foreground.',
+            },
+            wording: [
+                {
+                    text: ''
+                },
+                {
+                    text: 'Testing from the chairlift at Whitefish Mountain',
+                }
+            ]
         }, 
         {
             type: 5,
             heading: 'Wrapping Up',
-            text: [
-                {text: 'Nightlight has been a fun project so far.  I learned a ton and built a useable system.  Because it’s relatively small it loads faster than our commercial mapping apps.  If we want a quick map or want to know our elevation in the mountains, we flip open Nightlight.  Also extended family appreciates being able track our progress on long summer trips to see where all the family pictures are taking place. '},            
+            wording: [
+                {
+                    text: 'Nightlight has been a fun project so far.  I learned a ton and built a useable system.  Because it’s relatively small it loads faster than our commercial mapping apps.  If we want a quick map or want to know our elevation in the mountains, we flip open Nightlight.  Also extended family appreciates being able track our progress on long summer trips to see where all the family pictures are taking place. '
+                },            
             ]            
         }, 
         {
-            type: 0,            
-            image1: 'nightlight/oregon-fishing.webp',             
-            image1Alt: 'Fishing on the Oregon coast in the foreground, device showing Nightlight Adventure Map in the foreground.',
-            text2: 'Summer 2022'
+            type: 0,                        
+            image: {
+                path: 'nightlight/oregon-fishing.webp',             
+                alt: 'Fishing on the Oregon coast in the foreground, device showing Nightlight Adventure Map in the foreground.',
+            },
+            wording: [
+                {
+                    text: ''
+                },
+                {
+                    text: 'Summer 2022',
+                }
+            ]
         },         
     ];
     const headerData = { name: pageData[0].name, tech: pageData[0].tech };
