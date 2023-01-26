@@ -31,7 +31,8 @@ function GenerateCareerDetailPage(pageData, headerData, footerData, navigationDa
 
         // Wire up the home link button
         const headerHome = document.querySelector('.header .home-link');
-        headerHome.addEventListener('click', handleHomeClick);
+        //headerHome.addEventListener('click', handleHomeClick);
+        headerHome.addEventListener('click', handleLinkClick);
      }
      else {
         console.error('GenerateCareerDetailPage(): header data missing.');
