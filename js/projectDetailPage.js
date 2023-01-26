@@ -25,7 +25,8 @@ function GenerateProjectDetailPage(pageData, headerData, footerData, navigationD
 
         // Wire up the home link button
         const headerHome = document.querySelector('.header .home-link');
-        headerHome.addEventListener('click', handleHomeClick);
+        // headerHome.addEventListener('click', handleHomeClick);
+        headerHome.addEventListener('click', handleLinkClick);
      }
      else {
         console.error('GenerateProjectDetailPage(): header data missing.');
@@ -52,6 +53,10 @@ function GenerateProjectDetailPage(pageData, headerData, footerData, navigationD
 
     // lOAD THE NAVIGATION
     function handleHomeClick() {
+        
+        // if (location.protocol == "https:" && location.href.includes('github')) {
+        //      destination = '/Portfolio'
+        // } 
         navigateToPage(navigationData.from, navigationData.to);        
     }
 
