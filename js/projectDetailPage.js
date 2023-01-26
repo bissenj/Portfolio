@@ -5,7 +5,7 @@
 */
 function GenerateProjectDetailPage(pageData, headerData, footerData, navigationData) {
        
-    // LOAD THE PAGE AND SIDE MENU
+    // LOAD THE PAGE
     if (pageData) {
         // Page
         const page = document.querySelector('.detail-page');
