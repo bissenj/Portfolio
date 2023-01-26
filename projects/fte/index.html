@@ -42,7 +42,9 @@
     <section class='projects-page'>
                 
         <div class='header'>            
-            <div class='home-link' title='home' role='button'></div>  
+            <a href='/' title='Navigate Home'>
+                <div class='home-link' role='button'></div>
+            </a>
             <div class='header-content'>            
                 <div class='stats'></div>                 
             </div>
@@ -76,15 +78,20 @@
             type: 0,
             name: 'Case Study: Field Time Entry', 
             tech: 'Asp.net, JQuery, Kendo UI',    
-            classes: 'header-image box-shadow-2 constrain-width', 
-            image1: 'fte/mje-jobsite.jpg', 
-            image1Alt: 'Picture of an electrical crew working at a jobsite',
-            text1: 'An upgrade project with a legacy',
-            // text2: 'Asp.net, JQuery, Kendo UI'
+            classes: 'header-image box-shadow-2 constrain-width',             
+            image: {
+                path: 'fte/mje-jobsite.jpg', 
+                alt: 'Picture of an electrical crew working at a jobsite',
+            },
+            wording: [
+                {
+                    text: 'An upgrade project with a legacy',
+                }
+            ]            
         }, 
         {
             type: 5,            
-            text: [
+            wording: [
                 {
                     text: 'Getting everyone paid on time in a large company on a weekly basis is an undertaking.',
                     classes: 'fs16',
@@ -105,14 +112,15 @@
         },               
         {
             type: 3, 
-            image1: 'fte/mje-transmission-lines.jpg',
-            image1Alt: 'Transmission lines under construction in a field'
-            // classes: 'scaled-down'
+            image: {
+                path: 'fte/mje-transmission-lines.jpg',
+                alt: 'Transmission lines under construction in a field'
+            }            
         },  
         {
             type: 5,
             heading: 'Planning for Good Decisions',
-            text: [
+            wording: [
                 {
                     text: 'Because we were essentially competing against existing products and we had nothing to start with, we made the call to use an existing UI library.  It added to the initial learning curve but the reusable nature of the library helped save time overall and we continued using it on future products.'
                 },
@@ -130,17 +138,15 @@
         {
             type: 3, 
             classes: 'w85',
-            image1: 'fte/mje-planning.webp',
-            image1Alt: 'Construction workers discussing plans.'
-        }, 
-        // {
-        //     type: 3, 
-        //     image1: 'nightlight/craterlake-fine-dining.jpg'
-        // }, 
+            image: {
+                path: 'fte/mje-planning.webp',
+                alt: 'Construction workers discussing plans.'
+            }            
+        },         
         {
             type: 5,
             heading: 'Problem Solving',
-            text: [
+            wording: [
                 {
                     text: 'To solve the challenge of everyone using the system in a different way we used a combination of approaches.'
                 },            
@@ -153,15 +159,17 @@
         },
         {
             type: 3, 
-            classes: 'p80 bg0',
-            image1: 'fte/fte-timesheet.png', 
-            image1Alt: 'Field Time Entry Timesheet UI',
-            imageClasses: 'b1'           
+            classes: 'p80 bg0',            
+            image: {
+                path: 'fte/fte-timesheet.png', 
+                alt: 'Field Time Entry Timesheet UI',
+                classes: 'b1'
+            }           
         },
         {
             type: 5,
             heading: 'My Contributions',
-            text: [
+            wording: [
                 {
                     text: 'During the project I wore a lot of hats.  Full Stack Developer.  Tester.  Coordinator for our night developer.  Rollout Coordinator.  Presenter.  User Trainer.  However my unique contributions to the project were the UI/UX specialist.  I conducted interviews with stakeholders to learn how they used the legacy system and what changes would benefit them.'
                 },            
@@ -175,14 +183,16 @@
         },    
         {
             type: 3, 
-            classes: 'p80 bg0 b1',
-            image1: 'fte/fte-home.webp',  
-            image1Alt: 'Field Time Entry Home page',
-            imageClasses: 'b1'                     
+            classes: 'p80 bg0 b1',            
+            image: {
+                path: 'fte/fte-home.webp', 
+                alt: 'Field Time Entry Home page',
+                classes: 'b1'
+            }                    
         },
         {
             type: 5,            
-            text: [               
+            wording: [               
                 {
                     text: 'The review screen provides a way to see all the data that was entered for a timecard, but in a different context which would hopefully allow users to catch mistakes before submitting the timecard.  Just like an online shopping experience.   When time is submitted incorrectly it becomes costly as a Project Manager or Payroll will reject the timecard and the time submitter will have to stop what they are doing, fix the issues and submit the timecard again.'
                 },                                                       
@@ -190,14 +200,16 @@
         },   
         {
             type: 3, 
-            classes: 'p80 bg0 b1',
-            image1: 'fte/fte-review.png',
-            image1Alt: 'Field Time Entry Review page',
-            imageClasses: 'b1'           
+            classes: 'p80 bg0 b1',            
+            image: {
+                path: 'fte/fte-review.png', 
+                alt: 'Field Time Entry Review page',
+                classes: 'b1'
+            }          
         },
         {
             type: 5,            
-            text: [                                    
+            wording: [                                    
                 {
                     text: 'I had also been working on a design template to standardize our Web Apps.  During this project I was able to nail the details on the look and feel and it became our standard going forward. '
                 },                                   
@@ -207,7 +219,7 @@
             type: 5,
             classes: 'p-top-0',
             heading: 'Business Knowledge',
-            text: [
+            wording: [
                 {
                     text: 'In the beginning of the project I knew nothing about how the process for timekeeping in the Field worked.  (I was an Office employee, we charged time differently).  By the end of the project I was the expert and was giving presentations to the company explaining how the new system worked, and planning re-writes for the two downstream legacy systems. '
                 },                                                                  
@@ -217,22 +229,19 @@
             type: 5,
             classes: 'p-top-0',
             heading: 'Wildly Successful?',
-            text: [
+            wording: [
                 {
                     text: 'We successfully delivered a great product that was well received by users and company executives.  A lot of the things our dev team discussed and built during this project became the standard for our web team going forward:  The Design Template, A new SSO Solution (Azure AD), A standardized version numbering scheme and release cycle, our custom logging and error handling framework, and a new UI framework (Kendo UI).  After Field Time Entry we went on to upgrade the two remaining legacy payroll applications and (most) stakeholders were excited about being upgraded and the chance to improve their workflows. '
                 },                                                                  
             ]            
         },
         {
-            type: 3,            
-            image1: 'fte/mje-hq.jpg',   
-            image1Alt: 'MJ Electric home office building'          
-            // text2: 'Summer 2022'
-        }, 
-        // {
-        //     type: 3, 
-        //     image1: 'nightlight/oregon-fishing.webp'
-        // }, 
+            type: 3,                        
+            image: {
+                path: 'fte/mje-hq.jpg',   
+                alt: 'MJ Electric home office building'  
+            }                    
+        }          
     ];
     const headerData = { name: pageData[0].name, tech: pageData[0].tech };
     const footerData = {

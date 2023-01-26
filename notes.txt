@@ -1,4 +1,6 @@
 Version History:
+#0105 - 01/25/2023 - Refactored pageSegments, added smooth transitions for footer links on detail pages.
+#0104 - 01/24/2023 - Fix for self link on nav menu
 #0103 - 01/06/2023 - Fix for nav menu not closing when staying on same page.
 #0102 - 01/02/2023 - Minor wording update.                      
                    - Fix for js paths on githubpages

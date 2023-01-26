@@ -5,7 +5,7 @@
 */
 function GenerateProjectDetailPage(pageData, headerData, footerData, navigationData) {
        
-    // LOAD THE PAGE AND SIDE MENU
+    // LOAD THE PAGE
     if (pageData) {
         // Page
         const page = document.querySelector('.detail-page');
@@ -25,7 +25,8 @@ function GenerateProjectDetailPage(pageData, headerData, footerData, navigationD
 
         // Wire up the home link button
         const headerHome = document.querySelector('.header .home-link');
-        headerHome.addEventListener('click', handleHomeClick);
+        // headerHome.addEventListener('click', handleHomeClick);
+        headerHome.addEventListener('click', handleLinkClick);
      }
      else {
         console.error('GenerateProjectDetailPage(): header data missing.');
@@ -36,6 +37,12 @@ function GenerateProjectDetailPage(pageData, headerData, footerData, navigationD
     if (footerData) {
         const footer = document.querySelector('.projects-page .footer-nav');
         footer.innerHTML = renderDynamicFooter(footerData);
+
+        // Wire up smooth transition to next page
+        const footerLinks = document.querySelectorAll('.footer-nav-item a');
+        footerLinks.forEach((item) => {
+            item.addEventListener('click', handleLinkClick);
+        });
     }
     else {
         console.error('GenerateProjectDetailPage(): footer data missing.');
@@ -46,6 +53,10 @@ function GenerateProjectDetailPage(pageData, headerData, footerData, navigationD
 
     // lOAD THE NAVIGATION
     function handleHomeClick() {
+        
+        // if (location.protocol == "https:" && location.href.includes('github')) {
+        //      destination = '/Portfolio'
+        // } 
         navigateToPage(navigationData.from, navigationData.to);        
     }
 

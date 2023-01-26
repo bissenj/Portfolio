@@ -53,7 +53,9 @@
     <section class='projects-page'>
                 
         <div class='header'>            
-            <div class='home-link' title='home' role='button'></div>  
+            <a href='/' title='Navigate Home'>
+                <div class='home-link' role='button'></div>
+            </a>
             <div class='header-content'>            
                 <div class='stats'></div>       
             </div>
@@ -84,14 +86,19 @@
             name: 'Case Study: NAH Website', 
             tech: 'HTML, CSS, JS',         
             classes: 'header-image box-shadow-2 constrain-width', 
-            image1: 'nah/cool-cat.jpg', 
-            image1Alt: 'Cat with sunglasses on',
-            text1: 'Working with purpose',
-            // text2: 'HTML, CSS, JS'
+            image: {
+                path: 'nah/cool-cat.jpg', 
+                alt: 'Cat with sunglasses on',
+            },            
+            wording: [
+                {
+                    text: 'Working with purpose',
+                }
+            ]
         }, 
         {
             type: 5,            
-            text: [
+            wording: [
                 {
                     text: 'My wife and I bought a business in 2013.',
                     classes: 'fs16',
@@ -115,7 +122,7 @@
             type: 5,
             heading: 'When overwhelmed, focus on what you <u>CAN</u> do',
             classes: 'p-top-0',
-            text: [
+            wording: [
                 {
                     text: 'One aspect of improving our image and capturing people’s attention was we needed a strong online presence.  This was in my wheel house and provided something comfortable to focus on when everything else in the business was out of my comfort zone.  Responsive design had become the standard in recent years so I knew that’s where I had to start.  My whole corporate career was building websites for a single form factor:  Windows desktops running IE 6.  So I studied up on how I could make a website run on a variety of devices and got to work.'
                 },                               
@@ -125,7 +132,7 @@
             type: 5,
             classes: 'bg0 c1',
             heading: 'Staying Authentic',
-            text: [
+            wording: [
                 {
                     text: 'I was pretty serious about being authentic in our marketing.  This was our family business and to maintain authenticity I was against using stock photography.  To come up with content, I tapped into our collection of family pictures and took some photos at the animal hospital.'
                 }, 
@@ -134,21 +141,25 @@
         {
             type: 3, 
             classes: 'bg0 p-top-0 p-left-100',
-            image1: 'nah/aspen.jpg',
-            image1Alt: 'Dog on a boat with a caption about the dog being part of the family.', 
-            imageClasses: 'w55 m0'            
+            image: {
+                path: 'nah/aspen.jpg',
+                alt: 'Dog on a boat with a caption about the dog being part of the family.', 
+                classes: 'w55 m0'            
+            },                  
         },
         {
             type: 3, 
-            classes: 'bg0 p-top-40 p-right-100',
-            image1: 'nah/quality-care.jpg', 
-            image1Alt: 'Veterinarian and Assistant cleaning a dogs ears.', 
-            imageClasses: 'w50 m1'            
+            classes: 'bg0 p-top-40 p-right-100',            
+            image: {
+                path: 'nah/quality-care.jpg', 
+                alt: 'Veterinarian and Assistant cleaning a dogs ears.', 
+                classes: 'w50 m1',
+            }   
         },
         {
             type: 5,
             classes: 'bg0 c1',            
-            text: [
+            wording: [
                 {
                     text: 'After a number of years I backed off and used stock photography where it made sense.'
                 }, 
@@ -158,7 +169,7 @@
             type: 5,
             heading: 'Changing perceptions',
             classes: 'p-bottom-20',
-            text: [
+            wording: [
                 {
                     text: 'I think there are two ways of running a business.  You can run a business primarily to make money (put money first) or you can run a business to follow your purpose (put service and quality first).  We chose the latter and success followed.',
                     classes: 'q1',
@@ -168,7 +179,7 @@
         {
             type: 5,  
             classes: 'p-top-0 no-color',          
-            text: [                          
+            wording: [                          
                 {
                     text: 'When we moved from the city to the remote area where the business was located, we brought along some high tech equipment that no other clinics in the area had.  Things like a surgical laser which could deliver a higher quality surgical experience than traditional scalpels.  If you had to have surgery would you want less pain, bleeding, and risk of infection?  Me too.  My wife was adamant about the types of surgery she would do and how it was going to be done.  We used our website to communicate our equipment and process.  This helped the public perception of our business go from out-of-date to modern and caring.'
                 },    
@@ -194,7 +205,7 @@
             type: 5,
             heading: 'End of an adventure',
             classes: 'scroll-target no-color',
-            text: [
+            wording: [
                 {
                     text: 'Looking back it was a lot of work but we were probably the right people for the job of building up the business. '
                 }, 
@@ -211,9 +222,11 @@
         },             
         {
             type: 3,            
-            classes: 'w50 p-top-0',
-            image1: 'nah/kitten.jpg',   
-            image1Alt: 'Kitten playing with a ball of yarn.',                           
+            classes: 'w50 p-top-0',            
+            image: {
+                path: 'nah/kitten.jpg',   
+                alt:  'Kitten playing with a ball of yarn.',                   
+            }                      
         },         
     ];
     const headerData = { name: pageData[0].name, tech: pageData[0].tech };

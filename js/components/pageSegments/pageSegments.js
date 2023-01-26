@@ -26,9 +26,9 @@ function renderFactory(data, index = 0) {
         case 1:
             result = renderTextBlockCentered(data);
             break;
-        case 2: 
-            result = renderImageCollageTwoOne(data);
-            break;
+        // case 2: 
+        //     result = renderImageCollageTwoOne(data);
+        //     break;
         case 3: 
             result = renderFullWidthImage(data);
             break;
@@ -113,13 +113,14 @@ function renderOops() {
 
 
 function renderFullWidthImage(data) {
-    const image1 = data.image1 ?? '';   
-    const image1Alt = data.image1Alt ?? ''; 
+    const image = data.image?.path ?? '';
+    const alt = data.image?.alt ?? '';
+
     const optionalClasses = data.classes ?? '';
-    const imageClasses = data.imageClasses ?? '';
+    const imageClasses = data.image?.classes ?? '';
 
     // Logic
-    let imageContainer = createImage({image: image1, class: imageClasses, alt: image1Alt});
+    let imageContainer = createImage({image: image, class: imageClasses, alt: alt});
 
     let html = `
         <!-- Full width Image -->
@@ -132,17 +133,20 @@ function renderFullWidthImage(data) {
     return createNode(html);
 }
 
-function renderFullWidthImageWithTextOverlay(data) {
-    const image1 = data.image1 ?? '';
-    const image1Alt = data.image1Alt ?? ''; 
-    const text1 = data.text1 ?? '';
-    const text2 = data.text2 ?? '';
+
+function renderFullWidthImageWithTextOverlay(data) {    
+    const backgroundImage = data.image?.path ?? '';    
+    const backgroundImageAlt = data.image?.alt ?? ''; 
+    
+    const text1 = (data.wording[0] ? data.wording[0].text : '');    
+    const text2 = (data.wording[1] ? data.wording[1].text : '');
+    
     const optionalClasses = data.classes ?? '';
 
     // Logic
     let imageContainer = '';
-    if (image1 != '') {
-        imageContainer = `<img class='scroll-target' src='${IMAGE_PATH}/${image1}' alt='${image1Alt}'></img>`;                        
+    if (backgroundImage != '') {
+        imageContainer = `<img class='scroll-target' src='${IMAGE_PATH}/${backgroundImage}' alt='${backgroundImageAlt}'></img>`;                        
     }
     //let imageContainer = createImage({image: image1});
 
@@ -173,40 +177,40 @@ function renderFullWidthImageWithTextOverlay(data) {
 }
 
 function renderTextBlockCentered(data) {    
-    const text1 = data.text1;
+    const text = data.text;
     const optionalClasses = data.classes || '';
 
     let html = `
         <!-- Centered Text Block -->
         <div class='segment p80 ${optionalClasses}'>
             <div class='text-block-half grid-center'>
-                <p>${text1}</p>            
+                <p>${text}</p>            
             </div>
         </div>
     `;
     return createNode(html);
 }
 
-function renderImageCollageTwoOne(data) {
-    const image1 = data.image1;    
-    const image2 = data.image1;    
-    const image3 = data.image1;    
-    const optionalClasses = data.classes || '';
+// function renderImageCollageTwoOne(data) {
+//     const image1 = data.image1;    
+//     const image2 = data.image1;    
+//     const image3 = data.image1;    
+//     const optionalClasses = data.classes || '';
 
-    let html = `
-        <!-- 2-1 Image collage -->
-        <div class='segment ${optionalClasses}'>
-            <div class='image-grid-2-1'>
-                <div class='grid-left'>            
-                    <div class='one'>One</div>
-                    <div class='two'>Two</div>
-                </div>            
-                <div class='three'>Three</div>            
-            </div>
-        </div>
-    `;
-    return createNode(html);
-}
+//     let html = `
+//         <!-- 2-1 Image collage -->
+//         <div class='segment ${optionalClasses}'>
+//             <div class='image-grid-2-1'>
+//                 <div class='grid-left'>            
+//                     <div class='one'>One</div>
+//                     <div class='two'>Two</div>
+//                 </div>            
+//                 <div class='three'>Three</div>            
+//             </div>
+//         </div>
+//     `;
+//     return createNode(html);
+// }
 
 function renderTextBlockTwoColumn(data) {
     const text1 = data.text1;
@@ -240,8 +244,9 @@ function renderTextBlocksWithHeading(data) {
         headingHtml = `<h2>${heading}</h2>`;
     }
 
+    //console.log(data);
     let paragraphHtml = '';
-    data.text.map((item) => {
+    data.wording.map((item) => {
         let classes = item.classes ?? ''; 
 
         if (item.text) {
