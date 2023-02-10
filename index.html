@@ -6,7 +6,7 @@
   <meta name="description" content="John's developer portfolio and digital place to try out ux/ui stuff.">  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">    
   <link rel="icon" type="image/png" href="coding.png" />
-  <title>Mountains and Code - Home</title> 
+  <title>Mountains and Code | Home</title> 
 
   <link rel='stylesheet' href='css/global.css' />
   <link rel='stylesheet' href='css/portfolio-main.css' />
@@ -270,7 +270,7 @@
     }
 
 
-    // Delay the loading of the WORK section javascript components.
+    // Delay the loading of the WORK section javascript components.    
     delayedComponentLoad(0);
     
 
@@ -302,6 +302,8 @@
     // Event handler for the navigation link at the top of the page.
     // We're overriding the hyperlink and scrolling down the page instead of jumping.
     // Creating the links as hyperlinks in case JS isn't enabled.
+    // Note:  during dev I forgot about CSS scroll-behaviour:smooth, so this really isn't 
+    //        necessary anymore.
     const links = document.querySelectorAll('.home-menu ul li a').forEach((el) =>{
         el.addEventListener('click', handleLinkClick);
     });        
@@ -326,7 +328,7 @@
             
             // Career slideshow component
             let slideContainer1 = document.getElementById('workHistorySlider1');
-            const slider1 = new HorizontalSlider(slideContainer1, cardData, renderSlide, 100, false, selectedIndex, 0.8, 0.5, generateSlideEventHandlers, resetSlide);
+            const slider1 = new HorizontalSlider(slideContainer1, cardData, renderSlide, 100, false, selectedIndex, 0.8, 0.5, generateSlideEventHandlers, resetSlide);            
                        
             // Create basic timeline
             const basicTimelineEl = document.querySelector('.basic-timeline');
@@ -337,8 +339,7 @@
             const controlGrid1 = new ControlGrid(controlGridContainer1, cardData.length, selectedIndex, 'line');
 
             // When the horizontal slider is updated, notify the other two components
-            slideContainer1.addEventListener('onslide', (e) => {
-                //console.log("Caught Event: onSlide", e);      
+            slideContainer1.addEventListener('onslide', (e) => {                
                 if (e.detail.index != selectedIndex) {
                     selectedIndex = e.detail.index;
                     basicTimeline1.setIndex(e.detail.index);
@@ -347,8 +348,7 @@
             });
 
             // When the control grid is updated, notify the other two components
-            controlGridContainer1.addEventListener('onindexchange', (e) => {        
-                //console.log("Caught Event: onindexchange", e);      
+            controlGridContainer1.addEventListener('onindexchange', (e) => {                        
                 if (e.detail.index != selectedIndex) {
                     selectedIndex = e.detail.index;
                     basicTimeline1.setIndex(e.detail.index);
@@ -357,8 +357,7 @@
             });
 
             // When the timeline is updated, notify the other two components.
-            basicTimelineEl.addEventListener('onindexchange', (e) => {  
-                //console.log("Caught Event: onindexchange", e);      
+            basicTimelineEl.addEventListener('onindexchange', (e) => {                  
                 if (e.detail.index != selectedIndex) {
                     selectedIndex = e.detail.index;
                     controlGrid1.setIndex(selectedIndex);
@@ -379,9 +378,6 @@
                 slider1.handleResize();
                 basicTimeline1.handleResize();        
             }     
-                        
-            //console.log("Finished loading JS components");
-            //console.timeEnd('components');
 
         //}, delay);
     }

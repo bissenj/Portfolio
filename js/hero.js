@@ -1,13 +1,20 @@
+/*
+    This is used for the diagonal images section on the main portfolio page.
+
+    To get the effects I was after I couldn't do all the animations in CSS and had to 
+    mix CSS and JS. 
+
+    The overall effect ended up being pretty difficult due to the rotated elements and how that messes
+    up normal DOM/CSS rules, so there's a lot going on here and a lot of the old code is left here
+    in case I need to debug this again.    
+*/
 
 import {imageCollage} from '../data/data.js';
-
-// JS structure notes:  https://css-tricks.com/slider-with-sliding-backgrounds/
 
 var ImageModal = {
 
     // Elements
-    el: {
-        //imageNode: 'div.image2', //document.querySelector('div.image1'),
+    el: {        
         imageNodes: document.querySelectorAll('div.about-image'),
         imageNodes2: document.querySelectorAll('div.about-image > .inner'),
         animating: false,
@@ -15,9 +22,7 @@ var ImageModal = {
 
     // Event Handlers
     init: function() {
-        //console.log(document.querySelector('div.image1'));
-        //console.log(this.el.imageNodes);
-
+        
         // click handlers
         ImageModal.el.imageNodes.forEach((node) => {
             node.addEventListener("click", function(event) {
@@ -25,7 +30,7 @@ var ImageModal = {
             });
         })     
         
-         // HACK click handlers 2
+         // click handlers 2
          ImageModal.el.imageNodes2.forEach((node) => {
             node.addEventListener("click", function(event) {
                 ImageModal.handleClick(event);
@@ -38,8 +43,7 @@ var ImageModal = {
      // Take clicked element and puts it in a lightbox.
      handleClick: function(event) {
         if (!ImageModal.el.animating) {
-            //console.log("Click!");
-
+            
             // Make sure we have the correct element
             let targetEl = event.target;
             if (targetEl.classList.contains('inner')) {
@@ -88,7 +92,7 @@ var ImageModal = {
             // is on so later when we reposition the element we can adjust it to the correct 'Top' value.
             // ie.  Row 1 = Top 0px, Row 2 = (Row1.Height)
             
-            // HACK FOR NOW
+            
             let newTop = 0;
             if (parent.classList.contains('row2')) {                   
                 newTop = targetEl.parentNode.parentNode.children[0].offsetHeight; 
@@ -153,7 +157,7 @@ var ImageModal = {
                         let screenWidth = window.innerWidth;                        
                         let parentWidth = parent.clientWidth;
 
-                        // Because the 'diagonal row' has a width larger than the screen size, we need to 
+                        // Because the elements are at a diagonal, the row has a width larger than the screen size.  We need to 
                         // calculate the screen width version of that and use it instead of a straight width percentage.            
                         // Screen Dimensions for Test:  918 x 1214
                         //
@@ -192,7 +196,9 @@ var ImageModal = {
                 }, 100);
             }
         }
-        else { console.log("Can't Transition In, currently animating")}
+        else { 
+            //console.log("Can't Transition In, currently animating");
+        }
     },
     transitionOut: function(newElement, savedElementSettings) {
         if (!ImageModal.el.animating) {
@@ -209,7 +215,7 @@ var ImageModal = {
 
             /// Option 1:  Reverse the transition in.  
             ///            Somewhat of a simple transition.        
-            ///*
+            ///
             // Move the element back and restore its height and width
             newElement.style.top = savedElementSettings.top + "px";
             newElement.style.left = savedElementSettings.left + "px"; 
@@ -225,7 +231,7 @@ var ImageModal = {
             //*/
 
 
-            /// Option 2:   Spin and zoom, then translate
+            /// Option 2:   Spin and zoom, then translate.
             ///             Rollercoaster effect.
             /*
             // Kick off the transition-out animations
@@ -255,7 +261,9 @@ var ImageModal = {
                 newElement.remove();  
             }, 4000);
         }
-        else console.log("Can't transitionOut(), currently animating");      
+        else {
+            //console.log("Can't transitionOut(), currently animating"); 
+        }     
     },
     showModals: (callback) => {  
         if (!ImageModal.el.animating) {
@@ -290,7 +298,9 @@ var ImageModal = {
                 ImageModal.el.animating = false;
             }, 3000);  
         }  
-        else console.log("Can't showModals(), currently animating");      
+        else {
+            //console.log("Can't showModals(), currently animating");      
+        }
     },
     fadeModals: () => {        
         //console.log("fadeModals()");

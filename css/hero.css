@@ -1,3 +1,7 @@
+/*
+    These styles handle the diagonal images section
+*/
+
 
 /* ABOUT */
 section.about {    
@@ -356,7 +360,7 @@ div.row1 > div:after, div.row2 > div:after {
 }
 
 
-/* Corrent issue with touch devices triggering a :hover state and it getting stuck */
+/* Correct issue with touch devices triggering a :hover state and it getting stuck */
 @media (hover:hover) {
     div.row1 > div:hover .inner, div.row2 > div:hover .inner { 
         width: 100%;        

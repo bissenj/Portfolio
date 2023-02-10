@@ -1,13 +1,16 @@
+/*
+    These styles are for the top section on the site.  Handles fading in and out the 
+    images which can be selected, and the mouse move effects.
+*/
+
 
   section.landing {  
     height: 100vh;
     position: relative;   
-    display: block;       
-    /* box-shadow: 0px 4px 6px #444;    */
+    display: block;           
     z-index: 2;
     overflow:hidden;    
-
-    /* This is pretty sweet -> https://codepen.io/dev_loop/pen/jOborLv */
+    
     /* cursor: url('../img/icons/compass.svg') 12 12, pointer;      */
   }
 
@@ -299,7 +302,7 @@
       }
   }
 
-  .version-number {
+.version-number {
     position: fixed;
     top: 10px;
     left: 10px;

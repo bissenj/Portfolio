@@ -56,7 +56,8 @@ const events = [
 
 const cardData = [
     {
-      id: 0, backgroundImage: 'collage/uwp-background.jpg', backgroundAlt: 'Picture of guys floating canoes down rapids',
+      id: 0, 
+      backgroundImage: 'collage/uwp-background.jpg', backgroundAlt: 'Picture of guys floating canoes down rapids',
       backgroundLink: 'https://www.northernontario.travel/paddling/quetico-canoe-routes', 
       backgroundText: 'Quetico Provincial Park',
       backgroundTextDetails: 'An early trip as my college buddies and I learned how to have fun and be comfortable in wild places.',
@@ -68,7 +69,8 @@ const cardData = [
       title: 'Software Testing Intern'
     },
     {
-      id: 1, backgroundImage: 'collage/ang-background.jpg', backgroundAlt: 'Picture of guys next to float plane',
+      id: 1, 
+      backgroundImage: 'collage/ang-background.jpg', backgroundAlt: 'Picture of guys next to float plane',
       backgroundLink: 'https://paddling.com/learn/woodland-caribou-provincial-park', 
       backgroundText: 'Woodland Caribou Provincial Park',
       brandImage: 'collage/ang-brand.jpg', brandAlt: 'Picture of F-16 flying',
@@ -80,7 +82,8 @@ const cardData = [
       title: 'Staff Sergeant'
     },
     { 
-      id: 2, backgroundImage: 'collage/nwm-background.jpg', backgroundAlt: 'Picture of Milwaukee Art Museum',
+      id: 2, 
+      backgroundImage: 'collage/nwm-background.jpg', backgroundAlt: 'Picture of Milwaukee Art Museum',
       backgroundLink: 'https://mam.org/visit/', backgroundText: 'Milwaukee Art Museum', 
       backgroundTextDetails: 'One of the many jewels on the lake front of the Milwaukee Harbor.',
       brandImage: 'collage/nwm-brand.jpg', brandAlt: 'Picture of Northwestern Mutual Building',
@@ -92,7 +95,8 @@ const cardData = [
       title: 'Application Engineer'
     },
     { 
-      id: 3, backgroundImage: 'collage/nah-background.jpg', backgroundAlt: 'Picture while riding chairlist at Pine Mountain Ski hill',
+      id: 3, 
+      backgroundImage: 'collage/nah-background.jpg', backgroundAlt: 'Picture while riding chairlist at Pine Mountain Ski hill',
       backgroundLink: 'https://www.pinemountainresort.com/ski/mountain-info/ski-jumps', backgroundText: 'Pine Mountain Ski Hill',
       backgroundTextDetails: 'Taking a break from work.  Lots of great memories teaching our kids how to ski and watching them compete on the local racing team.',
       brandImage: 'collage/nah-brand.jpg', brandAlt: 'Picture of business sign',
@@ -104,7 +108,8 @@ const cardData = [
       title: 'Business Owner'
     },
     { 
-      id: 4, backgroundImage: 'collage/mje-background.jpg', backgroundAlt: 'Picture of two kayaks floating on a lake at sunset',
+      id: 4, 
+      backgroundImage: 'collage/mje-background.jpg', backgroundAlt: 'Picture of two kayaks floating on a lake at sunset',
       backgroundLink: 'https://www.flyfisherman.com/editorial/saving-wisconsins-menominee-river/458972', backgroundText: 'Menominee River',
       backgroundTextDetails: 'Watching the sunset from our kayaks.  The U.P. is filled with great places to paddle.',
       brandImage: 'collage/mje-brand.jpg', brandAlt: 'Picture of MJE Headquarters',
@@ -116,12 +121,12 @@ const cardData = [
       title: 'Senior Web Developer'
     },
     { 
-      id: 5, backgroundImage: 'collage/self-background.jpg', backgroundAlt: 'Picture standing at the top of a mountain',
+      id: 5, 
+      backgroundImage: 'collage/self-background.jpg', backgroundAlt: 'Picture standing at the top of a mountain',
       backgroundLink: 'https://peakvisor.com/adm/montana.html', backgroundText: 'Montana',
-      brandImage: 'collage/self-brand.jpg', brandAlt: 'Picture of MJE Headquarters',
+      brandImage: 'collage/self-brand.jpg', brandAlt: 'Picture of John standing on mountain top in Montana.',
       company: 'Mountains and Code', 
-      summary: 'After selling our business we took time off to travel and visit national parks.  Then we left the Midwest and achieved our long term goal of moving to Montana.  During this time I did web work for a few small organizations and spent time improving my design and tech skills.',
-      // link: 'career/self',
+      summary: 'After selling our business we took time off to travel and visit national parks.  Then we left the Midwest and achieved our long term goal of moving to Montana.  During this time I did web work for a few small organizations and spent time improving my design and tech skills.',      
       yearStart: '2021',
       yearEnd: '2023',
       title: 'Full Stack Developer'

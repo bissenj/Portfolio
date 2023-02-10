@@ -1,8 +1,4 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap'); */
-/* @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Montserrat:wght@700&display=swap');
-/* @import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Inter&display=swap'); */
-/* @import url('https://fonts.googleapis.com/css2?family=Allerta+Stencil&family=Inter&family=Montserrat:wght@700&display=swap'); */
 
 * {
     -moz-box-sizing: border-box;
@@ -281,14 +277,6 @@ section.center {
     -webkit-text-fill-color: transparent;
 }
 
-/* NOT USED */
-/* .accent-fb {
-    border: 2px solid;
-    border-image-slice: 1;    
-    padding:4px;    
-    border-image-source: var(--accent-1);
-} */
-
 .accent-icon {    
     position: relative;
     margin-left: 10px;  
@@ -310,24 +298,9 @@ section.center {
     transition: transform 0.3s;     
 }
 .accent-icon:hover::after {
-    transform: scale(1.1);    
-    /* border: 1px solid orange; */
-    /* opacity: 0.2; */
-    /* margin-left: 50px; */
+    transform: scale(1.1);        
 }
 
-
-/* NOT USED */
-/* .em-text-1 {
-    font-size: 700;
-    padding: 0px 5px;
-    text-decoration: underline;
-} */
-
-/* NOT USED */
-/* .accent-old {
-    position: relative;
-} */
 .accent-old::after {
     content: '';
     position: absolute;     

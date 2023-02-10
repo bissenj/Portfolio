@@ -1,3 +1,11 @@
+/*
+    Styles for the Horizontal Slider component.  Don't change these.
+
+    If you need to override some values such as slide width, create another stylesheet file 
+    and do it there (ex. career-slides.css).
+
+*/
+
 .horizontalSlider {    
     position: relative;
     width: 100%;
@@ -38,6 +46,54 @@
     min-height: 65vh;
 }
 
+/* Forward/Back Controls */
+.slide-viewer .control {    
+    position: absolute;
+    z-index: 20;
+    top: calc(50% - 60px);
+
+    margin: 40px;
+    height: 60px;
+    width: 60px;
+    background-color: rgba(0,0,0,0.5);
+    transition: background-color 0.3s;
+}
+.slide-viewer .control:hover {
+    background-color: rgba(255,255,255,0.5);
+}
+.slide-viewer .control.back {
+    left: 10px;
+}
+.slide-viewer .control.back:after {
+    content: '<';
+    font-size: 24px;
+    width: 100%;
+    height:100%;
+    display: grid;
+    place-content: center;
+}
+.slide-viewer .control.forward {
+    right: 10px;
+}
+.slide-viewer .control.forward:after {
+    content: '>';
+    font-size: 24px;
+    width: 100%;
+    height:100%;
+    display: grid;
+    place-content: center;
+}
+/* Utility class for hiding an element but keeping it in the DOM for accessibility */
+.hide-but-read {
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    clip: rect(0, 0, 0, 0);
+}
+
+
 .slide-group {   
     position: relative; 
     top: 0;
@@ -54,7 +110,7 @@
 }
 
 .slide {
-    border: 1px solid red;       
+    /* border: 1px solid red;        */
     cursor: pointer;        
     position: relative;
 

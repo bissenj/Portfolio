@@ -1,40 +1,44 @@
 /*
-  UNIVERSAL SLIDER
+  HORIZONAL SLIDER
 
   AUTHOR:  mountainsandcode
 
-  OPTIONS  
-    - wrap [true/false]:  
-            - true:  when reaching last slide, next slide is 
-                      first slide, and vice versa.
-            - false: when reaching last slide, stop (no further right).  
-                     On first slide, don't allow going back (left).        
-    - slides [dom elements]: array of html contents of slides
-    - threshold [int]:  how many pixels of movement before advancing to next slide.
-    - startingSlide [int]:  which slide to start on
-    - slideWidth [0-1]: percentage width of the slide vs it's parent
-    - click callback:  transition to another page when slide is clicked
-    - unSelect callback:  function to call when slide is about to transition out of being selected slide
+  REQUIRED PARAMETERS:  
+    - componentEl [dom element]:  parent element for the slider
+    - data [array of objects]: array containing params for each slide (each array item becomes a slide in 'renderFunction' below)
+    - renderFunction [func]: function which generates the slide html.  This is the magic that makes 
+                      each instance of a horizontal slider look unique.  Use 'renderFunction' 
+                      along with 'createClickHandlers' to make each slide interactive.
 
+  OPTIONAL PARAMETERS:
+    - threshold [int] = 100:  how many pixels must a slide be moved before it counts as an index update.
+    - wrap [true/false] = false:  allow infinite sliding or stop at left/right boundaries?
+    - index [int] = 0:  set the selected index at init time.
+    - slideSizeNarrow [0-1] = 1:  Slide width on a narrow aspect ratio.  [1 = 100% of parent width]
+    - slideSizeWide [0-1] = 1:  slide width on a wide aspect ratio. .  [1 = 100% of parent width]
+    - createClickHandlers [func]= null:  function to call after rendering a slide which sets up custom event listeners for the slide.
+    - unSelectHandlers [func] = null:  function to call when a slide is about to lose its place as the selected slide.
+    - forwardBack [true/false] = false:  display 'forward', 'back' controls over the slider.
 
-  PUBLIC METHODS:
-    - updateSelected(direction, triggerEvents): -1 or 1 to advance the current slide Left or Right.
-            - direction:  integer used to modify the currently selected slide.  Can be greater than 1.
-            - triggerEvents:  true/false indicating whether or not this should kick off onSlide event.
+  PUBLIC/EXTERNAL METHODS:            [These are used to communicate with external components]
+    - getIndex: returns currently selected index
+    - setIndex: sets index (Used when slider is sharing the index with another component, 
+                and that component changed the index)
 
   EVENTS
     - onSlide(event) -> Triggered when new slide is selected but before animation starts.
             - index:   Which slide is currently selected.
-            - target:  DOM element for the slide which is currently selected.            
+            - target:  DOM element for the slide which is currently selected.              
     - onSlideComplete(event) -> Triggered when new slide is selected and animation completes.
             - index:   Which slide is currently selected.
-            - target:  DOM element for the slide which is currently selected.            
+            - target:  DOM element for the slide which is currently selected.  
+            - NOTES:   This is a TBD item.                    
 
   USE CASES:
     - Horizontal Photo gallery
     - Work History Slides with Timeline that listens for events and updates.
 
-  REQUIREMENTS:
+  EDGE CASES:
     - Needs to be able to handle resize events without losing position (ex.  switching from landscape to portrait)
 
 */
@@ -68,9 +72,10 @@ class HorizontalSlider {
   allowWrap = false;
   componentWidth = 0;   // for detecting resize events
   componentHeight = 0;  // for detecting resize events
+  hasForwardBackControls = false;
 
   constructor(componentEl, data, renderFunction, threshold = 100, wrap = false, index = 0, 
-              slideSizeNarrow = 1, slideSizeWide = 1, createClickHandlers, unSelectHandlers) {
+              slideSizeNarrow = 1, slideSizeWide = 1, createClickHandlers = null, unSelectHandlers = null, forwardBack = false) {
     
     // Store parameters
     this.componentEl = componentEl;
@@ -84,12 +89,12 @@ class HorizontalSlider {
     this.slideSize = slideSizeNarrow;
     this.slideSizeNarrow = slideSizeNarrow;
     this.slideSizeWide = slideSizeWide;
+    this.hasForwardBackControls = forwardBack;
 
     // Initialize
-    this.init();
- 
-    //console.log("Horizontal Slider Loaded. Selected Index: ", this.selectedIndex);
+    this.init();     
   }  
+
 
   init() {
     // Create all the slides
@@ -135,13 +140,11 @@ class HorizontalSlider {
                       || document.body.clientHeight;
 
       const ratio = width / height;
-      //console.log("Screen Aspect Ratio: ", ratio);
-      if (ratio > 0.9) {
-          //console.log("Setting slide size to wide: ", this.slideSizeWide);
+      
+      if (ratio > 0.9) {          
           this.slideSize = this.slideSizeWide; //0.50;
       }
-      else {
-        //console.log("Setting slide size back to narrow: ", this.slideSizeNarrow);
+      else {        
         this.slideSize = this.slideSizeNarrow; 
       }
     }
@@ -157,14 +160,7 @@ class HorizontalSlider {
     this.slidePadding = this.slidegroup.offsetWidth * (1 - this.slideSize)/2;
     this.maxLeft = this.slideWidth * (this.data.length-1) - this.slidePadding;  
     this.minLeft = this.slidePadding;
-
-    //console.log(this.slideWidth, this.slidePadding);
-
-    //this.slideWidth = this.slidegroup.offsetWidth / 2;  // NEED to modify this to slides visible.
-
-    //this.totalWidth = this.slidegroup.offsetWidth * (this.data.length-1);  
-
-    //console.log('Total Width: ', this.totalWidth, 'Slide Width: ', this.slideWidth);
+    
 
     if (this.allowWrap) {
       let slides = this.slidegroup.children;
@@ -182,23 +178,18 @@ class HorizontalSlider {
       if (this.selectedIndex == 0) this.selectedIndex = 1;
       if (this.selectedIndex > slides.length-2) this.selectedIndex = slides.length -2;
     }
-
     
-    // Set the current slide
-    //this.slidegroup.style.left = -(this.selectedIndex * this.slideWidth) + (this.slideWidth / 2) + "px";
-    //this.slidegroup.style.left = -(this.selectedIndex * this.slideWidth) + "px";
+    // Set the current slide    
     this.slidegroup.style.left = -(this.selectedIndex * (this.slideWidth)) + this.slidePadding + "px";
-
-
 
     // Show content on first slide
     this.slidegroup.children[this.selectedIndex].classList.remove('hide-content');    
         
-
     // Capture the height and width so we can react to resize events
     this.componentWidth = this.componentEl.offsetWidth
     this.componentHeight = this.componentEl.offsetHeight;
   }
+
 
   // If the components size changes the slide withs will be incorrect.  Recalculate the widths.
   handleResize() {
@@ -207,10 +198,6 @@ class HorizontalSlider {
     if ((this.componentEl.offsetWidth != this.componentWidth) || (this.componentEl.offsetHeight != this.componentHeight)) { needsToResize = true;}
 
     if (needsToResize) {
-      //console.log("Slideshow needs to resize.");
-      //console.log("Old W/H: ", this.componentWidth, this.componentHeight);
-      //console.log("New W/H: ", this.componentEl.offsetWidth, this.componentEl.offsetHeight);
-      
       // destroy current component
       this.componentEl.innerHTML = "";
 
@@ -233,18 +220,25 @@ class HorizontalSlider {
           componentEl.tabIndex = 0;
         }
 
+        const LEFT_ARROW_DOWN = '37';
+        const RIGHT_ARROW_DOWN = '39';
+
         // Add support for arrow keys to move through slider.
         componentEl.onkeydown = (e) => {
           e = e || window.event;
 
-          if (e.keyCode == '37') this.moveSlides(-1);
-          if (e.keyCode == '39') this.moveSlides(1);
+          if (e.keyCode == LEFT_ARROW_DOWN) this.moveSlides(-1);
+          if (e.keyCode == RIGHT_ARROW_DOWN) this.moveSlides(1);
         }               
         
-
+        // Grab Panels are used for mobile so users don't get stuck sliding the slides horizontally
+        // when they are trying to scroll up or down.
         let html = "<div class='left-grab-panel'></div><div class='right-grab-panel'></div>";        
 
         html += "<div class='slide-viewer'>";
+        if (this.hasForwardBackControls) {
+          html += "<div class='control back' role='button'><div class='hide-but-read'>Back</div></div><div class='control forward' role='button'><div class='hide-but-read'>Forward</div></div>";
+        }
         html += "<div class='slide-group'>";
         data.map((item, index) => {
           html += renderFunction(item, index);
@@ -254,16 +248,36 @@ class HorizontalSlider {
         html += "</div>";
 
         componentEl.innerHTML = html;
+
+        // Handle scenario where slider has forward/back controls
+        if (this.hasForwardBackControls) {
+          setTimeout(() => {
+            const backControl = componentEl.querySelector('.back')
+            if (backControl) {
+              backControl.onclick = (e) => {
+                this.moveSlides(-1);
+                e.preventDefault();
+              }       
+            }
+
+            const forwardControl = componentEl.querySelector('.forward')
+            if (forwardControl) {                            
+              forwardControl.onclick = (e) => {
+                this.moveSlides(1);
+                e.preventDefault();
+              }              
+            }
+          }, 300);
+        }
     }
     else {
         console.error("No component element found.");
     }  
   }
 
-  // Drag Start
+
+  // Handle scenario where user starts dragging a slide
   dragStart(e) {
-    //console.log("Drag start: ", e);
-    
     if (this.allowMove) {
 
       this.posInitial = this.slidegroup.offsetLeft;
@@ -298,14 +312,13 @@ class HorizontalSlider {
     }
   }
 
-  // Drag End
-  dragEnd(e) {    
-    //console.log("Drag End");
 
+  // Handle scenario where user is finishing dragging.
+  // If the slide has been dragged 'enough', move to a new slide, otherwise stay on the current slide, and 
+  // clean up by clearing out the event listeners.
+  dragEnd(e) {    
     this.posFinal = this.slidegroup.offsetLeft;
     const distance = this.posFinal - this.posInitial;
-    //console.log("Drag Distance: ", distance);
-
 
     // Determine how to update the slide based on the distance moved, and the move threshold.
     if (distance < -this.threshold) {      
@@ -313,9 +326,7 @@ class HorizontalSlider {
     }else if (distance > this.threshold) {      
       this.moveSlides(-1, 'drag');
     }
-    else {      
-      //console.log("not enough");
-      //this.slidegroup.style.left = (this.posInitial) + "px";
+    else {   // didn't move enough so put current slide back to original position.      
       this.moveSlides(0, 'drag');
     }
 
@@ -329,10 +340,10 @@ class HorizontalSlider {
     this.viewport.ontouchmove = null;
   }
 
-  // Drag Update
-  dragUpdate(e) {
-    //console.log("Drag Update");
 
+  // Handle slide being moved.  This gets fired a lot during the drag-start-end cycle and each dragUdpdate should be a 
+  // small increment from the last one.
+  dragUpdate(e) {
     if (e.type == 'touchmove') {
       this.posX2 = this.posX1 - e.touches[0].clientX;
       this.posX1 = e.touches[0].clientX;
@@ -344,11 +355,10 @@ class HorizontalSlider {
     // How much did we move between now and the last update?
     // Should be small...1-2px...or the effect is going to be janky.
     let move = (this.slidegroup.offsetLeft - this.posX2);
-
-    // Boundary checking (if no wrap option is selected)
+    
     // Boundary checking (if no wrap option is selected)
     if (!this.allowWrap) {      
-      if (move > this.minLeft) { move = this.minLeft; }   // Stop at left Edge
+      if (move > this.minLeft) { move = this.minLeft; }     // Stop at left Edge
       if (move < -this.maxLeft) { move = -this.maxLeft; }   // Stop at Right Edge
     }
 
@@ -356,18 +366,14 @@ class HorizontalSlider {
     this.slidegroup.style.left = move + "px";    
   }
 
-  moveSlides(direction, action) {
 
-    //console.log('moveSlides(): ', direction, action);
-    
-    // Bail if we're not actually moving anywhere
-    //if (direction == 0) return;
+  // Move the slider to a new slide
+  moveSlides(direction, action) {
 
     // Bail if we're hitting a boundary (this only applies to no-wrap sliders)
     if (!this.allowWrap) {      
       if ((this.selectedIndex + direction) > this.data.length-1 || 
-          (this.selectedIndex + direction) < 0) {
-        //console.log("Hit boundary.  Bailing.");
+          (this.selectedIndex + direction) < 0) {        
         return;
       }
     }
@@ -386,20 +392,16 @@ class HorizontalSlider {
         this.slideUnSelectHandler(this.slidegroup.children[this.selectedIndex]);
       }
 
-
       if (!action) {         
-        this.posInitial = this.slidegroup.offsetLeft; 
-        //console.log("No action.  Setting posInitial to: ", this.posInitial);
-      }   // What does this do?
+        this.posInitial = this.slidegroup.offsetLeft;         
+      }   
 
       // Direction is probably +1 or -1 so adjust the left and index accordingly.
       const move = (this.posInitial) - (direction * this.slideWidth);   
       this.slidegroup.style.left = move + "px";
       this.selectedIndex += direction;
 
-      //console.log("New Move: ", move, this.selectedIndex);
-
-   
+      
       // Make sure selected index being sent in event is correct.  Gets tricky with
       // wrapping logic.        
       let newIndex = this.selectedIndex;
@@ -418,11 +420,11 @@ class HorizontalSlider {
           newIndex -= 1;
         }
       }      
-      
-      //console.log("Selected Index: ", this.selectedIndex, "New Index: ", newIndex);    
-      
+            
+      // Let the outside world know the selected index changed.
       this.dispatchOnSlide(newIndex);
       
+      // Don't allow any other moves to take place until the move animation is finished.
       this.allowMove = false;
 
       // enable controls on the slideshow after the slide is done transitioning
@@ -430,18 +432,15 @@ class HorizontalSlider {
         this.transitionEnd();
       }, 1000);
     }
-    else {
-      //console.log("Hey - I'm Busy Animating.  Can't move right now.  Setting nextSelectedIndex to ", direction);
+    else {      
       this.nextSelectedIndex = direction;
     }
   }
 
 
-  // Called when the slide transition has finished.  This then takes care of wrapping the indexes
+  // Called when the slide transition has finished.  This takes care of wrapping the indexes
   // and sending out an animation complete event.
-  transitionEnd() {  
-    // console.log("transitionEnd(): ", e);  
-    console.log("transitionEnd(): ");  
+  transitionEnd() {          
     this.slidegroup.classList.remove('animating');      
 
     // logic to handle wrapping the slides - Update the position and set new selected index
@@ -473,11 +472,6 @@ class HorizontalSlider {
     // Show content
     this.slidegroup.children[this.selectedIndex].classList.remove('hide-content');
 
-
-    // TODO:  Consider adding this back in if component wants to be notified when
-    //        the slide animations are complete.
-    //this.dispatchOnSlideComplete(newIndex);   
-    
     
     // 20230106 - Handle bug where selected index changes when slide is currently animated,
     //            which causes this component to be out of sync with other components sharing the 
@@ -490,6 +484,7 @@ class HorizontalSlider {
   }
 
 
+  // Hide the slider on screen.  Not currently used.
   destroy() {
     this.componentEl.style.opacity = 0;    
   }
@@ -500,8 +495,7 @@ class HorizontalSlider {
   // -----------------------------------------------------------------
 
   // Triggered when selected index is changed (but before animation starts)
-  dispatchOnSlide(index) {
-    //console.log("horizontalSlider -> onSlide: ", index);
+  dispatchOnSlide(index) {    
     const event = new CustomEvent('onslide', {
       bubbles: true,
       detail: { 
@@ -515,8 +509,6 @@ class HorizontalSlider {
 
   // Triggered when selected index is changed and animation is complete.
   dispatchOnSlideComplete(index) {
-    console.log("horizontalSlider -> onSlideComplete: ", index);
-
     const event = new CustomEvent('onslidecomplete', {
       bubbles: true,
       detail: { 
@@ -530,15 +522,13 @@ class HorizontalSlider {
 
   
   // -----------------------------------------------------------------
-  // PUBLIC METHODS
+  // PUBLIC/EXTERNAL METHODS
   // -----------------------------------------------------------------
   getIndex() {
     return this.selectedIndex;
   }
 
   setIndex(index) { 
-    
-    //console.log("setSelectedIndex:", index);
     if (this.allowWrap) {
       index += 1;
       if (index > this.data.length) { 
@@ -548,12 +538,9 @@ class HorizontalSlider {
     }    
 
     let direction = index - this.selectedIndex;      
-    //console.log("Index:", index, "direction: ", direction);
-    
 
     // Make sure the index actually changed before doing anything.
-    if(index == this.selectedIndex) { 
-      //console.log("Bailing - Index did not change");
+    if(index == this.selectedIndex) {       
       return;
     }
 
@@ -579,16 +566,3 @@ class HorizontalSlider {
     */
   }
 }
-
-
-/* 
-
-REFERENCES:
-
-// Book -> Javascript & JQuery by Jon Duckett.
-// Article -> https://medium.com/@claudiaconceic/infinite-plain-javascript-slider-click-and-touch-events-540c8bd174f2
-// Demo -> https://codepen.io/cconceicao/pen/PBQawy
-// Article -> https://developer.mozilla.org/en-US/docs/Web/Events/Creating_and_triggering_events
-
-*/
-
