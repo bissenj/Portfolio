@@ -1,3 +1,7 @@
+/*
+    Styles for the career pages
+*/
+
 :root {    
     --gold-text: var(--accent-1);
     --question-background: #FAFAFA;
@@ -35,7 +39,7 @@
 }
 .work-page .header-content h6 {
     text-align: center;
-    line-height: 2em; /* why is this taller than the parent? */
+    line-height: 2em; 
     font-size: 0.9em;
 }
 
@@ -77,8 +81,6 @@
 .side-bar li:hover {    
     text-decoration: underline;
     cursor:pointer;
-}
-.side-bar li.active {    
 }
 .side-bar li.active:before { 
     content: '';

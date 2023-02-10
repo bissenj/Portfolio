@@ -1,3 +1,8 @@
+/*
+    Javascript for the top section on the site.  Handles fading in and out the 
+    images which can be selected, and the mouse move effects.
+*/
+
 const el = document.querySelector('.landing'); 
 const backgroundEl = document.querySelector('.background'); 
 
@@ -6,17 +11,13 @@ if (ALLOW_JAVASCRIPT) {
 
     // Get window width
     const screenWidth = window.innerWidth;
-    //console.log("Screen Width: ", screenWidth);
-
+    
     // Enable javascript effects only if window is wider than tablet breakpoint in CSS
     if (screenWidth > 900) {
 
         // EFFECT 1:  FUNKY BACKGROUND MOVE EFFECT
         const DAMPER = 150;  
         
-        let startX = -1;
-        let startY = -1;
-
         // Animate the background image and decorative dashed lines
         el.addEventListener('mousemove', (function(e) {    
             
@@ -24,8 +25,7 @@ if (ALLOW_JAVASCRIPT) {
             // don't do anything.
             const isVisible = (window.scrollY > 400) ? false : true;            
             if (!isVisible) return; 
-            
-            
+                       
 
             var amountMovedX = (e.pageX * 1 / DAMPER);  
             var amountMovedY = (e.pageY * 1 / DAMPER);
@@ -49,14 +49,6 @@ if (ALLOW_JAVASCRIPT) {
             let gradientDownEl = document.querySelector('.gradient-down');
             gradientDownEl.style.backgroundPosition = 'right ' + amountMovedY * 75 + 'px';
         }));    
-        
-        // save resources by stopping animation when section no longer has focus
-        // el.addEventListener('mouseleave', (function(e) {        
-        //     let gradientUpEl = document.querySelector('.gradient-up');    
-        //     let gradientDownEl = document.querySelector('.gradient-down');
-        //     gradientUpEl.classList.remove('animate');
-        //     gradientDownEl.classList.remove('animate');
-        // }));
     }
 }
     
@@ -64,7 +56,7 @@ if (ALLOW_JAVASCRIPT) {
 // EFFECT 2:  Image Carousel
 const backgrounds = ['hero-huckleberry-lookout.webp', 'hero-great-northern.webp', 'hero-whitefish.webp', 'hero-lake-mcdonald.webp'];
 const carouselEls = document.querySelectorAll('.nav-carousel .image-list > div');
-//console.log("Carousel Els: ", carouselEls);
+
 carouselEls.forEach((item) => {        
     item.addEventListener('click', () => {
 
@@ -102,19 +94,10 @@ carouselEls.forEach((item) => {
 });
 
 
-// let scale = 1;
-
-// EFFECT 3:  PARALAXX
+// EFFECT 3:  JS PARAlLAX
 window.addEventListener('scroll', () => {
     const target = document.querySelectorAll('.scroll');
     
-    // // Save off the initial transform  -> WHY?????
-    // target.forEach((scrollEl) => {
-    //     const initialTransform = scrollEl.style.transform;
-    //     // Save it into the dataset
-    //     scrollEl.dataset.initialTransform = initialTransform;
-    // });
-
     var index = 0; length = target.length;
     for (0; index < target.length; index++) {
         let current = target[index];

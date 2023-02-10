@@ -9,12 +9,9 @@
 
 */
 
-
 const IMAGE_PATH = '~/../../../img/projects';
 
-
-function renderFactory(data, index = 0) {
-    // console.log('RenderFactory(): ', data);
+function renderFactory(data, index = 0) {    
 
     const type = data.type;
     let result = '';
@@ -64,8 +61,8 @@ function createNode(html) {
     return node;
 }
 
-function createImage(data) {  
-    //console.log('createImage: ', data);  
+
+function createImage(data) {      
     let classes = data.class ?? '';
     let image = data.image ?? '';
     let alt = data.alt ?? '';
@@ -73,20 +70,16 @@ function createImage(data) {
     let html = '';
     
     if (image !== '') {    
-        let classesHtml = ` class='${classes} scroll-target'`;       
-        // let classesHtml = ` class='${classes}'`;       
+        let classesHtml = ` class='${classes} scroll-target'`;               
 
-        html += `<div ${classesHtml}><img src='${IMAGE_PATH}/${image}' alt='${alt}'></img></div>`;    
-        // html += `<img src='${IMAGE_PATH}/${image}'></img>`;    
+        html += `<div ${classesHtml}><img src='${IMAGE_PATH}/${image}' alt='${alt}'></img></div>`;            
     }
      
     return html;
 }
 
-function createText(data) { 
-    // if (data.text.includes('<ul>'))  {
-    //     console.log('createText - input: ', data);  
-    // }
+
+function createText(data) {     
     let classes = data.classes ?? '';
     let text = data.text ?? '';
 
@@ -100,12 +93,9 @@ function createText(data) {
         }        
         html += `<p ${classesHtml}>${text}</p>`;            
     }     
-
-    // if (data.text.includes('<ul>'))  {
-    //     console.log('createText - output: ', html);  
-    // }
     return html;
 }
+
 
 function renderOops() {
     return createNode('<div class="grid-center" style="color:red; padding:20px; border: 1px solid red;margin:20px;">oops</div>');
@@ -142,14 +132,12 @@ function renderFullWidthImageWithTextOverlay(data) {
     const text2 = (data.wording[1] ? data.wording[1].text : '');
     
     const optionalClasses = data.classes ?? '';
-
-    // Logic
+    
     let imageContainer = '';
     if (backgroundImage != '') {
         imageContainer = `<img class='scroll-target' src='${IMAGE_PATH}/${backgroundImage}' alt='${backgroundImageAlt}'></img>`;                        
     }
-    //let imageContainer = createImage({image: image1});
-
+    
     let text1Container = '';
     if (text1 != '') {
         text1Container = `<div class='text-container grid-center'>
@@ -175,6 +163,7 @@ function renderFullWidthImageWithTextOverlay(data) {
 
     return createNode(html);
 }
+
 
 function renderTextBlockCentered(data) {    
     const text = data.text;
@@ -233,18 +222,17 @@ function renderTextBlockTwoColumn(data) {
     return createNode(html);
 }
 
+
 function renderTextBlocksWithHeading(data) {
     const heading = data.heading || '';
-
-    //const text1 = data.text1;
+    
     const optionalClasses = data.classes || '';
 
     let headingHtml = '';
     if (heading != '') {
         headingHtml = `<h2>${heading}</h2>`;
     }
-
-    //console.log(data);
+    
     let paragraphHtml = '';
     data.wording.map((item) => {
         let classes = item.classes ?? ''; 
@@ -286,8 +274,7 @@ function renderMixedBlock(data) {
         elementsHtml += `<div class=${classes}>`;
         
         // Add a paragraph
-        let text = item.text ?? '';  
-        //console.log("Text: ", text);      
+        let text = item.text ?? '';          
         if (text != '') {        
             elementsHtml += `<p>${text}</p>`;
         }
@@ -341,6 +328,7 @@ function renderAnimatedImageReveal(data) {
     return createNode(html);
 }
 
+
 // -----------------------------------------------------------------
 //              PROJECTS
 // -----------------------------------------------------------------
@@ -363,10 +351,10 @@ function renderStickySection(data) {
     return createNode(html);
 }
 
+
 // -----------------------------------------------------------------
 //              CAREER
 // -----------------------------------------------------------------
-
 
 function renderQuestionAnswer(data, index) {
     const question = data.question ?? '';    
@@ -383,9 +371,7 @@ function renderQuestionAnswer(data, index) {
     }
 
     let paragraphHtml = '';
-    data.answer.map((item) => {
-        let classes = item.classes ?? '';         
-        //paragraphHtml += `<p class='${classes}'>${item.text}</p>`;
+    data.answer.map((item) => {        
         paragraphHtml += createText({text: item.text, classes: item.classes});
     });
 
@@ -400,7 +386,6 @@ function renderQuestionAnswer(data, index) {
     `;
     return createNode(html);
 }
-
 
 
 // -----------------------------------------------------------------

@@ -1,5 +1,3 @@
-
-
 /* 
     INITIALIZE PROJECT DETAIL PAGE    
 */
@@ -24,8 +22,7 @@ function GenerateProjectDetailPage(pageData, headerData, footerData, navigationD
         header.innerHTML = renderHeader(headerData);
 
         // Wire up the home link button
-        const headerHome = document.querySelector('.header .home-link');
-        // headerHome.addEventListener('click', handleHomeClick);
+        const headerHome = document.querySelector('.header .home-link');        
         headerHome.addEventListener('click', handleLinkClick);
      }
      else {
@@ -50,16 +47,6 @@ function GenerateProjectDetailPage(pageData, headerData, footerData, navigationD
 
     renderFooter();
     
-
-    // lOAD THE NAVIGATION
-    function handleHomeClick() {
-        
-        // if (location.protocol == "https:" && location.href.includes('github')) {
-        //      destination = '/Portfolio'
-        // } 
-        navigateToPage(navigationData.from, navigationData.to);        
-    }
-
 
     // After page has time to load, fire up the intersection observers which
     // will animate the text when the page fades in.

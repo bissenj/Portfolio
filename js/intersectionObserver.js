@@ -1,11 +1,23 @@
-
 /*
-    data.selectors:  query selection
-    data.whenIntersecting(entry):  function to call when item is intersecting
-    data.whenNotIntersecting(entry):  function to call when item is not intersecting
-    data.fireOnce: true/false - should observer stop after first isIntersecting?
-    data.rootMargin: 
-    data.threshold:
+    Helper class for using intersection observer.
+
+    Use it like this:
+        // Intersection Observer for slide-ins (ie text that fades in)
+        addObserver({
+            selectors: '.slide-in',
+            fireOnce: true,             
+            whenIntersecting: (entry) => { entry.target.classList.add('visible'); },
+        });  
+
+    Params:        
+        data {
+            .selectors[string]:  query selection
+            .whenIntersecting(entry) [func]:  function to call when item is intersecting
+            .whenNotIntersecting(entry [func]):  function to call when item is not intersecting
+            .fireOnce [true/false]: should observer stop after first isIntersecting?
+            .rootMargin: override the default intersection observer rootMargin.
+            .threshold: override the default intersection observer threshold.
+        }
 */
 function addObserver(data) {
     const selectors = data.selectors ?? '';    // '.scroll-target, .slide-left, .slide-right'
@@ -13,24 +25,18 @@ function addObserver(data) {
     const rootMargin = data.rootMargin ?? '0%';
     const threshold = data.threshold ?? 0.0;
 
-    //console.log("Creating Intersection Observer", data);
-
     // ---------------------------------------------------------
     // Intersection Observer  
     // ---------------------------------------------------------
 
     // get all the elements we need to watch
     const targets = document.querySelectorAll(selectors);
-    if (targets.length > 0) {
-        //console.log("Targets: ", targets);
+    if (targets.length > 0) {        
         // what to do with entries that are on screen
         function handleIntersection(entries) {
 
-            //console.log('threshold: ', threshold);
-
             entries.map((entry) => {
-                if (entry.isIntersecting) {                    
-                    //console.log("On Screen: ", entry);
+                if (entry.isIntersecting) {                                        
 
                     // Call function to do something
                     if (data.whenIntersecting) {
@@ -38,8 +44,7 @@ function addObserver(data) {
                     }
 
                     // Should this code only work once?
-                    if (stopObservingOnIntersection) {
-                        //console.log("Fire Once is True.  Cleaning up observer.");
+                    if (stopObservingOnIntersection) {                        
                         observer.unobserve(entry.target);  
                     }                    
                 }

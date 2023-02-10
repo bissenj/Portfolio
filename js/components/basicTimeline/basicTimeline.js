@@ -17,12 +17,14 @@
     - buttons [true/false]: display forward / backward buttons
     - wrap [true/false]:  At last event, should pressing forward button set index to first event & vice versa.
 
-  PUBLIC METHODS:
-    - updateIndex(int): sets selected index
+  PUBLIC METHODS:    ('public' is a loose term here since technically every method in this file is public)
+    - setIndex(index:number, forceUpdate:boolean): 
+            Used to set the index of the timeline, externally. Generally if index is not 
+            changing nothing will happen, but if forceUpdate is true, then it will go 
+            through the motions of making an index change even if the index didn't change.
 
   EVENTS
-    - onIndexChanged(event) -> Triggered when index is changed.
-            - index:   Which index is currently selected.            
+    - dispatchOnIndexChange(index): send out an event that index changed within this component.            
     
   USE CASES:    
     - Work History Slides with Timeline that listens for events and updates.
@@ -45,6 +47,7 @@ class BasicTimeline {
         componentHeight: 0,  // for detecting resize events
     }
   
+
     constructor(componentEl, data, index = 0, wrap = false, startYear = 1995, endYear = 2025) {      
       // Store parameters
       this.componentEl = componentEl;
@@ -58,6 +61,7 @@ class BasicTimeline {
 
       this.init();
     }
+
 
     init() {
 
@@ -79,18 +83,16 @@ class BasicTimeline {
         //console.log("Timeline initialized");
     } 
 
-    // If the components size changes the slide withs will be incorrect.  Recalculate the widths.
+
+    // If the components size changes the gaps between years will be incorrect.  
+    // Rebuild the component which will re-calculate all the sizing.
     handleResize() {
         let needsToResize = false;
 
         if ((this.componentEl.offsetWidth != this.state.componentWidth) || (this.componentEl.offsetHeight != this.state.componentHeight)) { needsToResize = true;}
 
         if (needsToResize) {
-            //console.log("Timeline needs to resize.");
-            //console.log("Old W/H: ", this.state.componentWidth, this.state.componentHeight);
-            //console.log("New W/H: ", this.componentEl.offsetWidth, this.componentEl.offsetHeight);
-
-
+            
             // destroy current component
             this.componentEl.innerHTML = "";
 
@@ -101,6 +103,7 @@ class BasicTimeline {
             //console.log("Timeline - did not need to resize.");
         }
     }
+
 
     // Render timeline
     render(componentEl, data) {
@@ -122,6 +125,7 @@ class BasicTimeline {
 
         //console.log("Finished rendering new timeline.");
     }
+
 
     renderTimelineBar(componentEl) {
         let html = `
@@ -149,6 +153,7 @@ class BasicTimeline {
         //}
     }
 
+
     // Render all the year ticks on the timeline
     renderYearTicks(componentEl, events) {
         const timelineEl = componentEl.querySelector('.timeline');
@@ -170,20 +175,23 @@ class BasicTimeline {
         }
     }
 
-    // Render individual year ticks on timeline
+
+    // Render individual year ticks on timeline.  
     renderYearTick(events, year, timelineEl, offsetX) {
-        // Check if there is an event marker for this year.  If so, don't do anything.            
-        let markers = events.find(event => event.yearStart == year);
         
-        if (markers !== undefined) return;
-    
+        // Only render a year tick if there is not an event marker for this year.
+        let markers = events.find(event => event.yearStart == year);
+        if (markers !== undefined) return; // A marker was found, so don't need a year tick.
+            
         let html = "";
         if (year % 5 === 0) {
+            // Create a larger year tick for every 5th year
             html = `<div class='year-marker' style='left:${offsetX}px'>                    
                             <div class='year-arm' style='height: ${25}px; top: -12px;'></div>                                            
                         </div>`;
         }
         else {
+            // Standard year tick
             html = `<div class='year-marker' style='left:${offsetX}px'>                    
                             <div class='year-arm'></div>                    
                         </div>`;
@@ -192,16 +200,20 @@ class BasicTimeline {
         timelineEl.innerHTML += html;
     }
 
+
+    // Loop through the events and create event markers on the timeline.
     renderEventMarkers(componentEl, events) {
         const timelineEl = componentEl.querySelector('.timeline');
 
         // Add each event as a marker on the timeline
         events.map((event, index) => {    
-            const offsetX = (event.yearStart - this.state.startYear) * this.state.widthPerTick - 20;      // WHY 20?            
+            const offsetX = (event.yearStart - this.state.startYear) * this.state.widthPerTick - 20;
             this.renderEventMarker(index, event, timelineEl, offsetX, 0);
         });
     }
 
+
+    // Create an individual event marker for a specific year.
     renderEventMarker(index, event, timelineEl, offsetX, offsetWidth) {            
 
         let html = `<div id='Marker${event.yearStart}-${event.yearEnd}' data-year=${event.yearStart} data-index=${index} class='event-marker' style='left:${offsetX}px'>
@@ -214,12 +226,18 @@ class BasicTimeline {
         timelineEl.innerHTML += html;
     }    
 
+
+    // Handles scenario when user selects a event marker.  This could be called for 
+    // the new selected year, or called to reset the prior selected year.    
+    //
+    // @params 
+    //   reset:  true -> new selected year, draw a line from yearStart to yearEnd (with a delay)
+    //           false -> old selected year, remove line from yearStart to yearEnd (no delay)
+    //
     updateSelectedEventConnector(event, reset = false) {
         let container = this.componentEl.querySelector(`#Marker${event.yearStart}-${event.yearEnd}`);
         let el = container.querySelector('.event-selected');
-                
-        // FUTURE IMPROVEMENT - don't like how timeline is hardcoded here.
-        //let widthPerTick =  this.state.widthPerTick;  //this.componentEl.querySelector('.timeline').dataset.widthPerTick;
+        
         let width = (event.yearEnd - event.yearStart) * this.state.widthPerTick;
         
         // Add a bit of a delay so the Timeline and Slide show move at the same time.
@@ -237,6 +255,7 @@ class BasicTimeline {
         }, delay)
     }
 
+
     // Set the event handlers for this component
     // Keyboard: left / right updates index
     // Mouse:  Click on buttons or click on Event Marker
@@ -252,14 +271,16 @@ class BasicTimeline {
         //     this.setIndex(this.state.index + 1);          
         // }
 
-        
+        const LEFT_ARROW_KEY = '37';
+        const RIGHT_ARROW_KEY = '39';
+
         // Keys
-        // Add support for arrow keys to move through slider.
+        // Add support for arrow keys to move through slider.        
         componentEl.onkeydown = (e) => {
             e = e || window.event;  
-            if (e.keyCode == '37') this.setIndex(this.state.index - 1);
-            if (e.keyCode == '39') this.setIndex(this.state.index + 1);
-          }
+            if (e.keyCode == LEFT_ARROW_KEY) this.setIndex(this.state.index - 1);  
+            if (e.keyCode == RIGHT_ARROW_KEY) this.setIndex(this.state.index + 1);  
+        }
 
 
         // Mouse Click
@@ -271,6 +292,7 @@ class BasicTimeline {
             });
         };
     }
+
 
     // Destroy animation for the component.  To be used in case of switching to another
     // component in its place.
@@ -285,7 +307,7 @@ class BasicTimeline {
         //if (timeline) {
             // Get all the elements into an array.
             let elementList = [];  
-             const DELAY_INCREMENT = 75;         
+            const DELAY_INCREMENT = 75;         
 
             // Remove all the year and event markers
             let elements = Array.from(timeline.children);            
@@ -304,7 +326,7 @@ class BasicTimeline {
             });
 
 
-            // Do stuff
+            // trigger destruct on each timeilne element
             const promises = elementList.map((item) => {
                 return this.deconstructElement(item).then((notes) => {
                     //console.log(notes);
@@ -330,9 +352,8 @@ class BasicTimeline {
     // CUSTOM EVENTS
     // -----------------------------------------------------------------
 
-    // Triggered when selected index is changed (but before animation starts)
-    dispatchOnIndexChange(index) {
-        //console.log("Basic Timeline -> onIndexChange: ", index);
+    // Triggered when selected index is changed
+    dispatchOnIndexChange(index) {        
         const event = new CustomEvent('onindexchange', {
         bubbles: true,
         detail: { 
@@ -372,8 +393,7 @@ class BasicTimeline {
             else {
                 newIndex = maxIndex;
             }              
-        }    
-        //
+        }            
         
 
         if (!forceUpdate) {
@@ -388,9 +408,7 @@ class BasicTimeline {
         
         // Update our global state.
         this.state.index = newIndex;
-
-        //console.log('State: ', this.state.index);
-        //console.log('State: ', this.state.data[newIndex]);
+        
         
         // Get the start and end years.
         let year = this.state.data[this.state.index].yearStart;
@@ -405,7 +423,8 @@ class BasicTimeline {
         });
 
 
-        // Loop through all the events to remove the previously active event and set the new event.
+        // Loop through all the events to remove the previously active event and set 
+        // the new event.
         this.state.data.map((event) => {        
                     
             // Determine if any events are in the middle of the selected timeline.
@@ -424,7 +443,7 @@ class BasicTimeline {
             // Handle the animation for the selected event on the timeline (ie )
             // False means the event is not the current event.  True means the event
             // is the current event and it's 'selected line' should be visible.
-            let showSelectedLine = (event.yearStart !== year)|| (event.yearEnd !== yearEnd);  //console.log("Event: ", event.yearStart, event.yearEnd, showSelectedLine);                
+            let showSelectedLine = (event.yearStart !== year)|| (event.yearEnd !== yearEnd);  
             this.updateSelectedEventConnector(event, showSelectedLine);            
         });
 

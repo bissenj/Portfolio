@@ -77,12 +77,10 @@ function generateSlideEventHandlers() {
 
     const links = document.querySelectorAll('.card .details p a');
     links.forEach((el) => {
-        el.addEventListener('click', (e) => {
-            console.log('click', e.target, e.target.parentNode);
+        el.addEventListener('click', (e) => {            
             const el = (e.target.href) ? e.target : e.target.parentNode;
 
-            const href = el.href;
-            console.log('href:', href);
+            const href = el.href;            
             if (href) {
                 e.preventDefault();                    
                 routeToUrl(href);      // routing.js - handles a link click.
@@ -107,8 +105,6 @@ function toggleLocationInformation(el) {
 
 // SLIDE SHOW - CURRENT SLIDE IS ABOUT TO CHANGE
 function resetSlide(el) {
-    //console.log('reset slide', el);
-
     const target = el.querySelector('.image-container');
     if (target) {
 

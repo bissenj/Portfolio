@@ -13,10 +13,17 @@
     Important:
         resetBody() needs to be on every page or if revisiting a page it
         may still have the body faded out and nothing will show up.
+
+    Post Prod Notes:  I forgot about CSS scroll-behaviour: smooth while developing
+                      the site, so some of this recreates that functionality in JS.  
+
+                      Also hosting the site on git-hub pages (and not using a custom domain)
+                      really messed how the domain urls worked, so there's stuff in the code
+                      to deal with that.
 */
 
 
-// TESTING:  ADDED THIS TO HANDLE URLS FROM ANCHOR LINKS
+// ADDED THIS TO HANDLE URLS FROM ANCHOR LINKS
 function routeToUrl(url) {
   //console.log('RouteToUrl(): ', url);
 
@@ -38,10 +45,9 @@ function routeToUrl(url) {
 
 
 
-// THIS ONLY WORKS FROM THE SITE MAP MODAL AND FOOTER, RIGHT NOW.
+// General function to handle site navigation, either on-page or to a new page.
 function handleLinkClick(e) {
-  //console.log('handleLinkClick: ', e);
-
+  
   e.preventDefault();
  
   let fromMenu = false;
@@ -53,27 +59,23 @@ function handleLinkClick(e) {
     link = e.target.parentNode.parentNode.href;
     fromMenu = true;
   }
-  //console.log('link: ', link);
-
+  
   // Figure out if we are staying on the same page or 
   // going to a different page.  This is assuming only the
   // index page has hash tag routing.
-
-  //console.log(link.indexOf('#'));
+  
   const stayOnPage = (link.indexOf('#') > 0) ? true : false;
 
   if (stayOnPage) {
     const id = link.substring(link.indexOf('#'));
-    //console.log('Href: ', link, id);
-  
+      
     const target = document.querySelector(id);
 
     // Scroll up or down the page.
     target.scrollIntoView({behavior: "smooth"});
     if (fromMenu) {
       showMenu();
-    }
-    //console.log("Scroll Into View: ", target);
+    }    
   }
   else {
     /*  
@@ -88,8 +90,7 @@ function handleLinkClick(e) {
     if (fromMenu) {
       showMenu();
     }
-    navigateToPage('link', route);
-    //console.log("Navigate to Page: ", route);
+    navigateToPage('link', route);    
   } 
 
   return false;
@@ -97,9 +98,7 @@ function handleLinkClick(e) {
 
 
 // Navigate to a new page using a custom fade in/out transition.
-function navigateToPage(source, dest) {
-    //console.log('navigateToPage(): ', source, dest);
-
+function navigateToPage(source, dest) {    
     // Fade out screen
     document.querySelector('body').classList.add('fade');
     
@@ -109,24 +108,21 @@ function navigateToPage(source, dest) {
     if (location.protocol == "https:" && location.href.includes('github') && !dest.includes('Portfolio')) {
         destination = '/Portfolio'
     }       
-
-    //const newLocation = `${destination}/${dest}`;    
+    
     const newLocation = `${destination}/${dest}`;    
-    setTimeout(() =>{    
-      //console.log('Navigating to: ', newLocation)     
+    setTimeout(() =>{          
       window.location = newLocation;
     },500);    
 }
 
 // This needs to be on every page.
-function resetBody() {
-    //console.log("Reset Body");
+function resetBody() {    
     document.querySelector('body').classList.remove('fade');
 }
 
 
 /* 
-        FULL SCREEN NAVIGATION MODAL
+    FULL SCREEN NAVIGATION MODAL
 */
 const navModalData = [
     {
@@ -204,8 +200,7 @@ const navModalData = [
     },
   ];
   function renderMenuPage(data) {
-    //console.log('renderMenuPage: ', data);
-
+    
     // dom elements
     let sideBarHtml = `<div class='side-bar'>`; //document.querySelector('.side-bar');
     let itemColumnHtml = `<div class='menu-items-column'>`; //document.querySelector('.menu-items-column');
@@ -268,49 +263,38 @@ const navModalData = [
     });
 
     // Transition in
-    setTimeout(() => {
-      //document.querySelector('.nav-modal section.menu').classList.remove('hidden');
+    setTimeout(() => {      
       document.querySelectorAll('a.hidden').forEach((el) => {
         el.classList.remove('hidden');
       });
     }, 100);
 
-    setTimeout(() => {
-      //document.querySelector('.nav-modal section.menu').classList.remove('hidden');
+    setTimeout(() => {      
       document.querySelectorAll('.line.hidden').forEach((el) => {
         el.classList.remove('hidden');
       });
     }, 600);
 
-    setTimeout(() => {
-      //document.querySelector('.nav-modal section.menu').classList.remove('hidden');
+    setTimeout(() => {      
       document.querySelectorAll('.row.hidden').forEach((el) => {
         el.classList.remove('hidden');
       });
-    }, 900);
-
-    // setTimeout(() => {
-    //   //document.querySelector('.nav-modal section.menu').classList.remove('hidden');
-    //   document.querySelector('section.menu').classList.add('dark');
-    // }, 1000);
-    
+    }, 900);    
   }
   function showMenu() {
     if (document.getElementById('site-map')) {
-      document.querySelector('.nav-modal').style.opacity = 0;   // Fade out modal
-      //document.querySelector('.nav-menu').style.opacity = 1;    // Fade in menu button
-      document.querySelector('.nav-menu').classList.add('visible');    // Fade out menu button
+      document.querySelector('.nav-modal').style.opacity = 0;         // Fade out modal      
+      document.querySelector('.nav-menu').classList.add('visible');   // Fade out menu button
       setTimeout(() => {
-        document.querySelector('.nav-modal').innerHTML = '';    // Clear the modal
+        document.querySelector('.nav-modal').innerHTML = '';          // Clear the modal
         console.log("modal cleared");  
       }, 500)
       
     }
     else {
-      document.querySelector('.nav-modal').style.opacity = 1;   // Fade in modal
-      renderMenuPage(navModalData);
-      //document.querySelector('.nav-menu').style.opacity = 0;    // Fade out menu button
-      document.querySelector('.nav-menu').classList.remove('visible');    // Fade out menu button
+      document.querySelector('.nav-modal').style.opacity = 1;         // Fade in modal
+      renderMenuPage(navModalData);      
+      document.querySelector('.nav-menu').classList.remove('visible');  // Fade out menu button
     }
   }
 
@@ -327,18 +311,13 @@ function renderFooter() {
             </a>`;
   
   const footer = document.querySelector('footer');
-  if (footer) {
-        //let footerHtml = renderFooter();        
-        footer.innerHTML = html;
+  if (footer) {        
+    footer.innerHTML = html;
   }
-
 
   setTimeout(() => {
       // Wire up the home link button
       const headerHome = document.querySelector('footer a');
       headerHome.addEventListener('click', handleLinkClick);
-  }, 10);
-
-
-  //return html;
+  }, 10);  
 }      

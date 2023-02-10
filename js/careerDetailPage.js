@@ -1,5 +1,3 @@
-
-
 /* 
     INITIALIZE CAREER DETAIL PAGE    
 */
@@ -30,8 +28,7 @@ function GenerateCareerDetailPage(pageData, headerData, footerData, navigationDa
         header.innerHTML = renderHeader(headerData[0]);
 
         // Wire up the home link button
-        const headerHome = document.querySelector('.header .home-link');
-        //headerHome.addEventListener('click', handleHomeClick);
+        const headerHome = document.querySelector('.header .home-link');        
         headerHome.addEventListener('click', handleLinkClick);
      }
      else {
