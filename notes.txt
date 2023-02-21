@@ -1,4 +1,5 @@
 Version History:
+#0108 - 02/21/2023 - Added Github link, testing multi-user workflow.
 #0107 - 02/10/2023 - Testing github branch security rules.
 #0106 - 02/10/2023 - Refactoring -> removing dead code, cleaning up comments.  Syncing slider component code.
 #0105 - 01/25/2023 - Refactored pageSegments, added smooth transitions for footer links on detail pages.
