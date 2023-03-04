@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">  
   <link rel="icon" type="image/png" href="../../coding.png" />
-  <title>Career History in 6 questions - NWM</title> 
+  <title>Career History - NWM</title> 
   <link rel='stylesheet' href='~/../../../css/global.css' />  
   <link rel='stylesheet' href='~/../../../css/portfolio-main.css' />  
   <link rel='stylesheet' href='~/../../../css/career.css' /> 
@@ -37,7 +37,7 @@
                 <div class='stats'></div>
             </div>
         </div> 
-        <div class='company-profile'>Career History in Six Questions Or Less</div>
+        <div class='company-profile'>Career History - Skills and Projects</div>
         <div class='content'>    
             <div class='side-bar sticky'></div>
             <div class='detail-page'></div>
@@ -156,6 +156,91 @@
                         
     ];
 
+
+    const projectData = [
+        {
+            type: 20,
+            summary: 'Overview',
+            question: 'Overview',
+            answer: [
+                {
+                    // text: 'My main contribution to Northwestern Mutual was improving site reliabilty by knowing how my systems worked and how they fit in with the rest of the systems in the company.',
+                    text: 'I worked in a number of roles and teams, building and supporting a variety of technology from vendor products to custom desktop and web applications, unix scripting and at times even mainframe coding.',
+                    classes: ''
+                }, 
+                {
+                    // text: 'My main contribution to Northwestern Mutual was improving site reliabilty by knowing how my systems worked and how they fit in with the rest of the systems in the company.',
+                    text: 'Mainly I was responsible for ensuring system stability - downtime is expensive for a company bringing in billions every month.',
+                    classes: ''
+                },                 
+            ]
+        },
+        {
+            type: 21,
+            summary: 'Skills Used',  
+            question: 'Skills',                                           
+            skills: [
+                '.Net', 'C#', 'Java - Struts', 'Unix Scripting', 'IBM Messagebroker', 'IBM Workflow', 'Mainframe - PL/1', 'Site reliability', 'Automated Testing', 'Root Cause Analysis'
+            ]
+        },
+        {
+            type: 22,
+            summary: 'Notable Projects',
+            question: 'Some Notable Projects and Contributions',                     
+            projects: [
+                {
+                    id: 1,
+                    name: 'Electronic Files Systems',
+                    summary: 'Served as the Application Engineer for the Electronic Files Team.  Responsible for knowing how this collection of systems worked as well as how it functioned within the rest of the application input systems.  I developed, tested, delegated work, reviewed code, trained new team members, coordinated software releases and supported the systems during issues.',
+                    highlights: [
+                        'Large suite of critical applications within an even larger and more diverse set of critical systems',                        
+                        'High visibility - needed a lot of care to ensure changes and enhancements did not negatively impact the systems',                        
+                    ],
+                    role: 'Application Engineer'
+                },
+                {
+                    id: 1,
+                    name: 'New Business Systems',
+                    summary: 'Served as the Application Engineer for a subteam of the New Business systems.  Responsible for knowing how the systems I managed fit into the larger suite of systems and mixed technologies which made up the life insurance application process.  Required a lot of coordination of among other subteams.  Responsible for system upgrades going smoothly.',
+                    highlights: [
+                        'Diverse set of technologies - C#, Java Struts, Mainframe, Vendor Tech - IBM Workflow, IBM Messagebroker',                                               
+                    ],
+                    role: 'Application Engineer'
+                },
+                {
+                    id: 1,
+                    name: 'Telephony Reports',
+                    summary: 'Redesigned and implemented a set of ~12 legacy reporting applications written in VB6 to a single data driven application leveraging C# and Crystal Reports.  ',
+                    highlights: [
+                        'Reduced the process of generating reports from 4 hours to 15 minutes as well as simplified the process of creating new reports.',                        
+                    ],
+                    role: 'Lead, Full Stack Developer'
+                },
+                {
+                    id: 1,
+                    name: 'OI Coordinator',
+                    summary: 'Point of contact for IT department (2000+ people) during critical timeframes each year to ensure system stability in the life insurance application process.  Responsible for go/no-go of other teams changes.',                    
+                    highlights: [
+                        'Challenging - Had to know how our systems fit into rest of company and how to communicate the risks and negotiate with other teams seeking to wrap up projects at the of the budget year.',                        
+                    ],
+                    role: 'Presenting Information, Reviewing Risk'
+                },
+                {
+                    id: 2,
+                    name: 'Marketing Materials Web Application',
+                    summary: 'Supported and maintained a Java Struts web application used by the Creative Services team for project management and asset tracking. ',                    
+                    role: 'Developer, Support'
+                },
+                {
+                    id: 3,
+                    name: 'Change Case System Web Application',
+                    summary: 'Supported and maintained a Java Struts web application used by a team of ~30 to manage their work during the life insurance application reviewing process.  Heavy integration with IBM Messagebroker and IBM Workflow, along with a huge rule system for managing input field validations.',                    
+                    role: 'Developer, Support'
+                },
+            ]
+        }
+    ];
+
     const navigationData = {
         from: 'career/nwm',
         to: 'index.html'
@@ -167,8 +252,8 @@
             {
                 classes: 'left',
                 label: 'Career History',
-                text: 'Senior Web Developer',
-                url: '../../career/mje',
+                text: 'Self Employed',
+                url: '../../career/self',
                 icon : {
                     name: 'chevron-right.svg',
                 }
@@ -186,7 +271,7 @@
     };
        
     // Render the page
-    GenerateCareerDetailPage(pageData, headerData, footerData, navigationData);
+    GenerateCareerDetailPage(projectData, headerData, footerData, navigationData);
     
     console.log("career page dynamically generated");
 

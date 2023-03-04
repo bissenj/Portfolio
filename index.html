@@ -16,7 +16,8 @@
   <link rel='stylesheet' href='css/career-slides.css' />  
   <link rel='stylesheet' href='js/components/basicTimeline/basicTimeline.css' />
   <link rel='stylesheet' href='js/components/horizontalSlider/horizontalSlider.css' />
-  <link rel='stylesheet' href='js/components/controlGrid/control-grid.css' />
+  <link rel='stylesheet' href='js/components/controlGrid/controlGrid.css' />
+  <link rel='stylesheet' href='js/components/splitModal/splitModal.css' />
   <link rel='stylesheet' href='css/contact.css' />
   <link rel='stylesheet' href='css/nav-modal.css' />
   <link rel='stylesheet' href='css/media-queries.css' />  
@@ -245,6 +246,8 @@
 <script src="~/../js/components/basicTimeline/basicTimeline.js"></script>
 <script src="~/../js/components/horizontalSlider/horizontalSlider.js"></script>
 
+<script src="~/../js/components/splitModal/splitModal.js"></script>
+
 <script>    
     //console.log("document is loaded");
     resetBody();      // Make sure the opacity is set correctly so the page is visible.
@@ -273,6 +276,17 @@
 
     // Delay the loading of the WORK section javascript components.    
     delayedComponentLoad(0);
+
+
+    /// SPLIT MODAL  --- THIS ISN'T FINISHED
+    //
+    // const splitModalData = [{id:1}, {id:2}, {id:3}]
+    // const renderSection = (item) => {
+    //     let html = `<div></div>`;
+    //     return html;
+    // }
+    // const splitModal1 = new SplitModal(splitModalData, renderSection);
+
     
 
     // Projects Button 
@@ -321,11 +335,7 @@
             
             /// The WORK section is three interactive components that all share a selected_index and 
             //  need to notify each another if any one of them update the selected_index.
-            //
-            //  TODO:
-            //     If a user clicks around too fast, the selected index will get out of sync
-            //     since there is a delay on sliding the horizontal slider.  
-            //     Deal with this in the future. 
+            //            
             
             // Career slideshow component
             let slideContainer1 = document.getElementById('workHistorySlider1');

@@ -47,6 +47,12 @@ function renderFactory(data, index = 0) {
         case 20:
             result = renderQuestionAnswer(data, index);
             break;
+        case 21:
+            result = renderSkills(data, index);
+            break;
+        case 22:
+            result = renderProjects(data, index);
+            break;
         default:
             console.log("renderFactory: unidentified type -> ", index);
             result = renderOops();
@@ -384,6 +390,95 @@ function renderQuestionAnswer(data, index) {
             </div>
         </div>
     `;
+    return createNode(html);
+}
+
+
+function renderSkills(data, index) {
+    const skills = data.skills ?? '';    
+    const optionalClasses = data.classes ?? '';
+
+    let html = '';
+    
+
+    if (skills != '') {            
+        let headingHtml = `<a class='anchor' id='question${index}'></a><h6 class='question' data-index=${index}>${data.question}</h6>`;                        
+   
+        let skillsHtml = `<div class='skills-container'>`; 
+        skills.map((item) => {                   
+            skillsHtml += `<span>${item}</span>`;   //createText({text: item});            
+        });
+        skillsHtml += `</div>`; 
+    
+        html = `
+            <!-- Skills Block -->
+            <div class='segment p40 ${optionalClasses}'>
+                <div class='text-block-half' data-index=${index}>
+                    ${headingHtml}
+                    ${skillsHtml}
+                </div>
+            </div>    
+        `;
+    }
+    return createNode(html);
+}
+
+
+function renderProjects(data, index) {
+    const projects = data.projects ?? '';    
+    const optionalClasses = data.classes ?? '';
+
+    let html = '';    
+
+    if (projects != '') {            
+        let headingHtml = `<a class='anchor' id='question${index}'></a><h6 class='question' data-index=${index}>${data.question}</h6>`;                        
+   
+        let projectsHtml = '';
+        projects.map((item) => {                    
+            projectsHtml += `<div class='projects-container'>`;
+            
+            // Name
+            if (item.name) {
+                projectsHtml += `<div class='project-name'><h4>${item.name}</h4></div>`;
+            }
+                        
+            
+
+            // Summary
+            if (item.summary) {
+                projectsHtml +=  `<p class='project-summary'>${item.summary}</p>`;
+            }
+
+            // Role
+            if (item.role) {
+                projectsHtml += `<div class='project-role'><label>Roles:</label> ${item.role}</div>`;
+            }
+
+            // List
+            if (item.highlights && item.highlights.length > 0) {
+                projectsHtml += `<div class='project-highlights'>`;
+                projectsHtml += `<label>Highlights:</label>`;
+                projectsHtml += `<ul>`;
+                item.highlights.map((highlight, index) => {
+                    projectsHtml += `<li>${highlight}</li>`;
+                })
+                projectsHtml += `</ul>`;
+                projectsHtml += `</div>`;
+            }
+
+            projectsHtml += `</div>`;
+        });
+    
+        html = `
+            <!-- Contributions Block -->
+            <div class='segment p40 ${optionalClasses}'>
+                <div class='text-block-half' data-index=${index}>
+                    ${headingHtml}
+                    ${projectsHtml}
+                </div>
+            </div>    
+        `;
+    }
     return createNode(html);
 }
 
