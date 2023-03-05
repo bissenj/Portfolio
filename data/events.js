@@ -92,11 +92,7 @@ const cardData = [
       link: 'career/nwm',
       yearStart: '2004',
       yearEnd: '2014',
-      title: 'Application Engineer',
-      projectsSummary: 'Worked in a number of roles and teams building and supporting a variety of technology from vendor products to custom desktop and web applications, unix scripting and mainframe coding.  Focus on application reliability.',
-      skills: [
-        '.Net', 'C#', 'Java - Struts', 'Unix', 'IBM Messagebroker', 'IBM Workflow', 'Mainframe - PL/1', 'Site reliability', 'Automated Testing'
-      ]
+      title: 'Application Engineer',      
     },
     { 
       id: 3, 
@@ -109,11 +105,7 @@ const cardData = [
       link: 'career/nah',
       yearStart: '2013',
       yearEnd: '2021',
-      title: 'Business Owner',
-      projectsSummary: 'Served as the IT department for our small business and reached out to other organizations to build websites as time permitted.',
-      skills: [
-        'HTML', 'CSS', 'Javascript', 'GSAP', 'Responsive Design', 'Networking', 'VOIP', 'Gulp'
-      ]
+      title: 'Business Owner',      
     },
     { 
       id: 4, 
@@ -126,111 +118,7 @@ const cardData = [
       link: 'career/mje',
       yearStart: '2018',
       yearEnd: '2021',
-      title: 'Senior Web Developer',
-      projectSummary: 'Where I fit:  Built Web Applications, worked with team to improve processes, mentored team members and drove projects to completion.',
-      skills: [
-        'Asp.net', 'JQuery', 'Windows Server', 'SQL Server', 'Kendo UI', 'React', 'Adobe XD', 'Azure AD', 'Google Maps API', 'Darksky API'
-      ],
-      projects: [
-        {
-          id: 1,
-          name: 'Proficiency Evaluations Web App',
-          summary: 'Built a web application used to train and annually certify employees on a variety of safety related job tasks such as operating heavy machinery or working safely with a wiring harness.',
-          highlights: [
-            'Pixel perfect printouts (used in legal cases related to workplace injuries)',
-            'Optimized for phones and tablets',
-            'Review functionality for admins'
-          ],
-          role: 'Lead, Full Stack Developer'
-        },        
-        {
-          id: 2,
-          name: 'All Crew Briefing',
-          summary: 'Designed and built web application for Foremen to conduct daily safety briefings at jobsites.',
-          highlights: [                        
-            'The system automatically graded submitted forms for quality based on how much of the form was filled out',
-            'Daily emails summaries to management to track useage and form quality',            
-            'Autocomplete logic for loading data from prior briefings',
-            'Integrated with other related Safety Applications',
-            'Integrated with external APIs such as Google Maps and Darksky (weather)',
-          ],
-          role: 'Lead, Full Stack Developer'
-        },
-        {
-          id: 3,
-          name: 'Safe Project Plan',
-          summary: 'Designed and built web application that Project Managers used to plan out a project and identify safety risks.',
-          highlights: [
-            'Integrated with other related Safety Applications'
-          ],
-          role: 'Lead, Full Stack Developer'
-        },
-        {
-          id: 4,
-          name: 'Field Time Entry',
-          summary: 'Timekeeping web application to track time, project and equipment hours for Field personnel.  Replacement of an older existing system, opportunity to improve user’s workflow.  Served as the entrypoint for the weekly payroll system and project billing system.',
-          highlights: [
-            'Integrated with related Safety Applications',
-            'Integrated with Google Maps',
-          ],
-          role: 'Full Stack Developer, UI/UX, Trainer, 3 developer team'
-        },
-        {
-          id: 5,
-          name: 'Field Time Approvals',
-          summary: 'Design and built web application used by Project Managers to manage hours fed from Field Time Entry, and send them on to Payroll and Billing Systems. ',
-          highlights: [],
-          role: 'Lead, Full Stack Developer, UI/UX, Trainer, 2.5 developer team'
-        },
-        {
-          id: 6,
-          name: 'Annual Meeting Website and Survey App',
-          summary: 'Web Application used by company leadership during annual meeting. Provided course list / schedule, survey to review complete courses, and admin section to report on all surveys.  Also built a responsive website for the meeting used for marketing and general event info.',
-          highlights: [],
-          role: 'Lead, Full Stack Developer, 2.5 developer team'
-        },
-        {
-          id: 7,
-          name: 'Covid Tracker',
-          summary: 'Built an offline web app optimized for phones, used to monitor employee health during COVID.  Data was used to report to company executives daily.',
-          highlights: [],
-          role: 'Lead, Full Stack Developer'
-        },
-        {
-          id: 8,
-          name: 'QAQC - UI/UX rebrand',
-          summary: 'Offline web application used by quality assurance engineers and leads to review specific aspects of a job such as the construction details of an electrical tower.',
-          highlights: [
-            'Redesigned the UI/UX to make the application easier to use.  End result was a web application that looked like a native app.',
-            'Led effort to track down and fix challenging user reported issues such as sporadically not saving images (root cause was due to exceeding local storage capacity).'
-          ],
-          role: 'UI/UX'
-        },
-        {
-          id: 9,
-          name: 'Design Work',
-          summary: 'Created designs and prototypes for several Web Applications, some brand new, some existing but needing a facelift.',
-          highlights: [
-            'Created concepts and front end for Vehicle Maintenance System used by company mechanics',
-            'Created concepts and prototype for Service Work System used by the local electricians',            
-            'Redesigned Vacation Request Web Application',            
-            'Redesigned Expense Reports Web Application'
-          ],
-          role: 'UI/UX'
-        },
-        {
-          id: 10,
-          name: 'Side Projects',
-          summary: 'Worked with team to build tools to improve our ability to support clients',
-          highlights: [
-            'Logging System - Built a logging package and dashboard to monitor our applications in real time and assist with tracking down issues.',
-            'Release Process and Version  History - Worked with team to standardize application release cycle and a reuseable component for each web application to show version history.',
-            'Standard Form Builder - Led effort to build a client friendly tool to add new forms to our systems (rather than someone in IT needing to add them)',
-            'Point of contact for payroll system upgrades - Led UX design of new systems, provided company presentations and training to impacted stakeholders',
-          ],
-          role: 'Team member, UX Lead, Presenter, Trainer'
-        },
-      ]
+      title: 'Senior Web Developer',      
     },
     { 
       id: 5, 
@@ -238,14 +126,11 @@ const cardData = [
       backgroundLink: 'https://peakvisor.com/adm/montana.html', backgroundText: 'Montana',
       brandImage: 'collage/self-brand.jpg', brandAlt: 'Picture of John standing on mountain top in Montana.',
       company: 'Mountains and Code', 
-      summary: 'After selling our business we took time off to travel and visit national parks.  Then we left the Midwest and achieved our long term goal of moving to Montana.  During this time I did web work for a few small organizations and spent time improving my design and tech skills.',      
+      summary: 'After selling our business we left the Midwest and achieved our long term goal of moving to Montana.  During this time I did web work for a few small organizations and spent time improving my design and tech skills.',      
+      link: 'career/self',
       yearStart: '2021',
       yearEnd: '2023',
-      title: 'Full Stack Developer',
-      projectSummary: 'I enjoy building products and expanding my skills.  During this phase of my career, while not actively working, I dedicated 25 hours / week (~1200 hours / year) towards improving my skills and exploring all the tech I didnt have a chance to work with since between 2004 - 2021 I generally worked 50-80 hour work weeks.',
-      skills: [
-        'React', 'React Native', 'Remix.run', 'Next.js', 'Android Programming - Kotlin', 'Prismic.io', 'Sanity.io', 'SASS', 'Figma', 'Heroku', 'Fly.io', 'Vercel', 'Cloudinary', 'Sqlite', 'Postgres', 'Mongodb', 'Firebase', 'Apollo Client', 'GraphQL', 'Google Maps API', 'MapBox API', 'Strava API', 'Web Workers', 'Selenium'
-      ]
+      title: 'Full Stack Developer',      
     }
 ];
 

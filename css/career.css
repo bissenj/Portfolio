@@ -108,7 +108,8 @@
     position: relative;
     font-size: 32px;
     padding-bottom: 0.3em;
-    margin-bottom: 1em;
+    /* margin-bottom: 1em; */
+    margin-bottom: 0.5em;
 }  
 .question:before {
     content: '';
@@ -166,15 +167,20 @@ a.anchor {
 
 /* SKILLS */
 .skills-container {
-    display: grid;
+    display: block;
+    /* display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px 0px;
-    padding: 20px;
-    
+    gap: 20px 0px; */
+    padding: 0px;    
 }
 .skills-container span {
+    display: inline-block;
+    margin: 20px 10px;    
+
     font-size: 0.9em;    
-    text-align: left;
+    text-align: left;  
+    border: 1px solid #ddd;
+    padding: 10px;  
 }
 
 /* PROJECTS */
@@ -218,6 +224,7 @@ a.anchor {
     /* margin: 0 3em; */
     font-size: 20px;
     /* line-height: 1.7em; */
+    overflow-wrap: break-word;
 }
 
 
@@ -280,6 +287,7 @@ a.anchor {
 
     .projects-container .project-highlights ul {
         margin: 0;
+        max-width: calc(100vw - 100px);         /* Bit of a hack, this element is causing a horizontal scrollbar at 400px without this.  */
     }
 
     .projects-container .project-highlights ul li {
@@ -299,6 +307,24 @@ a.anchor {
 
     .work-page .company-profile {
         font-size: 20px;
+    }
+
+    .projects-container {
+        margin: 0;
+        margin-bottom: 3em;
+        padding: 0;
+        padding-bottom: 2em;
+        border-width:0;
+        border-bottom-width: 1px;
+    }
+
+    .skills-container {
+        display: block;        
+        padding: 0px;        
+    }
+    .skills-container span {
+        display: inline-block;
+        margin: 20px 10px;        
     }
 
 }
