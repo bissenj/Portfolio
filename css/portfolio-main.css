@@ -127,6 +127,7 @@ section.work .basic-timeline {
 section.work .card {
     margin: 20px auto;
     max-height: 60vh;
+    background-color: white;
 }
 section.work .section-heading {
     width: 100%;        

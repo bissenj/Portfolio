@@ -1,8 +1,24 @@
 
 #contact {
-    background: linear-gradient(to top, rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url('../img/hero/jewel_basin.webp') no-repeat;
+    position: relative;
+    /* background: linear-gradient(to top, rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url('../img/hero/jewel_basin.webp') no-repeat;
     background-size: cover;   
-    background-attachment: fixed;   
+    background-attachment: fixed;    */
+}
+#contact::before {
+    /* Idea from - https://css-tricks.com/the-fixed-background-attachment-hack/ */
+   content: '';
+   position: fixed;
+   z-index: -1;
+   display: block;
+   top: 0px;
+   left: 0px;
+   bottom: 0px;
+   right: 0px;
+   background: linear-gradient(to top, rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url('../img/hero/jewel_basin.webp') no-repeat;
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center top;
 }
 .contact-content {
     position: relative;
@@ -33,7 +49,7 @@
     border: 2px solid white;
     margin-right: 20px;
     margin-top: 20px;   
-    display: grid; place-content: center;         
+    display: grid; place-content: center;        
 
     cursor: pointer;
 }
@@ -41,4 +57,7 @@
     width: 100%;
     height: 100%;
     display: block;
+}
+.contact-links > div:hover {
+    background: var(--accent-1);
 }
