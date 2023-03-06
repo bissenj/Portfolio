@@ -24,8 +24,10 @@
 </head>
 
 <body class='fade'>   
-<div class='bg'></div>
-<!-- <div class='fg'> -->
+
+    <!-- Fixed background image -->
+    <div class='bg'></div>
+
     <div class='nav-modal'></div>
 
      <!-- Site Navigation -->
@@ -242,7 +244,6 @@
         <footer class='.footer'></footer>
 
     </main>
-<!-- </div> -->
 </body>
 
 <script src="~/../js/intersectionObserver.js"></script>
@@ -438,18 +439,20 @@
     // Removing / Adding because keeping the background fixed seemed to introduce visual defects
     // if scrolling quickly on mobile devices
     //
-    // addObserver({
-    //     selectors: '#contact',        
-    //     whenIntersecting: (entry) => { 
-    //        entry.target.classList.remove('default'); 
-    //        entry.target.classList.add('scroll-background'); 
-    //     },
-    //     whenNotIntersecting: (entry) => { 
-    //         entry.target.classList.add('default'); 
-    //         entry.target.classList.remove('scroll-background'); 
-    //     },
-    //     rootMargin: '0px 0px 100% 0px',   
-    // }); 
+    addObserver({
+        selectors: '#contact',        
+        whenIntersecting: (entry) => { 
+            document.querySelector('.bg').setAttribute('visibility', 'visible');
+        //    entry.target.classList.remove('default'); 
+        //    entry.target.classList.add('scroll-background'); 
+        },
+        whenNotIntersecting: (entry) => { 
+            document.querySelector('.bg').setAttribute('visibility', 'hidden');
+            // entry.target.classList.add('default'); 
+            // entry.target.classList.remove('scroll-background'); 
+        },
+        rootMargin: '0px 0px 100% 0px',   
+    }); 
 
 
 </script>
