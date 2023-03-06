@@ -276,6 +276,7 @@ a.anchor {
 
     .detail-page .segment p {
         font-size: 16px;
+        max-width: unset;
     }
 
     .detail-page ul li {
