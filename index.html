@@ -24,6 +24,8 @@
 </head>
 
 <body class='fade'>   
+<div class='bg'></div>
+<div class='fg'>
     <div class='nav-modal'></div>
 
      <!-- Site Navigation -->
@@ -192,6 +194,7 @@
         
         <!-- Work -->
         <section id='career' class='work'>
+            
             <!-- Slider and other components -->           
             <div class='slideshow-container'>         
                 <div class='bg10 flex-row-apart'>
@@ -214,6 +217,12 @@
     
         <!-- Contact -->
         <section id='contact' class='contact default' > 
+
+            <!-- Contact Image -->
+            <!-- <div class='contact-image'>
+                <img src='../img/hero/jewel_basin.webp' />
+            </div> -->
+
             <!-- Contents -->
             <div class='contact-content'>
                 <!-- Heading -->
@@ -225,13 +234,15 @@
                     <div role='button'><a href='mailto:mountainsandcode@gmail.com' title='Email Address'><img src='~/../img/icons/mail.svg' alt='Get email address'/></a></div>
                     <div role='button'><a href='https://github.com/bissenj' title='Link to GitHub Portfolio' target='_new'><img src='~/../img/icons/github.svg' alt='Link to GitHub Portfolio'/></a></div>                    
                 </div>
-            </div>            
+            </div>  
+
         </section>
 
         <!-- Footer -->
         <footer class='.footer'></footer>
 
     </main>
+</div>
 </body>
 
 <script src="~/../js/intersectionObserver.js"></script>
@@ -427,18 +438,18 @@
     // Removing / Adding because keeping the background fixed seemed to introduce visual defects
     // if scrolling quickly on mobile devices
     //
-    addObserver({
-        selectors: '#contact',        
-        whenIntersecting: (entry) => { 
-           entry.target.classList.remove('default'); 
-           entry.target.classList.add('scroll-background'); 
-        },
-        whenNotIntersecting: (entry) => { 
-            entry.target.classList.add('default'); 
-            entry.target.classList.remove('scroll-background'); 
-        },
-        rootMargin: '0px 0px 100% 0px',   
-    }); 
+    // addObserver({
+    //     selectors: '#contact',        
+    //     whenIntersecting: (entry) => { 
+    //        entry.target.classList.remove('default'); 
+    //        entry.target.classList.add('scroll-background'); 
+    //     },
+    //     whenNotIntersecting: (entry) => { 
+    //         entry.target.classList.add('default'); 
+    //         entry.target.classList.remove('scroll-background'); 
+    //     },
+    //     rootMargin: '0px 0px 100% 0px',   
+    // }); 
 
 
 </script>
