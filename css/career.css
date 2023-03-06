@@ -178,9 +178,11 @@ a.anchor {
     margin: 20px 10px;    
 
     font-size: 0.9em;    
-    text-align: left;  
+
     border: 1px solid #ddd;
     padding: 10px;  
+
+    min-width: 80px;
 }
 
 /* PROJECTS */
@@ -191,6 +193,12 @@ a.anchor {
 
     border: 1px solid #ddd;
     padding: 20px;
+}
+
+.projects-container:last-of-type {
+    margin-bottom: 0;
+    border: 0;
+    padding-bottom: 0;
 }
 
 .projects-container .project-name {
@@ -232,6 +240,10 @@ a.anchor {
 /* ----------------- SMALL SCREENS ---------------- */
 
 @media only screen and (max-width: 1000px)  {
+
+    .segment.p40 {
+        padding: 10px;
+    }
 
     .detail-page {
         margin: 0px auto;
