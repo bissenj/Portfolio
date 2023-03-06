@@ -18,6 +18,7 @@
 
 .fg {
     position: absolute;
+    width: 100vw;
 }
 
 #contact {
