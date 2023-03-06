@@ -1,11 +1,14 @@
 
 #contact {
-    position: relative;
-    /* background: linear-gradient(to top, rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url('../img/hero/jewel_basin.webp') no-repeat;
-    background-size: cover;   
-    background-attachment: fixed;    */
+    position: relative; 
+    height: 100vh;    
 }
-#contact::before {
+#contact.default {    
+    background: linear-gradient(to top, rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url('../img/hero/jewel_basin.webp') no-repeat;    
+    background-size: cover;    
+    overflow:hidden;
+}
+#contact.scroll-background::before {
     /* Idea from - https://css-tricks.com/the-fixed-background-attachment-hack/ */
    content: '';
    position: fixed;
@@ -20,7 +23,8 @@
    background-repeat: no-repeat;
    background-position: center top;
 }
-.contact-content {
+
+.contact-content {    
     position: relative;
     display: grid;
     place-content: center;
