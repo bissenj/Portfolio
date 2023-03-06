@@ -442,14 +442,10 @@
     addObserver({
         selectors: '#contact',        
         whenIntersecting: (entry) => { 
-            document.querySelector('.bg').setAttribute('visibility', 'visible');
-        //    entry.target.classList.remove('default'); 
-        //    entry.target.classList.add('scroll-background'); 
+            document.querySelector('.bg').setAttribute('visibility', 'visible');        
         },
         whenNotIntersecting: (entry) => { 
-            document.querySelector('.bg').setAttribute('visibility', 'hidden');
-            // entry.target.classList.add('default'); 
-            // entry.target.classList.remove('scroll-background'); 
+            document.querySelector('.bg').setAttribute('visibility', 'hidden');            
         },
         rootMargin: '0px 0px 100% 0px',   
     }); 

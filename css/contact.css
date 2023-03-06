@@ -15,36 +15,8 @@
     transition: opacity 0.4s;
 }
 
-.fg {
-    position: absolute;
-    width: 100%;
-}
-
-#contact {
-    /* height: 100vh; */
+#contact {    
     position: relative;     
-}
-#contact.default {  
-    /* background: black; */
-
-    /* background: linear-gradient(to top, rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url('../img/hero/jewel_basin.webp') no-repeat;    
-    background-size: cover;    
-    overflow:hidden; */
-}
-#contact.scroll-background::before {
-    /* Idea from - https://css-tricks.com/the-fixed-background-attachment-hack/ */
-   content: '';
-   position: fixed;
-   z-index: -1;
-   display: block;
-   top: 0px;
-   left: 0px;
-   bottom: 0px;
-   right: 0px;
-   background: linear-gradient(to top, rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url('../img/hero/jewel_basin.webp') no-repeat;
-   background-size: cover;
-   background-repeat: no-repeat;
-   background-position: center top;
 }
 
 /* .contact-image {
