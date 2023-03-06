@@ -455,7 +455,7 @@ p.fs16 { font-size: 1.6em; max-width: 20em;}
     }
 
     .p40 {
-        padding: 20px;
+        padding: 10px;
     }
 
     .w50 {
@@ -467,7 +467,7 @@ p.fs16 { font-size: 1.6em; max-width: 20em;}
         margin: 0 auto;
     }  
     .detail-page { font-size: 18px; }
-    p.fs16 { font-size: 1.0em;}  
+    /* p.fs16 { font-size: 1.0em;}   */
 
 
     .primary {
