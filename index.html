@@ -16,13 +16,18 @@
   <link rel='stylesheet' href='css/career-slides.css' />  
   <link rel='stylesheet' href='js/components/basicTimeline/basicTimeline.css' />
   <link rel='stylesheet' href='js/components/horizontalSlider/horizontalSlider.css' />
-  <link rel='stylesheet' href='js/components/controlGrid/control-grid.css' />
+  <link rel='stylesheet' href='js/components/controlGrid/controlGrid.css' />
+  <link rel='stylesheet' href='js/components/splitModal/splitModal.css' />
   <link rel='stylesheet' href='css/contact.css' />
   <link rel='stylesheet' href='css/nav-modal.css' />
   <link rel='stylesheet' href='css/media-queries.css' />  
 </head>
 
 <body class='fade'>   
+
+    <!-- Fixed background image -->
+    <div class='bg'></div>
+
     <div class='nav-modal'></div>
 
      <!-- Site Navigation -->
@@ -191,6 +196,7 @@
         
         <!-- Work -->
         <section id='career' class='work'>
+            
             <!-- Slider and other components -->           
             <div class='slideshow-container'>         
                 <div class='bg10 flex-row-apart'>
@@ -212,7 +218,13 @@
         
     
         <!-- Contact -->
-        <section id='contact' class='contact' >
+        <section id='contact' class='contact default' > 
+
+            <!-- Contact Image -->
+            <!-- <div class='contact-image'>
+                <img src='../img/hero/jewel_basin.webp' />
+            </div> -->
+
             <!-- Contents -->
             <div class='contact-content'>
                 <!-- Heading -->
@@ -222,11 +234,10 @@
                 <!-- Links -->
                 <div class='contact-links'>
                     <div role='button'><a href='mailto:mountainsandcode@gmail.com' title='Email Address'><img src='~/../img/icons/mail.svg' alt='Get email address'/></a></div>
-                    <div role='button'><a href='https://github.com/bissenj' title='Link to GitHub Portfolio' target='_new'><img src='~/../img/icons/github.svg' alt='Link to GitHub Portfolio'/></a></div>
-                    <!-- <div role='button'><img src='~/../img/icons/info.svg' alt='site information'/></div> -->
+                    <div role='button'><a href='https://github.com/bissenj' title='Link to GitHub Portfolio' target='_new'><img src='~/../img/icons/github.svg' alt='Link to GitHub Portfolio'/></a></div>                    
                 </div>
-            </div>
-                
+            </div>  
+
         </section>
 
         <!-- Footer -->
@@ -244,6 +255,8 @@
 <script src="~/../data/events.js"></script>
 <script src="~/../js/components/basicTimeline/basicTimeline.js"></script>
 <script src="~/../js/components/horizontalSlider/horizontalSlider.js"></script>
+
+<script src="~/../js/components/splitModal/splitModal.js"></script>
 
 <script>    
     //console.log("document is loaded");
@@ -273,6 +286,17 @@
 
     // Delay the loading of the WORK section javascript components.    
     delayedComponentLoad(0);
+
+
+    /// SPLIT MODAL  --- THIS ISN'T FINISHED
+    //
+    // const splitModalData = [{id:1}, {id:2}, {id:3}]
+    // const renderSection = (item) => {
+    //     let html = `<div></div>`;
+    //     return html;
+    // }
+    // const splitModal1 = new SplitModal(splitModalData, renderSection);
+
     
 
     // Projects Button 
@@ -321,11 +345,7 @@
             
             /// The WORK section is three interactive components that all share a selected_index and 
             //  need to notify each another if any one of them update the selected_index.
-            //
-            //  TODO:
-            //     If a user clicks around too fast, the selected index will get out of sync
-            //     since there is a delay on sliding the horizontal slider.  
-            //     Deal with this in the future. 
+            //            
             
             // Career slideshow component
             let slideContainer1 = document.getElementById('workHistorySlider1');
@@ -408,7 +428,27 @@
         selectors: '.landing',        
         whenIntersecting: (entry) => { document.querySelector('.nav-menu').classList.remove('visible'); },
         whenNotIntersecting: (entry) => { document.querySelector('.nav-menu').classList.add('visible'); },
-    });         
+    }); 
+    
+    // Intersection Observer for the contact section.  Add a fixed background when it is visible.
+    //    
+    // Use javascript to simulate a parallax effect, like if background-attachment:fixed is used
+    // (but doesn't work with safari -> at least old safari).  
+    // 
+    // Fallback is static background image.
+    // Removing / Adding because keeping the background fixed seemed to introduce visual defects
+    // if scrolling quickly on mobile devices
+    //
+    addObserver({
+        selectors: '#contact',        
+        whenIntersecting: (entry) => { 
+            document.querySelector('.bg').setAttribute('visibility', 'visible');        
+        },
+        whenNotIntersecting: (entry) => { 
+            document.querySelector('.bg').setAttribute('visibility', 'hidden');            
+        },
+        rootMargin: '0px 0px 100% 0px',   
+    }); 
 
 
 </script>

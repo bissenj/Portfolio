@@ -41,6 +41,9 @@
   EDGE CASES:
     - Needs to be able to handle resize events without losing position (ex.  switching from landscape to portrait)
 
+  TODO:
+    - Instead of 9000 parameters, pass in an object instead, like if this was a React component.
+
 */
 
 
@@ -206,7 +209,7 @@ class HorizontalSlider {
     }
     else {
       //console.log("Slideshow - did not need to resize.");
-  }
+    }
   }
 
   // Creates the necessary DOM elements for the slider:

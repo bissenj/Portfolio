@@ -109,6 +109,7 @@
     font-size: 32px;
     padding-bottom: 0.3em;
     margin-bottom: 1em;
+    /* margin-bottom: 0.5em; */
 }  
 .question:before {
     content: '';
@@ -164,11 +165,85 @@ a.anchor {
     visibility: hidden;
 }
 
+/* SKILLS */
+.skills-container {
+    display: block;
+    /* display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px 0px; */
+    padding: 0px;    
+}
+.skills-container span {
+    display: inline-block;
+    margin: 20px 10px;    
+
+    font-size: 0.9em;    
+
+    border: 1px solid #ddd;
+    padding: 10px;  
+
+    min-width: 80px;
+}
+
+/* PROJECTS */
+.projects-container {
+    font-size: 1em;
+    margin: 10px 0;
+    margin-bottom: 3em;
+
+    border: 1px solid #ddd;
+    padding: 20px;
+}
+
+.projects-container:last-of-type {
+    margin-bottom: 0;
+    border: 0;
+    padding-bottom: 0;
+}
+
+.projects-container .project-name {
+    font-weight: 700;
+    margin: 0px 0px 20px 0px;
+    text-transform: uppercase;    
+}
+
+.projects-container .project-role label, .projects-container .project-highlights label {
+    font-style: unset;
+    font-weight: 700;
+}
+
+.projects-container .project-summary  {    
+    font-size: 1em;
+}
+
+.projects-container .project-role, .projects-container .project-highlights {
+    margin: 20px 0;
+    font-size: 1em;    
+}
+
+.project-container .project-role {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0px
+}
+
+.projects-container .project-highlights ul li {
+    line-height: unset;
+    /* margin: 0 3em; */
+    font-size: 20px;
+    /* line-height: 1.7em; */
+    overflow-wrap: break-word;
+}
+
 
 
 /* ----------------- SMALL SCREENS ---------------- */
 
 @media only screen and (max-width: 1000px)  {
+
+    .segment.p40 {
+        padding: 10px;
+    }
 
     .detail-page {
         margin: 0px auto;
@@ -201,11 +276,40 @@ a.anchor {
 
     .detail-page .segment p {
         font-size: 16px;
+        max-width: unset;
     }
 
     .detail-page ul li {
         font-size: 16px;
     }
+
+    /* SKILLS AND PROJECTS */
+    .projects-container .project-summary  {
+        margin: 20px 0;        
+    }
+
+    .projects-container .project-role, .projects-container .project-highlights {
+        margin: 20px 0;
+        font-size: 16px; 
+    }
+
+    .projects-container .project-role label, .projects-container .project-highlights label {
+        font-style: unset;
+        font-weight: 700;
+    }
+
+    .projects-container .project-highlights ul {
+        margin: 0;
+        max-width: calc(100vw - 100px);         /* Bit of a hack, this element is causing a horizontal scrollbar at 400px without this.  */
+    }
+
+    .projects-container .project-highlights ul li {
+        line-height: unset;
+        margin: 20px 0;
+        font-size: 16px;        
+        list-style: none;
+    }
+    
 
 }
 
@@ -216,6 +320,24 @@ a.anchor {
 
     .work-page .company-profile {
         font-size: 20px;
+    }
+
+    .projects-container {
+        margin: 0;
+        margin-bottom: 3em;
+        padding: 0;
+        padding-bottom: 2em;
+        border-width:0;
+        border-bottom-width: 1px;
+    }
+
+    .skills-container {
+        display: block;        
+        padding: 0px;        
+    }
+    .skills-container span {
+        display: inline-block;
+        margin: 20px 10px;        
     }
 
 }

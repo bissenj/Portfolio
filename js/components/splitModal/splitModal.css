@@ -1,0 +1,57 @@
+/* 
+    Handles styling for Split Modal which is just a modal composed of several sections.
+
+    For example assume the split modal is 4 sections.  Depending on the transition selected,
+    those 4 sections will animate onto the screen and come together as if they are one modal.
+    When it comes time to transition out, the modal will then split back into the 4 sections and 
+    animate out.
+*/
+
+#splitModalContainer {
+    position: fixed;
+    min-height: 100vh;
+    width: 100vw;
+
+    z-index: 999;
+
+    top: 0;
+    left: 0;
+
+    background: rgba(0,0,0, 0.8);
+}
+
+#splitModalContainer .section-group {
+    overflow: scroll;
+}
+
+#splitModalContainer .section-item {
+    min-height: 34vh;
+    border: 1px solid red;   
+    background-color: rgb(250, 186, 186);     
+}
+
+.slide-in-ltr {    
+    transform: translate(-100%);
+    animation: slide-ltr 0.2s ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes slide-ltr {
+    0% {
+        transform: translate(-100%);
+    }
+    100% {
+        transform: translate(0);
+    }
+}
+
+.section-item:nth-child(1) {
+    animation-delay: 0.25s;
+}
+.section-item:nth-child(2) {
+    animation-delay: 0.5s;
+}
+.section-item:nth-child(3) {
+    animation-delay: 0.75s;
+}
+

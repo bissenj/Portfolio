@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
   <link rel="icon" type="image/png" href="../../coding.png" />
-  <title>Career History in 6 questions - MJE</title> 
+  <title>Career History - MJE</title> 
   <link rel='stylesheet' href='~/../../../css/global.css' />  
   <link rel='stylesheet' href='~/../../../css/portfolio-main.css' />  
   <link rel='stylesheet' href='~/../../../css/career.css' /> 
@@ -36,7 +36,7 @@
                 <div class='stats'></div>
             </div>
         </div> 
-        <div class='company-profile'>Career History in Six Questions Or Less</div>
+        <div class='company-profile'>Career History - Skills and Projects</div>
         <div class='content'>    
             <div class='side-bar sticky'></div>
             <div class='detail-page'></div>
@@ -75,8 +75,8 @@
             {
                 classes: 'right',
                 label: 'Career History',
-                text: 'Application Engineer',
-                url: '../../career/nwm',
+                text: 'Self Employed',
+                url: '../../career/self',
                 icon : {                    
                     name: 'chevron-right.svg',
                 }
@@ -227,13 +227,142 @@
                         
     ];
 
+    const projectsData = [
+        {
+            type: 20,
+            summary: 'Overview',
+            question: 'Overview',
+            answer: [
+                {
+                    text: 'I helped M. J. Electric towards their goals of improving efficiency and going paperless by building Web Applications that typically replaced a set of paper forms.  I also worked with the team to improve processes, mentored team members and drove projects to completion.',
+                    classes: ''
+                },                 
+            ]
+        },
+        {
+            type: 21,
+            summary: 'Skills Used',   
+            question: 'Skills',                     
+            skills: [
+                'Asp.net', 'jQuery', 'React', 'Kendo UI', 'Adobe XD', 'Azure AD', 'Google Maps API', 'Darksky API', 'Windows Server', 'SQL Server',
+            ],
+        },
+        {
+            type: 22,
+            summary: 'Notable Projects',
+            question: 'Some Notable Projects and Contributions',                     
+            projects: [
+                {
+                    id: 1,
+                    name: 'Proficiency Evaluations Web App',
+                    summary: 'I took over and completed the development of a web application used to train and annually certify employees on a variety of safety related skills such as operating heavy machinery or working safely with a wiring harness.  This replaced about 35 paper forms and was used to certify all 1800+ field employees.',
+                    highlights: [
+                        'Pixel perfect printouts (used in legal cases related to workplace injuries).',
+                        'Optimized for phones and tablets.',
+                        'Review functionality for admins.'
+                    ],
+                    role: 'Lead, Full Stack Developer'
+                },   
+                {
+                    id: 2,
+                    name: 'All Crew Briefing',
+                    summary: 'I designed and built a ~20 screen web application for Foremen to conduct daily safety briefings at jobsites.  By integrating data from other Safety applications and pulling in data from prior safety briefings I was able to cut down on the amount of effort required to create briefings.  Also because these briefings were electronic, safety personnel could review them instantly instead of waiting weeks for the paper briefings to be mailed back to the home office.',
+                    highlights: [                        
+                        'Logic to automatically grade submitted forms for quality.',                        
+                        'Autocomplete logic for loading data from prior briefings.',
+                        'Integrated with other related Safety Applications.',
+                        'Integrated with external APIs such as Google Maps and Darksky (weather).',
+                    ],
+                    role: 'Lead, Full Stack Developer'
+                },
+                {
+                    id: 3,
+                    name: 'Safe Project Plan',
+                    summary: 'I designed and built a web application that Project Managers used to plan out a project and identify safety risks.  By integrating data from other Safety apps I was able to cut down on the amount of effort required to create these plans.  Also, since the plan data was now sitting in a database (instead of someones laptop), the safety plans could be incorporated into other Web applications that referenced that particular project.',
+                    highlights: [
+                        'Integrated with other related Safety Applications'
+                    ],
+                    role: 'Lead, Full Stack Developer'
+                },
+                {
+          id: 4,
+          name: 'Field Time Entry',
+          summary: 'I worked in a small team to design and develop a large web application to track time, project and equipment hours for Field personnel.  This was a replacement of an older existing system and an opportunity for me to interview users and improve their workflow.  This web application served as the entrypoint for the weekly payroll system and project billing system, so a lot of care was taken to make sure it was implemented correctly.',
+          highlights: [
+            'Integrated with related Safety Applications',
+            'Integrated with Google Maps',
+          ],
+          role: 'Full Stack Developer, UI/UX, Trainer, 3 developer team'
+        },
+        {
+          id: 5,
+          name: 'Field Time Approvals',
+          summary: 'I worked in a small team to design and build a medium sized web application used by Project Managers to manage hours fed from Field Time Entry, and send them on to Payroll and Billing Systems. ',
+          highlights: [],
+          role: 'Lead, Full Stack Developer, UI/UX, Trainer, 2.5 developer team'
+        },
+        {
+          id: 6,
+          name: 'Annual Meeting Website and Survey App',
+          summary: 'I led a small team to build a web application and public facing responsive website used by company leadership during the annual company meeting. The website provided general event information such as the course list, map and schedule.  The web application provided a survey to complete after each course, and an admin section to report on all the completed surveys.',
+          highlights: [],
+          role: 'Lead, Full Stack Developer, 2.5 developer team'
+        },
+        {
+          id: 7,
+          name: 'Covid Tracker',
+          summary: 'I built a small web application optimized for phones, which was used to monitor employee health during COVID.  Any employee seeking to enter a company owned building needed to check in the app and answer questions related to their health.  Data was used to report to company executives daily.',
+          highlights: [],
+          role: 'Lead, Full Stack Developer'
+        },
+        {
+          id: 8,
+          name: 'QAQC - UI/UX rebrand',
+          summary: 'The team built an offline web application used by quality assurance engineers and leads to review specific aspects of a job such as the construction details of an electrical tower.  However, the app was difficult to use and it was a struggle to get users to adopt it, so I stepped in and redesigned its UI/UX.',  
+          highlights: [
+            'Redesigned the UI/UX to make the application easier to use.  End result was a web application that looked like a native app, and user adoption rate went up.',
+            'Led effort to track down and fix challenging user reported issues such as sporadically not saving images (root cause was due to exceeding local storage capacity).'
+          ],
+          role: 'UI/UX'
+        },
+        {
+          id: 9,
+          name: 'Design Work',
+          summary: 'I created designs and prototypes for several web applications, some brand new, some existing but needing a facelift.',
+          highlights: [
+            'Created concepts and front end for Vehicle Maintenance System used by company mechanics and vehicle fleet managers.',
+            'Created concepts and prototype for Service Work System to manage billing and appointments for our local electrician service group.',            
+            'Redesigned and branded the company Vacation Request web application.',            
+            'Redesigned and branded company Expense Reports web application.'
+          ],
+          role: 'UI/UX'
+        },
+        {
+          id: 10,
+          name: 'Side Projects',
+          summary: 'I worked with the team to build tools to improve our ability to support clients',
+          highlights: [
+            'Logging System - Built a logging package and dashboard to monitor our applications in real time and assist with tracking down issues.',
+            'Release Process and Version  History - Worked with team to standardize application release cycle and created a reuseable component for each web application to show version history.',
+            'Standard Form Builder - Led effort to build a client friendly tool to add new forms to our systems (rather than someone in IT needing to add them)',
+            'Point of contact for payroll system upgrades - Led UX design of new systems, provided company presentations and training to impacted stakeholders',
+          ],
+          role: 'Team member, UX Lead, Presenter, Trainer'
+        },
+
+
+
+            ]            
+        },
+    ]
+
     const navigationData = {
         from: 'career/mje',
         to: 'index.html'
     }
 
     // Render the page
-    GenerateCareerDetailPage(pageData, headerData, footerData, navigationData);
+    GenerateCareerDetailPage(projectsData, headerData, footerData, navigationData);
     
     console.log("career page dynamically generated");
 </script>

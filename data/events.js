@@ -88,11 +88,11 @@ const cardData = [
       backgroundTextDetails: 'One of the many jewels on the lake front of the Milwaukee Harbor.',
       brandImage: 'collage/nwm-brand.jpg', brandAlt: 'Picture of Northwestern Mutual Building',
       company: 'Northwestern Mutual', 
-      summary: 'Fortune 500 company based out of Milwaukee, Wisconsin.  My first career job out of college and an amazing opportunity to work in well established organization.',
+      summary: 'Fortune 500 company based out of Milwaukee, Wisconsin.  My first career job out of college and an amazing opportunity to work in a well established organization.',
       link: 'career/nwm',
       yearStart: '2004',
       yearEnd: '2014',
-      title: 'Application Engineer'
+      title: 'Application Engineer',      
     },
     { 
       id: 3, 
@@ -105,7 +105,7 @@ const cardData = [
       link: 'career/nah',
       yearStart: '2013',
       yearEnd: '2021',
-      title: 'Business Owner'
+      title: 'Business Owner',      
     },
     { 
       id: 4, 
@@ -118,7 +118,7 @@ const cardData = [
       link: 'career/mje',
       yearStart: '2018',
       yearEnd: '2021',
-      title: 'Senior Web Developer'
+      title: 'Senior Web Developer',      
     },
     { 
       id: 5, 
@@ -126,12 +126,14 @@ const cardData = [
       backgroundLink: 'https://peakvisor.com/adm/montana.html', backgroundText: 'Montana',
       brandImage: 'collage/self-brand.jpg', brandAlt: 'Picture of John standing on mountain top in Montana.',
       company: 'Mountains and Code', 
-      summary: 'After selling our business we took time off to travel and visit national parks.  Then we left the Midwest and achieved our long term goal of moving to Montana.  During this time I did web work for a few small organizations and spent time improving my design and tech skills.',      
+      summary: 'After selling our business we left the Midwest and achieved our long term goal of moving to Montana.  During this time I did web work for a few small organizations and spent time improving my design and tech skills.',      
+      link: 'career/self',
       yearStart: '2021',
       yearEnd: '2023',
-      title: 'Full Stack Developer'
+      title: 'Full Stack Developer',      
     }
 ];
+
 
 
 

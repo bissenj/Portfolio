@@ -1,9 +1,50 @@
 
-#contact {
+.bg {
     background: linear-gradient(to top, rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url('../img/hero/jewel_basin.webp') no-repeat;
-    background-size: cover;      
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    height: 100vh;
+    width: 100vw;
+
+    position: fixed;
+    z-index: -1; 
+        
+    animation: fade-in 0.5s ease-in-out;
+    animation-fill-mode: forwards;
+    transition: opacity 0.4s;
 }
-.contact-content {
+
+#contact {    
+    position: relative;     
+}
+
+/* .contact-image {
+    position: sticky;
+    height: 0;
+    width: 100%;
+    top:0;
+}
+.contact-image img {   
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 100%;    
+    object-fit: cover;
+}
+
+.contact-image::after {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.2), rgba(0,0,0,0.6)) no-repeat;    
+} */
+
+.contact-content {    
     position: relative;
     display: grid;
     place-content: center;
@@ -32,7 +73,7 @@
     border: 2px solid white;
     margin-right: 20px;
     margin-top: 20px;   
-    display: grid; place-content: center;         
+    display: grid; place-content: center;        
 
     cursor: pointer;
 }
@@ -40,4 +81,7 @@
     width: 100%;
     height: 100%;
     display: block;
+}
+.contact-links > div:hover {
+    background: var(--accent-1);
 }

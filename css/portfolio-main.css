@@ -11,6 +11,7 @@
 html {
     overflow-y: scroll;
     scroll-behavior: smooth;
+    overscroll-behavior: none;      /* Try to fix issue with safari bouncing bottom of page which reveals contact background under the footer */
 }
 
 a {
@@ -59,11 +60,12 @@ section {
     FOOTER
 */
 footer { 
+    position: relative;
     color: white;
     background-color: #1a1a1a; 
     display: grid; 
-    place-content: 
-    center; height:200px;     
+    place-content: center; 
+    height:200px;     
     border-top: 8px solid;
     border-image-slice: 1;    
     border-image-source: var(--accent-1);
@@ -127,6 +129,7 @@ section.work .basic-timeline {
 section.work .card {
     margin: 20px auto;
     max-height: 60vh;
+    background-color: white;
 }
 section.work .section-heading {
     width: 100%;        

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <link rel="icon" type="image/png" href="../../coding.png" />
+  <title>Career History - Now</title> 
+  <link rel='stylesheet' href='~/../../../css/global.css' />  
+  <link rel='stylesheet' href='~/../../../css/portfolio-main.css' />  
+  <link rel='stylesheet' href='~/../../../css/career.css' /> 
+  <link rel='stylesheet' href='~/../../../js/components/pageSegments/pageSegments.css' />  
+  <link rel='stylesheet' href='~/../../../css/media-queries.css' />
+
+  <style>
+    .work-page .company-profile {        
+        background-color: skyblue;        
+        background: linear-gradient(rgba(33,124,176,.9),
+                                    rgb(0 93 131 / 90%)), 
+                                    url(../../img/collage/self-brand.jpg) no-repeat;        
+        background-size: 100%;
+        background-position: 25%;
+    }
+  </style>
+
+</head>
+
+<body>
+<main>
+
+    <section class='work-page'>
+        <div class='header'>
+            <a href='/' title='Navigate Home'>
+                <div class='home-link' role='button'></div>
+            </a>
+            <div class='header-content'>
+                <div class='stats'></div>
+            </div>
+        </div> 
+        <div class='company-profile'>Career History - Skills and Projects</div>
+        <div class='content'>    
+            <div class='side-bar sticky'></div>
+            <div class='detail-page'></div>
+        </div>
+        <div class='footer-nav'></div>            
+    </section>
+    <footer></footer>
+
+</main>
+</body>
+
+<script src="~/../../../js/intersectionObserver.js"></script>
+<script src="~/../../../js/routing.js"></script>
+<script src="~/../../../js/components/pageSegments/pageSegments.js"></script>
+<script src="~/../../../js/careerDetailPage.js"></script>
+
+<script>
+    console.log("fire up the javascript");
+    resetBody();
+
+    const headerData = [
+        {
+            company: 'Self Employed',
+            yearStart: 2021,
+            yearEnd: 2023,
+            title: 'Full Stack Developer',            
+        }
+    ]
+
+   
+
+    const projectData = [
+        {
+            type: 20,
+            summary: 'Overview',
+            question: 'Overview',
+            answer: [                 
+                {                    
+                    text: `A lot of my full time career was grinding out 50-80 hour work weeks.  While that was stressful and challenging, it allowed me to step away from full time work at age 41.`,
+                    classes: ''
+                },   
+                {                    
+                    text: `Now I aim for 25-30 hours a week and have a lot more freedom and mental bandwidth to experiment with a variety of technology.`,
+                    classes: ''
+                },                                                  
+            ]
+        },
+        {
+            type: 21,
+            summary: 'Recent Activity',
+            question: 'Things I have worked with recently',                        
+            skills: [
+            'React', 'React Native', 'Remix.run', 'Next.js', 'Android Programming', 
+            'Prismic.io', 'Sanity.io', 'SASS', 'Figma', 'Heroku', 'Fly.io', 'Vercel', 'Cloudinary', 
+            'Sqlite', 'Postgres', 'MongoDB', 'Firebase', 'Prisma', 'Apollo Client', 'GraphQL', 'Google Maps API', 
+            'Mapbox API', 'Strava API', 'Web Workers', 'Selenium', 'Typescript'
+            ]
+        },
+        {
+            type: 22,
+            summary: 'Projects & Other',
+            question: '',                        
+            projects: [
+                {
+                    id: 1,
+                    name: 'Fun Projects',
+                    summary: 'Some of the projects and stuff I have worked on in the last year or so:',
+                    highlights: [
+                        'Horicon Veterans Nonprofit Group -> Paperless upgrades to their event process (adding paypal and eventbrite).',                        
+                        'Event Registration App -> Figuring out how to build a complete app in Remix.run (React/Remix.run/Typescript/Prisma/Postgres).',                         
+                        `Nightlight -> A GPS tracking App and backend using React, React Native, Remix.run, Typescript, Google Maps, MapBox.  My largest project lately and one of the more interesting and useful ones.  It's installed on all our family phones.`, 
+                        'Portfolio -> You are on it.  All HTML/CSS/JS.  No libraries as a way to prove to myself what I know.  One really messy Figma file.', 
+                        `Wes Bos Full Stack React Course -> Covered Next.js/React/Apollo/Graphql/Stripe.`, 
+                        'Typescript Course -> I have worked with it enough, time to learn to use it correctly.',
+                        `Uphill Tracker -> I uphill ski in the winter for exercise.  Our local ski hill has a web app which tracks your elevation gain while riding chairlifts but that doesn't include elevation while you are on foot.  I made an app in React which connects to the Strava API and calculates my total uphill skiing elevation gain for the season.  So far I have skied over 58,000 vertical feet up mountains.`,                        
+                        'Design -> Refactoring UI, Art Direction for the Web, Figma.  I am a coder who wants to be a better designer.',                        
+                        'Daily Goal Tracker -> A simple front end mirroring the github contribution graph, but for tracking daily activities like exercising or practicing musical instruments.', 
+                    ],                    
+                },               
+            ]
+        }
+    ];
+
+    const navigationData = {
+        from: 'career/nwm',
+        to: 'index.html'
+    }
+    
+    const footerData = {
+        classes: '',
+        links: [
+            {
+                classes: 'left',
+                label: 'Career History',
+                text: 'Senior Web Developer',
+                url: '../../career/mje',
+                icon : {
+                    name: 'chevron-right.svg',
+                }
+            },
+            {
+                classes: 'right',
+                label: 'Career History',
+                text: 'Application Engineer',
+                url: '../../career/nwm',
+                icon : {                    
+                    name: 'chevron-right.svg',
+                }
+            }
+        ]           
+    };
+       
+    // Render the page
+    GenerateCareerDetailPage(projectData, headerData, footerData, navigationData);
+    
+    console.log("career page dynamically generated");
+
+</script>
+
+</html>
+

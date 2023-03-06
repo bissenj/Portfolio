@@ -83,7 +83,7 @@ function generateSlideEventHandlers() {
             const href = el.href;            
             if (href) {
                 e.preventDefault();                    
-                routeToUrl(href);      // routing.js - handles a link click.
+                routeToUrl(href);      // routing.js - handles a link click.                
                 return false;
             }                
         })
