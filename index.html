@@ -26,7 +26,7 @@
 <body class='fade'>   
 
     <!-- Fixed background image -->
-    <div class='bg'></div>
+    <div class='background-fixed'></div>
 
     <div class='nav-modal'></div>
 
@@ -442,10 +442,12 @@
     addObserver({
         selectors: '#contact',        
         whenIntersecting: (entry) => { 
-            document.querySelector('.bg').setAttribute('visibility', 'visible');        
+            //document.querySelector('.bg').setAttribute('opacity', '1');        
+            document.querySelector('.background-fixed').classList.remove('hidden');
         },
         whenNotIntersecting: (entry) => { 
-            document.querySelector('.bg').setAttribute('visibility', 'hidden');            
+            //document.querySelector('.bg').setAttribute('opacity', '0 !important');            
+            document.querySelector('.background-fixed').classList.add('hidden');
         },
         rootMargin: '0px 0px 100% 0px',   
     }); 
