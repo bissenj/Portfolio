@@ -113,13 +113,14 @@ function startCareerPageObservers() {
         whenIntersecting: (entry) => { 
             const index = entry.target.dataset.index;
             const menuItems = document.querySelectorAll('.side-bar li');
+
+            // Remove active from everything so only one menu item is active at a time.
+            menuItems.forEach((el) => {
+                el.classList.remove('active');   
+            });
+            
             menuItems[index].classList.add('active');   
-        },
-        whenNotIntersecting: (entry) => { 
-            const index = entry.target.dataset.index;
-            const menuItems = document.querySelectorAll('.side-bar li');
-            menuItems[index].classList.remove('active');   
-        },
+        },        
         rootMargin: '0px 0px -40% 0px',            
     });    
 }
